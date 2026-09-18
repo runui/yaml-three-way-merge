@@ -103,6 +103,14 @@ GOWORK=off go test -run TestFixtureCorpusAgainstCurrentImplementation ./internal
 GOWORK=off go run ./cmd/validate -fixtures fixtures -json
 ```
 
+使用 structured-merge-diff 直接编译多文档 `user.yml` 中的 writes 和 `!reset` removals，并与项目算法对比：
+
+```bash
+GOWORK=off go run ./cmd/validate-smd -fixtures fixtures -compare-project -json
+```
+
+该路径在 SMD typed value 内部通过 `RemoveItems` 和 partial `Merge` 应用用户覆盖层，不会先用 Compose merge 还原完整 user YAML。
+
 当前基线：
 
 ```text

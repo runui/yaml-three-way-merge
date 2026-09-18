@@ -15,6 +15,22 @@ func normalizeYAML(content []byte) (map[string]any, error) {
 	if err := yaml.Unmarshal(content, &document); err != nil {
 		return nil, err
 	}
+	for _, resourceType := range []string{"networks", "volumes", "configs", "secrets"} {
+		resources, _ := document[resourceType].(map[string]any)
+		for resourceName, raw := range resources {
+			resource, ok := raw.(map[string]any)
+			if !ok {
+				continue
+			}
+			if value, exists := resource["labels"]; exists {
+				normalized, err := normalizeKeyValues(value, false)
+				if err != nil {
+					return nil, fmt.Errorf("%s %q labels: %w", resourceType, resourceName, err)
+				}
+				resource["labels"] = normalized
+			}
+		}
+	}
 	services, _ := document["services"].(map[string]any)
 	for serviceName, raw := range services {
 		service, ok := raw.(map[string]any)
@@ -29,7 +45,7 @@ func normalizeYAML(content []byte) (map[string]any, error) {
 }
 
 func normalizeService(service map[string]any) error {
-	for _, field := range []string{"environment", "labels"} {
+	for _, field := range []string{"annotations", "environment", "extra_hosts", "labels", "sysctls"} {
 		if value, exists := service[field]; exists {
 			normalized, err := normalizeKeyValues(value, field == "environment")
 			if err != nil {
@@ -47,7 +63,7 @@ func normalizeService(service map[string]any) error {
 			service[field] = normalized
 		}
 	}
-	for _, field := range []string{"env_file", "cap_add", "cap_drop", "dns", "dns_opt", "dns_search", "expose", "profiles", "tmpfs"} {
+	for _, field := range []string{"env_file", "cap_add", "cap_drop", "dns", "dns_opt", "dns_search", "expose", "profiles", "tmpfs", "device_cgroup_rules", "external_links", "group_add", "links", "security_opt", "volumes_from"} {
 		if value, exists := service[field]; exists {
 			normalized, err := normalizeStringList(value)
 			if err != nil {
@@ -86,7 +102,121 @@ func normalizeService(service map[string]any) error {
 			service[field] = references
 		}
 	}
+	if raw, ok := service["build"].(map[string]any); ok {
+		if err := normalizeBuild(raw); err != nil {
+			return fmt.Errorf("build: %w", err)
+		}
+	}
+	if raw, ok := service["blkio_config"].(map[string]any); ok {
+		if err := normalizeBlkioConfig(raw); err != nil {
+			return fmt.Errorf("blkio_config: %w", err)
+		}
+	}
+	if raw, ok := service["deploy"].(map[string]any); ok {
+		if err := normalizeDeploy(raw); err != nil {
+			return fmt.Errorf("deploy: %w", err)
+		}
+	}
 	return nil
+}
+
+func normalizeBuild(build map[string]any) error {
+	for _, field := range []string{"args", "labels", "additional_contexts", "extra_hosts"} {
+		if value, exists := build[field]; exists {
+			normalized, err := normalizeKeyValues(value, false)
+			if err != nil {
+				return fmt.Errorf("%s: %w", field, err)
+			}
+			build[field] = normalized
+		}
+	}
+	if value, exists := build["secrets"]; exists {
+		normalized, err := normalizeFileReferences(value)
+		if err != nil {
+			return fmt.Errorf("secrets: %w", err)
+		}
+		build["secrets"] = normalized
+	}
+	if value, exists := build["ssh"]; exists {
+		normalized, err := normalizeStringList(value)
+		if err != nil {
+			return fmt.Errorf("ssh: %w", err)
+		}
+		build["ssh"] = normalized
+	}
+	return nil
+}
+
+func normalizeBlkioConfig(config map[string]any) error {
+	for _, field := range []string{"weight_device", "device_read_bps", "device_read_iops", "device_write_bps", "device_write_iops"} {
+		if value, exists := config[field]; exists {
+			if _, err := normalizePathItems(value); err != nil {
+				return fmt.Errorf("%s: %w", field, err)
+			}
+		}
+	}
+	return nil
+}
+
+func normalizePathItems(value any) ([]any, error) {
+	items, ok := value.([]any)
+	if !ok {
+		return nil, fmt.Errorf("expected sequence")
+	}
+	for _, raw := range items {
+		item, ok := raw.(map[string]any)
+		if !ok {
+			return nil, fmt.Errorf("expected mapping item")
+		}
+		if _, ok := item["path"].(string); !ok {
+			return nil, fmt.Errorf("item path must be a string")
+		}
+	}
+	return items, nil
+}
+
+func normalizeDeploy(deploy map[string]any) error {
+	resources, _ := deploy["resources"].(map[string]any)
+	for _, branch := range []string{"limits", "reservations"} {
+		limits, _ := resources[branch].(map[string]any)
+		value, exists := limits["generic_resources"]
+		if !exists {
+			continue
+		}
+		normalized, err := normalizeGenericResources(value)
+		if err != nil {
+			return fmt.Errorf("resources.%s.generic_resources: %w", branch, err)
+		}
+		limits["generic_resources"] = normalized
+	}
+	return nil
+}
+
+func normalizeGenericResources(value any) ([]any, error) {
+	items, ok := value.([]any)
+	if !ok {
+		return nil, fmt.Errorf("expected sequence")
+	}
+	for _, raw := range items {
+		item, ok := raw.(map[string]any)
+		if !ok {
+			return nil, fmt.Errorf("expected mapping item")
+		}
+		var kind any
+		for _, specName := range []string{"discrete_resource_spec", "named_resource_spec"} {
+			if spec, ok := item[specName].(map[string]any); ok {
+				kind = spec["kind"]
+				if kind != nil {
+					break
+				}
+			}
+		}
+		if kind == nil || fmt.Sprint(kind) == "" {
+			return nil, fmt.Errorf("item must contain a resource spec kind")
+		}
+		item["__merge_id"] = fmt.Sprint(kind)
+	}
+	return items, nil
 }
 
 func normalizeKeyValues(value any, nullWithoutValue bool) (map[string]any, error) {
@@ -164,6 +294,139 @@ func normalizeStringList(value any) ([]any, error) {
 		}
 	}
 	return items, nil
+}
+
+func assignStringSetMergeIDs(baseOld, user, baseNew map[string]any) error {
+	serviceNames := map[string]struct{}{}
+	for _, document := range []map[string]any{baseOld, user, baseNew} {
+		for name := range serviceMap(document) {
+			serviceNames[name] = struct{}{}
+		}
+	}
+	fields := []string{"cap_add", "cap_drop", "dns", "dns_opt", "dns_search", "expose", "profiles", "tmpfs", "device_cgroup_rules", "external_links", "group_add", "links", "security_opt", "volumes_from"}
+	for serviceName := range serviceNames {
+		for _, field := range fields {
+			base := serviceStringItems(baseOld, serviceName, field)
+			userItems := serviceStringItems(user, serviceName, field)
+			target := serviceStringItems(baseNew, serviceName, field)
+			correlateStringItems(base, userItems)
+			correlateStringItems(base, target)
+		}
+	}
+	for _, document := range []map[string]any{baseOld, user, baseNew} {
+		services, _ := document["services"].(map[string]any)
+		for _, raw := range services {
+			service, _ := raw.(map[string]any)
+			if build, ok := service["build"].(map[string]any); ok {
+				wrapStringItems(build, "ssh")
+			}
+		}
+		if casa, ok := document["x-casaos"].(map[string]any); ok {
+			wrapStringItems(casa, "architectures")
+		}
+	}
+	correlateNestedStringItems(baseOld, user, baseNew, []string{"services", "app", "build", "ssh"})
+	correlateNestedStringItems(baseOld, user, baseNew, []string{"x-casaos", "architectures"})
+	return nil
+}
+
+func wrapStringItems(container map[string]any, field string) {
+	raw, _ := container[field].([]any)
+	for index, value := range raw {
+		if scalar, ok := value.(string); ok {
+			raw[index] = map[string]any{"__value": scalar}
+		}
+	}
+}
+
+func correlateNestedStringItems(baseOld, user, baseNew map[string]any, path []string) {
+	base := nestedStringItems(baseOld, path)
+	userItems := nestedStringItems(user, path)
+	target := nestedStringItems(baseNew, path)
+	correlateStringItems(base, userItems)
+	correlateStringItems(base, target)
+}
+
+func nestedStringItems(document map[string]any, path []string) []map[string]any {
+	var current any = document
+	for _, key := range path {
+		mapping, ok := current.(map[string]any)
+		if !ok {
+			return nil
+		}
+		current = mapping[key]
+	}
+	raw, _ := current.([]any)
+	items := make([]map[string]any, 0, len(raw))
+	for index, value := range raw {
+		switch item := value.(type) {
+		case string:
+			wrapped := map[string]any{"__value": item}
+			raw[index] = wrapped
+			items = append(items, wrapped)
+		case map[string]any:
+			items = append(items, item)
+		}
+	}
+	return items
+}
+
+func correlateStringItems(base, side []map[string]any) {
+	baseByValue := make(map[string][]map[string]any, len(base))
+	for index, item := range base {
+		item["__merge_id"] = "base:" + strconv.Itoa(index)
+		value := fmt.Sprint(item["__value"])
+		baseByValue[value] = append(baseByValue[value], item)
+	}
+	used := make(map[string]bool, len(base))
+	for _, item := range side {
+		value := fmt.Sprint(item["__value"])
+		for _, candidate := range baseByValue[value] {
+			id := fmt.Sprint(candidate["__merge_id"])
+			if used[id] {
+				continue
+			}
+			item["__merge_id"] = id
+			used[id] = true
+			break
+		}
+	}
+	var remainingBase []map[string]any
+	for _, item := range base {
+		id := fmt.Sprint(item["__merge_id"])
+		if !used[id] {
+			remainingBase = append(remainingBase, item)
+		}
+	}
+	remainingIndex := 0
+	for _, item := range side {
+		if _, assigned := item["__merge_id"]; assigned {
+			continue
+		}
+		if remainingIndex < len(remainingBase) {
+			item["__merge_id"] = remainingBase[remainingIndex]["__merge_id"]
+			remainingIndex++
+			continue
+		}
+		item["__merge_id"] = "added:" + fmt.Sprint(item["__value"])
+	}
+}
+
+func serviceStringItems(document map[string]any, serviceName, field string) []map[string]any {
+	service, _ := serviceMap(document)[serviceName].(map[string]any)
+	raw, _ := service[field].([]any)
+	items := make([]map[string]any, 0, len(raw))
+	for index, value := range raw {
+		switch item := value.(type) {
+		case string:
+			wrapped := map[string]any{"__value": item}
+			raw[index] = wrapped
+			items = append(items, wrapped)
+		case map[string]any:
+			items = append(items, item)
+		}
+	}
+	return items
 }
 
 func normalizePorts(value any) ([]any, error) {
