@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    screenshot_link:
+        - base.png-a
+        - base.png-c

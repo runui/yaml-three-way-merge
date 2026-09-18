@@ -1,0 +1,7 @@
+services:
+    app:
+        restart: !reset []
+---
+services:
+    app:
+        restart: on-failure

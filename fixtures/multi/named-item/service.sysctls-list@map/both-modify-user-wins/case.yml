@@ -1,0 +1,6 @@
+id: multi/named-item/service.sysctls-list@map/both-modify-user-wins
+field: services.app.sysctls
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

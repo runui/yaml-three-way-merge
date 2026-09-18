@@ -1,0 +1,6 @@
+id: multi/unique-list/blkio.device-read-iops/both-modify-user-wins
+field: services.app.blkio_config.device_read_iops
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

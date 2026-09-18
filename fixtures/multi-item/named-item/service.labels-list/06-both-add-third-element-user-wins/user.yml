@@ -1,0 +1,10 @@
+services:
+    app:
+        labels: !reset []
+---
+services:
+    app:
+        labels:
+            - label-a=base
+            - label-b=base
+            - label-c=user

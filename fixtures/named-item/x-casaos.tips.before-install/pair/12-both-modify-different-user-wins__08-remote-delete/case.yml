@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/pair/12-both-modify-different-user-wins__08-remote-delete
+field: x-casaos.tips.before_install
+class: named-item
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 08-remote-delete
+pair_semantics: logical-items

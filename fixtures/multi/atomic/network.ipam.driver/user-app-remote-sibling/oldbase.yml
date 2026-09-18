@@ -1,0 +1,10 @@
+networks:
+    default:
+        ipam:
+            driver: base-value
+    other:
+        ipam:
+            driver: base-value
+services:
+    app:
+        image: busybox:latest

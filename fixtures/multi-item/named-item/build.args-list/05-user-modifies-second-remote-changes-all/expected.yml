@@ -1,0 +1,8 @@
+services:
+    app:
+        build:
+            args:
+                - ARG-a=remote
+                - ARG-b=user
+                - ARG-c=remote
+        image: busybox:latest

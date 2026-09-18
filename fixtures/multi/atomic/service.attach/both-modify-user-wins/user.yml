@@ -1,0 +1,15 @@
+services:
+    app:
+        attach: !reset []
+---
+services:
+    app:
+        attach: true
+---
+services:
+    sidecar:
+        attach: !reset []
+---
+services:
+    sidecar:
+        attach: true

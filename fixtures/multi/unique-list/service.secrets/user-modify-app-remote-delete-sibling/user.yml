@@ -1,0 +1,9 @@
+services:
+    app:
+        secrets: !reset []
+---
+services:
+    app:
+        secrets:
+            - source: user_secret_a
+              target: /secret-a

@@ -12,8 +12,9 @@ func TestGeneratePreservesCorpusCardinality(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	// Seven explicit port acceptance scenarios are appended in Generate.
-	expected := 7
+	// Port acceptance, multi-resource and multi-attribute scenarios are
+	// appended in Generate in addition to the per-field state matrix.
+	expected := ExplicitCaseCount()
 	for _, field := range ArrayFields() {
 		expected += 15
 		if field.Class != ClassAtomic {

@@ -1,0 +1,7 @@
+services:
+    app:
+        ports:
+            - mode: ingress
+              protocol: tcp
+              published: "8080"
+              target: 80

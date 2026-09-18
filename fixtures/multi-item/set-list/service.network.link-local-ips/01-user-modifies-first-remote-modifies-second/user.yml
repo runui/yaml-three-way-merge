@@ -1,0 +1,14 @@
+services:
+    app:
+        networks:
+            default:
+                link_local_ips: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                link_local_ips:
+                    - 169.254.1.2-a
+                    - 169.254.1.1-b
+                    - 169.254.1.1-c

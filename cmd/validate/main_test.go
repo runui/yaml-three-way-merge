@@ -27,9 +27,9 @@ func TestValidateProjectCorpusBaseline(t *testing.T) {
 		NonIdempotent int `json:"non_idempotent"`
 	}
 	require.NoError(t, json.Unmarshal(stdout.Bytes(), &got), "stdout: %s", stdout.String())
-	assert.Equal(t, 20977, got.Total)
-	assert.Equal(t, 17200, got.Matched)
-	assert.Equal(t, 3777, got.Mismatched)
+	assert.Equal(t, 29676, got.Total)
+	assert.Equal(t, 25039, got.Matched)
+	assert.Equal(t, 4637, got.Mismatched)
 	assert.Zero(t, got.Errors)
 	assert.Zero(t, got.NonIdempotent)
 }

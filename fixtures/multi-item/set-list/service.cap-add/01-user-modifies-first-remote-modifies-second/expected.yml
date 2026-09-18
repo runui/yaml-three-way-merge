@@ -1,0 +1,7 @@
+services:
+    app:
+        cap_add:
+            - SYS_ADMIN-a
+            - CHOWN-b
+            - NET_ADMIN-c
+        image: busybox:latest

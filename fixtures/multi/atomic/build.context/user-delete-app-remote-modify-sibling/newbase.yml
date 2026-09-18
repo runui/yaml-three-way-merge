@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            context: base-value
+        image: busybox:latest
+    sidecar:
+        build:
+            context: remote-value
+        image: busybox:latest

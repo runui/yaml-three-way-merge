@@ -1,0 +1,10 @@
+volumes:
+    default:
+        labels: !reset {}
+---
+volumes:
+    default:
+        labels:
+            volume.label-a: user
+            volume.label-b: base
+            volume.label-c: base

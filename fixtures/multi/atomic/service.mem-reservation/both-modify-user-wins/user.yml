@@ -1,0 +1,15 @@
+services:
+    app:
+        mem_reservation: !reset []
+---
+services:
+    app:
+        mem_reservation: 2
+---
+services:
+    sidecar:
+        mem_reservation: !reset []
+---
+services:
+    sidecar:
+        mem_reservation: 2

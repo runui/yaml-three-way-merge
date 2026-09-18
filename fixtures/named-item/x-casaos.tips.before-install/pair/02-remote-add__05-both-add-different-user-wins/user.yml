@@ -1,0 +1,4 @@
+x-casaos:
+    tips:
+        before_install:
+            zh-CN: before-install-b-user

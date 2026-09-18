@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        logging:
+            driver: base-value
+    sidecar:
+        image: busybox:latest

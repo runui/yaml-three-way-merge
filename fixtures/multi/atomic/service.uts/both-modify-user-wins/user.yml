@@ -1,0 +1,15 @@
+services:
+    app:
+        uts: !reset []
+---
+services:
+    app:
+        uts: user-value
+---
+services:
+    sidecar:
+        uts: !reset []
+---
+services:
+    sidecar:
+        uts: user-value

@@ -1,0 +1,4 @@
+services:
+    app:
+        build:
+            isolation: user-value

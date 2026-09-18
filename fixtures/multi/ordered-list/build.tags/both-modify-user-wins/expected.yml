@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            tags:
+                - example:user-a
+        image: busybox:latest
+    sidecar:
+        build:
+            tags:
+                - example:user-b
+        image: busybox:latest

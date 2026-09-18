@@ -1,0 +1,11 @@
+services:
+    app:
+        command:
+            - - CMD
+              - user-a
+        image: busybox:latest
+    sidecar:
+        command:
+            - - CMD
+              - remote-a
+        image: busybox:latest

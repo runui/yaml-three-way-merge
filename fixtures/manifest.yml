@@ -566,4 +566,1187 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: whole-list
-case_count: 20977
+    - id: top.name
+      path: name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: top.version
+      path: version
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.attach
+      path: services.app.attach
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cgroup
+      path: services.app.cgroup
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cgroup-parent
+      path: services.app.cgroup_parent
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.container-name
+      path: services.app.container_name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpu-count
+      path: services.app.cpu_count
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpu-percent
+      path: services.app.cpu_percent
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpu-shares
+      path: services.app.cpu_shares
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpu-quota
+      path: services.app.cpu_quota
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpu-period
+      path: services.app.cpu_period
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpu-rt-period
+      path: services.app.cpu_rt_period
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpu-rt-runtime
+      path: services.app.cpu_rt_runtime
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpus
+      path: services.app.cpus
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.cpuset
+      path: services.app.cpuset
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.domainname
+      path: services.app.domainname
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.image
+      path: services.app.image
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.hostname
+      path: services.app.hostname
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.init
+      path: services.app.init
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.ipc
+      path: services.app.ipc
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.isolation
+      path: services.app.isolation
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.mac-address
+      path: services.app.mac_address
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.mem-limit
+      path: services.app.mem_limit
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.mem-reservation
+      path: services.app.mem_reservation
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.mem-swappiness
+      path: services.app.mem_swappiness
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.memswap-limit
+      path: services.app.memswap_limit
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.network-mode
+      path: services.app.network_mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.oom-kill-disable
+      path: services.app.oom_kill_disable
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.oom-score-adj
+      path: services.app.oom_score_adj
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.pid
+      path: services.app.pid
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.pids-limit
+      path: services.app.pids_limit
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.platform
+      path: services.app.platform
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.privileged
+      path: services.app.privileged
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.pull-policy
+      path: services.app.pull_policy
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.read-only
+      path: services.app.read_only
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.restart
+      path: services.app.restart
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.runtime
+      path: services.app.runtime
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.scale
+      path: services.app.scale
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.shm-size
+      path: services.app.shm_size
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.stdin-open
+      path: services.app.stdin_open
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.stop-grace-period
+      path: services.app.stop_grace_period
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.stop-signal
+      path: services.app.stop_signal
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.tty
+      path: services.app.tty
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.user
+      path: services.app.user
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.userns-mode
+      path: services.app.userns_mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.uts
+      path: services.app.uts
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.working-dir
+      path: services.app.working_dir
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.build
+      path: services.app.build
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.extends
+      path: services.app.extends
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.extends.service
+      path: services.app.extends.service
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.extends.file
+      path: services.app.extends.file
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.credential-spec.config
+      path: services.app.credential_spec.config
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.credential-spec.file
+      path: services.app.credential_spec.file
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.credential-spec.registry
+      path: services.app.credential_spec.registry
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.healthcheck.disable
+      path: services.app.healthcheck.disable
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.healthcheck.interval
+      path: services.app.healthcheck.interval
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.healthcheck.retries
+      path: services.app.healthcheck.retries
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.healthcheck.start-interval
+      path: services.app.healthcheck.start_interval
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.healthcheck.start-period
+      path: services.app.healthcheck.start_period
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.healthcheck.timeout
+      path: services.app.healthcheck.timeout
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.logging.driver
+      path: services.app.logging.driver
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.network.ipv4-address
+      path: services.app.networks.default.ipv4_address
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.network.ipv6-address
+      path: services.app.networks.default.ipv6_address
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.network.mac-address
+      path: services.app.networks.default.mac_address
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.network.priority
+      path: services.app.networks.default.priority
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: blkio.weight
+      path: services.app.blkio_config.weight
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.context
+      path: services.app.build.context
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.dockerfile
+      path: services.app.build.dockerfile
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.dockerfile-inline
+      path: services.app.build.dockerfile_inline
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.network
+      path: services.app.build.network
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.target
+      path: services.app.build.target
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.no-cache
+      path: services.app.build.no_cache
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.pull
+      path: services.app.build.pull
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.isolation
+      path: services.app.build.isolation
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.privileged
+      path: services.app.build.privileged
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.shm-size
+      path: services.app.build.shm_size
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.mode
+      path: services.app.deploy.mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.endpoint-mode
+      path: services.app.deploy.endpoint_mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.replicas
+      path: services.app.deploy.replicas
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.placement.max-replicas-per-node
+      path: services.app.deploy.placement.max_replicas_per_node
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.limits.cpus
+      path: services.app.deploy.resources.limits.cpus
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.limits.memory
+      path: services.app.deploy.resources.limits.memory
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.limits.pids
+      path: services.app.deploy.resources.limits.pids
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.reservations.cpus
+      path: services.app.deploy.resources.reservations.cpus
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.reservations.memory
+      path: services.app.deploy.resources.reservations.memory
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.restart-policy.condition
+      path: services.app.deploy.restart_policy.condition
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.restart-policy.delay
+      path: services.app.deploy.restart_policy.delay
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.restart-policy.max-attempts
+      path: services.app.deploy.restart_policy.max_attempts
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.restart-policy.window
+      path: services.app.deploy.restart_policy.window
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.update-config.parallelism
+      path: services.app.deploy.update_config.parallelism
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.update-config.delay
+      path: services.app.deploy.update_config.delay
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.update-config.failure-action
+      path: services.app.deploy.update_config.failure_action
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.update-config.monitor
+      path: services.app.deploy.update_config.monitor
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.update-config.max-failure-ratio
+      path: services.app.deploy.update_config.max_failure_ratio
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.update-config.order
+      path: services.app.deploy.update_config.order
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.rollback-config.parallelism
+      path: services.app.deploy.rollback_config.parallelism
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.rollback-config.delay
+      path: services.app.deploy.rollback_config.delay
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.rollback-config.failure-action
+      path: services.app.deploy.rollback_config.failure_action
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.rollback-config.monitor
+      path: services.app.deploy.rollback_config.monitor
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.rollback-config.max-failure-ratio
+      path: services.app.deploy.rollback_config.max_failure_ratio
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.rollback-config.order
+      path: services.app.deploy.rollback_config.order
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.name
+      path: networks.default.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.driver
+      path: networks.default.driver
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.attachable
+      path: networks.default.attachable
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.enable-ipv6
+      path: networks.default.enable_ipv6
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.external
+      path: networks.default.external
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.external.name
+      path: networks.default.external.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.internal
+      path: networks.default.internal
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.ipam.driver
+      path: networks.default.ipam.driver
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: volume.name
+      path: volumes.default.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: volume.driver
+      path: volumes.default.driver
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: volume.external
+      path: volumes.default.external
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: volume.external.name
+      path: volumes.default.external.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: config.name
+      path: configs.default.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: config.content
+      path: configs.default.content
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: config.environment
+      path: configs.default.environment
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: config.file
+      path: configs.default.file
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: config.external
+      path: configs.default.external
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: config.external.name
+      path: configs.default.external.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: config.template-driver
+      path: configs.default.template_driver
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: secret.name
+      path: secrets.default.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: secret.environment
+      path: secrets.default.environment
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: secret.file
+      path: secrets.default.file
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: secret.external
+      path: secrets.default.external
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: secret.external.name
+      path: secrets.default.external.name
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: secret.driver
+      path: secrets.default.driver
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: secret.template-driver
+      path: secrets.default.template_driver
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: include.project-directory
+      path: include[].project_directory
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.id
+      path: x-casaos.id
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.repo-id
+      path: x-casaos.repo_id
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.version
+      path: x-casaos.version
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.icon
+      path: x-casaos.icon
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.release-note
+      path: x-casaos.release_note
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.thumbnail
+      path: x-casaos.thumbnail
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.author
+      path: x-casaos.author
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.developer
+      path: x-casaos.developer
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.category
+      path: x-casaos.category
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.tips.custom
+      path: x-casaos.tips.custom
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.scheme
+      path: x-casaos.scheme
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.hostname
+      path: x-casaos.hostname
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.port-map
+      path: x-casaos.port_map
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.index
+      path: x-casaos.index
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.main
+      path: x-casaos.main
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.autostart
+      path: x-casaos.autostart
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.image-drift-check
+      path: x-casaos.image_drift_check
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.store-app-id
+      path: x-casaos.store_app_id
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: x-casaos.is-uncontrolled
+      path: x-casaos.is_uncontrolled
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.ports.host-ip
+      path: services.app.ports[].host_ip
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.ports.mode
+      path: services.app.ports[].mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.ports.protocol
+      path: services.app.ports[].protocol
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.type
+      path: services.app.volumes[].type
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.read-only
+      path: services.app.volumes[].read_only
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.consistency
+      path: services.app.volumes[].consistency
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.bind.propagation
+      path: services.app.volumes[].bind.propagation
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.bind.create-host-path
+      path: services.app.volumes[].bind.create_host_path
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.bind.selinux
+      path: services.app.volumes[].bind.selinux
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.volume.nocopy
+      path: services.app.volumes[].volume.nocopy
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.tmpfs.size
+      path: services.app.volumes[].tmpfs.size
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.volumes.tmpfs.mode
+      path: services.app.volumes[].tmpfs.mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.configs.uid
+      path: services.app.configs[].uid
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.configs.gid
+      path: services.app.configs[].gid
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.configs.mode
+      path: services.app.configs[].mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.secrets.uid
+      path: services.app.secrets[].uid
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.secrets.gid
+      path: services.app.secrets[].gid
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.secrets.mode
+      path: services.app.secrets[].mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.secrets.uid
+      path: services.app.build.secrets[].uid
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.secrets.gid
+      path: services.app.build.secrets[].gid
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: build.secrets.mode
+      path: services.app.build.secrets[].mode
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.limits.device.count
+      path: services.app.deploy.resources.limits.devices[].count
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.reservations.device.count
+      path: services.app.deploy.resources.reservations.devices[].count
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.limits.generic-resource.kind
+      path: services.app.deploy.resources.limits.generic_resources[].discrete_resource_spec.kind
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: deploy.resources.reservations.generic-resource.kind
+      path: services.app.deploy.resources.reservations.generic_resources[].discrete_resource_spec.kind
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.ipam.config.ip-range
+      path: networks.default.ipam.config[].ip_range
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: network.ipam.config.gateway
+      path: networks.default.ipam.config[].gateway
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: develop.watch.action
+      path: services.app.develop.watch[].action
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: develop.watch.target
+      path: services.app.develop.watch[].target
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.depends-on.condition
+      path: services.app.depends_on.default.condition
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.depends-on.required
+      path: services.app.depends_on.default.required
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.depends-on.restart
+      path: services.app.depends_on.default.restart
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: service.logging.options
+      path: services.app.logging.options
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.storage-opt
+      path: services.app.storage_opt
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.ulimits
+      path: services.app.ulimits
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: build.ulimits
+      path: services.app.build.ulimits
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: network.driver-opts
+      path: networks.default.driver_opts
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: network.ipam.options
+      path: networks.default.ipam.options
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: volume.driver-opts
+      path: volumes.default.driver_opts
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: secret.driver-opts
+      path: secrets.default.driver_opts
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: x-casaos.title
+      path: x-casaos.title
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: x-casaos.image
+      path: x-casaos.image
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: x-casaos.description
+      path: x-casaos.description
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: x-casaos.tagline
+      path: x-casaos.tagline
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: x-casaos.tips.before-install
+      path: x-casaos.tips.before_install
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: deploy.labels-list
+      path: services.app.deploy.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: deploy.labels-list@map
+      path: services.app.deploy.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: network.ipam.config.aux-addresses
+      path: networks.default.ipam.config[].aux_addresses
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: deploy.resources.limits.device.options
+      path: services.app.deploy.resources.limits.devices[].options
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: deploy.resources.reservations.device.options
+      path: services.app.deploy.resources.reservations.devices[].options
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+explicit_cases: 1701
+case_count: 29676

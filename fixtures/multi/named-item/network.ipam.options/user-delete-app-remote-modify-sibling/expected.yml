@@ -1,0 +1,8 @@
+networks:
+    other:
+        ipam:
+            options:
+                b: ipam-option-b-remote
+services:
+    app:
+        image: busybox:latest

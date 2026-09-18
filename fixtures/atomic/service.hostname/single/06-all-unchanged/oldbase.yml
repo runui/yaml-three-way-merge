@@ -1,0 +1,4 @@
+services:
+    app:
+        hostname: base-value
+        image: busybox:latest

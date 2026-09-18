@@ -1,0 +1,14 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: nvidia
+                          options:
+                            a: device-option-a-remote
+                            b: device-option-b-user
+                            b-c: device-option-b-remote
+        image: busybox:latest

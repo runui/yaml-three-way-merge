@@ -1,0 +1,5 @@
+services:
+    app:
+        build:
+            ulimits:
+                nproc: nofile-b-user

@@ -1,0 +1,13 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - source: /remote-a
+              target: /data-a
+              type: bind
+            - source: /remote-b
+              target: /data-b
+              type: bind
+            - source: /remote-c
+              target: /data-c
+              type: bind

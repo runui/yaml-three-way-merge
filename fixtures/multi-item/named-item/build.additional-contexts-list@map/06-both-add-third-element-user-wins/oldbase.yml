@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            additional_contexts:
+                context-a: base
+                context-b: base
+        image: busybox:latest

@@ -1,0 +1,17 @@
+volumes:
+    default:
+        driver_opts: !reset {}
+---
+volumes:
+    default:
+        driver_opts:
+            type: volume-option-a-user
+---
+volumes:
+    other:
+        driver_opts: !reset {}
+---
+volumes:
+    other:
+        driver_opts:
+            device: volume-option-b-user

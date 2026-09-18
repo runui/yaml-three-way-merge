@@ -1,0 +1,5 @@
+services:
+    app:
+        deploy:
+            update_config:
+                delay: 2s

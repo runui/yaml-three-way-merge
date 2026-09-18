@@ -1,0 +1,33 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - tpu-a
+                          driver: nvidia
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - tpu-b
+                          driver: nvidia

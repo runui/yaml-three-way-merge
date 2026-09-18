@@ -1,0 +1,17 @@
+services:
+    app:
+        storage_opt: !reset {}
+---
+services:
+    app:
+        storage_opt:
+            size: size-a-user
+---
+services:
+    sidecar:
+        storage_opt: !reset {}
+---
+services:
+    sidecar:
+        storage_opt:
+            driver: size-b-user

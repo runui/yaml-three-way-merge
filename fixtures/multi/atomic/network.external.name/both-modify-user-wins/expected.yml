@@ -1,0 +1,10 @@
+networks:
+    default:
+        external:
+            name: user-value
+    other:
+        external:
+            name: user-value
+services:
+    app:
+        image: busybox:latest

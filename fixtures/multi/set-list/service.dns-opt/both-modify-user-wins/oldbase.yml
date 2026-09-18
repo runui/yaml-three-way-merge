@@ -1,0 +1,9 @@
+services:
+    app:
+        dns_opt:
+            - use-vc-a
+        image: busybox:latest
+    sidecar:
+        dns_opt:
+            - use-vc-b
+        image: busybox:latest

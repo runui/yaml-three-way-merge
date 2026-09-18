@@ -1,0 +1,18 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          device_ids:
+                            - GPU-user-a
+                          driver: nvidia

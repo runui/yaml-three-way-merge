@@ -1,0 +1,10 @@
+networks:
+    default:
+        ipam:
+            driver: remote-value
+    other:
+        ipam:
+            driver: remote-value
+services:
+    app:
+        image: busybox:latest

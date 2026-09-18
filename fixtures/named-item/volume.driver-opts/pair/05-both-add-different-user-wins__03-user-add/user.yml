@@ -1,0 +1,5 @@
+volumes:
+    default:
+        driver_opts:
+            device: volume-option-b-user
+            type: volume-option-a-user

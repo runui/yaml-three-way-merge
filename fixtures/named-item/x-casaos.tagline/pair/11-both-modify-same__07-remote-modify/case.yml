@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/11-both-modify-same__07-remote-modify
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 07-remote-modify
+pair_semantics: logical-items

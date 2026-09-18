@@ -1,0 +1,15 @@
+secrets:
+    default:
+        driver: !reset []
+---
+secrets:
+    default:
+        driver: user-value
+---
+secrets:
+    other:
+        driver: !reset []
+---
+secrets:
+    other:
+        driver: user-value

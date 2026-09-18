@@ -24,9 +24,9 @@ func TestValidateSMDCorpusBaseline(t *testing.T) {
 		Errors     int `json:"errors"`
 	}
 	require.NoError(t, json.Unmarshal(stdout.Bytes(), &got), "stdout: %s", stdout.String())
-	assert.Equal(t, 20977, got.Total)
-	assert.Equal(t, 20064, got.Matched)
-	assert.Equal(t, 913, got.Mismatched)
+	assert.Equal(t, 29676, got.Total)
+	assert.Equal(t, 27493, got.Matched)
+	assert.Equal(t, 2183, got.Mismatched)
 	assert.Zero(t, got.Errors)
 }
 

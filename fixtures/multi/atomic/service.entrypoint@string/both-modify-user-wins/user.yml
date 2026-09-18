@@ -1,0 +1,15 @@
+services:
+    app:
+        entrypoint: !reset []
+---
+services:
+    app:
+        entrypoint: CMD user-a
+---
+services:
+    sidecar:
+        entrypoint: !reset []
+---
+services:
+    sidecar:
+        entrypoint: CMD user-a

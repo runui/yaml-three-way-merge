@@ -1,0 +1,9 @@
+services:
+    app:
+        credential_spec:
+            config: !reset []
+---
+services:
+    app:
+        credential_spec:
+            config: user-value

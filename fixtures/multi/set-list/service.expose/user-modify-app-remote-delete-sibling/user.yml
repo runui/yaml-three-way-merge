@@ -1,0 +1,8 @@
+services:
+    app:
+        expose: !reset []
+---
+services:
+    app:
+        expose:
+            - 81-a

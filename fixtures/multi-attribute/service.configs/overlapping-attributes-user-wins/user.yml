@@ -1,0 +1,11 @@
+services:
+    app:
+        configs: !reset []
+---
+services:
+    app:
+        configs:
+            - mode: 288
+              source: base_config
+              target: /config
+              uid: "1001"

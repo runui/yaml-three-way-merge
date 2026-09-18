@@ -1,0 +1,6 @@
+id: multi/atomic/config.content/both-modify-user-wins
+field: configs.default.content
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

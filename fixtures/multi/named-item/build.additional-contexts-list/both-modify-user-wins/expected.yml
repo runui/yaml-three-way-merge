@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            additional_contexts:
+                - context-a=user
+        image: busybox:latest
+    sidecar:
+        build:
+            additional_contexts:
+                - context-b=user
+        image: busybox:latest

@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            update_config:
+                max_failure_ratio: 0.3
+        image: busybox:latest

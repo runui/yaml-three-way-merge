@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        restart: on-failure
+    sidecar:
+        image: busybox:latest
+        restart: on-failure

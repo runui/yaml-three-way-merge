@@ -1,0 +1,5 @@
+services:
+    app:
+        build:
+            no_cache: false
+        image: busybox:latest

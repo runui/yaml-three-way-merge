@@ -1,0 +1,6 @@
+id: multi-item/set-list/service.network.link-local-ips/04-user-modifies-first-remote-deletes-second
+field: services.app.networks.default.link_local_ips
+class: multi
+scenario: 04-user-modifies-first-remote-deletes-second
+description: user changes the first element while newbase deletes the second
+pair_semantics: logical-items

@@ -1,0 +1,15 @@
+services:
+    app:
+        stop_grace_period: !reset []
+---
+services:
+    app:
+        stop_grace_period: 2s
+---
+services:
+    sidecar:
+        stop_grace_period: !reset []
+---
+services:
+    sidecar:
+        stop_grace_period: 2s

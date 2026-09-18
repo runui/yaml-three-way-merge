@@ -1,0 +1,27 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    memory: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    memory: user-value
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    memory: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    memory: user-value

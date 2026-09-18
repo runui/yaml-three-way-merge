@@ -1,0 +1,6 @@
+networks:
+    default:
+        name: base-value
+services:
+    app:
+        image: busybox:latest

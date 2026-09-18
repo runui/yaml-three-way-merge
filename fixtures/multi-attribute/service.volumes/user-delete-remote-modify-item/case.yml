@@ -1,0 +1,6 @@
+id: multi-attribute/service.volumes/user-delete-remote-modify-item
+field: services.app.volumes
+class: multi
+scenario: user-delete-remote-modify-item
+description: user removes the whole item while newbase changes one attribute
+pair_semantics: logical-items

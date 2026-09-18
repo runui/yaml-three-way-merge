@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        memswap_limit: 2
+    sidecar:
+        image: busybox:latest
+        memswap_limit: 2

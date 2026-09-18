@@ -1,0 +1,15 @@
+services:
+    app:
+        restart: !reset []
+---
+services:
+    app:
+        restart: on-failure
+---
+services:
+    sidecar:
+        restart: !reset []
+---
+services:
+    sidecar:
+        restart: on-failure

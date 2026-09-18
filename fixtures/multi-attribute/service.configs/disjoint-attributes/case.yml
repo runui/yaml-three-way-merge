@@ -1,0 +1,6 @@
+id: multi-attribute/service.configs/disjoint-attributes
+field: services.app.configs
+class: multi
+scenario: disjoint-attributes
+description: user and newbase change different attributes of the same array item
+pair_semantics: logical-items

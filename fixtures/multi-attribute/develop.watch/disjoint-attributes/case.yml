@@ -1,0 +1,6 @@
+id: multi-attribute/develop.watch/disjoint-attributes
+field: services.app.develop.watch
+class: multi
+scenario: disjoint-attributes
+description: user and newbase change different attributes of the same array item
+pair_semantics: logical-items

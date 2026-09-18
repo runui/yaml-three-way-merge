@@ -1,0 +1,21 @@
+services:
+    app:
+        configs: !reset []
+---
+services:
+    app:
+        configs:
+            - mode: 2
+              source: base
+              target: /run/config
+---
+services:
+    sidecar:
+        configs: !reset []
+---
+services:
+    sidecar:
+        configs:
+            - mode: 2
+              source: base
+              target: /run/config

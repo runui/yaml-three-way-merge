@@ -1,0 +1,19 @@
+services:
+    app:
+        healthcheck:
+            start_period: !reset []
+---
+services:
+    app:
+        healthcheck:
+            start_period: 2s
+---
+services:
+    sidecar:
+        healthcheck:
+            start_period: !reset []
+---
+services:
+    sidecar:
+        healthcheck:
+            start_period: 2s

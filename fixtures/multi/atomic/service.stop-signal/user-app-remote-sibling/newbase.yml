@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        stop_signal: base-value
+    sidecar:
+        image: busybox:latest
+        stop_signal: remote-value

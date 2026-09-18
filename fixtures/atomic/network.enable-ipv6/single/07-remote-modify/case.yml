@@ -1,0 +1,6 @@
+id: atomic/network.enable-ipv6/single/07-remote-modify
+field: networks.default.enable_ipv6
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

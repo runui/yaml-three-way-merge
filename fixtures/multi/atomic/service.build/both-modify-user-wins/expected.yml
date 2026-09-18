@@ -1,0 +1,7 @@
+services:
+    app:
+        build: user-value
+        image: busybox:latest
+    sidecar:
+        build: user-value
+        image: busybox:latest

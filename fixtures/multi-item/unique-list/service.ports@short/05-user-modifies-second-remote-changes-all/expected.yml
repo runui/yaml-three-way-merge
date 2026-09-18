@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        ports:
+            - 9081:80
+            - 8882:81
+            - 9083:82

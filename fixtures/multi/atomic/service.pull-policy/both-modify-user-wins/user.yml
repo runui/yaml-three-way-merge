@@ -1,0 +1,15 @@
+services:
+    app:
+        pull_policy: !reset []
+---
+services:
+    app:
+        pull_policy: never
+---
+services:
+    sidecar:
+        pull_policy: !reset []
+---
+services:
+    sidecar:
+        pull_policy: never

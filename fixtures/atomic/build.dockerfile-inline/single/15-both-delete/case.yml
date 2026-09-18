@@ -1,0 +1,6 @@
+id: atomic/build.dockerfile-inline/single/15-both-delete
+field: services.app.build.dockerfile_inline
+class: atomic
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

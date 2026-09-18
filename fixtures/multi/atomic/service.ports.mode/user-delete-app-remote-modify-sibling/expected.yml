@@ -1,0 +1,10 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest
+        ports:
+            - mode: ingress
+              protocol: tcp
+              published: "8080"
+              target: 80

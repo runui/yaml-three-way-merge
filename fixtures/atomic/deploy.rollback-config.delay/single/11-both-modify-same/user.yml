@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                delay: !reset []
+---
+services:
+    app:
+        deploy:
+            rollback_config:
+                delay: 2s

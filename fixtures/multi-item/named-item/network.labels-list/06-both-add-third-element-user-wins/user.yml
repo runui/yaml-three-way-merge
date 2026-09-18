@@ -1,0 +1,10 @@
+networks:
+    default:
+        labels: !reset []
+---
+networks:
+    default:
+        labels:
+            - network.label-a=base
+            - network.label-b=base
+            - network.label-c=user

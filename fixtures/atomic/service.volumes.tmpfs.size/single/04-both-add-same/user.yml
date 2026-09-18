@@ -1,0 +1,8 @@
+services:
+    app:
+        volumes:
+            - source: /host
+              target: /container
+              tmpfs:
+                size: 2
+              type: bind

@@ -1,0 +1,8 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                failure_action: continue
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

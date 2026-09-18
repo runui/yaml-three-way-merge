@@ -1,0 +1,11 @@
+services:
+    app:
+        ports: !reset []
+---
+services:
+    app:
+        ports:
+            - mode: ingress
+              protocol: tcp
+              published: "8181"
+              target: 80

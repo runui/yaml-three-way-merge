@@ -1,0 +1,6 @@
+id: named-item/x-casaos.image/pair/07-remote-modify__03-user-add
+field: x-casaos.image
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 03-user-add
+pair_semantics: logical-items

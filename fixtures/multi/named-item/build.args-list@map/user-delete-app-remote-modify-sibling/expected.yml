@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            args:
+                ARG-b: remote
+        image: busybox:latest

@@ -1,0 +1,7 @@
+services:
+    app:
+        cgroup: !reset []
+---
+services:
+    app:
+        cgroup: private

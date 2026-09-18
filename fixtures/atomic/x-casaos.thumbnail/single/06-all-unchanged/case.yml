@@ -1,0 +1,6 @@
+id: atomic/x-casaos.thumbnail/single/06-all-unchanged
+field: x-casaos.thumbnail
+class: atomic
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

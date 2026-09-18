@@ -1,0 +1,6 @@
+id: named-item/secret.driver-opts/pair/02-remote-add__13-user-modify-remote-delete
+field: secrets.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

@@ -1,0 +1,15 @@
+services:
+    app:
+        userns_mode: !reset []
+---
+services:
+    app:
+        userns_mode: user-value
+---
+services:
+    sidecar:
+        userns_mode: !reset []
+---
+services:
+    sidecar:
+        userns_mode: user-value

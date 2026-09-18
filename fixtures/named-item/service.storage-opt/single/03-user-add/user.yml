@@ -1,0 +1,4 @@
+services:
+    app:
+        storage_opt:
+            size: size-a-user

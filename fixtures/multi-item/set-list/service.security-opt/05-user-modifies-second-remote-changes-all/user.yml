@@ -1,0 +1,10 @@
+services:
+    app:
+        security_opt: !reset []
+---
+services:
+    app:
+        security_opt:
+            - label=base-a
+            - label=user-b
+            - label=base-c

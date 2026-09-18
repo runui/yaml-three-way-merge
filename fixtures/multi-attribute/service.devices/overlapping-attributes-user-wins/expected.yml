@@ -1,0 +1,7 @@
+services:
+    app:
+        devices:
+            - permissions: rw
+              source: /dev/user-a
+              target: /dev/a
+        image: busybox:latest

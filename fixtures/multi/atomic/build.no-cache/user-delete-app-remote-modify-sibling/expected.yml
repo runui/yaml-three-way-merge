@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            no_cache: true
+        image: busybox:latest

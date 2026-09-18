@@ -1,0 +1,6 @@
+id: atomic/x-casaos.version/single/13-user-modify-remote-delete
+field: x-casaos.version
+class: atomic
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

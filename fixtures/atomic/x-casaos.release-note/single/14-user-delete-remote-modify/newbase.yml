@@ -1,0 +1,5 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    release_note: remote-value

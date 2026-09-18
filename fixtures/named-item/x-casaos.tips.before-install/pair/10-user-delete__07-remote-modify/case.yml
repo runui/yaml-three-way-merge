@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/pair/10-user-delete__07-remote-modify
+field: x-casaos.tips.before_install
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 07-remote-modify
+pair_semantics: logical-items

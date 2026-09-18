@@ -1,0 +1,6 @@
+id: atomic/deploy.resources.limits.memory/single/15-both-delete
+field: services.app.deploy.resources.limits.memory
+class: atomic
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

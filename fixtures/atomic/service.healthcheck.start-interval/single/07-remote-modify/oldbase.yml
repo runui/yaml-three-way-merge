@@ -1,0 +1,5 @@
+services:
+    app:
+        healthcheck:
+            start_interval: 1s
+        image: busybox:latest

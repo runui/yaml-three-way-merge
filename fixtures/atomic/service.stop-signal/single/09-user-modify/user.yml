@@ -1,0 +1,7 @@
+services:
+    app:
+        stop_signal: !reset []
+---
+services:
+    app:
+        stop_signal: user-value

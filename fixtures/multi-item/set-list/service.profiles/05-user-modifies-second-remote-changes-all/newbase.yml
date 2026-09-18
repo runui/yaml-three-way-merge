@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        profiles:
+            - remote-a
+            - remote-b
+            - remote-c

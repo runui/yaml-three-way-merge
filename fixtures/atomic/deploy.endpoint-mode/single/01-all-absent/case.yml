@@ -1,0 +1,6 @@
+id: atomic/deploy.endpoint-mode/single/01-all-absent
+field: services.app.deploy.endpoint_mode
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

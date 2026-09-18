@@ -1,0 +1,9 @@
+services:
+    app:
+        credential_spec:
+            config: base-value
+        image: busybox:latest
+    sidecar:
+        credential_spec:
+            config: base-value
+        image: busybox:latest

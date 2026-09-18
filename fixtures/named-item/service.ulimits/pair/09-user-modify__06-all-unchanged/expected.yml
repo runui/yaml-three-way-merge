@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+        ulimits:
+            nofile: 200
+            nproc:
+                hard: 200
+                soft: 100

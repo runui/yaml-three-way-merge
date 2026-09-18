@@ -1,0 +1,4 @@
+services:
+    app:
+        cpuset: remote-value
+        image: busybox:latest

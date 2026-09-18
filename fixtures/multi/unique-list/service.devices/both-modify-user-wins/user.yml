@@ -1,0 +1,17 @@
+services:
+    app:
+        devices: !reset []
+---
+services:
+    app:
+        devices:
+            - /dev/user-a:/dev/a
+---
+services:
+    sidecar:
+        devices: !reset []
+---
+services:
+    sidecar:
+        devices:
+            - /dev/user-b:/dev/b

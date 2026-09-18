@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            target: !reset []
+---
+services:
+    app:
+        build:
+            target: user-value
+---
+services:
+    sidecar:
+        build:
+            target: !reset []
+---
+services:
+    sidecar:
+        build:
+            target: user-value

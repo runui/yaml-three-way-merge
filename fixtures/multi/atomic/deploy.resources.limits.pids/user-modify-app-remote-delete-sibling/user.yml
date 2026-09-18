@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    pids: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    pids: 2

@@ -1,0 +1,15 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - consistency: user-value
+              source: /host
+              target: /container
+              type: bind
+    sidecar:
+        image: busybox:latest
+        volumes:
+            - consistency: user-value
+              source: /host
+              target: /container
+              type: bind

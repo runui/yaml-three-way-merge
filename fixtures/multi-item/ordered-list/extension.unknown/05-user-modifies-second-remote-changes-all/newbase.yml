@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+x-validation:
+    items:
+        - remote-a
+        - remote-b
+        - remote-c

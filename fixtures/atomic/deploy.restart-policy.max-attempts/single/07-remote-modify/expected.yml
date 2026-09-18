@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                max_attempts: 3
+        image: busybox:latest

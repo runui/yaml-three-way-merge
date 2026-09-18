@@ -1,0 +1,12 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - source: /host
+              target: /container
+              tmpfs:
+                mode: 2
+              type: bind

@@ -1,0 +1,5 @@
+x-casaos:
+    developer: !reset []
+---
+x-casaos:
+    developer: user-value

@@ -1,0 +1,6 @@
+id: multi/atomic/network.internal/user-app-remote-sibling
+field: networks.default.internal
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

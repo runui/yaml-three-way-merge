@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            update_config:
+                parallelism: 1
+        image: busybox:latest

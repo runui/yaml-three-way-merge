@@ -1,0 +1,19 @@
+services:
+    app:
+        depends_on: !reset {}
+---
+services:
+    app:
+        depends_on:
+            default:
+                condition: service_healthy
+---
+services:
+    sidecar:
+        depends_on: !reset {}
+---
+services:
+    sidecar:
+        depends_on:
+            default:
+                condition: service_healthy

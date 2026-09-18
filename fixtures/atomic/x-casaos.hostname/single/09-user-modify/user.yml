@@ -1,0 +1,5 @@
+x-casaos:
+    hostname: !reset []
+---
+x-casaos:
+    hostname: user-value

@@ -1,0 +1,10 @@
+x-casaos:
+    tips:
+        before_install: !reset {}
+---
+x-casaos:
+    tips:
+        before_install:
+            en: before-install-a-base
+            zh-CN: before-install-b-base
+            zh-CN-c: before-install-b-user

@@ -1,0 +1,6 @@
+id: named-item/service.ulimits/pair/09-user-modify__06-all-unchanged
+field: services.app.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 06-all-unchanged
+pair_semantics: logical-items

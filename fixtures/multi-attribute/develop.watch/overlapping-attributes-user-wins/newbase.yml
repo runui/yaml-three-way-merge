@@ -1,0 +1,8 @@
+services:
+    app:
+        develop:
+            watch:
+                - action: rebuild
+                  path: ./src
+                  target: /app/dist
+        image: busybox:latest

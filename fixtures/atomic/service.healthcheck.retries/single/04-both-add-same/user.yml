@@ -1,0 +1,4 @@
+services:
+    app:
+        healthcheck:
+            retries: 2

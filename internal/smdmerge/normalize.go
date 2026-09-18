@@ -398,7 +398,9 @@ func assignStringSetMergeIDs(baseOld, user, baseNew map[string]any) error {
 			wrapStringItems(casa, "architectures")
 		}
 	}
-	correlateNestedStringItems(baseOld, user, baseNew, []string{"services", "app", "build", "ssh"})
+	for serviceName := range serviceNames {
+		correlateNestedStringItems(baseOld, user, baseNew, []string{"services", serviceName, "build", "ssh"})
+	}
 	correlateNestedStringItems(baseOld, user, baseNew, []string{"x-casaos", "architectures"})
 	return nil
 }

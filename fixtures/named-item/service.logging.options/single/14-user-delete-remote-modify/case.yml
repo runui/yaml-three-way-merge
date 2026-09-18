@@ -1,0 +1,6 @@
+id: named-item/service.logging.options/single/14-user-delete-remote-modify
+field: services.app.logging.options
+class: named-item
+scenario: 14-user-delete-remote-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

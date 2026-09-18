@@ -1,0 +1,8 @@
+services:
+    app:
+        ulimits: !reset {}
+---
+services:
+    app:
+        ulimits:
+            nofile: 100

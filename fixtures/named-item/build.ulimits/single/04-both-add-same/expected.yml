@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            ulimits:
+                nofile: nofile-a-user
+        image: busybox:latest

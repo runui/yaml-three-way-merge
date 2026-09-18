@@ -1,0 +1,6 @@
+id: atomic/network.enable-ipv6/single/01-all-absent
+field: networks.default.enable_ipv6
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

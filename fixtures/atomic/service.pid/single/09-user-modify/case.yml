@@ -1,0 +1,6 @@
+id: atomic/service.pid/single/09-user-modify
+field: services.app.pid
+class: atomic
+scenario: 09-user-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

@@ -2,6 +2,6 @@ services:
     app:
         build:
             platforms:
-                - linux/386-a
-                - linux/amd64-b
+                - linux/386
+                - linux/arm/v7
         image: busybox:latest

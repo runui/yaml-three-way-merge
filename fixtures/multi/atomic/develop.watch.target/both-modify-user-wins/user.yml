@@ -1,0 +1,23 @@
+services:
+    app:
+        develop:
+            watch: !reset []
+---
+services:
+    app:
+        develop:
+            watch:
+                - path: ./src
+                  target: user-value
+---
+services:
+    sidecar:
+        develop:
+            watch: !reset []
+---
+services:
+    sidecar:
+        develop:
+            watch:
+                - path: ./src
+                  target: user-value

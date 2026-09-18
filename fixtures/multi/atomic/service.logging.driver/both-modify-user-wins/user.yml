@@ -1,0 +1,19 @@
+services:
+    app:
+        logging:
+            driver: !reset []
+---
+services:
+    app:
+        logging:
+            driver: user-value
+---
+services:
+    sidecar:
+        logging:
+            driver: !reset []
+---
+services:
+    sidecar:
+        logging:
+            driver: user-value

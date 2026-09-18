@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                ipv6_address: user-value

@@ -1,0 +1,8 @@
+secrets:
+    default:
+        driver_opts:
+            b: secret-option-b-remote
+            b-c: secret-option-b-base
+services:
+    app:
+        image: busybox:latest

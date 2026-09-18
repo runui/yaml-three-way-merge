@@ -1,0 +1,6 @@
+id: named-item/deploy.resources.limits.device.options/pair/03-user-add__10-user-delete
+field: services.app.deploy.resources.limits.devices[].options
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 10-user-delete
+pair_semantics: logical-items

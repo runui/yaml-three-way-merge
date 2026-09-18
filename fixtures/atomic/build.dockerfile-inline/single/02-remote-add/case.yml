@@ -1,0 +1,6 @@
+id: atomic/build.dockerfile-inline/single/02-remote-add
+field: services.app.build.dockerfile_inline
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

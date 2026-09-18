@@ -1,0 +1,6 @@
+id: atomic/service.network.mac-address/single/10-user-delete
+field: services.app.networks.default.mac_address
+class: atomic
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

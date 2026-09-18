@@ -1,0 +1,5 @@
+services:
+    app:
+        deploy:
+            replicas: 1
+        image: busybox:latest

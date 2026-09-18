@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                max_attempts: !reset []
+---
+services:
+    app:
+        deploy:
+            restart_policy:
+                max_attempts: 2

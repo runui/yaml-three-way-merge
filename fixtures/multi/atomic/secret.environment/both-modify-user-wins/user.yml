@@ -1,0 +1,15 @@
+secrets:
+    default:
+        environment: !reset []
+---
+secrets:
+    default:
+        environment: user-value
+---
+secrets:
+    other:
+        environment: !reset []
+---
+secrets:
+    other:
+        environment: user-value

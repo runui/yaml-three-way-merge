@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        privileged: true
+    sidecar:
+        image: busybox:latest

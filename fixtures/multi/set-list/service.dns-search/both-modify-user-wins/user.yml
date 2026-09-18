@@ -1,0 +1,17 @@
+services:
+    app:
+        dns_search: !reset []
+---
+services:
+    app:
+        dns_search:
+            - user.test-a
+---
+services:
+    sidecar:
+        dns_search: !reset []
+---
+services:
+    sidecar:
+        dns_search:
+            - user.test-b

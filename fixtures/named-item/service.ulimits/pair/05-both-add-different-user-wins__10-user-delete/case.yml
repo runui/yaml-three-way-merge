@@ -1,0 +1,6 @@
+id: named-item/service.ulimits/pair/05-both-add-different-user-wins__10-user-delete
+field: services.app.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 10-user-delete
+pair_semantics: logical-items

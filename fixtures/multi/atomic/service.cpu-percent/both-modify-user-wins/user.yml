@@ -1,0 +1,15 @@
+services:
+    app:
+        cpu_percent: !reset []
+---
+services:
+    app:
+        cpu_percent: 2
+---
+services:
+    sidecar:
+        cpu_percent: !reset []
+---
+services:
+    sidecar:
+        cpu_percent: 2

@@ -1,0 +1,6 @@
+id: atomic/top.name/single/01-all-absent
+field: name
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

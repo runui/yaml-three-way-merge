@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    other:
+        driver: remote-value

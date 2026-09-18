@@ -1,0 +1,8 @@
+configs:
+    default:
+        file: base-value
+    other:
+        file: base-value
+services:
+    app:
+        image: busybox:latest

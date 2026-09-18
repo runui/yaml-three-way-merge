@@ -1,0 +1,6 @@
+id: atomic/x-casaos.is-uncontrolled/single/08-remote-delete
+field: x-casaos.is_uncontrolled
+class: atomic
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

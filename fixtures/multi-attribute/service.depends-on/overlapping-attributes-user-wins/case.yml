@@ -1,0 +1,6 @@
+id: multi-attribute/service.depends-on/overlapping-attributes-user-wins
+field: services.app.depends_on
+class: multi
+scenario: overlapping-attributes-user-wins
+description: both sides change the same attributes; user intent wins
+pair_semantics: logical-items

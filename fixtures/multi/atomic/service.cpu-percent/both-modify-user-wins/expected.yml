@@ -1,0 +1,7 @@
+services:
+    app:
+        cpu_percent: 2
+        image: busybox:latest
+    sidecar:
+        cpu_percent: 2
+        image: busybox:latest

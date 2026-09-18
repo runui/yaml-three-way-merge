@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/single/01-all-absent
+field: x-casaos.tagline
+class: named-item
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

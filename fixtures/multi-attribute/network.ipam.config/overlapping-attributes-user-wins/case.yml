@@ -1,0 +1,6 @@
+id: multi-attribute/network.ipam.config/overlapping-attributes-user-wins
+field: networks.default.ipam.config
+class: multi
+scenario: overlapping-attributes-user-wins
+description: both sides change the same attributes; user intent wins
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: atomic/secret.external.name/single/02-remote-add
+field: secrets.default.external.name
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

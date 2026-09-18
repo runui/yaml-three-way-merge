@@ -1,0 +1,6 @@
+id: named-item/volume.driver-opts/single/11-both-modify-same
+field: volumes.default.driver_opts
+class: named-item
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

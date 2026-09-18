@@ -1,0 +1,6 @@
+networks:
+    other:
+        enable_ipv6: true
+services:
+    app:
+        image: busybox:latest

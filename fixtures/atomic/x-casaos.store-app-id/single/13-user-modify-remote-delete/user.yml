@@ -1,0 +1,5 @@
+x-casaos:
+    store_app_id: !reset []
+---
+x-casaos:
+    store_app_id: user-value

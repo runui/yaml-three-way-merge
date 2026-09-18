@@ -1,0 +1,25 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - bind:
+                selinux: user-value
+              source: /host
+              target: /container
+              type: bind
+---
+services:
+    sidecar:
+        volumes: !reset []
+---
+services:
+    sidecar:
+        volumes:
+            - bind:
+                selinux: user-value
+              source: /host
+              target: /container
+              type: bind

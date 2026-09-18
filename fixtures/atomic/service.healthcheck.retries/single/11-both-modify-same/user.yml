@@ -1,0 +1,9 @@
+services:
+    app:
+        healthcheck:
+            retries: !reset []
+---
+services:
+    app:
+        healthcheck:
+            retries: 2

@@ -1,0 +1,13 @@
+services:
+    app:
+        depends_on:
+            base-dependency-a:
+                condition: service_started
+                required: true
+            base-dependency-b:
+                condition: service_started
+                required: true
+            base-dependency-c:
+                condition: service_started
+                required: true
+        image: busybox:latest

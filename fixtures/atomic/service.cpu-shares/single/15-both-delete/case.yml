@@ -1,0 +1,6 @@
+id: atomic/service.cpu-shares/single/15-both-delete
+field: services.app.cpu_shares
+class: atomic
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

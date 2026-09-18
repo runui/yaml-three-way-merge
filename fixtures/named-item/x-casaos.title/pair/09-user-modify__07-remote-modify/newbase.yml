@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    title:
+        en: title-a-base
+        zh-CN: title-b-remote

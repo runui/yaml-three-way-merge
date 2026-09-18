@@ -1,0 +1,15 @@
+services:
+    app:
+        mem_limit: !reset []
+---
+services:
+    app:
+        mem_limit: 2
+---
+services:
+    sidecar:
+        mem_limit: !reset []
+---
+services:
+    sidecar:
+        mem_limit: 2

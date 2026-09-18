@@ -1,0 +1,15 @@
+services:
+    app:
+        tmpfs: !reset []
+---
+services:
+    app:
+        tmpfs: /user-a
+---
+services:
+    sidecar:
+        tmpfs: !reset []
+---
+services:
+    sidecar:
+        tmpfs: /user-b

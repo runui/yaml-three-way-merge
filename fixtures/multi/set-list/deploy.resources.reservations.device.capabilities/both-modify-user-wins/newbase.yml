@@ -1,0 +1,19 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - npu-a
+                          driver: nvidia
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - npu-b
+                          driver: nvidia
+        image: busybox:latest

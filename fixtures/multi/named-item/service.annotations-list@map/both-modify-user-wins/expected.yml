@@ -1,0 +1,9 @@
+services:
+    app:
+        annotations:
+            annotation-a: user
+        image: busybox:latest
+    sidecar:
+        annotations:
+            annotation-b: user
+        image: busybox:latest

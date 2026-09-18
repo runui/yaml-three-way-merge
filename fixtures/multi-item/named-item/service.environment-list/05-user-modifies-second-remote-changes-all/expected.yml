@@ -1,0 +1,7 @@
+services:
+    app:
+        environment:
+            - ENV-a=remote
+            - ENV-b=user
+            - ENV-c=remote
+        image: busybox:latest

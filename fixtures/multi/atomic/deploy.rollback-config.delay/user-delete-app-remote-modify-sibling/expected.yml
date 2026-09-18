@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        deploy:
+            rollback_config:
+                delay: 3s
+        image: busybox:latest

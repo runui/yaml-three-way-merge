@@ -1,0 +1,4 @@
+services:
+    app:
+        cpus: 2
+        image: busybox:latest

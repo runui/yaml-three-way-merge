@@ -1,0 +1,5 @@
+x-casaos:
+    version: !reset []
+---
+x-casaos:
+    version: user-value

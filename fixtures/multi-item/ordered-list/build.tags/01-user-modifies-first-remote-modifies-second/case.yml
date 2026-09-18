@@ -1,0 +1,6 @@
+id: multi-item/ordered-list/build.tags/01-user-modifies-first-remote-modifies-second
+field: services.app.build.tags
+class: multi
+scenario: 01-user-modifies-first-remote-modifies-second
+description: user changes the first element while newbase changes the second; the third stays untouched
+pair_semantics: logical-items

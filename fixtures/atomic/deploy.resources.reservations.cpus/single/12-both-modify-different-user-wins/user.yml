@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    cpus: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    cpus: 2

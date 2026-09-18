@@ -1,0 +1,10 @@
+configs:
+    default:
+        labels:
+            config.label-a: base
+    other:
+        labels:
+            config.label-b: base
+services:
+    app:
+        image: busybox:latest

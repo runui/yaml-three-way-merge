@@ -1,0 +1,6 @@
+id: atomic/service.userns-mode/single/06-all-unchanged
+field: services.app.userns_mode
+class: atomic
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

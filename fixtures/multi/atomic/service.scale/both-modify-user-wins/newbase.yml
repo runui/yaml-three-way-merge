@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        scale: 3
+    sidecar:
+        image: busybox:latest
+        scale: 3

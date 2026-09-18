@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            placement:
+                max_replicas_per_node: 1
+        image: busybox:latest
+    sidecar:
+        deploy:
+            placement:
+                max_replicas_per_node: 1
+        image: busybox:latest

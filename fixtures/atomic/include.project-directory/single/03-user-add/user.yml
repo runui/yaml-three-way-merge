@@ -1,0 +1,6 @@
+include: !reset []
+---
+include:
+    - path:
+        - compose.yml
+      project_directory: user-value

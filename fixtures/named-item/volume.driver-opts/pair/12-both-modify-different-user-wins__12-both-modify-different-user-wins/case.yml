@@ -1,0 +1,6 @@
+id: named-item/volume.driver-opts/pair/12-both-modify-different-user-wins__12-both-modify-different-user-wins
+field: volumes.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

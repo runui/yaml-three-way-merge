@@ -1,0 +1,17 @@
+services:
+    app:
+        depends_on: !reset []
+---
+services:
+    app:
+        depends_on:
+            - user-dependency-a
+---
+services:
+    sidecar:
+        depends_on: !reset []
+---
+services:
+    sidecar:
+        depends_on:
+            - user-dependency-b

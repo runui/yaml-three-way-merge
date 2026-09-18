@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/15-both-delete__07-remote-modify
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 07-remote-modify
+pair_semantics: logical-items

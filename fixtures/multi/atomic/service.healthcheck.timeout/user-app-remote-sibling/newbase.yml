@@ -1,0 +1,9 @@
+services:
+    app:
+        healthcheck:
+            timeout: 1s
+        image: busybox:latest
+    sidecar:
+        healthcheck:
+            timeout: 3s
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: atomic/include.project-directory/single/06-all-unchanged
+field: include[].project_directory
+class: atomic
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

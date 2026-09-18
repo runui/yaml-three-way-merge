@@ -1,0 +1,7 @@
+services:
+    app:
+        cpuset: user-value
+        image: busybox:latest
+    sidecar:
+        cpuset: user-value
+        image: busybox:latest

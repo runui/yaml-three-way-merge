@@ -1,0 +1,6 @@
+id: multi/atomic/deploy.update-config.delay/both-modify-user-wins
+field: services.app.deploy.update_config.delay
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

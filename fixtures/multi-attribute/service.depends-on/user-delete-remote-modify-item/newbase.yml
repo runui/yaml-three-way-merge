@@ -1,0 +1,7 @@
+services:
+    app:
+        depends_on:
+            default:
+                condition: service_completed_successfully
+                required: true
+        image: busybox:latest

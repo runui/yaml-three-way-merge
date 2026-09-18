@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - read_only: false
+              source: /base
+              target: /container
+              type: bind

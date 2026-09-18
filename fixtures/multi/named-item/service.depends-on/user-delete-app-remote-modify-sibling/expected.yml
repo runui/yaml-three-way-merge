@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        depends_on:
+            - remote-dependency-b
+        image: busybox:latest

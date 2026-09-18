@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            privileged: !reset []
+---
+services:
+    app:
+        build:
+            privileged: true

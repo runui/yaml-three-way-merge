@@ -1,0 +1,18 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - tpu-a
+                            - gpu-b
+                            - gpu-c
+                          driver: nvidia

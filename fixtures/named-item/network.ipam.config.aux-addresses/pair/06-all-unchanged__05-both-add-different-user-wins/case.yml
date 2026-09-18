@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/06-all-unchanged__05-both-add-different-user-wins
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

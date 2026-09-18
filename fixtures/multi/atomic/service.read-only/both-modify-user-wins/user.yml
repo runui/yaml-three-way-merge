@@ -1,0 +1,15 @@
+services:
+    app:
+        read_only: !reset []
+---
+services:
+    app:
+        read_only: true
+---
+services:
+    sidecar:
+        read_only: !reset []
+---
+services:
+    sidecar:
+        read_only: true

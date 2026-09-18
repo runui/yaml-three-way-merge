@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        restart: always
+    sidecar:
+        image: busybox:latest
+        restart: always

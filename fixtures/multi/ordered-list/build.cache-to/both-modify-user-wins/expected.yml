@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            cache_to:
+                - type=local,dest=user-a
+        image: busybox:latest
+    sidecar:
+        build:
+            cache_to:
+                - type=local,dest=user-b
+        image: busybox:latest

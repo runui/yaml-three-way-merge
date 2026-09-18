@@ -1,0 +1,9 @@
+networks:
+    default:
+        labels:
+            network.label-a: remote
+            network.label-b: remote
+            network.label-c: remote
+services:
+    app:
+        image: busybox:latest

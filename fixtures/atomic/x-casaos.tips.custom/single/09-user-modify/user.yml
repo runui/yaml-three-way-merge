@@ -1,0 +1,7 @@
+x-casaos:
+    tips:
+        custom: !reset []
+---
+x-casaos:
+    tips:
+        custom: user-value

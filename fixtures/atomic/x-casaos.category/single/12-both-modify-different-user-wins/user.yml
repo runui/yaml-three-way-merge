@@ -1,0 +1,5 @@
+x-casaos:
+    category: !reset []
+---
+x-casaos:
+    category: user-value

@@ -1,0 +1,6 @@
+secrets:
+    default:
+        file: remote-value
+services:
+    app:
+        image: busybox:latest

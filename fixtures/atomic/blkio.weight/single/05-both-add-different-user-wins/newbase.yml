@@ -1,0 +1,5 @@
+services:
+    app:
+        blkio_config:
+            weight: 3
+        image: busybox:latest

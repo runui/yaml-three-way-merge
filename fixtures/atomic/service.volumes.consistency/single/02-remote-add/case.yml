@@ -1,0 +1,6 @@
+id: atomic/service.volumes.consistency/single/02-remote-add
+field: services.app.volumes[].consistency
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

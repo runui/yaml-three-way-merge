@@ -1,0 +1,4 @@
+services:
+    app:
+        credential_spec:
+            config: user-value

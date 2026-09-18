@@ -1,0 +1,6 @@
+id: multi-item/unique-list/blkio.weight-device/06-both-add-third-element-user-wins
+field: services.app.blkio_config.weight_device
+class: multi
+scenario: 06-both-add-third-element-user-wins
+description: both sides add the third element with different values; user wins while existing elements follow newbase
+pair_semantics: logical-items

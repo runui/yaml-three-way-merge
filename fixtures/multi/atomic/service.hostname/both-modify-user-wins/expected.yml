@@ -1,0 +1,7 @@
+services:
+    app:
+        hostname: user-value
+        image: busybox:latest
+    sidecar:
+        hostname: user-value
+        image: busybox:latest

@@ -1,0 +1,4 @@
+services:
+    app:
+        cpu_shares: 2
+        image: busybox:latest

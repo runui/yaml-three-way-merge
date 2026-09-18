@@ -1,0 +1,7 @@
+services:
+    app:
+        attach: true
+        image: busybox:latest
+    sidecar:
+        attach: true
+        image: busybox:latest

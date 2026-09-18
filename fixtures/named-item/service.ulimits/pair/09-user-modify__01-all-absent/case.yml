@@ -1,0 +1,6 @@
+id: named-item/service.ulimits/pair/09-user-modify__01-all-absent
+field: services.app.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 01-all-absent
+pair_semantics: logical-items

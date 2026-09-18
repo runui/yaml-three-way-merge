@@ -1,0 +1,6 @@
+id: named-item/network.ipam.options/single/08-remote-delete
+field: networks.default.ipam.options
+class: named-item
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

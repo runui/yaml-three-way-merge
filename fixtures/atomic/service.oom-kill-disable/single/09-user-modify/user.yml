@@ -1,0 +1,7 @@
+services:
+    app:
+        oom_kill_disable: !reset []
+---
+services:
+    app:
+        oom_kill_disable: true

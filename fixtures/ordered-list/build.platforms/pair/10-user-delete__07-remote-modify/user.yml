@@ -7,4 +7,4 @@ services:
     app:
         build:
             platforms:
-                - linux/amd64-b
+                - linux/arm/v7

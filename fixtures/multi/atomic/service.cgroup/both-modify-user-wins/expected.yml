@@ -1,0 +1,7 @@
+services:
+    app:
+        cgroup: private
+        image: busybox:latest
+    sidecar:
+        cgroup: private
+        image: busybox:latest

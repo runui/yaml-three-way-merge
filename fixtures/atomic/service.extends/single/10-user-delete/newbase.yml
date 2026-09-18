@@ -1,0 +1,4 @@
+services:
+    app:
+        extends: base-value
+        image: busybox:latest

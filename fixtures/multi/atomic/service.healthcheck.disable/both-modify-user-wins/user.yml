@@ -1,0 +1,19 @@
+services:
+    app:
+        healthcheck:
+            disable: !reset []
+---
+services:
+    app:
+        healthcheck:
+            disable: true
+---
+services:
+    sidecar:
+        healthcheck:
+            disable: !reset []
+---
+services:
+    sidecar:
+        healthcheck:
+            disable: true

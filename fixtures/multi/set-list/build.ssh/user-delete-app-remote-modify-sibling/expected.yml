@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            ssh:
+                - remote-b
+        image: busybox:latest

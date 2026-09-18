@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        userns_mode: remote-value
+    sidecar:
+        image: busybox:latest
+        userns_mode: remote-value

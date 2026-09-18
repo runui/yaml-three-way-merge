@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            placement:
+                preferences:
+                    - spread: node.labels.base-a
+        image: busybox:latest
+    sidecar:
+        deploy:
+            placement:
+                preferences:
+                    - spread: node.labels.remote-b
+        image: busybox:latest

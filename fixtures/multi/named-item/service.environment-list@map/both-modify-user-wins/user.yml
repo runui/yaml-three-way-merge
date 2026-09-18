@@ -1,0 +1,17 @@
+services:
+    app:
+        environment: !reset {}
+---
+services:
+    app:
+        environment:
+            ENV-a: user
+---
+services:
+    sidecar:
+        environment: !reset {}
+---
+services:
+    sidecar:
+        environment:
+            ENV-b: user

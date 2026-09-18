@@ -1,0 +1,6 @@
+services:
+    app:
+        ulimits:
+            nproc:
+                hard: 300
+                soft: 200

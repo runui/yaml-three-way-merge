@@ -1,0 +1,6 @@
+id: atomic/network.internal/single/15-both-delete
+field: networks.default.internal
+class: atomic
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

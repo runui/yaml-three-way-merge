@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            remote-net-b: {}
+            user-net-a: {}
+            user-net-c: {}

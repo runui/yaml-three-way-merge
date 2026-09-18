@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            dockerfile_inline: !reset []
+---
+services:
+    app:
+        build:
+            dockerfile_inline: user-value

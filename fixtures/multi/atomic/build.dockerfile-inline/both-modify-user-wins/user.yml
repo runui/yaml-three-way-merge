@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            dockerfile_inline: !reset []
+---
+services:
+    app:
+        build:
+            dockerfile_inline: user-value
+---
+services:
+    sidecar:
+        build:
+            dockerfile_inline: !reset []
+---
+services:
+    sidecar:
+        build:
+            dockerfile_inline: user-value

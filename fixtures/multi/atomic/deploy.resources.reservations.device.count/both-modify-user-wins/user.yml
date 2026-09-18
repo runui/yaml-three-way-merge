@@ -1,0 +1,35 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          count: 2
+                          driver: nvidia
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          count: 2
+                          driver: nvidia

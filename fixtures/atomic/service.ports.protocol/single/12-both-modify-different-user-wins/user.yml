@@ -1,0 +1,10 @@
+services:
+    app:
+        ports: !reset []
+---
+services:
+    app:
+        ports:
+            - protocol: udp
+              published: "8080"
+              target: 80

@@ -1,0 +1,23 @@
+services:
+    app:
+        blkio_config:
+            weight_device: !reset []
+---
+services:
+    app:
+        blkio_config:
+            weight_device:
+                - path: /dev/a
+                  weight: 200
+---
+services:
+    sidecar:
+        blkio_config:
+            weight_device: !reset []
+---
+services:
+    sidecar:
+        blkio_config:
+            weight_device:
+                - path: /dev/b
+                  weight: 500

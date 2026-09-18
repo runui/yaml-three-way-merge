@@ -1,0 +1,7 @@
+services:
+    app:
+        init: !reset []
+---
+services:
+    app:
+        init: true

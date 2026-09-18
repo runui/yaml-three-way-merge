@@ -1,0 +1,4 @@
+services:
+    app:
+        deploy:
+            mode: user-value

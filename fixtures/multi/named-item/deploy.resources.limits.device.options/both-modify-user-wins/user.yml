@@ -1,0 +1,37 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: nvidia
+                          options:
+                            a: device-option-a-user
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    devices: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: nvidia
+                          options:
+                            b: device-option-b-user

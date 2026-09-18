@@ -1,0 +1,6 @@
+id: atomic/service.oom-score-adj/single/02-remote-add
+field: services.app.oom_score_adj
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

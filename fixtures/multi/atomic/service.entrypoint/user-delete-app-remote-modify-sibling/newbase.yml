@@ -1,0 +1,11 @@
+services:
+    app:
+        entrypoint:
+            - - CMD
+              - base-a
+        image: busybox:latest
+    sidecar:
+        entrypoint:
+            - - CMD
+              - remote-a
+        image: busybox:latest

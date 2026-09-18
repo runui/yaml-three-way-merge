@@ -1,0 +1,6 @@
+id: atomic/network.ipam.config.ip-range/single/02-remote-add
+field: networks.default.ipam.config[].ip_range
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

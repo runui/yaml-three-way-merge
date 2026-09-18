@@ -1,0 +1,10 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - /base-a:/data-a
+            - /base-b:/data-b
+            - /user-c:/data-c

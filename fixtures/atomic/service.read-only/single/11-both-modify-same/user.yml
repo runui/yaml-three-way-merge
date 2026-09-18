@@ -1,0 +1,7 @@
+services:
+    app:
+        read_only: !reset []
+---
+services:
+    app:
+        read_only: true

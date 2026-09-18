@@ -1,0 +1,6 @@
+id: multi-item/set-list/build.ssh/01-user-modifies-first-remote-modifies-second
+field: services.app.build.ssh
+class: multi
+scenario: 01-user-modifies-first-remote-modifies-second
+description: user changes the first element while newbase changes the second; the third stays untouched
+pair_semantics: logical-items

@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - source: /host
+              target: /container
+              tmpfs:
+                size: 1
+              type: bind

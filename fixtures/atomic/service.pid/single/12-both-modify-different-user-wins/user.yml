@@ -1,0 +1,7 @@
+services:
+    app:
+        pid: !reset []
+---
+services:
+    app:
+        pid: user-value

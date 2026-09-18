@@ -1,0 +1,6 @@
+id: atomic/deploy.resources.limits.generic-resource.kind/single/02-remote-add
+field: services.app.deploy.resources.limits.generic_resources[].discrete_resource_spec.kind
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

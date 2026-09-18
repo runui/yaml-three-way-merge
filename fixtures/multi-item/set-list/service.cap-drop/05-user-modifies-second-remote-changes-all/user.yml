@@ -1,0 +1,10 @@
+services:
+    app:
+        cap_drop: !reset []
+---
+services:
+    app:
+        cap_drop:
+            - NET_RAW-a
+            - SETUID-b
+            - NET_RAW-c

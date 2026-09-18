@@ -1,0 +1,9 @@
+services:
+    app:
+        deploy:
+            replicas: !reset []
+---
+services:
+    app:
+        deploy:
+            replicas: 2

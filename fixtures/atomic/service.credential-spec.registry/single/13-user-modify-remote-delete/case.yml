@@ -1,0 +1,6 @@
+id: atomic/service.credential-spec.registry/single/13-user-modify-remote-delete
+field: services.app.credential_spec.registry
+class: atomic
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

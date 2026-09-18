@@ -1,0 +1,6 @@
+id: atomic/x-casaos.repo-id/single/07-remote-modify
+field: x-casaos.repo_id
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

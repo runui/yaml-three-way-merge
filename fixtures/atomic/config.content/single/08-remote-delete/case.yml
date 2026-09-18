@@ -1,0 +1,6 @@
+id: atomic/config.content/single/08-remote-delete
+field: configs.default.content
+class: atomic
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

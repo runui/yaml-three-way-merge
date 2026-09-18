@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        links:
+            - user:user-a
+            - remote:remote-b
+            - user:user-c

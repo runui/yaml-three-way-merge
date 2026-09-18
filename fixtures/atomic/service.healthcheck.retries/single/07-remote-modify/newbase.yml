@@ -1,0 +1,5 @@
+services:
+    app:
+        healthcheck:
+            retries: 3
+        image: busybox:latest

@@ -1,0 +1,15 @@
+services:
+    app:
+        mem_swappiness: !reset []
+---
+services:
+    app:
+        mem_swappiness: 2
+---
+services:
+    sidecar:
+        mem_swappiness: !reset []
+---
+services:
+    sidecar:
+        mem_swappiness: 2

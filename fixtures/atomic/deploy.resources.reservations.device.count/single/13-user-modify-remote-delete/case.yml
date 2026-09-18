@@ -1,0 +1,6 @@
+id: atomic/deploy.resources.reservations.device.count/single/13-user-modify-remote-delete
+field: services.app.deploy.resources.reservations.devices[].count
+class: atomic
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

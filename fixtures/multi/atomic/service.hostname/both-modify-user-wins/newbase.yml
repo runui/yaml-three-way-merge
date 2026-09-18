@@ -1,0 +1,7 @@
+services:
+    app:
+        hostname: remote-value
+        image: busybox:latest
+    sidecar:
+        hostname: remote-value
+        image: busybox:latest

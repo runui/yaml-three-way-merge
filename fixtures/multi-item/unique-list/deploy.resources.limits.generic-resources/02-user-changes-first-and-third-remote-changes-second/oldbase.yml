@@ -1,0 +1,16 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    generic_resources:
+                        - discrete_resource_spec:
+                            kind: GPU-A
+                            value: 1
+                        - discrete_resource_spec:
+                            kind: GPU-B
+                            value: 1
+                        - discrete_resource_spec:
+                            kind: GPU-C
+                            value: 1
+        image: busybox:latest

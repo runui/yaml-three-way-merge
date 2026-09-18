@@ -1,0 +1,6 @@
+id: atomic/service.memswap-limit/single/02-remote-add
+field: services.app.memswap_limit
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

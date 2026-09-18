@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        depends_on:
+            default:
+                condition: service_completed_successfully
+        image: busybox:latest

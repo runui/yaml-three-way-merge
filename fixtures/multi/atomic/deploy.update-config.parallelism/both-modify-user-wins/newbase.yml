@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            update_config:
+                parallelism: 3
+        image: busybox:latest
+    sidecar:
+        deploy:
+            update_config:
+                parallelism: 3
+        image: busybox:latest

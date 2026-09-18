@@ -1,0 +1,7 @@
+services:
+    app:
+        stdin_open: !reset []
+---
+services:
+    app:
+        stdin_open: true

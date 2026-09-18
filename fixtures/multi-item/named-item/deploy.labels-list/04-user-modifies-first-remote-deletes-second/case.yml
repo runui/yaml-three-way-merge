@@ -1,0 +1,6 @@
+id: multi-item/named-item/deploy.labels-list/04-user-modifies-first-remote-deletes-second
+field: services.app.deploy.labels
+class: multi
+scenario: 04-user-modifies-first-remote-deletes-second
+description: user changes the first element while newbase deletes the second
+pair_semantics: logical-items

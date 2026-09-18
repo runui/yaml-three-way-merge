@@ -1,0 +1,10 @@
+networks:
+    default:
+        ipam:
+            config:
+                - aux_addresses:
+                    host-b: aux-b-remote
+                  subnet: 10.0.0.0/24
+services:
+    app:
+        image: busybox:latest

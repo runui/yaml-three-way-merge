@@ -1,0 +1,7 @@
+configs:
+    default:
+        name: !reset []
+---
+configs:
+    default:
+        name: user-value

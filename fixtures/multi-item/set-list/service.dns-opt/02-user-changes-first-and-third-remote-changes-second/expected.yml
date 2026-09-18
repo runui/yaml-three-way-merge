@@ -1,0 +1,7 @@
+services:
+    app:
+        dns_opt:
+            - rotate-a
+            - single-request-b
+            - rotate-c
+        image: busybox:latest

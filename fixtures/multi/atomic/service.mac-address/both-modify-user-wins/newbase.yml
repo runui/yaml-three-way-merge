@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        mac_address: remote-value
+    sidecar:
+        image: busybox:latest
+        mac_address: remote-value

@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          device_ids:
+                            - GPU-base-a
+                          driver: nvidia
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          device_ids:
+                            - GPU-base-b
+                          driver: nvidia
+        image: busybox:latest

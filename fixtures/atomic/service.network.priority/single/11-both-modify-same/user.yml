@@ -1,0 +1,11 @@
+services:
+    app:
+        networks:
+            default:
+                priority: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                priority: 2

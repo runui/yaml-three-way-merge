@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            cache_to:
+                - type=local,dest=remote-b
+        image: busybox:latest

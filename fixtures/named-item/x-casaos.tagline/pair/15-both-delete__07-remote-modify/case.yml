@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/15-both-delete__07-remote-modify
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 07-remote-modify
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/pair/15-both-delete__02-remote-add
+field: x-casaos.tips.before_install
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 02-remote-add
+pair_semantics: logical-items

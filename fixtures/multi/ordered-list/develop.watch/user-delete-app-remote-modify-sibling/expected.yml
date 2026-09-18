@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        develop:
+            watch:
+                - action: sync
+                  path: ./remote-b
+        image: busybox:latest

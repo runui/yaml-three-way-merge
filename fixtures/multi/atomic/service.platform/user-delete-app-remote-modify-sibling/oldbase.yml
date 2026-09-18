@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        platform: base-value
+    sidecar:
+        image: busybox:latest
+        platform: base-value

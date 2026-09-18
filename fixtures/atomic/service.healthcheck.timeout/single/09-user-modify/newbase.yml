@@ -1,0 +1,5 @@
+services:
+    app:
+        healthcheck:
+            timeout: 1s
+        image: busybox:latest

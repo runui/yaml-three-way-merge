@@ -1,0 +1,9 @@
+services:
+    app:
+        depends_on:
+            - base-dependency-a
+        image: busybox:latest
+    sidecar:
+        depends_on:
+            - base-dependency-b
+        image: busybox:latest

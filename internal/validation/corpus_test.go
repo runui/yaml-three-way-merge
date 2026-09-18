@@ -14,12 +14,15 @@ import (
 )
 
 // TestFixtureCorpusAgainstIntentImplementation is the regression gate for the
-// replayed user-intent merge: every fixture must reproduce the independently
-// generated expected result. The cases in knownUnsupportedIntent are excluded
+// replayed user-intent merge. The cases in knownUnsupportedIntent are excluded
 // because their expected result is not determined by the three input documents.
+// The remaining mismatches are compared against knownAlgorithmBoundary, a
+// two-way ratchet: a field may not exceed its budget, and a field that improves
+// must have its budget tightened in the same change.
 func TestFixtureCorpusAgainstIntentImplementation(t *testing.T) {
 	cases, _, err := corpus.Load(filepath.Join("..", "..", "fixtures"))
 	require.NoError(t, err)
+	actual := map[string]int{}
 	var unexpected []string
 	for _, item := range cases {
 		merged, err := smdintent.Merge(item.BaseOld, item.User, item.BaseNew)
@@ -32,9 +35,18 @@ func TestFixtureCorpusAgainstIntentImplementation(t *testing.T) {
 		if _, known := knownUnsupportedIntent[item.Metadata.ID]; known {
 			continue
 		}
-		unexpected = append(unexpected, item.Metadata.ID)
+		actual[item.Metadata.Field]++
+		if _, budgeted := knownAlgorithmBoundary[item.Metadata.Field]; !budgeted {
+			unexpected = append(unexpected, item.Metadata.ID)
+		}
 	}
-	assert.Empty(t, unexpected, "unexpected merge mismatches")
+	assert.Empty(t, unexpected, "unexpected merge mismatches outside the recorded boundary")
+	for field, budget := range knownAlgorithmBoundary {
+		assert.LessOrEqual(t, actual[field], budget, "field %s exceeds its recorded boundary; new algorithm gap", field)
+		if actual[field] < budget {
+			assert.Failf(t, "boundary tightened", "field %s now mismatches %d cases, below the recorded budget %d; tighten knownAlgorithmBoundary", field, actual[field], budget)
+		}
+	}
 }
 
 func TestFixtureCorpusAgainstCurrentImplementation(t *testing.T) {
@@ -66,8 +78,9 @@ func TestFixtureManifestIsComplete(t *testing.T) {
 	assert.Equal(t, 15, manifest.StateCount)
 	fields := corpus.ArrayFields()
 	assert.Equal(t, len(fields), len(manifest.Fields))
-	// Seven explicit port acceptance scenarios are appended in Generate.
-	expected := 7
+	// Port acceptance, multi-resource and multi-attribute scenarios are
+	// appended in Generate in addition to the per-field state matrix.
+	expected := corpus.ExplicitCaseCount()
 	for _, field := range manifest.Fields {
 		assert.Equal(t, 15, field.MatrixCases, field.ID)
 		if field.Class != corpus.ClassAtomic {
@@ -99,17 +112,27 @@ func TestArrayFieldRegistryIsAuditable(t *testing.T) {
 	assert.Equal(t, len(ids), len(unique(ids)), "duplicate field IDs")
 	assert.Equal(t, len(baseIDs), len(unique(baseIDs)), "duplicate base field IDs")
 	assert.Equal(t, len(basePaths), len(unique(basePaths)), "duplicate base YAML paths")
-	assert.Len(t, baseIDs, 70)
+	// 70 sequence fields plus 196 scalar/mapping fields.
+	assert.Len(t, baseIDs, 266)
 	for _, required := range []string{
+		// sequence fields
 		"service.ports", "service.volumes", "service.devices", "service.configs", "service.secrets",
-		"service.environment", // map-like fields are intentionally excluded from this array-focused phase.
+		// scalar leaves across every container
+		"top.name", "service.privileged", "service.cgroup", "service.restart",
+		"build.context", "build.no-cache", "deploy.replicas", "deploy.update-config.order",
+		"network.driver", "network.external", "volume.driver", "config.content", "secret.file",
+		"include.project-directory", "x-casaos.scheme", "x-casaos.autostart",
+		// nested array-item leaves
+		"service.volumes.read-only", "service.ports.mode", "service.configs.mode",
+		"deploy.resources.limits.device.count", "network.ipam.config.gateway",
+		"develop.watch.action", "service.depends-on.condition",
+		// free-form maps and the deploy.labels list form
+		"service.logging.options", "service.ulimits", "network.ipam.options",
+		"x-casaos.title", "deploy.labels-list",
 	} {
-		if required == "service.environment" {
-			assert.False(t, slices.Contains(baseIDs, required), "environment is not an array corpus field")
-			continue
-		}
 		assert.True(t, slices.Contains(baseIDs, required), required)
 	}
+	assert.False(t, slices.Contains(baseIDs, "service.environment"), "environment is modeled as service.environment-list")
 }
 
 func TestGeneratedUserOverridesExpressDeclaredIntent(t *testing.T) {

@@ -1,0 +1,8 @@
+services:
+    app:
+        configs:
+            - mode: 292
+              source: base_config
+              target: /config
+              uid: "1000"
+        image: busybox:latest

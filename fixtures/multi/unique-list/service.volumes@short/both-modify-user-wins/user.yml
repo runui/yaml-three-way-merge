@@ -1,0 +1,17 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - /user-a:/data-a
+---
+services:
+    sidecar:
+        volumes: !reset []
+---
+services:
+    sidecar:
+        volumes:
+            - /user-b:/data-b

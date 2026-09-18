@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        secrets:
+            - mode: 2
+              source: base
+              target: /run/config

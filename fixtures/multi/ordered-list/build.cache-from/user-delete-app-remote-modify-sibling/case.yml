@@ -1,0 +1,6 @@
+id: multi/ordered-list/build.cache-from/user-delete-app-remote-modify-sibling
+field: services.app.build.cache_from
+class: multi
+scenario: user-delete-app-remote-modify-sibling
+description: user removes the field on app, newbase changes the sibling resource
+pair_semantics: logical-items

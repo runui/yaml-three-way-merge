@@ -1,0 +1,6 @@
+id: atomic/deploy.rollback-config.failure-action/single/10-user-delete
+field: services.app.deploy.rollback_config.failure_action
+class: atomic
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

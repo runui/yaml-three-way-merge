@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/13-user-modify-remote-delete__01-all-absent
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 01-all-absent
+pair_semantics: logical-items

@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            tags:
+                - example:base-a
+        image: busybox:latest
+    sidecar:
+        build:
+            tags:
+                - example:remote-b
+        image: busybox:latest

@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                monitor: !reset []
+---
+services:
+    app:
+        deploy:
+            rollback_config:
+                monitor: 2s
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                monitor: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                monitor: 2s

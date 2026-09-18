@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            labels:
+                deploy.label-a: user
+        image: busybox:latest

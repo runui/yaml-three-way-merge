@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            privileged: !reset []
+---
+services:
+    app:
+        build:
+            privileged: true
+---
+services:
+    sidecar:
+        build:
+            privileged: !reset []
+---
+services:
+    sidecar:
+        build:
+            privileged: true

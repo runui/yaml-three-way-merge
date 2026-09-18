@@ -1,0 +1,6 @@
+id: multi/atomic/service.network.ipv6-address/user-app-remote-sibling
+field: services.app.networks.default.ipv6_address
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

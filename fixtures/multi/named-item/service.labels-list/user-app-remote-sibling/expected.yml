@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        labels:
+            - label-a=user
+    sidecar:
+        image: busybox:latest
+        labels:
+            - label-b=remote

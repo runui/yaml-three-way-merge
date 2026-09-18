@@ -1,0 +1,13 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                aliases:
+                    - remote-alias-a
+    sidecar:
+        image: busybox:latest
+        networks:
+            default:
+                aliases:
+                    - remote-alias-b

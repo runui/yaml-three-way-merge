@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            ulimits:
+                nofile: nofile-a-remote
+        image: busybox:latest

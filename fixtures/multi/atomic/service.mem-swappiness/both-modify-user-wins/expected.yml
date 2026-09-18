@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        mem_swappiness: 2
+    sidecar:
+        image: busybox:latest
+        mem_swappiness: 2

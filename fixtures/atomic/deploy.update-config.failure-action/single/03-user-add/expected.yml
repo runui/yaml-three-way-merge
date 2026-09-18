@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            update_config:
+                failure_action: rollback
+        image: busybox:latest

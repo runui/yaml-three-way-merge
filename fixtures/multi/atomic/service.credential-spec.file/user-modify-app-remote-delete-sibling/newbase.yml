@@ -1,0 +1,7 @@
+services:
+    app:
+        credential_spec:
+            file: base-value
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

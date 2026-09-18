@@ -1,0 +1,6 @@
+id: multi/unique-list/deploy.resources.reservations.generic-resources/user-modify-app-remote-delete-sibling
+field: services.app.deploy.resources.reservations.generic_resources
+class: multi
+scenario: user-modify-app-remote-delete-sibling
+description: user changes app, newbase removes the field on the sibling resource
+pair_semantics: logical-items

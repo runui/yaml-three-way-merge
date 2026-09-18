@@ -1,0 +1,7 @@
+services:
+    app:
+        domainname: base-value
+        image: busybox:latest
+    sidecar:
+        domainname: base-value
+        image: busybox:latest

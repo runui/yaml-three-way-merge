@@ -27,6 +27,7 @@ type FieldSpec struct {
 	Class         MergeClass
 	Values        [3]any
 	SecondValues  [3]any
+	ThirdValues   [3]any
 	CrossProduct  bool
 	PairSemantics PairSemantics
 	ResetBoundary []string
@@ -86,7 +87,11 @@ type Manifest struct {
 	FilesPerCase     []string        `yaml:"files_per_case"`
 	StateCount       int             `yaml:"state_count"`
 	Fields           []ManifestField `yaml:"fields"`
-	CaseCount        int             `yaml:"case_count"`
+	// ExplicitCases counts curated scenarios that are not part of the
+	// per-field state matrix: port acceptance, multi-resource, multi-attribute
+	// and multi-item families.
+	ExplicitCases int `yaml:"explicit_cases"`
+	CaseCount     int `yaml:"case_count"`
 }
 
 type ManifestField struct {

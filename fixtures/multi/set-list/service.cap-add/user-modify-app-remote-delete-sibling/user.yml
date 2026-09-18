@@ -1,0 +1,8 @@
+services:
+    app:
+        cap_add: !reset []
+---
+services:
+    app:
+        cap_add:
+            - SYS_ADMIN-a

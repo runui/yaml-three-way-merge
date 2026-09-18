@@ -1,0 +1,10 @@
+networks:
+    default:
+        driver_opts: !reset {}
+---
+networks:
+    default:
+        driver_opts:
+            bar: com.docker.network-b-user
+            bar-c: com.docker.network-b-base
+            foo: com.docker.network-a-base

@@ -1,0 +1,15 @@
+services:
+    app:
+        blkio_config:
+            device_read_iops: !reset []
+---
+services:
+    app:
+        blkio_config:
+            device_read_iops:
+                - path: /dev/a
+                  rate: "100"
+                - path: /dev/b
+                  rate: "12100"
+                - path: /dev/c
+                  rate: "21100"

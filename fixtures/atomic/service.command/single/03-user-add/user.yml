@@ -1,4 +1,5 @@
 services:
     app:
         command:
-            - user-command-a
+            - - CMD
+              - user-a

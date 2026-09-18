@@ -1,0 +1,6 @@
+id: atomic/volume.driver/single/02-remote-add
+field: volumes.default.driver
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

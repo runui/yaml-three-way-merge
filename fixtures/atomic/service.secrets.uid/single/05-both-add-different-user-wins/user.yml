@@ -1,0 +1,6 @@
+services:
+    app:
+        secrets:
+            - source: base
+              target: /run/config
+              uid: user-value

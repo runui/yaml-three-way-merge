@@ -1,0 +1,7 @@
+services:
+    app:
+        working_dir: !reset []
+---
+services:
+    app:
+        working_dir: user-value

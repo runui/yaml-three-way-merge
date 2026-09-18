@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            pull: false
+        image: busybox:latest
+    sidecar:
+        build:
+            pull: false
+        image: busybox:latest

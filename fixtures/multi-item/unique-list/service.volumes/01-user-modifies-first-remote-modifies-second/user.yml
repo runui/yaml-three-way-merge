@@ -1,0 +1,16 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - source: /user-a
+              target: /data-a
+              type: bind
+            - source: /base-b
+              target: /data-b
+              type: bind
+            - source: /base-c
+              target: /data-c
+              type: bind

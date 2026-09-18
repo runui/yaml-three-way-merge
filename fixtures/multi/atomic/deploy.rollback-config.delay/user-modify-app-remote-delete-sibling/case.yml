@@ -1,0 +1,6 @@
+id: multi/atomic/deploy.rollback-config.delay/user-modify-app-remote-delete-sibling
+field: services.app.deploy.rollback_config.delay
+class: multi
+scenario: user-modify-app-remote-delete-sibling
+description: user changes app, newbase removes the field on the sibling resource
+pair_semantics: logical-items

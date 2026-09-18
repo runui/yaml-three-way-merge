@@ -1,0 +1,14 @@
+services:
+    app:
+        deploy:
+            placement:
+                preferences: !reset []
+---
+services:
+    app:
+        deploy:
+            placement:
+                preferences:
+                    - spread: node.labels.user-a
+                    - spread: node.labels.base-b
+                    - spread: node.labels.user-c

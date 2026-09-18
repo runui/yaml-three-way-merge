@@ -1,0 +1,7 @@
+x-casaos:
+    image: !reset {}
+---
+x-casaos:
+    image:
+        en: image-a-user
+        zh-CN: image-b-base

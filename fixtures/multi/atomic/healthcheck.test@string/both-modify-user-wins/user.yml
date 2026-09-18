@@ -1,0 +1,19 @@
+services:
+    app:
+        healthcheck:
+            test: !reset []
+---
+services:
+    app:
+        healthcheck:
+            test: CMD user-a
+---
+services:
+    sidecar:
+        healthcheck:
+            test: !reset []
+---
+services:
+    sidecar:
+        healthcheck:
+            test: CMD user-a

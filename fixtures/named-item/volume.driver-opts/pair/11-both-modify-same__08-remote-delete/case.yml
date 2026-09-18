@@ -1,0 +1,6 @@
+id: named-item/volume.driver-opts/pair/11-both-modify-same__08-remote-delete
+field: volumes.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 08-remote-delete
+pair_semantics: logical-items

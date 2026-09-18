@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+        ports:
+            - host_ip: remote-value
+              protocol: tcp
+              published: "8080"
+              target: 80

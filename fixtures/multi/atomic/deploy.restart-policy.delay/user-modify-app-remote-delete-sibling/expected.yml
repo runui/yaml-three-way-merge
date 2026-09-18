@@ -1,0 +1,8 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                delay: 2s
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

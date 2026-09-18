@@ -1,0 +1,6 @@
+secrets:
+    default:
+        name: user-value
+services:
+    app:
+        image: busybox:latest

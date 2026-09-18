@@ -1,0 +1,13 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - source: /base-a
+              target: /data-a
+              type: bind
+    sidecar:
+        image: busybox:latest
+        volumes:
+            - source: /base-b
+              target: /data-b
+              type: bind

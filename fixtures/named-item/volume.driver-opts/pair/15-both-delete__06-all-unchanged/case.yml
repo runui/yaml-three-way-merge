@@ -1,0 +1,6 @@
+id: named-item/volume.driver-opts/pair/15-both-delete__06-all-unchanged
+field: volumes.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 06-all-unchanged
+pair_semantics: logical-items

@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        links:
+            - base:base-a
+            - base:base-b
+            - base:base-c

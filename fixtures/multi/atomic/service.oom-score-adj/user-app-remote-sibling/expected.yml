@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        oom_score_adj: 2
+    sidecar:
+        image: busybox:latest
+        oom_score_adj: 3

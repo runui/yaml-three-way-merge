@@ -1,0 +1,6 @@
+id: atomic/service.extends/single/07-remote-modify
+field: services.app.extends
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

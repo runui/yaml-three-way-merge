@@ -1,0 +1,8 @@
+services:
+    app:
+        build:
+            ulimits:
+                nofile: nofile-a-user
+                nproc: nofile-b-remote
+                nproc-c: nofile-b-base
+        image: busybox:latest

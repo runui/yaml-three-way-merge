@@ -1,0 +1,12 @@
+services:
+    app:
+        build:
+            extra_hosts: !reset []
+---
+services:
+    app:
+        build:
+            extra_hosts:
+                - build-host-a=user
+                - build-host-b=base
+                - build-host-c=user

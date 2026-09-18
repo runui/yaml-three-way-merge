@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            platforms:
+                - linux/s390x
+        image: busybox:latest

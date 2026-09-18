@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        external_links:
+            - remote:remote-b
+        image: busybox:latest

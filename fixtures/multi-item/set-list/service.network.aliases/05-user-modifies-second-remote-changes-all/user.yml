@@ -1,0 +1,14 @@
+services:
+    app:
+        networks:
+            default:
+                aliases: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                aliases:
+                    - base-alias-a
+                    - user-alias-b
+                    - base-alias-c

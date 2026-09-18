@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        develop:
+            watch:
+                - path: ./src
+                  target: remote-value
+        image: busybox:latest

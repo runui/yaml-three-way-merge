@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/pair/06-all-unchanged__01-all-absent
+field: x-casaos.tips.before_install
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 01-all-absent
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/pair/06-all-unchanged__03-user-add
+field: x-casaos.tips.before_install
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 03-user-add
+pair_semantics: logical-items

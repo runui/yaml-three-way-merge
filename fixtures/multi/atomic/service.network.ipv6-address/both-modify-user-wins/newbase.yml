@@ -1,0 +1,11 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                ipv6_address: remote-value
+    sidecar:
+        image: busybox:latest
+        networks:
+            default:
+                ipv6_address: remote-value

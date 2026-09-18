@@ -1,0 +1,15 @@
+services:
+    app:
+        cgroup_parent: !reset []
+---
+services:
+    app:
+        cgroup_parent: user-value
+---
+services:
+    sidecar:
+        cgroup_parent: !reset []
+---
+services:
+    sidecar:
+        cgroup_parent: user-value

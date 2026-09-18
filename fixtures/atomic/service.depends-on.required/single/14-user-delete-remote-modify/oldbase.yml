@@ -1,0 +1,6 @@
+services:
+    app:
+        depends_on:
+            default:
+                required: false
+        image: busybox:latest

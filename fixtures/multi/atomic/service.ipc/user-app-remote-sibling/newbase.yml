@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        ipc: base-value
+    sidecar:
+        image: busybox:latest
+        ipc: remote-value

@@ -1,0 +1,8 @@
+x-casaos:
+    screenshot_link: !reset []
+---
+x-casaos:
+    screenshot_link:
+        - user.png-a
+        - base.png-b
+        - user.png-c

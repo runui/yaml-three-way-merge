@@ -1,0 +1,5 @@
+services:
+    app:
+        deploy:
+            mode: remote-value
+        image: busybox:latest

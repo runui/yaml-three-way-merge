@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest
+        secrets:
+            - gid: remote-value
+              source: base
+              target: /run/config

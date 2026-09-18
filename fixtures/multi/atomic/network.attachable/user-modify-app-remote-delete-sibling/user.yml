@@ -1,0 +1,7 @@
+networks:
+    default:
+        attachable: !reset []
+---
+networks:
+    default:
+        attachable: true

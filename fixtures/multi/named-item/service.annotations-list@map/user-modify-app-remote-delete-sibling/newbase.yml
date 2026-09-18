@@ -1,0 +1,7 @@
+services:
+    app:
+        annotations:
+            annotation-a: base
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

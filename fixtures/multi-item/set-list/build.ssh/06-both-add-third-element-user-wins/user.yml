@@ -1,0 +1,12 @@
+services:
+    app:
+        build:
+            ssh: !reset []
+---
+services:
+    app:
+        build:
+            ssh:
+                - base-a
+                - base-b
+                - user-c

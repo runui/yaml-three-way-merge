@@ -1,0 +1,21 @@
+services:
+    app:
+        depends_on: !reset {}
+---
+services:
+    app:
+        depends_on:
+            user-dependency-a:
+                condition: service_started
+                required: true
+---
+services:
+    sidecar:
+        depends_on: !reset {}
+---
+services:
+    sidecar:
+        depends_on:
+            user-dependency-b:
+                condition: service_started
+                required: true

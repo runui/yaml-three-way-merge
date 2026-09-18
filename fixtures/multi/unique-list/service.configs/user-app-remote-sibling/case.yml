@@ -1,0 +1,6 @@
+id: multi/unique-list/service.configs/user-app-remote-sibling
+field: services.app.configs
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

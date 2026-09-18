@@ -1,0 +1,6 @@
+id: named-item/x-casaos.image/pair/14-user-delete-remote-modify__09-user-modify
+field: x-casaos.image
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 09-user-modify
+pair_semantics: logical-items

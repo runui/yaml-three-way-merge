@@ -1,0 +1,7 @@
+services:
+    app:
+        develop:
+            watch:
+                - action: rebuild
+                  path: ./src
+        image: busybox:latest

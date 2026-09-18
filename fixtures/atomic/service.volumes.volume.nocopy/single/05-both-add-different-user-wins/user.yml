@@ -1,0 +1,8 @@
+services:
+    app:
+        volumes:
+            - source: /host
+              target: /container
+              type: bind
+              volume:
+                nocopy: true

@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/03-user-add__01-all-absent
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 01-all-absent
+pair_semantics: logical-items

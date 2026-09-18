@@ -1,0 +1,6 @@
+id: named-item/secret.driver-opts/pair/06-all-unchanged__02-remote-add
+field: secrets.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 02-remote-add
+pair_semantics: logical-items

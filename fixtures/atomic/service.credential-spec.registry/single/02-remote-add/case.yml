@@ -1,0 +1,6 @@
+id: atomic/service.credential-spec.registry/single/02-remote-add
+field: services.app.credential_spec.registry
+class: atomic
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

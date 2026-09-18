@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            labels:
+                deploy.label-a: base
+        image: busybox:latest

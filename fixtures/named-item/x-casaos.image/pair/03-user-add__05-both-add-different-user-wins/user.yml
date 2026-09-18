@@ -1,0 +1,4 @@
+x-casaos:
+    image:
+        en: image-a-user
+        zh-CN: image-b-user

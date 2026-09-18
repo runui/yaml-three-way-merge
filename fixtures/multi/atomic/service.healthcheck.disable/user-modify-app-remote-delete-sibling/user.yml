@@ -1,0 +1,9 @@
+services:
+    app:
+        healthcheck:
+            disable: !reset []
+---
+services:
+    app:
+        healthcheck:
+            disable: true

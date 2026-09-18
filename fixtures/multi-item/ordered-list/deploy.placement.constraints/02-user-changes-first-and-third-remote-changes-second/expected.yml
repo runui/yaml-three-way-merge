@@ -1,0 +1,9 @@
+services:
+    app:
+        deploy:
+            placement:
+                constraints:
+                    - node.labels.zone==user-a
+                    - node.role==manager-b
+                    - node.labels.zone==user-c
+        image: busybox:latest

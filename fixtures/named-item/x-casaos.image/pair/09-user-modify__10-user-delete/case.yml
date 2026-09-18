@@ -1,0 +1,6 @@
+id: named-item/x-casaos.image/pair/09-user-modify__10-user-delete
+field: x-casaos.image
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 10-user-delete
+pair_semantics: logical-items

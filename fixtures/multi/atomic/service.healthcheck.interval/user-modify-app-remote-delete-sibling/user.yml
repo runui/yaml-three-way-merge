@@ -1,0 +1,9 @@
+services:
+    app:
+        healthcheck:
+            interval: !reset []
+---
+services:
+    app:
+        healthcheck:
+            interval: 2s

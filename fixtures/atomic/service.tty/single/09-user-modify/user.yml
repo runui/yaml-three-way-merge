@@ -1,0 +1,7 @@
+services:
+    app:
+        tty: !reset []
+---
+services:
+    app:
+        tty: true

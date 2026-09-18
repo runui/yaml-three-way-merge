@@ -1,0 +1,7 @@
+services:
+    app:
+        oom_score_adj: !reset []
+---
+services:
+    app:
+        oom_score_adj: 2

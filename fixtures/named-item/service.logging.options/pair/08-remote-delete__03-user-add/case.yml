@@ -1,0 +1,6 @@
+id: named-item/service.logging.options/pair/08-remote-delete__03-user-add
+field: services.app.logging.options
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 03-user-add
+pair_semantics: logical-items

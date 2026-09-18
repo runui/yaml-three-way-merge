@@ -1,0 +1,9 @@
+networks:
+    default:
+        driver_opts:
+            bar: com.docker.network-b-user
+            bar-c: com.docker.network-b-remote
+            foo: com.docker.network-a-remote
+services:
+    app:
+        image: busybox:latest

@@ -1,0 +1,7 @@
+services:
+    app:
+        cpuset: base-value
+        image: busybox:latest
+    sidecar:
+        cpuset: remote-value
+        image: busybox:latest

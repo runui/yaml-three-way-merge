@@ -1,0 +1,6 @@
+id: atomic/service.volumes.bind.create-host-path/single/08-remote-delete
+field: services.app.volumes[].bind.create_host_path
+class: atomic
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

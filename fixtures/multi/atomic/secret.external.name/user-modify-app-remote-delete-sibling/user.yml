@@ -1,0 +1,9 @@
+secrets:
+    default:
+        external:
+            name: !reset []
+---
+secrets:
+    default:
+        external:
+            name: user-value

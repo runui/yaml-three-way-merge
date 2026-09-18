@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        profiles:
+            - base-a
+    sidecar:
+        image: busybox:latest
+        profiles:
+            - base-b

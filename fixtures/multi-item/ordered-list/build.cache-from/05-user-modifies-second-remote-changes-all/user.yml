@@ -1,0 +1,12 @@
+services:
+    app:
+        build:
+            cache_from: !reset []
+---
+services:
+    app:
+        build:
+            cache_from:
+                - type=local,src=base-a
+                - type=local,src=user-b
+                - type=local,src=base-c

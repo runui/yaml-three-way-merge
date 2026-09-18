@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        sysctls:
+            net.core.value-a: remote
+            net.core.value-b: user
+            net.core.value-c: remote

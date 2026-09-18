@@ -1,0 +1,6 @@
+id: multi-item/set-list/service.links/02-user-changes-first-and-third-remote-changes-second
+field: services.app.links
+class: multi
+scenario: 02-user-changes-first-and-third-remote-changes-second
+description: user changes the first and third elements while newbase changes the second
+pair_semantics: logical-items

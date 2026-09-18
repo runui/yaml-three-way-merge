@@ -1,0 +1,6 @@
+id: named-item/x-casaos.description/pair/15-both-delete__01-all-absent
+field: x-casaos.description
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 01-all-absent
+pair_semantics: logical-items

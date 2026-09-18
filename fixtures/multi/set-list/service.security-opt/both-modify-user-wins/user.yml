@@ -1,0 +1,17 @@
+services:
+    app:
+        security_opt: !reset []
+---
+services:
+    app:
+        security_opt:
+            - label=user-a
+---
+services:
+    sidecar:
+        security_opt: !reset []
+---
+services:
+    sidecar:
+        security_opt:
+            - label=user-b

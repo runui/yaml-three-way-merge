@@ -1,0 +1,5 @@
+services:
+    app:
+        build:
+            context: remote-value
+        image: busybox:latest

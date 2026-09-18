@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        labels:
+            - label-a=base
+    sidecar:
+        image: busybox:latest

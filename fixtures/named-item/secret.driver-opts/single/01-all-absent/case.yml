@@ -1,0 +1,6 @@
+id: named-item/secret.driver-opts/single/01-all-absent
+field: secrets.default.driver_opts
+class: named-item
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

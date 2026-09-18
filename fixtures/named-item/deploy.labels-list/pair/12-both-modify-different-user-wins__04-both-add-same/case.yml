@@ -1,0 +1,6 @@
+id: named-item/deploy.labels-list/pair/12-both-modify-different-user-wins__04-both-add-same
+field: services.app.deploy.labels
+class: named-item
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 04-both-add-same
+pair_semantics: logical-items

@@ -1,0 +1,13 @@
+services:
+    app:
+        depends_on:
+            remote-dependency-b:
+                condition: service_started
+                required: true
+            user-dependency-a:
+                condition: service_started
+                required: true
+            user-dependency-c:
+                condition: service_started
+                required: true
+        image: busybox:latest

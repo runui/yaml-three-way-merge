@@ -1,0 +1,19 @@
+services:
+    app:
+        ulimits: !reset {}
+---
+services:
+    app:
+        ulimits:
+            nofile: 200
+---
+services:
+    sidecar:
+        ulimits: !reset {}
+---
+services:
+    sidecar:
+        ulimits:
+            nproc:
+                hard: 300
+                soft: 200

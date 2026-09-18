@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        ports:
+            - protocol: udp
+              published: "8080"
+              target: 80

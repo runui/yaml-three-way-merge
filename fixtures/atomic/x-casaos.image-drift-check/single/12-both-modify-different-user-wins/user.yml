@@ -1,0 +1,5 @@
+x-casaos:
+    image_drift_check: !reset []
+---
+x-casaos:
+    image_drift_check: true

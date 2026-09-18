@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                parallelism: !reset []
+---
+services:
+    app:
+        deploy:
+            rollback_config:
+                parallelism: 2
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                parallelism: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                parallelism: 2

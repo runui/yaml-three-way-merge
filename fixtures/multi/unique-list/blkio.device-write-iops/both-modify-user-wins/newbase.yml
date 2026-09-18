@@ -1,0 +1,13 @@
+services:
+    app:
+        blkio_config:
+            device_write_iops:
+                - path: /dev/a
+                  rate: "3100"
+        image: busybox:latest
+    sidecar:
+        blkio_config:
+            device_write_iops:
+                - path: /dev/b
+                  rate: "13100"
+        image: busybox:latest

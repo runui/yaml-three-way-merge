@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            dockerfile: !reset []
+---
+services:
+    app:
+        build:
+            dockerfile: user-value
+---
+services:
+    sidecar:
+        build:
+            dockerfile: !reset []
+---
+services:
+    sidecar:
+        build:
+            dockerfile: user-value

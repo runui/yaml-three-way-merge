@@ -1,0 +1,6 @@
+id: named-item/deploy.labels-list/single/01-all-absent
+field: services.app.deploy.labels
+class: named-item
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

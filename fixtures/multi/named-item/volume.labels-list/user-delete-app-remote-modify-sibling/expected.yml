@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    other:
+        labels:
+            - volume.label-b=remote

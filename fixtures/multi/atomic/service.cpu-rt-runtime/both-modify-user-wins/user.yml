@@ -1,0 +1,15 @@
+services:
+    app:
+        cpu_rt_runtime: !reset []
+---
+services:
+    app:
+        cpu_rt_runtime: 2
+---
+services:
+    sidecar:
+        cpu_rt_runtime: !reset []
+---
+services:
+    sidecar:
+        cpu_rt_runtime: 2

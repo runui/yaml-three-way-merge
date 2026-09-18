@@ -1,0 +1,14 @@
+networks:
+    default:
+        ipam:
+            config:
+                - gateway: base-value
+                  subnet: 10.0.0.0/24
+    other:
+        ipam:
+            config:
+                - gateway: base-value
+                  subnet: 10.0.0.0/24
+services:
+    app:
+        image: busybox:latest

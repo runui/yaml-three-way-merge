@@ -1,0 +1,6 @@
+services:
+    app:
+        volumes:
+            - source: /host
+              target: /container
+              type: volume

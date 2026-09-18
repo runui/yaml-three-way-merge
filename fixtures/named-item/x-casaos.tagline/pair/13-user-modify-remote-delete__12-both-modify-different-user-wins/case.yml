@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/13-user-modify-remote-delete__12-both-modify-different-user-wins
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

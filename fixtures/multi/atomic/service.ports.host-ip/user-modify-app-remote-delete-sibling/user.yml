@@ -1,0 +1,11 @@
+services:
+    app:
+        ports: !reset []
+---
+services:
+    app:
+        ports:
+            - host_ip: user-value
+              protocol: tcp
+              published: "8080"
+              target: 80

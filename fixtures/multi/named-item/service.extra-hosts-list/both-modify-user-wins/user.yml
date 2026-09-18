@@ -1,0 +1,17 @@
+services:
+    app:
+        extra_hosts: !reset []
+---
+services:
+    app:
+        extra_hosts:
+            - host-a=user
+---
+services:
+    sidecar:
+        extra_hosts: !reset []
+---
+services:
+    sidecar:
+        extra_hosts:
+            - host-b=user

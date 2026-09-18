@@ -1,0 +1,10 @@
+services:
+    app:
+        tmpfs: !reset []
+---
+services:
+    app:
+        tmpfs:
+            - /base-a
+            - /base-b
+            - /user-c

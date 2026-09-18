@@ -1,0 +1,23 @@
+services:
+    app:
+        networks:
+            default:
+                priority: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                priority: 2
+---
+services:
+    sidecar:
+        networks:
+            default:
+                priority: !reset []
+---
+services:
+    sidecar:
+        networks:
+            default:
+                priority: 2

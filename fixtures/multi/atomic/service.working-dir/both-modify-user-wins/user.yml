@@ -1,0 +1,15 @@
+services:
+    app:
+        working_dir: !reset []
+---
+services:
+    app:
+        working_dir: user-value
+---
+services:
+    sidecar:
+        working_dir: !reset []
+---
+services:
+    sidecar:
+        working_dir: user-value

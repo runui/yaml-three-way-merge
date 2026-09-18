@@ -1,0 +1,17 @@
+services:
+    app:
+        networks: !reset []
+---
+services:
+    app:
+        networks:
+            - user-net-a
+---
+services:
+    sidecar:
+        networks: !reset []
+---
+services:
+    sidecar:
+        networks:
+            - user-net-b

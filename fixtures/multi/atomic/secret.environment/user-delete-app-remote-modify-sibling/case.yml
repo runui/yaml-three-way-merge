@@ -1,0 +1,6 @@
+id: multi/atomic/secret.environment/user-delete-app-remote-modify-sibling
+field: secrets.default.environment
+class: multi
+scenario: user-delete-app-remote-modify-sibling
+description: user removes the field on app, newbase changes the sibling resource
+pair_semantics: logical-items

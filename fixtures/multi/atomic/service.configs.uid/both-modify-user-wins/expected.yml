@@ -1,0 +1,13 @@
+services:
+    app:
+        configs:
+            - source: base
+              target: /run/config
+              uid: user-value
+        image: busybox:latest
+    sidecar:
+        configs:
+            - source: base
+              target: /run/config
+              uid: user-value
+        image: busybox:latest

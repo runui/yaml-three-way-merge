@@ -1,0 +1,6 @@
+id: atomic/network.attachable/single/13-user-modify-remote-delete
+field: networks.default.attachable
+class: atomic
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

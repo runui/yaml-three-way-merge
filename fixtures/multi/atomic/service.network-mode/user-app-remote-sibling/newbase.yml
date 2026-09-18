@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        network_mode: base-value
+    sidecar:
+        image: busybox:latest
+        network_mode: remote-value

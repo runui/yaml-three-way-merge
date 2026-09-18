@@ -1,0 +1,4 @@
+services:
+    app:
+        deploy:
+            endpoint_mode: user-value

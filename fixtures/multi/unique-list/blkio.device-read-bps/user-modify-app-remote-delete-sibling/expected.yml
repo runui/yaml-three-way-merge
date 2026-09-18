@@ -1,0 +1,9 @@
+services:
+    app:
+        blkio_config:
+            device_read_bps:
+                - path: /dev/a
+                  rate: 21mb
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

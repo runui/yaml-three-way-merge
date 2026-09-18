@@ -1,0 +1,10 @@
+services:
+    app:
+        devices: !reset []
+---
+services:
+    app:
+        devices:
+            - /dev/base-a:/dev/a
+            - /dev/base-b:/dev/b
+            - /dev/user-c:/dev/c

@@ -1,0 +1,8 @@
+volumes:
+    default:
+        driver_opts: !reset {}
+---
+volumes:
+    default:
+        driver_opts:
+            device: volume-option-b-base

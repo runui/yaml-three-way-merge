@@ -1,0 +1,6 @@
+id: atomic/service.depends-on.restart/single/09-user-modify
+field: services.app.depends_on.default.restart
+class: atomic
+scenario: 09-user-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

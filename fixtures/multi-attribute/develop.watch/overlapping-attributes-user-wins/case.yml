@@ -1,0 +1,6 @@
+id: multi-attribute/develop.watch/overlapping-attributes-user-wins
+field: services.app.develop.watch
+class: multi
+scenario: overlapping-attributes-user-wins
+description: both sides change the same attributes; user intent wins
+pair_semantics: logical-items

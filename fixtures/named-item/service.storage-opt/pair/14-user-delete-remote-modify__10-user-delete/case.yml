@@ -1,0 +1,6 @@
+id: named-item/service.storage-opt/pair/14-user-delete-remote-modify__10-user-delete
+field: services.app.storage_opt
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 10-user-delete
+pair_semantics: logical-items

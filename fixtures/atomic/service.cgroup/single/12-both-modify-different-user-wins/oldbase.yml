@@ -1,0 +1,4 @@
+services:
+    app:
+        cgroup: host
+        image: busybox:latest

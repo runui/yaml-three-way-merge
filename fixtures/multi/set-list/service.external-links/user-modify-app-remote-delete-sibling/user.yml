@@ -1,0 +1,8 @@
+services:
+    app:
+        external_links: !reset []
+---
+services:
+    app:
+        external_links:
+            - user:user-a

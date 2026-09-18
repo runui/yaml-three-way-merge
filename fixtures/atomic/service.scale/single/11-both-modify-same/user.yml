@@ -1,0 +1,7 @@
+services:
+    app:
+        scale: !reset []
+---
+services:
+    app:
+        scale: 2

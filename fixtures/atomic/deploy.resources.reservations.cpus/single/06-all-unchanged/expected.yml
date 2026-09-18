@@ -1,0 +1,7 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    cpus: 1
+        image: busybox:latest

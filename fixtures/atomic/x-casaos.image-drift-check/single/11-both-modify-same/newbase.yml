@@ -1,0 +1,5 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    image_drift_check: true

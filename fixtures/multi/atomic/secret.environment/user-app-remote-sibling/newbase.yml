@@ -1,0 +1,8 @@
+secrets:
+    default:
+        environment: base-value
+    other:
+        environment: remote-value
+services:
+    app:
+        image: busybox:latest

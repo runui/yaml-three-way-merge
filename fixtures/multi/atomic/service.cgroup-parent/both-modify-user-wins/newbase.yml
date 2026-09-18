@@ -1,0 +1,7 @@
+services:
+    app:
+        cgroup_parent: remote-value
+        image: busybox:latest
+    sidecar:
+        cgroup_parent: remote-value
+        image: busybox:latest

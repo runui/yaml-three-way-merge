@@ -1,0 +1,6 @@
+id: named-item/secret.driver-opts/pair/14-user-delete-remote-modify__06-all-unchanged
+field: secrets.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 06-all-unchanged
+pair_semantics: logical-items

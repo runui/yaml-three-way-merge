@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/10-user-delete__13-user-modify-remote-delete
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

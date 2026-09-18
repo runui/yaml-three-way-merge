@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            extra_hosts:
+                - build-host-b=remote
+                - build-host-c=base
+        image: busybox:latest

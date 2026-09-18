@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/07-remote-modify__14-user-delete-remote-modify
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

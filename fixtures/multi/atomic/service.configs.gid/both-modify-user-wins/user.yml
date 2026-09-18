@@ -1,0 +1,21 @@
+services:
+    app:
+        configs: !reset []
+---
+services:
+    app:
+        configs:
+            - gid: user-value
+              source: base
+              target: /run/config
+---
+services:
+    sidecar:
+        configs: !reset []
+---
+services:
+    sidecar:
+        configs:
+            - gid: user-value
+              source: base
+              target: /run/config

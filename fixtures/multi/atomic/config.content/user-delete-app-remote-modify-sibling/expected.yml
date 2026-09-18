@@ -1,0 +1,6 @@
+configs:
+    other:
+        content: remote-value
+services:
+    app:
+        image: busybox:latest

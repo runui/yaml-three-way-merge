@@ -1,0 +1,6 @@
+id: named-item/service.logging.options/pair/04-both-add-same__07-remote-modify
+field: services.app.logging.options
+class: named-item
+scenario: pair-cross-product
+description: 04-both-add-same combined with 07-remote-modify
+pair_semantics: logical-items

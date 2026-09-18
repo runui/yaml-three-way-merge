@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    tagline:
+        en: tagline-a-remote
+        zh-CN: tagline-b-user
+        zh-CN-c: tagline-b-remote

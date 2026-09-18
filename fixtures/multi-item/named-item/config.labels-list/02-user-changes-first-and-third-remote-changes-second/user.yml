@@ -1,0 +1,10 @@
+configs:
+    default:
+        labels: !reset []
+---
+configs:
+    default:
+        labels:
+            - config.label-a=user
+            - config.label-b=base
+            - config.label-c=user

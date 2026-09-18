@@ -1,0 +1,7 @@
+services:
+    app:
+        group_add:
+            - 1000-a
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

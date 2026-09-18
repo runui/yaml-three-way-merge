@@ -1,0 +1,12 @@
+services:
+    app:
+        build:
+            labels: !reset {}
+---
+services:
+    app:
+        build:
+            labels:
+                build.label-a: user
+                build.label-b: base
+                build.label-c: base

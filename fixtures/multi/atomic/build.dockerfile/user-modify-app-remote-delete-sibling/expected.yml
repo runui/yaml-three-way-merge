@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            dockerfile: user-value
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

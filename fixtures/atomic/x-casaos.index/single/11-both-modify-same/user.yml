@@ -1,0 +1,5 @@
+x-casaos:
+    index: !reset []
+---
+x-casaos:
+    index: user-value

@@ -1,0 +1,7 @@
+services:
+    app:
+        external_links:
+            - base:base-a
+            - remote:remote-b
+            - remote:remote-c
+        image: busybox:latest

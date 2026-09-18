@@ -1,0 +1,6 @@
+id: multi-item/ordered-list/top.include/04-user-modifies-first-remote-deletes-second
+field: include
+class: multi
+scenario: 04-user-modifies-first-remote-deletes-second
+description: user changes the first element while newbase deletes the second
+pair_semantics: logical-items

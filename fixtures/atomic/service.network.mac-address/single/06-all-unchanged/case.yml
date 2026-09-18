@@ -1,0 +1,6 @@
+id: atomic/service.network.mac-address/single/06-all-unchanged
+field: services.app.networks.default.mac_address
+class: atomic
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

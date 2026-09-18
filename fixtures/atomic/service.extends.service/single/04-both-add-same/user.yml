@@ -1,0 +1,4 @@
+services:
+    app:
+        extends:
+            service: user-value

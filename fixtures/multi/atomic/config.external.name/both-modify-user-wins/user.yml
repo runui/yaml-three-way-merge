@@ -1,0 +1,19 @@
+configs:
+    default:
+        external:
+            name: !reset []
+---
+configs:
+    default:
+        external:
+            name: user-value
+---
+configs:
+    other:
+        external:
+            name: !reset []
+---
+configs:
+    other:
+        external:
+            name: user-value

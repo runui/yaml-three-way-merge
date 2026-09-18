@@ -1,0 +1,7 @@
+services:
+    app:
+        cpu_count: 2
+        image: busybox:latest
+    sidecar:
+        cpu_count: 3
+        image: busybox:latest

@@ -1,0 +1,7 @@
+services:
+    app:
+        pids_limit: !reset []
+---
+services:
+    app:
+        pids_limit: 2

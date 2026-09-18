@@ -1,0 +1,5 @@
+services:
+    app:
+        image: user-value
+    sidecar:
+        image: busybox:latest

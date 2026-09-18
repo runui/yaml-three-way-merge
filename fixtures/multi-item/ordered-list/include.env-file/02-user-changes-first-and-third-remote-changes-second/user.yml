@@ -1,0 +1,9 @@
+include: !reset []
+---
+include:
+    - env_file:
+        - user.env-a
+        - base.env-b
+        - user.env-c
+      path:
+        - compose.yml

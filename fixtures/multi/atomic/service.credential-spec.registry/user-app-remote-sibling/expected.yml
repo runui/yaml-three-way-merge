@@ -1,0 +1,9 @@
+services:
+    app:
+        credential_spec:
+            registry: user-value
+        image: busybox:latest
+    sidecar:
+        credential_spec:
+            registry: remote-value
+        image: busybox:latest

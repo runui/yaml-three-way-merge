@@ -1,0 +1,15 @@
+services:
+    app:
+        cpuset: !reset []
+---
+services:
+    app:
+        cpuset: user-value
+---
+services:
+    sidecar:
+        cpuset: !reset []
+---
+services:
+    sidecar:
+        cpuset: user-value

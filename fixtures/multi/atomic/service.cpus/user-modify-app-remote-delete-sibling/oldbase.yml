@@ -1,0 +1,7 @@
+services:
+    app:
+        cpus: 1
+        image: busybox:latest
+    sidecar:
+        cpus: 1
+        image: busybox:latest

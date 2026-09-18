@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            context: !reset []
+---
+services:
+    app:
+        build:
+            context: user-value

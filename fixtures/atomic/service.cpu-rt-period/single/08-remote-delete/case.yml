@@ -1,0 +1,6 @@
+id: atomic/service.cpu-rt-period/single/08-remote-delete
+field: services.app.cpu_rt_period
+class: atomic
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

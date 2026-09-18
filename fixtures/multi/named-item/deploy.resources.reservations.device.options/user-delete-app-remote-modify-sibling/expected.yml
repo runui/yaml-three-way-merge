@@ -1,0 +1,14 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: nvidia
+                          options:
+                            b: device-option-b-remote
+        image: busybox:latest

@@ -1,0 +1,8 @@
+services:
+    app:
+        links: !reset []
+---
+services:
+    app:
+        links:
+            - user:user-a

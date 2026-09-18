@@ -4,4 +4,4 @@ services:
 ---
 services:
     app:
-        command: user-command-a
+        command: CMD user-a

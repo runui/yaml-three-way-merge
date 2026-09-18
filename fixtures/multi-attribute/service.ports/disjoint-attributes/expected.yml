@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+        ports:
+            - mode: ingress
+              protocol: tcp
+              published: "8282"
+              target: 80

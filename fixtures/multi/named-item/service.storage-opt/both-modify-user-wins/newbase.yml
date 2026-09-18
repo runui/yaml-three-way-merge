@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        storage_opt:
+            size: size-a-remote
+    sidecar:
+        image: busybox:latest
+        storage_opt:
+            driver: size-b-remote

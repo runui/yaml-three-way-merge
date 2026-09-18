@@ -1,0 +1,7 @@
+services:
+    app:
+        hostname: !reset []
+---
+services:
+    app:
+        hostname: user-value

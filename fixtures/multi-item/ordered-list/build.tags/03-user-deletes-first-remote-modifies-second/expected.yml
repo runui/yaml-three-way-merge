@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            tags:
+                - example:base-b
+                - example:base-c
+        image: busybox:latest

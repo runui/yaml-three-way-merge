@@ -1,0 +1,27 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    cpus: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    cpus: 2
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    cpus: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    cpus: 2

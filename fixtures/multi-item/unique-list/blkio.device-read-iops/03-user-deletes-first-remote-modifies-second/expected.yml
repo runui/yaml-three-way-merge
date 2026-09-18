@@ -1,0 +1,9 @@
+services:
+    app:
+        blkio_config:
+            device_read_iops:
+                - path: /dev/b
+                  rate: "13100"
+                - path: /dev/c
+                  rate: "21100"
+        image: busybox:latest

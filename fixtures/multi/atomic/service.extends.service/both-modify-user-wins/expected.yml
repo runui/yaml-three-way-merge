@@ -1,0 +1,9 @@
+services:
+    app:
+        extends:
+            service: user-value
+        image: busybox:latest
+    sidecar:
+        extends:
+            service: user-value
+        image: busybox:latest

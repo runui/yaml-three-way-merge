@@ -1,0 +1,6 @@
+id: multi/atomic/deploy.restart-policy.condition/both-modify-user-wins
+field: services.app.deploy.restart_policy.condition
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

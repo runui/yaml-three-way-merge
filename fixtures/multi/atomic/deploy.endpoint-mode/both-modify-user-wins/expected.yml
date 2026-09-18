@@ -1,0 +1,9 @@
+services:
+    app:
+        deploy:
+            endpoint_mode: user-value
+        image: busybox:latest
+    sidecar:
+        deploy:
+            endpoint_mode: user-value
+        image: busybox:latest

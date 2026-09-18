@@ -1,0 +1,6 @@
+id: multi/atomic/secret.external.name/both-modify-user-wins
+field: secrets.default.external.name
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

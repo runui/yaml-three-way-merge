@@ -1,0 +1,7 @@
+services:
+    app:
+        deploy:
+            replicas: 2
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,10 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            secrets:
+                - source: base
+                  target: /run/secrets/base
+                  uid: remote-value
+        image: busybox:latest

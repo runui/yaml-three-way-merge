@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        command:
+            - - CMD
+              - remote-a
+        image: busybox:latest

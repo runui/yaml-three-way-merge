@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            - base-net-a
+    sidecar:
+        image: busybox:latest
+        networks:
+            - base-net-b

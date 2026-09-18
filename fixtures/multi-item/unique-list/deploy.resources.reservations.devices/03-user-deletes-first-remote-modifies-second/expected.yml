@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - tpu
+                          driver: remote-b
+                        - capabilities:
+                            - npu
+                          driver: base-c
+        image: busybox:latest

@@ -1,0 +1,7 @@
+services:
+    app:
+        stop_grace_period: !reset []
+---
+services:
+    app:
+        stop_grace_period: 2s

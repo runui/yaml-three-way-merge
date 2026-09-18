@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            update_config:
+                parallelism: !reset []
+---
+services:
+    app:
+        deploy:
+            update_config:
+                parallelism: 2

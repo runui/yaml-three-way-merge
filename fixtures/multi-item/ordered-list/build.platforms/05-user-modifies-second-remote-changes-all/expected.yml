@@ -1,0 +1,8 @@
+services:
+    app:
+        build:
+            platforms:
+                - linux/amd64
+                - linux/ppc64le
+                - linux/riscv64
+        image: busybox:latest

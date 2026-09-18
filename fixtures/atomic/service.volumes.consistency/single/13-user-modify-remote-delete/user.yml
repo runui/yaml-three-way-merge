@@ -1,0 +1,11 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - consistency: user-value
+              source: /host
+              target: /container
+              type: bind

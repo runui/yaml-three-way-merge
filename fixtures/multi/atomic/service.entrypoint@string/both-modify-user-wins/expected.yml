@@ -1,0 +1,7 @@
+services:
+    app:
+        entrypoint: CMD user-a
+        image: busybox:latest
+    sidecar:
+        entrypoint: CMD user-a
+        image: busybox:latest

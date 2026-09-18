@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            pull: !reset []
+---
+services:
+    app:
+        build:
+            pull: true
+---
+services:
+    sidecar:
+        build:
+            pull: !reset []
+---
+services:
+    sidecar:
+        build:
+            pull: true

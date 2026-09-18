@@ -1,0 +1,6 @@
+id: multi/set-list/service.network.aliases/user-app-remote-sibling
+field: services.app.networks.default.aliases
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

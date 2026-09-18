@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - read_only: true
+              source: /remote
+              target: /container
+              type: bind

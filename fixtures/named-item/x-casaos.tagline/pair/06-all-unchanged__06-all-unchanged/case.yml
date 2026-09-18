@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/06-all-unchanged__06-all-unchanged
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 06-all-unchanged
+pair_semantics: logical-items

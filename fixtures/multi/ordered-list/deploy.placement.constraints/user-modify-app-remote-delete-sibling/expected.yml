@@ -1,0 +1,9 @@
+services:
+    app:
+        deploy:
+            placement:
+                constraints:
+                    - node.labels.zone==user-a
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

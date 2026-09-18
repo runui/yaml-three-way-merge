@@ -1,0 +1,6 @@
+id: named-item/network.ipam.options/pair/07-remote-modify__01-all-absent
+field: networks.default.ipam.options
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 01-all-absent
+pair_semantics: logical-items

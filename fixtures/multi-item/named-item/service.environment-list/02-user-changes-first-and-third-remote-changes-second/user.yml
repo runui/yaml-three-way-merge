@@ -1,0 +1,10 @@
+services:
+    app:
+        environment: !reset []
+---
+services:
+    app:
+        environment:
+            - ENV-a=user
+            - ENV-b=base
+            - ENV-c=user

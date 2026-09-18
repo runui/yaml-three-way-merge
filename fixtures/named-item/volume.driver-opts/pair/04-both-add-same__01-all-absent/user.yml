@@ -1,0 +1,4 @@
+volumes:
+    default:
+        driver_opts:
+            type: volume-option-a-user

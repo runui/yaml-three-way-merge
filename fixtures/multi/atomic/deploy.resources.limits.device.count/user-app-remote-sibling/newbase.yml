@@ -1,0 +1,21 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          count: 1
+                          driver: nvidia
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          count: 3
+                          driver: nvidia
+        image: busybox:latest

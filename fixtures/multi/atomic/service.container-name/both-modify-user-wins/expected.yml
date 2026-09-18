@@ -1,0 +1,7 @@
+services:
+    app:
+        container_name: user-value
+        image: busybox:latest
+    sidecar:
+        container_name: user-value
+        image: busybox:latest

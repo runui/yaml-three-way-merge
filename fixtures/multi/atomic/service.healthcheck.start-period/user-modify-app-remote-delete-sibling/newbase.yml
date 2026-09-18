@@ -1,0 +1,7 @@
+services:
+    app:
+        healthcheck:
+            start_period: 1s
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

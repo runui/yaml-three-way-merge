@@ -1,0 +1,15 @@
+volumes:
+    default:
+        driver: !reset []
+---
+volumes:
+    default:
+        driver: user-value
+---
+volumes:
+    other:
+        driver: !reset []
+---
+volumes:
+    other:
+        driver: user-value

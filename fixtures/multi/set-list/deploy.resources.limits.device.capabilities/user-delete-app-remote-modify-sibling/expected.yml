@@ -1,0 +1,18 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities: []
+                          driver: nvidia
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - npu-b
+                          driver: nvidia
+        image: busybox:latest

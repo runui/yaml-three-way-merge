@@ -1,0 +1,7 @@
+services:
+    app:
+        devices:
+            - /dev/base-a:/dev/a
+            - /dev/base-b:/dev/b
+            - /dev/base-c:/dev/c
+        image: busybox:latest

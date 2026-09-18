@@ -1,0 +1,8 @@
+services:
+    app:
+        build:
+            secrets:
+                - mode: 2
+                  source: base
+                  target: /run/secrets/base
+        image: busybox:latest

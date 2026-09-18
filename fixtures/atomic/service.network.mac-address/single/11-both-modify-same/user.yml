@@ -1,0 +1,11 @@
+services:
+    app:
+        networks:
+            default:
+                mac_address: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                mac_address: user-value

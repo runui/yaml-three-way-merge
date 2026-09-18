@@ -1,0 +1,5 @@
+services:
+    app:
+        networks:
+            default:
+                ipv6_address: user-value

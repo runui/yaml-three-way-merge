@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                delay: !reset []
+---
+services:
+    app:
+        deploy:
+            restart_policy:
+                delay: 2s
+---
+services:
+    sidecar:
+        deploy:
+            restart_policy:
+                delay: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            restart_policy:
+                delay: 2s

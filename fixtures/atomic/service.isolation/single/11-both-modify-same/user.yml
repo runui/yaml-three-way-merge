@@ -1,0 +1,7 @@
+services:
+    app:
+        isolation: !reset []
+---
+services:
+    app:
+        isolation: user-value

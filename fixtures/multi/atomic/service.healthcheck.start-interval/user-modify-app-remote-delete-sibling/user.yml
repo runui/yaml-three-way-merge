@@ -1,0 +1,9 @@
+services:
+    app:
+        healthcheck:
+            start_interval: !reset []
+---
+services:
+    app:
+        healthcheck:
+            start_interval: 2s

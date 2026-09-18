@@ -1,0 +1,6 @@
+id: named-item/service.ulimits/single/07-remote-modify
+field: services.app.ulimits
+class: named-item
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

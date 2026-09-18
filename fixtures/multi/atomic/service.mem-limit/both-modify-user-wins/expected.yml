@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        mem_limit: 2
+    sidecar:
+        image: busybox:latest
+        mem_limit: 2

@@ -1,0 +1,17 @@
+services:
+    app:
+        annotations: !reset []
+---
+services:
+    app:
+        annotations:
+            - annotation-a=user
+---
+services:
+    sidecar:
+        annotations: !reset []
+---
+services:
+    sidecar:
+        annotations:
+            - annotation-b=user

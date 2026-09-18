@@ -1,0 +1,5 @@
+services:
+    app:
+        networks:
+            default:
+                priority: 2

@@ -1,0 +1,6 @@
+configs:
+    default:
+        content: user-value
+services:
+    app:
+        image: busybox:latest

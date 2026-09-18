@@ -1,0 +1,9 @@
+services:
+    app:
+        device_cgroup_rules:
+            - c 1:5 rwm-a
+        image: busybox:latest
+    sidecar:
+        device_cgroup_rules:
+            - c 1:7 rwm-b
+        image: busybox:latest

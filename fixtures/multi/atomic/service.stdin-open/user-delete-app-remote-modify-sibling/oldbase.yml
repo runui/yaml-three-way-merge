@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        stdin_open: false
+    sidecar:
+        image: busybox:latest
+        stdin_open: false

@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest
+        ulimits:
+            nproc:
+                hard: 400
+                soft: 300

@@ -1,0 +1,15 @@
+services:
+    app:
+        cpu_shares: !reset []
+---
+services:
+    app:
+        cpu_shares: 2
+---
+services:
+    sidecar:
+        cpu_shares: !reset []
+---
+services:
+    sidecar:
+        cpu_shares: 2

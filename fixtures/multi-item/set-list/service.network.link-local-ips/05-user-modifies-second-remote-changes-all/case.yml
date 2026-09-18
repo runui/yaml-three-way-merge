@@ -1,0 +1,6 @@
+id: multi-item/set-list/service.network.link-local-ips/05-user-modifies-second-remote-changes-all
+field: services.app.networks.default.link_local_ips
+class: multi
+scenario: 05-user-modifies-second-remote-changes-all
+description: newbase changes all three elements while user only changes the second
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: atomic/service.network.ipv4-address/single/11-both-modify-same
+field: services.app.networks.default.ipv4_address
+class: atomic
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

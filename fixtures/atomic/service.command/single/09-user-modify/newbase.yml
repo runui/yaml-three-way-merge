@@ -1,5 +1,6 @@
 services:
     app:
         command:
-            - base-command-a
+            - - CMD
+              - base-a
         image: busybox:latest

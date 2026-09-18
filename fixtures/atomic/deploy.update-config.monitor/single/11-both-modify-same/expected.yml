@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            update_config:
+                monitor: 2s
+        image: busybox:latest

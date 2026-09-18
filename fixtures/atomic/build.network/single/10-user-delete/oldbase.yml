@@ -1,0 +1,5 @@
+services:
+    app:
+        build:
+            network: base-value
+        image: busybox:latest

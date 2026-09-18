@@ -1,0 +1,6 @@
+secrets:
+    default:
+        file: base-value
+services:
+    app:
+        image: busybox:latest

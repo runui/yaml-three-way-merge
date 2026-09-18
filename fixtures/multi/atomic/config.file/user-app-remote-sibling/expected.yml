@@ -1,0 +1,8 @@
+configs:
+    default:
+        file: user-value
+    other:
+        file: remote-value
+services:
+    app:
+        image: busybox:latest

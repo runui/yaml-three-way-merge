@@ -1,0 +1,6 @@
+id: multi-item/unique-list/build.secrets/05-user-modifies-second-remote-changes-all
+field: services.app.build.secrets
+class: multi
+scenario: 05-user-modifies-second-remote-changes-all
+description: newbase changes all three elements while user only changes the second
+pair_semantics: logical-items

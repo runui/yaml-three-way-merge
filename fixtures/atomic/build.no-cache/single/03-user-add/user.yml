@@ -1,0 +1,4 @@
+services:
+    app:
+        build:
+            no_cache: true

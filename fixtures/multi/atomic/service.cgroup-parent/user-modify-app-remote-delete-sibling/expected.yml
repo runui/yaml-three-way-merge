@@ -1,0 +1,6 @@
+services:
+    app:
+        cgroup_parent: user-value
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

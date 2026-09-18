@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            dockerfile_inline: remote-value
+        image: busybox:latest

@@ -1,0 +1,5 @@
+services:
+    app:
+        credential_spec:
+            config: user-value
+        image: busybox:latest

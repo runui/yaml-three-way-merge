@@ -1,0 +1,6 @@
+id: atomic/deploy.rollback-config.parallelism/single/14-user-delete-remote-modify
+field: services.app.deploy.rollback_config.parallelism
+class: atomic
+scenario: 14-user-delete-remote-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

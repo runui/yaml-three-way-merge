@@ -1,0 +1,6 @@
+id: named-item/x-casaos.title/pair/05-both-add-different-user-wins__15-both-delete
+field: x-casaos.title
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 15-both-delete
+pair_semantics: logical-items

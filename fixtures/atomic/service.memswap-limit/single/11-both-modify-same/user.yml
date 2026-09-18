@@ -1,0 +1,7 @@
+services:
+    app:
+        memswap_limit: !reset []
+---
+services:
+    app:
+        memswap_limit: 2

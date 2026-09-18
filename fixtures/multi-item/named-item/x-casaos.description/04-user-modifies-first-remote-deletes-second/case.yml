@@ -1,0 +1,6 @@
+id: multi-item/named-item/x-casaos.description/04-user-modifies-first-remote-deletes-second
+field: x-casaos.description
+class: multi
+scenario: 04-user-modifies-first-remote-deletes-second
+description: user changes the first element while newbase deletes the second
+pair_semantics: logical-items

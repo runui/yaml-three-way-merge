@@ -1,0 +1,4 @@
+services:
+    app:
+        cpu_count: 3
+        image: busybox:latest

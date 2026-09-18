@@ -1,0 +1,9 @@
+services:
+    app:
+        healthcheck:
+            interval: 1s
+        image: busybox:latest
+    sidecar:
+        healthcheck:
+            interval: 1s
+        image: busybox:latest

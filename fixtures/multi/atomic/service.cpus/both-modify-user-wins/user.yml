@@ -1,0 +1,15 @@
+services:
+    app:
+        cpus: !reset []
+---
+services:
+    app:
+        cpus: 2
+---
+services:
+    sidecar:
+        cpus: !reset []
+---
+services:
+    sidecar:
+        cpus: 2

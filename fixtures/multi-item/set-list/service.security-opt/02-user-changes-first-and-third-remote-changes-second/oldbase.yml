@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        security_opt:
+            - label=base-a
+            - label=base-b
+            - label=base-c

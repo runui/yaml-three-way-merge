@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/01-all-absent__15-both-delete
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 15-both-delete
+pair_semantics: logical-items

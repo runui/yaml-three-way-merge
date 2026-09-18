@@ -1,0 +1,6 @@
+id: named-item/service.logging.options/pair/02-remote-add__12-both-modify-different-user-wins
+field: services.app.logging.options
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

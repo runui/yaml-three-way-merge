@@ -1,0 +1,8 @@
+services:
+    app:
+        deploy:
+            update_config:
+                delay: 2s
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

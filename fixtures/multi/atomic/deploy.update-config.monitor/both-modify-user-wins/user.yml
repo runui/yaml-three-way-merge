@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            update_config:
+                monitor: !reset []
+---
+services:
+    app:
+        deploy:
+            update_config:
+                monitor: 2s
+---
+services:
+    sidecar:
+        deploy:
+            update_config:
+                monitor: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            update_config:
+                monitor: 2s

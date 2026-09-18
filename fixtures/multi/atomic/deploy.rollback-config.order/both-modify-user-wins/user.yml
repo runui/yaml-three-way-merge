@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                order: !reset []
+---
+services:
+    app:
+        deploy:
+            rollback_config:
+                order: stop-first
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                order: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                order: stop-first

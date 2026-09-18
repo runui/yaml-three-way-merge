@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        logging:
+            options:
+                max-file: max-size-b-user
+                max-size: max-size-a-remote

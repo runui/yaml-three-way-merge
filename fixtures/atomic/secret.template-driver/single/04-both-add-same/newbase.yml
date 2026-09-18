@@ -1,0 +1,6 @@
+secrets:
+    default:
+        template_driver: user-value
+services:
+    app:
+        image: busybox:latest

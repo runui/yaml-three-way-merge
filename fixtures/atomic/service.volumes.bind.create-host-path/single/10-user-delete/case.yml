@@ -1,0 +1,6 @@
+id: atomic/service.volumes.bind.create-host-path/single/10-user-delete
+field: services.app.volumes[].bind.create_host_path
+class: atomic
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

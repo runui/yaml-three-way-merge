@@ -1,0 +1,7 @@
+secrets:
+    default:
+        external: !reset []
+---
+secrets:
+    default:
+        external: true

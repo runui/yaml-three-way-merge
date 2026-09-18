@@ -1,0 +1,6 @@
+id: atomic/deploy.rollback-config.failure-action/single/07-remote-modify
+field: services.app.deploy.rollback_config.failure_action
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

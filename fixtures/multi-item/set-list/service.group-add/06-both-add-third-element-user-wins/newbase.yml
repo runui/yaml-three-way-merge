@@ -1,0 +1,7 @@
+services:
+    app:
+        group_add:
+            - 1000-a
+            - 1002-b
+            - 1002-c
+        image: busybox:latest

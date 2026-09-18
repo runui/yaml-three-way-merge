@@ -1,0 +1,7 @@
+services:
+    app:
+        userns_mode: !reset []
+---
+services:
+    app:
+        userns_mode: user-value

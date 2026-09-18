@@ -1,0 +1,6 @@
+id: atomic/service.network.ipv4-address/single/14-user-delete-remote-modify
+field: services.app.networks.default.ipv4_address
+class: atomic
+scenario: 14-user-delete-remote-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        labels:
+            - label-a=user
+            - label-b=remote
+            - label-c=base

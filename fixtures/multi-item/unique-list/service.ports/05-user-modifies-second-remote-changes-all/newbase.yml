@@ -1,0 +1,13 @@
+services:
+    app:
+        image: busybox:latest
+        ports:
+            - protocol: tcp
+              published: "9081"
+              target: 80
+            - protocol: tcp
+              published: "9082"
+              target: 81
+            - protocol: tcp
+              published: "9083"
+              target: 82

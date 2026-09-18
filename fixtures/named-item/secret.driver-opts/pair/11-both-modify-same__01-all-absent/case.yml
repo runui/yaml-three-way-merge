@@ -1,0 +1,6 @@
+id: named-item/secret.driver-opts/pair/11-both-modify-same__01-all-absent
+field: secrets.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 01-all-absent
+pair_semantics: logical-items

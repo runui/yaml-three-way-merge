@@ -1,0 +1,6 @@
+id: named-item/deploy.labels-list@map/pair/02-remote-add__13-user-modify-remote-delete
+field: services.app.deploy.labels
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

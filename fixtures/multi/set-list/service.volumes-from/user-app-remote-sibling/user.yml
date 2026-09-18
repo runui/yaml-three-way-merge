@@ -1,0 +1,8 @@
+services:
+    app:
+        volumes_from: !reset []
+---
+services:
+    app:
+        volumes_from:
+            - user:ro-a

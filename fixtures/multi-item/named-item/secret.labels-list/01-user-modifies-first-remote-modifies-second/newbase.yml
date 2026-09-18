@@ -1,0 +1,9 @@
+secrets:
+    default:
+        labels:
+            - secret.label-a=base
+            - secret.label-b=remote
+            - secret.label-c=base
+services:
+    app:
+        image: busybox:latest

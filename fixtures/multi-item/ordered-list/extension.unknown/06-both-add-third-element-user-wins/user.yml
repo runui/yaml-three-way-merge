@@ -1,0 +1,8 @@
+x-validation:
+    items: !reset []
+---
+x-validation:
+    items:
+        - base-a
+        - base-b
+        - user-c

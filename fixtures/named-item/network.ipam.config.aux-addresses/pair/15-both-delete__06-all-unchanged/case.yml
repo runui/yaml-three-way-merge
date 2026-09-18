@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/15-both-delete__06-all-unchanged
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 06-all-unchanged
+pair_semantics: logical-items

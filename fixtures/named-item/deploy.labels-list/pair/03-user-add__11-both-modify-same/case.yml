@@ -1,0 +1,6 @@
+id: named-item/deploy.labels-list/pair/03-user-add__11-both-modify-same
+field: services.app.deploy.labels
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 11-both-modify-same
+pair_semantics: logical-items

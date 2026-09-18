@@ -1,0 +1,15 @@
+configs:
+    default:
+        environment: !reset []
+---
+configs:
+    default:
+        environment: user-value
+---
+configs:
+    other:
+        environment: !reset []
+---
+configs:
+    other:
+        environment: user-value

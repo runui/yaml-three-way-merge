@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                max_failure_ratio: !reset []
+---
+services:
+    app:
+        deploy:
+            rollback_config:
+                max_failure_ratio: 0.2
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                max_failure_ratio: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                max_failure_ratio: 0.2

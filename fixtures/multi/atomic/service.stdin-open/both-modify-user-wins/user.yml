@@ -1,0 +1,15 @@
+services:
+    app:
+        stdin_open: !reset []
+---
+services:
+    app:
+        stdin_open: true
+---
+services:
+    sidecar:
+        stdin_open: !reset []
+---
+services:
+    sidecar:
+        stdin_open: true

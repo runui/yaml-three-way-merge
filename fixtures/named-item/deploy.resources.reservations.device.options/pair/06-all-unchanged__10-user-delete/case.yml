@@ -1,0 +1,6 @@
+id: named-item/deploy.resources.reservations.device.options/pair/06-all-unchanged__10-user-delete
+field: services.app.deploy.resources.reservations.devices[].options
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 10-user-delete
+pair_semantics: logical-items

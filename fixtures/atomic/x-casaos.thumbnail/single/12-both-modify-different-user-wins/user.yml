@@ -1,0 +1,5 @@
+x-casaos:
+    thumbnail: !reset []
+---
+x-casaos:
+    thumbnail: user-value

@@ -1,0 +1,9 @@
+configs:
+    default:
+        labels:
+            - config.label-a=remote
+            - config.label-b=user
+            - config.label-c=remote
+services:
+    app:
+        image: busybox:latest

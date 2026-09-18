@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            labels:
+                - build.label-b=remote
+        image: busybox:latest

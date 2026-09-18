@@ -1,5 +1,6 @@
 services:
     app:
         entrypoint:
-            - base-entrypoint-a
+            - - CMD
+              - base-a
         image: busybox:latest

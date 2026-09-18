@@ -1,0 +1,19 @@
+volumes:
+    default:
+        external:
+            name: !reset []
+---
+volumes:
+    default:
+        external:
+            name: user-value
+---
+volumes:
+    other:
+        external:
+            name: !reset []
+---
+volumes:
+    other:
+        external:
+            name: user-value

@@ -1,0 +1,6 @@
+id: named-item/service.ulimits/pair/09-user-modify__15-both-delete
+field: services.app.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 15-both-delete
+pair_semantics: logical-items

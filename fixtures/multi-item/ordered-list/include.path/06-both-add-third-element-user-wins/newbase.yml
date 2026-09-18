@@ -1,0 +1,8 @@
+include:
+    - path:
+        - base.yml-a
+        - remote.yml-b
+        - remote.yml-c
+services:
+    app:
+        image: busybox:latest

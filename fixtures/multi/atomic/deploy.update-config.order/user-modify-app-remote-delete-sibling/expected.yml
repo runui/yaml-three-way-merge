@@ -1,0 +1,8 @@
+services:
+    app:
+        deploy:
+            update_config:
+                order: stop-first
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,11 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                priority: 1
+    sidecar:
+        image: busybox:latest
+        networks:
+            default:
+                priority: 3

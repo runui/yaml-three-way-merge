@@ -1,0 +1,19 @@
+services:
+    app:
+        healthcheck:
+            retries: !reset []
+---
+services:
+    app:
+        healthcheck:
+            retries: 2
+---
+services:
+    sidecar:
+        healthcheck:
+            retries: !reset []
+---
+services:
+    sidecar:
+        healthcheck:
+            retries: 2

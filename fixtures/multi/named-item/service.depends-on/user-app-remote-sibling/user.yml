@@ -1,0 +1,8 @@
+services:
+    app:
+        depends_on: !reset []
+---
+services:
+    app:
+        depends_on:
+            - user-dependency-a

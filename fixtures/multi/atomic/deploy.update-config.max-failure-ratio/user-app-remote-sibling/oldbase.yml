@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            update_config:
+                max_failure_ratio: 0.1
+        image: busybox:latest
+    sidecar:
+        deploy:
+            update_config:
+                max_failure_ratio: 0.1
+        image: busybox:latest

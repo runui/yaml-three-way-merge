@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        dns_opt:
+            - single-request-b
+        image: busybox:latest

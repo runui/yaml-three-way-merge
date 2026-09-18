@@ -1,0 +1,6 @@
+id: named-item/volume.driver-opts/pair/03-user-add__03-user-add
+field: volumes.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 03-user-add
+pair_semantics: logical-items

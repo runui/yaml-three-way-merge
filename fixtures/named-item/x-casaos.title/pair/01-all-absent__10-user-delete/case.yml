@@ -1,0 +1,6 @@
+id: named-item/x-casaos.title/pair/01-all-absent__10-user-delete
+field: x-casaos.title
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 10-user-delete
+pair_semantics: logical-items

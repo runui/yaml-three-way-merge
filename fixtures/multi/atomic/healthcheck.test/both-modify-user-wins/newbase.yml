@@ -1,0 +1,13 @@
+services:
+    app:
+        healthcheck:
+            test:
+                - - CMD
+                  - remote-a
+        image: busybox:latest
+    sidecar:
+        healthcheck:
+            test:
+                - - CMD
+                  - remote-a
+        image: busybox:latest

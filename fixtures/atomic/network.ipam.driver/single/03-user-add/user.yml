@@ -1,0 +1,4 @@
+networks:
+    default:
+        ipam:
+            driver: user-value

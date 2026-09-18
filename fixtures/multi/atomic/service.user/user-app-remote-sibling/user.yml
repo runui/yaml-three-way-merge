@@ -1,0 +1,7 @@
+services:
+    app:
+        user: !reset []
+---
+services:
+    app:
+        user: user-value

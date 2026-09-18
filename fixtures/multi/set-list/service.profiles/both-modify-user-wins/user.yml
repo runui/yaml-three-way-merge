@@ -1,0 +1,17 @@
+services:
+    app:
+        profiles: !reset []
+---
+services:
+    app:
+        profiles:
+            - user-a
+---
+services:
+    sidecar:
+        profiles: !reset []
+---
+services:
+    sidecar:
+        profiles:
+            - user-b

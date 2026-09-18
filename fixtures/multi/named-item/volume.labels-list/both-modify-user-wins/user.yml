@@ -1,0 +1,17 @@
+volumes:
+    default:
+        labels: !reset []
+---
+volumes:
+    default:
+        labels:
+            - volume.label-a=user
+---
+volumes:
+    other:
+        labels: !reset []
+---
+volumes:
+    other:
+        labels:
+            - volume.label-b=user

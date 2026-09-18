@@ -1,0 +1,7 @@
+services:
+    app:
+        cpus: !reset []
+---
+services:
+    app:
+        cpus: 2

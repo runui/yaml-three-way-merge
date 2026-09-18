@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/15-both-delete__03-user-add
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 03-user-add
+pair_semantics: logical-items

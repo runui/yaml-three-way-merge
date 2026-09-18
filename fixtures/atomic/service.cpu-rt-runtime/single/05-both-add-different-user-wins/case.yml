@@ -1,0 +1,6 @@
+id: atomic/service.cpu-rt-runtime/single/05-both-add-different-user-wins
+field: services.app.cpu_rt_runtime
+class: atomic
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

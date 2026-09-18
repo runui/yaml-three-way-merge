@@ -1,0 +1,9 @@
+services:
+    app:
+        healthcheck:
+            disable: true
+        image: busybox:latest
+    sidecar:
+        healthcheck:
+            disable: true
+        image: busybox:latest

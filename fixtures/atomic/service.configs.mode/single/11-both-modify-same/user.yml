@@ -1,0 +1,10 @@
+services:
+    app:
+        configs: !reset []
+---
+services:
+    app:
+        configs:
+            - mode: 2
+              source: base
+              target: /run/config

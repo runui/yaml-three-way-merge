@@ -1,0 +1,6 @@
+include: !reset []
+---
+include:
+    - ./base.yml
+    - ./user-b.yml
+    - ./base-c.yml

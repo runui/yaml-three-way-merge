@@ -1,0 +1,6 @@
+id: atomic/network.ipam.driver/single/01-all-absent
+field: networks.default.ipam.driver
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

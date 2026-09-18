@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        sysctls:
+            net.core.value-a: user
+    sidecar:
+        image: busybox:latest

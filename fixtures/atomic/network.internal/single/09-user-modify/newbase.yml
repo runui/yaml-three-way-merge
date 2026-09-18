@@ -1,0 +1,6 @@
+networks:
+    default:
+        internal: false
+services:
+    app:
+        image: busybox:latest

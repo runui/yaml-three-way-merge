@@ -1,0 +1,9 @@
+services:
+    app:
+        cap_add:
+            - SYS_ADMIN-a
+        image: busybox:latest
+    sidecar:
+        cap_add:
+            - SYS_ADMIN-b
+        image: busybox:latest

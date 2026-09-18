@@ -1,0 +1,5 @@
+services:
+    app:
+        credential_spec:
+            registry: user-value
+        image: busybox:latest

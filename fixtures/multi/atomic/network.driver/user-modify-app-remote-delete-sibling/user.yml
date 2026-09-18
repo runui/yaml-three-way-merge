@@ -1,0 +1,7 @@
+networks:
+    default:
+        driver: !reset []
+---
+networks:
+    default:
+        driver: user-value

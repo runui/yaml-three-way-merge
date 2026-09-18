@@ -1,0 +1,25 @@
+services:
+    app:
+        networks:
+            default:
+                aliases: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                aliases:
+                    - user-alias-a
+---
+services:
+    sidecar:
+        networks:
+            default:
+                aliases: !reset []
+---
+services:
+    sidecar:
+        networks:
+            default:
+                aliases:
+                    - user-alias-b

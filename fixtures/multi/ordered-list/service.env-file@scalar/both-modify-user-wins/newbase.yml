@@ -1,0 +1,7 @@
+services:
+    app:
+        env_file: remote.env-a
+        image: busybox:latest
+    sidecar:
+        env_file: remote.env-b
+        image: busybox:latest

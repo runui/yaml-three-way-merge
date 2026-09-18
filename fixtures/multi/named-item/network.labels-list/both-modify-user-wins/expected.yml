@@ -1,0 +1,10 @@
+networks:
+    default:
+        labels:
+            - network.label-a=user
+    other:
+        labels:
+            - network.label-b=user
+services:
+    app:
+        image: busybox:latest

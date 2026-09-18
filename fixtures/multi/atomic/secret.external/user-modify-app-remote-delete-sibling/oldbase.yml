@@ -1,0 +1,8 @@
+secrets:
+    default:
+        external: false
+    other:
+        external: false
+services:
+    app:
+        image: busybox:latest

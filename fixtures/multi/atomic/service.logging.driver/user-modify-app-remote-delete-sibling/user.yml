@@ -1,0 +1,9 @@
+services:
+    app:
+        logging:
+            driver: !reset []
+---
+services:
+    app:
+        logging:
+            driver: user-value

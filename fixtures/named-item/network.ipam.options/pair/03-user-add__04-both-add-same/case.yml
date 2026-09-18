@@ -1,0 +1,6 @@
+id: named-item/network.ipam.options/pair/03-user-add__04-both-add-same
+field: networks.default.ipam.options
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 04-both-add-same
+pair_semantics: logical-items

@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    pids: 3
+        image: busybox:latest

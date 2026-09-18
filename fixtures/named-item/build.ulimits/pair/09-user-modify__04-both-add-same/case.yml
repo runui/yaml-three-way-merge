@@ -1,0 +1,6 @@
+id: named-item/build.ulimits/pair/09-user-modify__04-both-add-same
+field: services.app.build.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 04-both-add-same
+pair_semantics: logical-items

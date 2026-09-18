@@ -1,0 +1,6 @@
+id: named-item/network.driver-opts/single/06-all-unchanged
+field: networks.default.driver_opts
+class: named-item
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

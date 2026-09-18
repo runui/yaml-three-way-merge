@@ -1,0 +1,5 @@
+services:
+    app:
+        extends:
+            file: user-value
+        image: busybox:latest

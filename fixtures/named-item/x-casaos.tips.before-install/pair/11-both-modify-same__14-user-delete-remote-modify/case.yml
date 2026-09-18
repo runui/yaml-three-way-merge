@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/pair/11-both-modify-same__14-user-delete-remote-modify
+field: x-casaos.tips.before_install
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

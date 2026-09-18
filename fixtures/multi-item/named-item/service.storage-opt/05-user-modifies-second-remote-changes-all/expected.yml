@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        storage_opt:
+            driver: size-b-user
+            driver-c: size-b-remote
+            size: size-a-remote

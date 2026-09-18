@@ -1,0 +1,6 @@
+id: named-item/service.logging.options/pair/09-user-modify__09-user-modify
+field: services.app.logging.options
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 09-user-modify
+pair_semantics: logical-items

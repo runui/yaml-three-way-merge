@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        cpu_period: 3
+        image: busybox:latest

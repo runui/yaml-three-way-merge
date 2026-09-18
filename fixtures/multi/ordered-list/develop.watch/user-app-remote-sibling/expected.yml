@@ -1,0 +1,13 @@
+services:
+    app:
+        develop:
+            watch:
+                - action: sync
+                  path: ./user-a
+        image: busybox:latest
+    sidecar:
+        develop:
+            watch:
+                - action: sync
+                  path: ./remote-b
+        image: busybox:latest

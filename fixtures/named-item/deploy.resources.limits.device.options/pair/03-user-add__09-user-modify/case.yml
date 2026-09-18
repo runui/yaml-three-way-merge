@@ -1,0 +1,6 @@
+id: named-item/deploy.resources.limits.device.options/pair/03-user-add__09-user-modify
+field: services.app.deploy.resources.limits.devices[].options
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 09-user-modify
+pair_semantics: logical-items

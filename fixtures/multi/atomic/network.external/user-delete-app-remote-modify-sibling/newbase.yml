@@ -1,0 +1,8 @@
+networks:
+    default:
+        external: false
+    other:
+        external: true
+services:
+    app:
+        image: busybox:latest

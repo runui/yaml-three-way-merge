@@ -1,0 +1,6 @@
+id: named-item/service.storage-opt/pair/03-user-add__01-all-absent
+field: services.app.storage_opt
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 01-all-absent
+pair_semantics: logical-items

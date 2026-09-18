@@ -1,0 +1,15 @@
+services:
+    app:
+        scale: !reset []
+---
+services:
+    app:
+        scale: 2
+---
+services:
+    sidecar:
+        scale: !reset []
+---
+services:
+    sidecar:
+        scale: 2

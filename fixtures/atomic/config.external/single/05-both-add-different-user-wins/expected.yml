@@ -1,0 +1,6 @@
+configs:
+    default:
+        external: true
+services:
+    app:
+        image: busybox:latest

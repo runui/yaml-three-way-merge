@@ -1,0 +1,7 @@
+services:
+    app:
+        mac_address: !reset []
+---
+services:
+    app:
+        mac_address: user-value

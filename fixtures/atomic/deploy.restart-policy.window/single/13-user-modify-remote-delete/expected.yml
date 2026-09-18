@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                window: 2s
+        image: busybox:latest

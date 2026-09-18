@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    image:
+        en: image-a-user
+        zh-CN: image-b-remote
+        zh-CN-c: image-b-base

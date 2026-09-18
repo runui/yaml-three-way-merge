@@ -1,0 +1,6 @@
+x-casaos:
+    tagline: !reset {}
+---
+x-casaos:
+    tagline:
+        zh-CN: tagline-b-user

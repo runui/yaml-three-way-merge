@@ -1,0 +1,6 @@
+id: named-item/deploy.labels-list/pair/14-user-delete-remote-modify__11-both-modify-same
+field: services.app.deploy.labels
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 11-both-modify-same
+pair_semantics: logical-items

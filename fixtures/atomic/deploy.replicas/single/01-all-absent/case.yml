@@ -1,0 +1,6 @@
+id: atomic/deploy.replicas/single/01-all-absent
+field: services.app.deploy.replicas
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

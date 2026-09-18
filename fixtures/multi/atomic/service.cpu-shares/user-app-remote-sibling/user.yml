@@ -1,0 +1,7 @@
+services:
+    app:
+        cpu_shares: !reset []
+---
+services:
+    app:
+        cpu_shares: 2

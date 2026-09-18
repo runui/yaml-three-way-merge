@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    memory: user-value
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    memory: user-value
+        image: busybox:latest

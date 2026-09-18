@@ -1,0 +1,6 @@
+id: atomic/network.ipam.config.ip-range/single/01-all-absent
+field: networks.default.ipam.config[].ip_range
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

@@ -1,0 +1,14 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: nvidia
+                          options:
+                            a: device-option-a-user
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/06-all-unchanged__02-remote-add
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 02-remote-add
+pair_semantics: logical-items

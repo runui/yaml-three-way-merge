@@ -1,0 +1,7 @@
+networks:
+    default:
+        enable_ipv6: !reset []
+---
+networks:
+    default:
+        enable_ipv6: true

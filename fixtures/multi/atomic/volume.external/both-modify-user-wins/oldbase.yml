@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    default:
+        external: false
+    other:
+        external: false

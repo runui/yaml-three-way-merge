@@ -1,0 +1,7 @@
+networks:
+    default:
+        name: !reset []
+---
+networks:
+    default:
+        name: user-value

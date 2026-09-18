@@ -1,0 +1,6 @@
+id: multi-item/named-item/build.labels-list@map/02-user-changes-first-and-third-remote-changes-second
+field: services.app.build.labels
+class: multi
+scenario: 02-user-changes-first-and-third-remote-changes-second
+description: user changes the first and third elements while newbase changes the second
+pair_semantics: logical-items

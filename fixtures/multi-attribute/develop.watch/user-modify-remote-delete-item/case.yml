@@ -1,0 +1,6 @@
+id: multi-attribute/develop.watch/user-modify-remote-delete-item
+field: services.app.develop.watch
+class: multi
+scenario: user-modify-remote-delete-item
+description: user changes one attribute while newbase removes the whole item
+pair_semantics: logical-items

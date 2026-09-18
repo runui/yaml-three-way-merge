@@ -1,4 +1,4 @@
 services:
     app:
-        entrypoint: remote-entrypoint-a
+        entrypoint: CMD remote-a
         image: busybox:latest

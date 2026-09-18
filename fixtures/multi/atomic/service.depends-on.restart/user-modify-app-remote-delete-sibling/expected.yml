@@ -1,0 +1,8 @@
+services:
+    app:
+        depends_on:
+            default:
+                restart: true
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

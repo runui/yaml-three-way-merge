@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        mem_reservation: 2
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: named-item/build.ulimits/pair/11-both-modify-same__01-all-absent
+field: services.app.build.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 01-all-absent
+pair_semantics: logical-items

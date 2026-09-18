@@ -1,0 +1,6 @@
+services:
+    app:
+        annotations:
+            annotation-a: base
+            annotation-c: base
+        image: busybox:latest

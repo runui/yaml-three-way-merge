@@ -1,0 +1,9 @@
+services:
+    app:
+        blkio_config:
+            weight: !reset []
+---
+services:
+    app:
+        blkio_config:
+            weight: 2

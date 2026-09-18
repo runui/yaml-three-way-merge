@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            dockerfile_inline: base-value
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

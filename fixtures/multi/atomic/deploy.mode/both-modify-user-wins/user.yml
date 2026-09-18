@@ -1,0 +1,19 @@
+services:
+    app:
+        deploy:
+            mode: !reset []
+---
+services:
+    app:
+        deploy:
+            mode: user-value
+---
+services:
+    sidecar:
+        deploy:
+            mode: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            mode: user-value

@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            privileged: false
+        image: busybox:latest
+    sidecar:
+        build:
+            privileged: true
+        image: busybox:latest

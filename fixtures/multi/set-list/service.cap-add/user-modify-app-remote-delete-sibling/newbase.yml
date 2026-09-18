@@ -1,0 +1,7 @@
+services:
+    app:
+        cap_add:
+            - NET_ADMIN-a
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

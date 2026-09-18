@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        tty: true
+    sidecar:
+        image: busybox:latest

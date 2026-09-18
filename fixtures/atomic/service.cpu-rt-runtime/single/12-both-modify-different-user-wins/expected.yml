@@ -1,0 +1,4 @@
+services:
+    app:
+        cpu_rt_runtime: 2
+        image: busybox:latest

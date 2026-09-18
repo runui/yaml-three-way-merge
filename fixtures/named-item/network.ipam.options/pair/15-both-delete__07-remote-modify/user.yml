@@ -1,0 +1,10 @@
+networks:
+    default:
+        ipam:
+            options: !reset {}
+---
+networks:
+    default:
+        ipam:
+            options:
+                b: ipam-option-b-base

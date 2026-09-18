@@ -1,0 +1,14 @@
+services:
+    app:
+        ulimits: !reset {}
+---
+services:
+    app:
+        ulimits:
+            nofile: 100
+            nproc:
+                hard: 300
+                soft: 200
+            nproc-c:
+                hard: 200
+                soft: 100

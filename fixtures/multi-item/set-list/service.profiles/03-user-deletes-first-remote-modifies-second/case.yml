@@ -1,0 +1,6 @@
+id: multi-item/set-list/service.profiles/03-user-deletes-first-remote-modifies-second
+field: services.app.profiles
+class: multi
+scenario: 03-user-deletes-first-remote-modifies-second
+description: user deletes the first element while newbase changes the second
+pair_semantics: logical-items

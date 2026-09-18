@@ -1,0 +1,21 @@
+services:
+    app:
+        build:
+            tags: !reset []
+---
+services:
+    app:
+        build:
+            tags:
+                - example:user-a
+---
+services:
+    sidecar:
+        build:
+            tags: !reset []
+---
+services:
+    sidecar:
+        build:
+            tags:
+                - example:user-b

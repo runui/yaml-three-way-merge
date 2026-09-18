@@ -1,0 +1,19 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: user-a
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - tpu
+                          driver: user-b
+        image: busybox:latest

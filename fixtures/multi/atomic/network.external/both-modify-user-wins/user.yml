@@ -1,0 +1,15 @@
+networks:
+    default:
+        external: !reset []
+---
+networks:
+    default:
+        external: true
+---
+networks:
+    other:
+        external: !reset []
+---
+networks:
+    other:
+        external: true

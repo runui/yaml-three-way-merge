@@ -1,0 +1,15 @@
+services:
+    app:
+        mac_address: !reset []
+---
+services:
+    app:
+        mac_address: user-value
+---
+services:
+    sidecar:
+        mac_address: !reset []
+---
+services:
+    sidecar:
+        mac_address: user-value

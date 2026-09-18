@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    tips:
+        before_install:
+            en: before-install-a-base
+            zh-CN: before-install-b-remote
+            zh-CN-c: before-install-b-remote

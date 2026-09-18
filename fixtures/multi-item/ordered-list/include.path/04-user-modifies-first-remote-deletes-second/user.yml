@@ -1,0 +1,7 @@
+include: !reset []
+---
+include:
+    - path:
+        - user.yml-a
+        - base.yml-b
+        - base.yml-c

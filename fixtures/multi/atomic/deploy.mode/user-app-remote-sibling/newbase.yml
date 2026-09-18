@@ -1,0 +1,9 @@
+services:
+    app:
+        deploy:
+            mode: base-value
+        image: busybox:latest
+    sidecar:
+        deploy:
+            mode: remote-value
+        image: busybox:latest

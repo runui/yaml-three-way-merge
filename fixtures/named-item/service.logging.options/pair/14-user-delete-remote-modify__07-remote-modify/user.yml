@@ -1,0 +1,10 @@
+services:
+    app:
+        logging:
+            options: !reset {}
+---
+services:
+    app:
+        logging:
+            options:
+                max-file: max-size-b-base

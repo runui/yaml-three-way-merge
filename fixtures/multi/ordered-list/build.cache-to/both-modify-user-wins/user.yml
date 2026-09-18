@@ -1,0 +1,21 @@
+services:
+    app:
+        build:
+            cache_to: !reset []
+---
+services:
+    app:
+        build:
+            cache_to:
+                - type=local,dest=user-a
+---
+services:
+    sidecar:
+        build:
+            cache_to: !reset []
+---
+services:
+    sidecar:
+        build:
+            cache_to:
+                - type=local,dest=user-b

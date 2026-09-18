@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            shm_size: 3
+        image: busybox:latest
+    sidecar:
+        build:
+            shm_size: 3
+        image: busybox:latest

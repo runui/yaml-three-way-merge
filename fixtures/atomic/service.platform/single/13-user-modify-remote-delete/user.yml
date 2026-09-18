@@ -1,0 +1,7 @@
+services:
+    app:
+        platform: !reset []
+---
+services:
+    app:
+        platform: user-value

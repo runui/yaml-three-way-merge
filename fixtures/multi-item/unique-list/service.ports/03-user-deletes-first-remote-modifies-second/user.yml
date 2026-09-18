@@ -1,0 +1,13 @@
+services:
+    app:
+        ports: !reset []
+---
+services:
+    app:
+        ports:
+            - protocol: tcp
+              published: "8082"
+              target: 81
+            - protocol: tcp
+              published: "8083"
+              target: 82

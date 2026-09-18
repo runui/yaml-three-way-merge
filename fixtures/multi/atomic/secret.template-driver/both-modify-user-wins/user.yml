@@ -1,0 +1,15 @@
+secrets:
+    default:
+        template_driver: !reset []
+---
+secrets:
+    default:
+        template_driver: user-value
+---
+secrets:
+    other:
+        template_driver: !reset []
+---
+secrets:
+    other:
+        template_driver: user-value

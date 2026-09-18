@@ -1,0 +1,9 @@
+services:
+    app:
+        dns_search:
+            - user.test-a
+        image: busybox:latest
+    sidecar:
+        dns_search:
+            - user.test-b
+        image: busybox:latest

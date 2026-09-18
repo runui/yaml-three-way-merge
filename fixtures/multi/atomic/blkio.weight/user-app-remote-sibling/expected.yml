@@ -1,0 +1,9 @@
+services:
+    app:
+        blkio_config:
+            weight: 2
+        image: busybox:latest
+    sidecar:
+        blkio_config:
+            weight: 3
+        image: busybox:latest

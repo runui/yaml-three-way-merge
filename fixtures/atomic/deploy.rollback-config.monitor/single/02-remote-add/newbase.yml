@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                monitor: 3s
+        image: busybox:latest

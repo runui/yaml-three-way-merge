@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        extra_hosts:
+            - host-b=remote
+        image: busybox:latest

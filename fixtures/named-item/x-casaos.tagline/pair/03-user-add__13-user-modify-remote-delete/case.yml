@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/03-user-add__13-user-modify-remote-delete
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

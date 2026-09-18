@@ -1,0 +1,17 @@
+secrets:
+    default:
+        labels: !reset []
+---
+secrets:
+    default:
+        labels:
+            - secret.label-a=user
+---
+secrets:
+    other:
+        labels: !reset []
+---
+secrets:
+    other:
+        labels:
+            - secret.label-b=user

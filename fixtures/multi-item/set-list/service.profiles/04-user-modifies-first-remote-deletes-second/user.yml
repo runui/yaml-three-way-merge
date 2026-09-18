@@ -1,0 +1,10 @@
+services:
+    app:
+        profiles: !reset []
+---
+services:
+    app:
+        profiles:
+            - user-a
+            - base-b
+            - base-c

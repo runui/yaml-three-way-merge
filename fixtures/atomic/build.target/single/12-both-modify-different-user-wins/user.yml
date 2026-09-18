@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            target: !reset []
+---
+services:
+    app:
+        build:
+            target: user-value

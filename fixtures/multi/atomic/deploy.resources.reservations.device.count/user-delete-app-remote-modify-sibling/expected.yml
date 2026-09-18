@@ -1,0 +1,13 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          count: 3
+                          driver: nvidia
+        image: busybox:latest

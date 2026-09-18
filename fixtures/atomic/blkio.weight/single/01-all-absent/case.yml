@@ -1,0 +1,6 @@
+id: atomic/blkio.weight/single/01-all-absent
+field: services.app.blkio_config.weight
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

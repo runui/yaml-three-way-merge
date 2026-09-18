@@ -1,0 +1,7 @@
+networks:
+    default:
+        ipam:
+            driver: user-value
+services:
+    app:
+        image: busybox:latest

@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            placement:
+                constraints:
+                    - node.role==manager-a
+        image: busybox:latest
+    sidecar:
+        deploy:
+            placement:
+                constraints:
+                    - node.role==manager-b
+        image: busybox:latest

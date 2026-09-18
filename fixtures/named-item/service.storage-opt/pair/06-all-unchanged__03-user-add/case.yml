@@ -1,0 +1,6 @@
+id: named-item/service.storage-opt/pair/06-all-unchanged__03-user-add
+field: services.app.storage_opt
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 03-user-add
+pair_semantics: logical-items

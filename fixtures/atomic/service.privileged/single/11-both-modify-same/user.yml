@@ -1,0 +1,7 @@
+services:
+    app:
+        privileged: !reset []
+---
+services:
+    app:
+        privileged: true

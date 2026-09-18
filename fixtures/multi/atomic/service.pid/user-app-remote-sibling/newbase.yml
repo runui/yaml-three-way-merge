@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        pid: base-value
+    sidecar:
+        image: busybox:latest
+        pid: remote-value

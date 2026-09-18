@@ -1,0 +1,3 @@
+secrets:
+    default:
+        external: true

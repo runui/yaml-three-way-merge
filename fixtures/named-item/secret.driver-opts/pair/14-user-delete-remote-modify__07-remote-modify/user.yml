@@ -1,0 +1,8 @@
+secrets:
+    default:
+        driver_opts: !reset {}
+---
+secrets:
+    default:
+        driver_opts:
+            b: secret-option-b-base

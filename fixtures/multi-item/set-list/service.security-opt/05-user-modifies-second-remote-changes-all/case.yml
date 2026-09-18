@@ -1,0 +1,6 @@
+id: multi-item/set-list/service.security-opt/05-user-modifies-second-remote-changes-all
+field: services.app.security_opt
+class: multi
+scenario: 05-user-modifies-second-remote-changes-all
+description: newbase changes all three elements while user only changes the second
+pair_semantics: logical-items

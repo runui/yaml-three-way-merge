@@ -1,0 +1,6 @@
+id: multi/named-item/config.labels-list@map/user-app-remote-sibling
+field: configs.default.labels
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

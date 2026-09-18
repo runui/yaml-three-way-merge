@@ -1,0 +1,4 @@
+services:
+    app:
+        cpuset: base-value
+        image: busybox:latest

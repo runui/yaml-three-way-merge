@@ -1,0 +1,2 @@
+x-casaos:
+    image_drift_check: true

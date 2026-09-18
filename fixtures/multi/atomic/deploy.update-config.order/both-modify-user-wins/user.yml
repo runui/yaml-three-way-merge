@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            update_config:
+                order: !reset []
+---
+services:
+    app:
+        deploy:
+            update_config:
+                order: stop-first
+---
+services:
+    sidecar:
+        deploy:
+            update_config:
+                order: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            update_config:
+                order: stop-first

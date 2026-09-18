@@ -1,0 +1,6 @@
+id: named-item/network.driver-opts/single/07-remote-modify
+field: networks.default.driver_opts
+class: named-item
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

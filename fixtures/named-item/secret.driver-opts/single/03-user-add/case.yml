@@ -1,0 +1,6 @@
+id: named-item/secret.driver-opts/single/03-user-add
+field: secrets.default.driver_opts
+class: named-item
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

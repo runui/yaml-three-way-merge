@@ -1,0 +1,9 @@
+services:
+    app:
+        environment:
+            - ENV-a=base
+        image: busybox:latest
+    sidecar:
+        environment:
+            - ENV-b=base
+        image: busybox:latest

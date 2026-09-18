@@ -1,0 +1,17 @@
+services:
+    app:
+        cap_add: !reset []
+---
+services:
+    app:
+        cap_add:
+            - SYS_ADMIN-a
+---
+services:
+    sidecar:
+        cap_add: !reset []
+---
+services:
+    sidecar:
+        cap_add:
+            - SYS_ADMIN-b

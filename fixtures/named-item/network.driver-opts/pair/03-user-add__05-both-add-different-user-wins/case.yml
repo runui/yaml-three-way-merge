@@ -1,0 +1,6 @@
+id: named-item/network.driver-opts/pair/03-user-add__05-both-add-different-user-wins
+field: networks.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

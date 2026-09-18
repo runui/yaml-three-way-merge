@@ -15,6 +15,7 @@ func init() {
 	registerMapVariant("build.labels-list", []string{"services", "app", "build", "labels"})
 	registerMapVariant("build.additional-contexts-list", []string{"services", "app", "build", "additional_contexts"})
 	registerMapVariant("build.extra-hosts-list", []string{"services", "app", "build", "extra_hosts"})
+	registerMapVariant("deploy.labels-list", []string{"services", "app", "deploy", "labels"})
 	registerMapVariant("network.labels-list", []string{"networks", "default", "labels"})
 	registerMapVariant("volume.labels-list", []string{"volumes", "default", "labels"})
 	registerMapVariant("config.labels-list", []string{"configs", "default", "labels"})

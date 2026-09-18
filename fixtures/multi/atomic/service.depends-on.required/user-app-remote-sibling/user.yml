@@ -1,0 +1,9 @@
+services:
+    app:
+        depends_on: !reset {}
+---
+services:
+    app:
+        depends_on:
+            default:
+                required: true

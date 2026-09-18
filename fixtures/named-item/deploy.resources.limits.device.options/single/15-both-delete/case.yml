@@ -1,0 +1,6 @@
+id: named-item/deploy.resources.limits.device.options/single/15-both-delete
+field: services.app.deploy.resources.limits.devices[].options
+class: named-item
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

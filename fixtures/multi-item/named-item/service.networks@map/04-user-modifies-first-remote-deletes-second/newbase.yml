@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            base-net-a: {}
+            base-net-c: {}

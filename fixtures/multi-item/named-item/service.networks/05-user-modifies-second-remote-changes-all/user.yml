@@ -1,0 +1,10 @@
+services:
+    app:
+        networks: !reset []
+---
+services:
+    app:
+        networks:
+            - base-net-a
+            - user-net-b
+            - base-net-c

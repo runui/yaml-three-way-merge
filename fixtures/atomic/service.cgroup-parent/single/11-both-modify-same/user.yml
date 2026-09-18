@@ -1,0 +1,7 @@
+services:
+    app:
+        cgroup_parent: !reset []
+---
+services:
+    app:
+        cgroup_parent: user-value

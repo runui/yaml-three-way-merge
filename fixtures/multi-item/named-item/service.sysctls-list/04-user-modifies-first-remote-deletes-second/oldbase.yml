@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        sysctls:
+            - net.core.value-a=base
+            - net.core.value-b=base
+            - net.core.value-c=base

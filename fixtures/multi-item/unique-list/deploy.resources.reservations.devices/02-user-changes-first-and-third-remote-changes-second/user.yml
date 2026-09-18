@@ -1,0 +1,22 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: user-a
+                        - capabilities:
+                            - tpu
+                          driver: base-b
+                        - capabilities:
+                            - npu
+                          driver: user-c

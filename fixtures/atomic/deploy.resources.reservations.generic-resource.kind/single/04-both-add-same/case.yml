@@ -1,0 +1,6 @@
+id: atomic/deploy.resources.reservations.generic-resource.kind/single/04-both-add-same
+field: services.app.deploy.resources.reservations.generic_resources[].discrete_resource_spec.kind
+class: atomic
+scenario: 04-both-add-same
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

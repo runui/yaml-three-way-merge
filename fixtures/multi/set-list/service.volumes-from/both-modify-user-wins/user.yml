@@ -1,0 +1,17 @@
+services:
+    app:
+        volumes_from: !reset []
+---
+services:
+    app:
+        volumes_from:
+            - user:ro-a
+---
+services:
+    sidecar:
+        volumes_from: !reset []
+---
+services:
+    sidecar:
+        volumes_from:
+            - user:ro-b

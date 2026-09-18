@@ -1,0 +1,6 @@
+id: atomic/build.pull/single/03-user-add
+field: services.app.build.pull
+class: atomic
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

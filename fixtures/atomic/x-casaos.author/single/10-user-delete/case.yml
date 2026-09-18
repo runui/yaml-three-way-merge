@@ -1,0 +1,6 @@
+id: atomic/x-casaos.author/single/10-user-delete
+field: x-casaos.author
+class: atomic
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    cpus: 1
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    cpus: 3
+        image: busybox:latest

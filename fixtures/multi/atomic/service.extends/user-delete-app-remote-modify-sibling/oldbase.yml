@@ -1,0 +1,7 @@
+services:
+    app:
+        extends: base-value
+        image: busybox:latest
+    sidecar:
+        extends: base-value
+        image: busybox:latest

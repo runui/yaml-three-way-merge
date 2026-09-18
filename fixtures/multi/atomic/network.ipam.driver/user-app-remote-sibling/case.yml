@@ -1,0 +1,6 @@
+id: multi/atomic/network.ipam.driver/user-app-remote-sibling
+field: networks.default.ipam.driver
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

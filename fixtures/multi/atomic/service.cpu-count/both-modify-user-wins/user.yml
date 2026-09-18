@@ -1,0 +1,15 @@
+services:
+    app:
+        cpu_count: !reset []
+---
+services:
+    app:
+        cpu_count: 2
+---
+services:
+    sidecar:
+        cpu_count: !reset []
+---
+services:
+    sidecar:
+        cpu_count: 2

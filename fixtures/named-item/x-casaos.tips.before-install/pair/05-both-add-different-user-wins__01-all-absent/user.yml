@@ -1,0 +1,4 @@
+x-casaos:
+    tips:
+        before_install:
+            en: before-install-a-user

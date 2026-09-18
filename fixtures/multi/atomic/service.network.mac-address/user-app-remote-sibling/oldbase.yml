@@ -1,0 +1,11 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                mac_address: base-value
+    sidecar:
+        image: busybox:latest
+        networks:
+            default:
+                mac_address: base-value

@@ -1,0 +1,7 @@
+services:
+    app:
+        domainname: user-value
+        image: busybox:latest
+    sidecar:
+        domainname: remote-value
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: atomic/network.ipam.config.gateway/single/06-all-unchanged
+field: networks.default.ipam.config[].gateway
+class: atomic
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

@@ -1,0 +1,9 @@
+services:
+    app:
+        dns_opt:
+            - rotate-a
+        image: busybox:latest
+    sidecar:
+        dns_opt:
+            - rotate-b
+        image: busybox:latest

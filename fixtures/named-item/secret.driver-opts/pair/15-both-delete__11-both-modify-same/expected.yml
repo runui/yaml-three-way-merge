@@ -1,0 +1,7 @@
+secrets:
+    default:
+        driver_opts:
+            b: secret-option-b-user
+services:
+    app:
+        image: busybox:latest

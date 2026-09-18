@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        profiles:
+            - user-a
+    sidecar:
+        image: busybox:latest
+        profiles:
+            - remote-b

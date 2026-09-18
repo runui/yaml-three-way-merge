@@ -1,0 +1,21 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - source: /host
+              target: /container
+              type: volume
+---
+services:
+    sidecar:
+        volumes: !reset []
+---
+services:
+    sidecar:
+        volumes:
+            - source: /host
+              target: /container
+              type: volume

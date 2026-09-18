@@ -1,0 +1,6 @@
+id: multi-item/named-item/build.labels-list/06-both-add-third-element-user-wins
+field: services.app.build.labels
+class: multi
+scenario: 06-both-add-third-element-user-wins
+description: both sides add the third element with different values; user wins while existing elements follow newbase
+pair_semantics: logical-items

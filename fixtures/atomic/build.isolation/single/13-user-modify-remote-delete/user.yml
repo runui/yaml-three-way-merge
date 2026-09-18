@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            isolation: !reset []
+---
+services:
+    app:
+        build:
+            isolation: user-value

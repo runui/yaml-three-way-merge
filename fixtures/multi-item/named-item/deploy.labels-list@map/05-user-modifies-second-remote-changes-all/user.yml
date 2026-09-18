@@ -1,0 +1,12 @@
+services:
+    app:
+        deploy:
+            labels: !reset {}
+---
+services:
+    app:
+        deploy:
+            labels:
+                deploy.label-a: base
+                deploy.label-b: user
+                deploy.label-c: base

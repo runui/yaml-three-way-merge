@@ -1,0 +1,5 @@
+services:
+    app:
+        credential_spec:
+            config: remote-value
+        image: busybox:latest

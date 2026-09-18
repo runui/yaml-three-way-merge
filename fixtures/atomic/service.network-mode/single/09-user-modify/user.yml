@@ -1,0 +1,7 @@
+services:
+    app:
+        network_mode: !reset []
+---
+services:
+    app:
+        network_mode: user-value

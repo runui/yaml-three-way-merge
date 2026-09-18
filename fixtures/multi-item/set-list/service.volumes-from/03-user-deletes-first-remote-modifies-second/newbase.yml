@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        volumes_from:
+            - base:ro-a
+            - remote:ro-b
+            - base:ro-c

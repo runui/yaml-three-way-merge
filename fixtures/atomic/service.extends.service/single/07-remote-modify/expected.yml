@@ -1,0 +1,5 @@
+services:
+    app:
+        extends:
+            service: remote-value
+        image: busybox:latest

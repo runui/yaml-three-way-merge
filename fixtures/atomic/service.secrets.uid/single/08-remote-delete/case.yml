@@ -1,0 +1,6 @@
+id: atomic/service.secrets.uid/single/08-remote-delete
+field: services.app.secrets[].uid
+class: atomic
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

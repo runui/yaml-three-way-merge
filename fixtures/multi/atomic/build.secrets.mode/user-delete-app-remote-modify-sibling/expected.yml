@@ -1,0 +1,10 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        build:
+            secrets:
+                - mode: 3
+                  source: base
+                  target: /run/secrets/base
+        image: busybox:latest

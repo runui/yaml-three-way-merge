@@ -1,0 +1,10 @@
+services:
+    app:
+        image: busybox:latest
+        secrets:
+            - source: remote_secret_a
+              target: /secret-a
+            - source: user_secret_b
+              target: /secret-b
+            - source: remote_secret_c
+              target: /secret-c

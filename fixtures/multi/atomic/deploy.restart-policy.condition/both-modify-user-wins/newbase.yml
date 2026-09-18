@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                condition: any
+        image: busybox:latest
+    sidecar:
+        deploy:
+            restart_policy:
+                condition: any
+        image: busybox:latest

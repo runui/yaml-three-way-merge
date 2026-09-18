@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            network: !reset []
+---
+services:
+    app:
+        build:
+            network: user-value
+---
+services:
+    sidecar:
+        build:
+            network: !reset []
+---
+services:
+    sidecar:
+        build:
+            network: user-value

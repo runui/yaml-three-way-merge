@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            placement:
+                max_replicas_per_node: !reset []
+---
+services:
+    app:
+        deploy:
+            placement:
+                max_replicas_per_node: 2

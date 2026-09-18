@@ -1,0 +1,6 @@
+id: atomic/deploy.placement.max-replicas-per-node/single/05-both-add-different-user-wins
+field: services.app.deploy.placement.max_replicas_per_node
+class: atomic
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

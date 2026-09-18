@@ -1,0 +1,7 @@
+services:
+    app:
+        cpu_count: !reset []
+---
+services:
+    app:
+        cpu_count: 2

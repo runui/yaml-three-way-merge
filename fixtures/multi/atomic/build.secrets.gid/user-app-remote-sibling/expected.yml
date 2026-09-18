@@ -1,0 +1,15 @@
+services:
+    app:
+        build:
+            secrets:
+                - gid: user-value
+                  source: base
+                  target: /run/secrets/base
+        image: busybox:latest
+    sidecar:
+        build:
+            secrets:
+                - gid: remote-value
+                  source: base
+                  target: /run/secrets/base
+        image: busybox:latest

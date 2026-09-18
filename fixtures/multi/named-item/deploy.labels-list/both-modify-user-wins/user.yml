@@ -1,0 +1,21 @@
+services:
+    app:
+        deploy:
+            labels: !reset []
+---
+services:
+    app:
+        deploy:
+            labels:
+                - deploy.label-a=user
+---
+services:
+    sidecar:
+        deploy:
+            labels: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            labels:
+                - deploy.label-b=user

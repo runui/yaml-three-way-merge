@@ -1,0 +1,6 @@
+id: multi/ordered-list/service.env-file@scalar/user-app-remote-sibling
+field: services.app.env_file
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

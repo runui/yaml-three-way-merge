@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            update_config:
+                delay: !reset []
+---
+services:
+    app:
+        deploy:
+            update_config:
+                delay: 2s
+---
+services:
+    sidecar:
+        deploy:
+            update_config:
+                delay: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            update_config:
+                delay: 2s

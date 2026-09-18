@@ -1,0 +1,10 @@
+services:
+    app:
+        sysctls: !reset []
+---
+services:
+    app:
+        sysctls:
+            - net.core.value-a=base
+            - net.core.value-b=user
+            - net.core.value-c=base

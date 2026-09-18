@@ -1,0 +1,12 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - gpu-a
+                            - gpu-b
+                            - gpu-c
+                          driver: nvidia
+        image: busybox:latest

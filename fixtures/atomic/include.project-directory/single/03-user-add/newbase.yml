@@ -1,0 +1,6 @@
+include:
+    - path:
+        - compose.yml
+services:
+    app:
+        image: busybox:latest

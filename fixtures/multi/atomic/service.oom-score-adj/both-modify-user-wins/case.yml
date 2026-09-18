@@ -1,0 +1,6 @@
+id: multi/atomic/service.oom-score-adj/both-modify-user-wins
+field: services.app.oom_score_adj
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

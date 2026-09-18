@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        init: false
+    sidecar:
+        image: busybox:latest
+        init: false

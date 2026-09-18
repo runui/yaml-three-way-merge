@@ -1,0 +1,11 @@
+networks:
+    default:
+        ipam:
+            config: !reset []
+---
+networks:
+    default:
+        ipam:
+            config:
+                - subnet: 10.11.0.0/24
+                - subnet: 10.21.0.0/24

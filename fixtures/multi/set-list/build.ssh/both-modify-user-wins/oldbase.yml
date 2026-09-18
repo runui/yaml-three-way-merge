@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            ssh:
+                - base-a
+        image: busybox:latest
+    sidecar:
+        build:
+            ssh:
+                - base-b
+        image: busybox:latest

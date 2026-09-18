@@ -1,0 +1,8 @@
+services:
+    app:
+        group_add: !reset []
+---
+services:
+    app:
+        group_add:
+            - 1001-a

@@ -1,0 +1,21 @@
+services:
+    app:
+        build:
+            args: !reset {}
+---
+services:
+    app:
+        build:
+            args:
+                ARG-a: user
+---
+services:
+    sidecar:
+        build:
+            args: !reset {}
+---
+services:
+    sidecar:
+        build:
+            args:
+                ARG-b: user

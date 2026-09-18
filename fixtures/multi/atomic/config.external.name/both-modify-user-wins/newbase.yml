@@ -1,0 +1,10 @@
+configs:
+    default:
+        external:
+            name: remote-value
+    other:
+        external:
+            name: remote-value
+services:
+    app:
+        image: busybox:latest

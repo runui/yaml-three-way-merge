@@ -1,0 +1,10 @@
+services:
+    app:
+        extra_hosts: !reset {}
+---
+services:
+    app:
+        extra_hosts:
+            host-a: user
+            host-b: base
+            host-c: user

@@ -1,0 +1,19 @@
+services:
+    app:
+        healthcheck:
+            timeout: !reset []
+---
+services:
+    app:
+        healthcheck:
+            timeout: 2s
+---
+services:
+    sidecar:
+        healthcheck:
+            timeout: !reset []
+---
+services:
+    sidecar:
+        healthcheck:
+            timeout: 2s

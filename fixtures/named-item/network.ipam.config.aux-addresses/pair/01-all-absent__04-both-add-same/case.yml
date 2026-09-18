@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/pair/01-all-absent__04-both-add-same
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 04-both-add-same
+pair_semantics: logical-items

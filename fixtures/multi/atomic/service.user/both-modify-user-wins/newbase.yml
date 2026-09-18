@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        user: remote-value
+    sidecar:
+        image: busybox:latest
+        user: remote-value

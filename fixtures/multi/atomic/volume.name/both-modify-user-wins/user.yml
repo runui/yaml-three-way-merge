@@ -1,0 +1,15 @@
+volumes:
+    default:
+        name: !reset []
+---
+volumes:
+    default:
+        name: user-value
+---
+volumes:
+    other:
+        name: !reset []
+---
+volumes:
+    other:
+        name: user-value

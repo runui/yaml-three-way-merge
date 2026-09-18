@@ -1,0 +1,7 @@
+services:
+    app:
+        configs:
+            - mode: 3
+              source: base
+              target: /run/config
+        image: busybox:latest

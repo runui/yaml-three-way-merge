@@ -1,0 +1,5 @@
+services:
+    app:
+        deploy:
+            update_config:
+                order: stop-first

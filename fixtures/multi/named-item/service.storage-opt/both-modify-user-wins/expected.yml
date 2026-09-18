@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        storage_opt:
+            size: size-a-user
+    sidecar:
+        image: busybox:latest
+        storage_opt:
+            driver: size-b-user

@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                order: start-first
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: multi/atomic/deploy.rollback-config.max-failure-ratio/user-modify-app-remote-delete-sibling
+field: services.app.deploy.rollback_config.max_failure_ratio
+class: multi
+scenario: user-modify-app-remote-delete-sibling
+description: user changes app, newbase removes the field on the sibling resource
+pair_semantics: logical-items

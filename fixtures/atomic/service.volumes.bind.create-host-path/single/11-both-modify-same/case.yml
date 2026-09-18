@@ -1,0 +1,6 @@
+id: atomic/service.volumes.bind.create-host-path/single/11-both-modify-same
+field: services.app.volumes[].bind.create_host_path
+class: atomic
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

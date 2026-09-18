@@ -1,0 +1,7 @@
+services:
+    app:
+        image: !reset []
+---
+services:
+    app:
+        image: busybox:latest

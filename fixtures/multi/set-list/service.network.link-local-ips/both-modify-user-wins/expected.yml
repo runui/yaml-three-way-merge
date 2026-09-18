@@ -1,0 +1,13 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                link_local_ips:
+                    - 169.254.1.2-a
+    sidecar:
+        image: busybox:latest
+        networks:
+            default:
+                link_local_ips:
+                    - 169.254.1.2-b

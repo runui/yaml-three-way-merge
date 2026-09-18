@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/pair/01-all-absent__12-both-modify-different-user-wins
+field: x-casaos.tips.before_install
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

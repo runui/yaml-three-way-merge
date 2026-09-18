@@ -1,0 +1,7 @@
+services:
+    app:
+        shm_size: !reset []
+---
+services:
+    app:
+        shm_size: 2

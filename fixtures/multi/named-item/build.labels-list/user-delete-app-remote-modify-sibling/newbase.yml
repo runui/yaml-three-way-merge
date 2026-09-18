@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            labels:
+                - build.label-a=base
+        image: busybox:latest
+    sidecar:
+        build:
+            labels:
+                - build.label-b=remote
+        image: busybox:latest

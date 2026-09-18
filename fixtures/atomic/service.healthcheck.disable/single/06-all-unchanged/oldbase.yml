@@ -1,0 +1,5 @@
+services:
+    app:
+        healthcheck:
+            disable: false
+        image: busybox:latest

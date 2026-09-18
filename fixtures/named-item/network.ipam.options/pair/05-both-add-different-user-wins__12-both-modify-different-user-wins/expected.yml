@@ -1,0 +1,9 @@
+networks:
+    default:
+        ipam:
+            options:
+                a: ipam-option-a-user
+                b: ipam-option-b-user
+services:
+    app:
+        image: busybox:latest

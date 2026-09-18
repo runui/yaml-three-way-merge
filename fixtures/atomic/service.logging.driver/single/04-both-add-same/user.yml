@@ -1,0 +1,4 @@
+services:
+    app:
+        logging:
+            driver: user-value

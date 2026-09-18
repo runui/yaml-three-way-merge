@@ -1,0 +1,6 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    memory: user-value

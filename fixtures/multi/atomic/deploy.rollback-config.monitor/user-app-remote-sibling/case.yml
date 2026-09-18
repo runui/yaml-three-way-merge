@@ -1,0 +1,6 @@
+id: multi/atomic/deploy.rollback-config.monitor/user-app-remote-sibling
+field: services.app.deploy.rollback_config.monitor
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

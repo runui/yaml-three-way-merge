@@ -1,0 +1,15 @@
+services:
+    app:
+        extends: !reset []
+---
+services:
+    app:
+        extends: user-value
+---
+services:
+    sidecar:
+        extends: !reset []
+---
+services:
+    sidecar:
+        extends: user-value

@@ -1,0 +1,12 @@
+services:
+    app:
+        build:
+            args: !reset {}
+---
+services:
+    app:
+        build:
+            args:
+                ARG-a: base
+                ARG-b: base
+                ARG-c: user

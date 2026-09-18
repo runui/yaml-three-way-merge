@@ -1,0 +1,19 @@
+services:
+    app:
+        credential_spec:
+            config: !reset []
+---
+services:
+    app:
+        credential_spec:
+            config: user-value
+---
+services:
+    sidecar:
+        credential_spec:
+            config: !reset []
+---
+services:
+    sidecar:
+        credential_spec:
+            config: user-value

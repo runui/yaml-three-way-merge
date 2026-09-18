@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        read_only: true
+    sidecar:
+        image: busybox:latest
+        read_only: true

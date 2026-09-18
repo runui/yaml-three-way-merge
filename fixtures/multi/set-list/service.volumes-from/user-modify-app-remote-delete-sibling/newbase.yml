@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        volumes_from:
+            - base:ro-a
+    sidecar:
+        image: busybox:latest

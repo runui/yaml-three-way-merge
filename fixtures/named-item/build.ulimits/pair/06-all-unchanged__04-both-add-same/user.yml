@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            ulimits: !reset {}
+---
+services:
+    app:
+        build:
+            ulimits:
+                nofile: nofile-a-base
+                nproc: nofile-b-user

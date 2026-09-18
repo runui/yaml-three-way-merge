@@ -1,0 +1,6 @@
+id: named-item/service.ulimits/single/05-both-add-different-user-wins
+field: services.app.ulimits
+class: named-item
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: multi/atomic/service.cpu-quota/user-app-remote-sibling
+field: services.app.cpu_quota
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

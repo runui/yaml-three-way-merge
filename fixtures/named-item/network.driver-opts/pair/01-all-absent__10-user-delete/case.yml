@@ -1,0 +1,6 @@
+id: named-item/network.driver-opts/pair/01-all-absent__10-user-delete
+field: networks.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 10-user-delete
+pair_semantics: logical-items

@@ -1,0 +1,19 @@
+services:
+    app:
+        build:
+            isolation: !reset []
+---
+services:
+    app:
+        build:
+            isolation: user-value
+---
+services:
+    sidecar:
+        build:
+            isolation: !reset []
+---
+services:
+    sidecar:
+        build:
+            isolation: user-value

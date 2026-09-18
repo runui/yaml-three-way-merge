@@ -2,5 +2,5 @@ services:
     app:
         build:
             platforms:
-                - linux/arm64-b
+                - linux/ppc64le
         image: busybox:latest

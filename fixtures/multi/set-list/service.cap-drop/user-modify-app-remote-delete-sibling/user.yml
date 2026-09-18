@@ -1,0 +1,8 @@
+services:
+    app:
+        cap_drop: !reset []
+---
+services:
+    app:
+        cap_drop:
+            - SETUID-a

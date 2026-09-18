@@ -1,0 +1,4 @@
+services:
+    app:
+        domainname: remote-value
+        image: busybox:latest

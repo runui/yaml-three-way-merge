@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                ipv6_address: base-value
+    sidecar:
+        image: busybox:latest

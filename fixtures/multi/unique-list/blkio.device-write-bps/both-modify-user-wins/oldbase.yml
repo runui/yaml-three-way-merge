@@ -1,0 +1,13 @@
+services:
+    app:
+        blkio_config:
+            device_write_bps:
+                - path: /dev/a
+                  rate: 1mb
+        image: busybox:latest
+    sidecar:
+        blkio_config:
+            device_write_bps:
+                - path: /dev/b
+                  rate: 111mb
+        image: busybox:latest

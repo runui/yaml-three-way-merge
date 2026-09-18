@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        secrets:
+            - source: base
+              target: /run/config
+              uid: user-value
+    sidecar:
+        image: busybox:latest

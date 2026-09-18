@@ -1,0 +1,8 @@
+configs:
+    default:
+        environment: user-value
+    other:
+        environment: user-value
+services:
+    app:
+        image: busybox:latest

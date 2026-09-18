@@ -1,0 +1,6 @@
+id: multi/atomic/service.container-name/user-modify-app-remote-delete-sibling
+field: services.app.container_name
+class: multi
+scenario: user-modify-app-remote-delete-sibling
+description: user changes app, newbase removes the field on the sibling resource
+pair_semantics: logical-items

@@ -1,0 +1,7 @@
+services:
+    app:
+        ipc: !reset []
+---
+services:
+    app:
+        ipc: user-value

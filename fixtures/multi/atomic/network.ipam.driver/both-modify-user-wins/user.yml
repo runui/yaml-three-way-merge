@@ -1,0 +1,19 @@
+networks:
+    default:
+        ipam:
+            driver: !reset []
+---
+networks:
+    default:
+        ipam:
+            driver: user-value
+---
+networks:
+    other:
+        ipam:
+            driver: !reset []
+---
+networks:
+    other:
+        ipam:
+            driver: user-value

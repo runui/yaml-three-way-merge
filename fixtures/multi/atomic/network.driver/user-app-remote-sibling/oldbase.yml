@@ -1,0 +1,8 @@
+networks:
+    default:
+        driver: base-value
+    other:
+        driver: base-value
+services:
+    app:
+        image: busybox:latest

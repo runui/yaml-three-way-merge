@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                max_failure_ratio: 0.2
+        image: busybox:latest
+    sidecar:
+        deploy:
+            rollback_config:
+                max_failure_ratio: 0.3
+        image: busybox:latest

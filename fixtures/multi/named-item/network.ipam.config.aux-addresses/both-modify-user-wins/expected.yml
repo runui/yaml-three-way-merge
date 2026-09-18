@@ -1,0 +1,16 @@
+networks:
+    default:
+        ipam:
+            config:
+                - aux_addresses:
+                    host-a: aux-a-user
+                  subnet: 10.0.0.0/24
+    other:
+        ipam:
+            config:
+                - aux_addresses:
+                    host-b: aux-b-user
+                  subnet: 10.0.0.0/24
+services:
+    app:
+        image: busybox:latest

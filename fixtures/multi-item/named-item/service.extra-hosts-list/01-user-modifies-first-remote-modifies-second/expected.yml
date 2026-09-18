@@ -1,0 +1,7 @@
+services:
+    app:
+        extra_hosts:
+            - host-a=user
+            - host-b=remote
+            - host-c=base
+        image: busybox:latest

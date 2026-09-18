@@ -1,0 +1,6 @@
+id: multi/ordered-list/service.env-file/user-modify-app-remote-delete-sibling
+field: services.app.env_file
+class: multi
+scenario: user-modify-app-remote-delete-sibling
+description: user changes app, newbase removes the field on the sibling resource
+pair_semantics: logical-items

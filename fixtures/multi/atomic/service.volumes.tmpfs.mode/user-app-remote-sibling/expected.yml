@@ -1,0 +1,17 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - source: /host
+              target: /container
+              tmpfs:
+                mode: 2
+              type: bind
+    sidecar:
+        image: busybox:latest
+        volumes:
+            - source: /host
+              target: /container
+              tmpfs:
+                mode: 3
+              type: bind

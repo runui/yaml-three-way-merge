@@ -1,0 +1,13 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    cpus: 1
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    cpus: 1
+        image: busybox:latest

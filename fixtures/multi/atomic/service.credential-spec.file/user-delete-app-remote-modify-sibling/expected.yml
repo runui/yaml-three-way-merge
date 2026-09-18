@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        credential_spec:
+            file: remote-value
+        image: busybox:latest

@@ -1,0 +1,4 @@
+services:
+    app:
+        container_name: user-value
+        image: busybox:latest

@@ -1,0 +1,9 @@
+services:
+    app:
+        volumes_from: !reset []
+---
+services:
+    app:
+        volumes_from:
+            - base:ro-b
+            - base:ro-c

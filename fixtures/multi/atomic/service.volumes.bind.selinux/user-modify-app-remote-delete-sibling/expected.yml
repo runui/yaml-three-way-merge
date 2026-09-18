@@ -1,0 +1,11 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - bind:
+                selinux: user-value
+              source: /host
+              target: /container
+              type: bind
+    sidecar:
+        image: busybox:latest

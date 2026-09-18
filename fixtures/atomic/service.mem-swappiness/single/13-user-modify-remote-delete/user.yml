@@ -1,0 +1,7 @@
+services:
+    app:
+        mem_swappiness: !reset []
+---
+services:
+    app:
+        mem_swappiness: 2

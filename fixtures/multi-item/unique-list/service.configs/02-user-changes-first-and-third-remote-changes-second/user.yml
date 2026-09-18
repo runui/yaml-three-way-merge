@@ -1,0 +1,13 @@
+services:
+    app:
+        configs: !reset []
+---
+services:
+    app:
+        configs:
+            - source: user_config_a
+              target: /config-a
+            - source: base_config_b
+              target: /config-b
+            - source: user_config_c
+              target: /config-c

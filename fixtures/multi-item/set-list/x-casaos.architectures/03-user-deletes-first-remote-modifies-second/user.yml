@@ -1,0 +1,7 @@
+x-casaos:
+    architectures: !reset []
+---
+x-casaos:
+    architectures:
+        - amd64-b
+        - amd64-c

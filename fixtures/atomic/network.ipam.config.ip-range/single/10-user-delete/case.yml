@@ -1,0 +1,6 @@
+id: atomic/network.ipam.config.ip-range/single/10-user-delete
+field: networks.default.ipam.config[].ip_range
+class: atomic
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

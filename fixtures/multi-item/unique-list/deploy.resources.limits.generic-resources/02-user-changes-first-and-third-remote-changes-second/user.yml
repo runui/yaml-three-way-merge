@@ -1,0 +1,22 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    generic_resources: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    generic_resources:
+                        - discrete_resource_spec:
+                            kind: GPU-A
+                            value: 2
+                        - discrete_resource_spec:
+                            kind: GPU-B
+                            value: 1
+                        - discrete_resource_spec:
+                            kind: GPU-C
+                            value: 2

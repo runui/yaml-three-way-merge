@@ -1,0 +1,15 @@
+services:
+    app:
+        pids_limit: !reset []
+---
+services:
+    app:
+        pids_limit: 2
+---
+services:
+    sidecar:
+        pids_limit: !reset []
+---
+services:
+    sidecar:
+        pids_limit: 2

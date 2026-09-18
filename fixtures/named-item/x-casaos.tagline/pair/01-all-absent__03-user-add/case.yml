@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tagline/pair/01-all-absent__03-user-add
+field: x-casaos.tagline
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 03-user-add
+pair_semantics: logical-items

@@ -1,0 +1,12 @@
+services:
+    app:
+        develop:
+            watch: !reset []
+---
+services:
+    app:
+        develop:
+            watch:
+                - action: sync+restart
+                  path: ./src
+                  target: /app

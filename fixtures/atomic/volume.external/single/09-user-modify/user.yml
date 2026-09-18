@@ -1,0 +1,7 @@
+volumes:
+    default:
+        external: !reset []
+---
+volumes:
+    default:
+        external: true

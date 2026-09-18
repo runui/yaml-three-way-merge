@@ -1,0 +1,10 @@
+networks:
+    default:
+        driver_opts:
+            foo: com.docker.network-a-user
+    other:
+        driver_opts:
+            bar: com.docker.network-b-user
+services:
+    app:
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: named-item/volume.driver-opts/single/10-user-delete
+field: volumes.default.driver_opts
+class: named-item
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

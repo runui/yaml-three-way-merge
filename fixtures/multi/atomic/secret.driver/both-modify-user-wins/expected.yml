@@ -1,0 +1,8 @@
+secrets:
+    default:
+        driver: user-value
+    other:
+        driver: user-value
+services:
+    app:
+        image: busybox:latest

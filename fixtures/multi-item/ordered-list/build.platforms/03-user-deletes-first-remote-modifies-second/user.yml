@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            platforms: !reset []
+---
+services:
+    app:
+        build:
+            platforms:
+                - linux/arm/v7
+                - linux/riscv64

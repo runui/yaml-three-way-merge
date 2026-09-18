@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        stop_grace_period: 2s
+    sidecar:
+        image: busybox:latest

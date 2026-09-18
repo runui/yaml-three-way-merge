@@ -1,0 +1,8 @@
+x-casaos:
+    description: !reset {}
+---
+x-casaos:
+    description:
+        en: description-a-base
+        zh-CN: description-b-user
+        zh-CN-c: description-b-base

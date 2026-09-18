@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                failure_action: !reset []
+---
+services:
+    app:
+        deploy:
+            rollback_config:
+                failure_action: rollback
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                failure_action: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            rollback_config:
+                failure_action: rollback

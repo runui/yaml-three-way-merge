@@ -1,0 +1,13 @@
+services:
+    app:
+        configs:
+            - mode: 2
+              source: base
+              target: /run/config
+        image: busybox:latest
+    sidecar:
+        configs:
+            - mode: 2
+              source: base
+              target: /run/config
+        image: busybox:latest

@@ -1,0 +1,7 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    pids: 1
+        image: busybox:latest

@@ -1,0 +1,7 @@
+volumes:
+    default:
+        driver: !reset []
+---
+volumes:
+    default:
+        driver: user-value

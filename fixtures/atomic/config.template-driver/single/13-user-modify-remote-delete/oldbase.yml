@@ -1,0 +1,6 @@
+configs:
+    default:
+        template_driver: base-value
+services:
+    app:
+        image: busybox:latest

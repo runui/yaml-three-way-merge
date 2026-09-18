@@ -1,0 +1,21 @@
+services:
+    app:
+        build:
+            platforms: !reset []
+---
+services:
+    app:
+        build:
+            platforms:
+                - linux/arm64
+---
+services:
+    sidecar:
+        build:
+            platforms: !reset []
+---
+services:
+    sidecar:
+        build:
+            platforms:
+                - linux/ppc64le

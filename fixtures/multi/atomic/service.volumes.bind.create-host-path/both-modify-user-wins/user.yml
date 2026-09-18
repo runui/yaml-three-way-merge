@@ -1,0 +1,25 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - bind:
+                create_host_path: true
+              source: /host
+              target: /container
+              type: bind
+---
+services:
+    sidecar:
+        volumes: !reset []
+---
+services:
+    sidecar:
+        volumes:
+            - bind:
+                create_host_path: true
+              source: /host
+              target: /container
+              type: bind

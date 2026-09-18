@@ -1,0 +1,23 @@
+services:
+    app:
+        networks:
+            default:
+                mac_address: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                mac_address: user-value
+---
+services:
+    sidecar:
+        networks:
+            default:
+                mac_address: !reset []
+---
+services:
+    sidecar:
+        networks:
+            default:
+                mac_address: user-value

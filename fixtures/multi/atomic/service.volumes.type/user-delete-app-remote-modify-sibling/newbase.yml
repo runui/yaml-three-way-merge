@@ -1,0 +1,13 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - source: /host
+              target: /container
+              type: bind
+    sidecar:
+        image: busybox:latest
+        volumes:
+            - source: /host
+              target: /container
+              type: volume

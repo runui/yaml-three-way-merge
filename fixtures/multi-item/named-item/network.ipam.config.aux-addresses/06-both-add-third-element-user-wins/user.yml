@@ -1,0 +1,14 @@
+networks:
+    default:
+        ipam:
+            config: !reset []
+---
+networks:
+    default:
+        ipam:
+            config:
+                - aux_addresses:
+                    host-a: aux-a-base
+                    host-b: aux-b-base
+                    host-b-c: aux-b-user
+                  subnet: 10.0.0.0/24

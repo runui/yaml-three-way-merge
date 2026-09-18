@@ -1,0 +1,16 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: remote-a
+                        - capabilities:
+                            - tpu
+                          driver: user-b
+                        - capabilities:
+                            - npu
+                          driver: remote-c
+        image: busybox:latest

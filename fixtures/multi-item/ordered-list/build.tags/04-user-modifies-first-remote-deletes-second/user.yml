@@ -1,0 +1,12 @@
+services:
+    app:
+        build:
+            tags: !reset []
+---
+services:
+    app:
+        build:
+            tags:
+                - example:user-a
+                - example:base-b
+                - example:base-c

@@ -1,0 +1,12 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    generic_resources:
+                        - discrete_resource_spec:
+                            kind: remote-value
+                            value: 1
+        image: busybox:latest

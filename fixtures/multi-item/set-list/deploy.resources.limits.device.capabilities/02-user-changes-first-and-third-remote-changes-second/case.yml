@@ -1,0 +1,6 @@
+id: multi-item/set-list/deploy.resources.limits.device.capabilities/02-user-changes-first-and-third-remote-changes-second
+field: services.app.deploy.resources.limits.devices
+class: multi
+scenario: 02-user-changes-first-and-third-remote-changes-second
+description: user changes the first and third elements while newbase changes the second
+pair_semantics: logical-items

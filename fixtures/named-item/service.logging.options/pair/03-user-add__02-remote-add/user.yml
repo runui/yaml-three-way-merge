@@ -1,0 +1,5 @@
+services:
+    app:
+        logging:
+            options:
+                max-size: max-size-a-user

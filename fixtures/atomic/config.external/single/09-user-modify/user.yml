@@ -1,0 +1,7 @@
+configs:
+    default:
+        external: !reset []
+---
+configs:
+    default:
+        external: true

@@ -1,0 +1,6 @@
+id: atomic/volume.external/single/08-remote-delete
+field: volumes.default.external
+class: atomic
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

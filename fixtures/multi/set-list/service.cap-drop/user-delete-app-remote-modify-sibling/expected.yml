@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        cap_drop:
+            - SETGID-b
+        image: busybox:latest

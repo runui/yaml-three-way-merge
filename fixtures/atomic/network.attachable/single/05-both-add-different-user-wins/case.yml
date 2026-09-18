@@ -1,0 +1,6 @@
+id: atomic/network.attachable/single/05-both-add-different-user-wins
+field: networks.default.attachable
+class: atomic
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

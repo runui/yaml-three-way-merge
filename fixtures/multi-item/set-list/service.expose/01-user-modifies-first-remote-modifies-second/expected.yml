@@ -1,0 +1,7 @@
+services:
+    app:
+        expose:
+            - 81-a
+            - 82-b
+            - 80-c
+        image: busybox:latest

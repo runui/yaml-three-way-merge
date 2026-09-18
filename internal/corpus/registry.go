@@ -22,11 +22,13 @@ func VariantFieldID(fieldID, variant string) string {
 	return fieldID + "@" + variant
 }
 
-// ArrayFields lists every Compose v1.20.2 and x-casaos field whose authored
-// form is a sequence or supports a sequence short form, expanded with every
-// registered syntax variant.
+// ArrayFields lists every Compose v1.20.2 and x-casaos field in the corpus:
+// sequence fields, sequence short forms, scalar leaves, fixed mappings
+// decomposed into leaves, and free-form key maps. Every entry is expanded with
+// its registered syntax variants. The name is kept for compatibility with the
+// sequence-focused phase; the corpus now covers all Compose fields.
 func ArrayFields() []FieldSpec {
-	return expandVariants(baseArrayFields())
+	return expandVariants(append(baseArrayFields(), nonArrayFields()...))
 }
 
 func expandVariants(base []FieldSpec) []FieldSpec {
@@ -49,7 +51,11 @@ func expandVariants(base []FieldSpec) []FieldSpec {
 	return result
 }
 
-func arrayField(id, path string, class MergeClass, values [2][3]any) FieldSpec {
+// arrayField builds a field with three distinct logical items. Each item has a
+// base, user and remote value so the 15-state matrix and the 15x15 pair matrix
+// can be generated for the first two items and multi-item scenarios for all
+// three.
+func arrayField(id, path string, class MergeClass, values [3][3]any) FieldSpec {
 	semantics := PairByLogicalItem
 	if class == ClassAtomic {
 		semantics = PairDisabled
@@ -58,12 +64,13 @@ func arrayField(id, path string, class MergeClass, values [2][3]any) FieldSpec {
 	}
 	return FieldSpec{
 		ID: id, Path: strings.Split(path, "."), Class: class,
-		Values: values[0], SecondValues: values[1], CrossProduct: class != ClassAtomic,
+		Values: values[0], SecondValues: values[1], ThirdValues: values[2],
+		CrossProduct:  class != ClassAtomic,
 		PairSemantics: semantics, ResetBoundary: strings.Split(path, "."),
 	}
 }
 
-func wrappedArrayField(id, displayPath string, class MergeClass, values [2][3]any, wrap func([]any, bool) map[string]any) FieldSpec {
+func wrappedArrayField(id, displayPath string, class MergeClass, values [3][3]any, wrap func([]any, bool) map[string]any) FieldSpec {
 	field := arrayField(id, displayPath, class, values)
 	field.Wrap = wrap
 	switch id {
@@ -79,17 +86,19 @@ func wrappedArrayField(id, displayPath string, class MergeClass, values [2][3]an
 	return field
 }
 
-func strings2(a, b [3]string) [2][3]any {
-	return [2][3]any{{a[0], a[1], a[2]}, {b[0], b[1], b[2]}}
+// strings3 encodes three logical items, each with base/user/remote values.
+func strings3(a, b, c [3]string) [3][3]any {
+	return [3][3]any{{a[0], a[1], a[2]}, {b[0], b[1], b[2]}, {c[0], c[1], c[2]}}
 }
 
 // baseArrayFields lists every Compose v1.20.2 and x-casaos field whose authored
 // form is a sequence or supports a sequence short form.
 func baseArrayFields() []FieldSpec {
 	return []FieldSpec{
-		arrayField("top.include", "include", ClassOrderedList, strings2(
+		arrayField("top.include", "include", ClassOrderedList, strings3(
 			[3]string{"./base.yml", "./user.yml", "./remote.yml"},
-			[3]string{"./base-b.yml", "./user-b.yml", "./remote-b.yml"})),
+			[3]string{"./base-b.yml", "./user-b.yml", "./remote-b.yml"},
+			[3]string{"./base-c.yml", "./user-c.yml", "./remote-c.yml"})),
 		wrappedArrayField("include.path", "include[].path", ClassOrderedList, stringValues("base.yml", "user.yml", "remote.yml"), wrapInclude("path")),
 		wrappedArrayField("include.env-file", "include[].env_file", ClassOrderedList, stringValues("base.env", "user.env", "remote.env"), wrapInclude("env_file")),
 
@@ -97,11 +106,11 @@ func baseArrayFields() []FieldSpec {
 		arrayField("service.profiles", "services.app.profiles", ClassSetList, stringValues("base", "user", "remote")),
 		arrayField("service.cap-add", "services.app.cap_add", ClassSetList, stringValues("NET_ADMIN", "SYS_ADMIN", "CHOWN")),
 		arrayField("service.cap-drop", "services.app.cap_drop", ClassSetList, stringValues("NET_RAW", "SETUID", "SETGID")),
-		arrayField("service.command", "services.app.command", ClassAtomic, stringValues("base-command", "user-command", "remote-command")),
-		arrayField("service.entrypoint", "services.app.entrypoint", ClassAtomic, stringValues("base-entrypoint", "user-entrypoint", "remote-entrypoint")),
+		arrayField("service.command", "services.app.command", ClassAtomic, commandValues()),
+		arrayField("service.entrypoint", "services.app.entrypoint", ClassAtomic, commandValues()),
 		arrayField("service.environment-list", "services.app.environment", ClassNamedItem, keyValueValues("ENV")),
-		arrayField("service.configs", "services.app.configs", ClassUniqueList, resourceValues("base_config", "user_config", "remote_config", "/config-a", "/config-b")),
-		arrayField("service.secrets", "services.app.secrets", ClassUniqueList, resourceValues("base_secret", "user_secret", "remote_secret", "/secret-a", "/secret-b")),
+		arrayField("service.configs", "services.app.configs", ClassUniqueList, resourceValues("base_config", "user_config", "remote_config", "/config-a", "/config-b", "/config-c")),
+		arrayField("service.secrets", "services.app.secrets", ClassUniqueList, resourceValues("base_secret", "user_secret", "remote_secret", "/secret-a", "/secret-b", "/secret-c")),
 		arrayField("service.depends-on", "services.app.depends_on", ClassNamedItem, stringValues("base-dependency", "user-dependency", "remote-dependency")),
 		arrayField("service.device-cgroup-rules", "services.app.device_cgroup_rules", ClassSetList, stringValues("c 1:3 rwm", "c 1:5 rwm", "c 1:7 rwm")),
 		arrayField("service.devices", "services.app.devices", ClassUniqueList, deviceValues()),
@@ -130,9 +139,12 @@ func baseArrayFields() []FieldSpec {
 		arrayField("build.extra-hosts-list", "services.app.build.extra_hosts", ClassNamedItem, keyValueValues("build-host")),
 		arrayField("build.cache-from", "services.app.build.cache_from", ClassOrderedList, stringValues("type=local,src=base", "type=local,src=user", "type=local,src=remote")),
 		arrayField("build.cache-to", "services.app.build.cache_to", ClassOrderedList, stringValues("type=local,dest=base", "type=local,dest=user", "type=local,dest=remote")),
-		arrayField("build.secrets", "services.app.build.secrets", ClassUniqueList, resourceValues("base_secret", "user_secret", "remote_secret", "/run/secrets/a", "/run/secrets/b")),
+		arrayField("build.secrets", "services.app.build.secrets", ClassUniqueList, resourceValues("base_secret", "user_secret", "remote_secret", "/run/secrets/a", "/run/secrets/b", "/run/secrets/c")),
 		arrayField("build.tags", "services.app.build.tags", ClassOrderedList, stringValues("example:base", "example:user", "example:remote")),
-		arrayField("build.platforms", "services.app.build.platforms", ClassOrderedList, stringValues("linux/amd64", "linux/arm64", "linux/386")),
+		arrayField("build.platforms", "services.app.build.platforms", ClassOrderedList, strings3(
+			[3]string{"linux/amd64", "linux/arm64", "linux/386"},
+			[3]string{"linux/arm/v7", "linux/ppc64le", "linux/s390x"},
+			[3]string{"linux/riscv64", "linux/mips64le", "linux/arm/v6"})),
 
 		arrayField("develop.watch", "services.app.develop.watch", ClassOrderedList, watchValues()),
 		wrappedArrayField("develop.watch.ignore", "services.app.develop.watch[].ignore", ClassOrderedList, stringValues("base.tmp", "user.tmp", "remote.tmp"), wrapDevelopIgnore),
@@ -167,10 +179,11 @@ func baseArrayFields() []FieldSpec {
 	}
 }
 
-func keyValueValues(key string) [2][3]any {
-	return strings2(
+func keyValueValues(key string) [3][3]any {
+	return strings3(
 		[3]string{key + "-a=base", key + "-a=user", key + "-a=remote"},
 		[3]string{key + "-b=base", key + "-b=user", key + "-b=remote"},
+		[3]string{key + "-c=base", key + "-c=user", key + "-c=remote"},
 	)
 }
 
@@ -205,68 +218,114 @@ func wrapDeviceRequest(branch, key string) func([]any, bool) map[string]any {
 	}
 }
 
-func stringValues(a, u, r string) [2][3]any {
-	return strings2([3]string{a + "-a", u + "-a", r + "-a"}, [3]string{a + "-b", u + "-b", r + "-b"})
+func stringValues(a, u, r string) [3][3]any {
+	return strings3(
+		[3]string{a + "-a", u + "-a", r + "-a"},
+		[3]string{a + "-b", u + "-b", r + "-b"},
+		[3]string{a + "-c", u + "-c", r + "-c"},
+	)
 }
 
-func portValues() [2][3]any {
-	return [2][3]any{
+func portValues() [3][3]any {
+	return [3][3]any{
 		{map[string]any{"target": 80, "published": "8081", "protocol": "tcp"}, map[string]any{"target": 80, "published": "8881", "protocol": "tcp"}, map[string]any{"target": 80, "published": "9081", "protocol": "tcp"}},
 		{map[string]any{"target": 81, "published": "8082", "protocol": "tcp"}, map[string]any{"target": 81, "published": "8882", "protocol": "tcp"}, map[string]any{"target": 81, "published": "9082", "protocol": "tcp"}},
+		{map[string]any{"target": 82, "published": "8083", "protocol": "tcp"}, map[string]any{"target": 82, "published": "8883", "protocol": "tcp"}, map[string]any{"target": 82, "published": "9083", "protocol": "tcp"}},
 	}
 }
 
-func volumeValues() [2][3]any {
-	return [2][3]any{
+func volumeValues() [3][3]any {
+	return [3][3]any{
 		{map[string]any{"type": "bind", "source": "/base-a", "target": "/data-a"}, map[string]any{"type": "bind", "source": "/user-a", "target": "/data-a"}, map[string]any{"type": "bind", "source": "/remote-a", "target": "/data-a"}},
 		{map[string]any{"type": "bind", "source": "/base-b", "target": "/data-b"}, map[string]any{"type": "bind", "source": "/user-b", "target": "/data-b"}, map[string]any{"type": "bind", "source": "/remote-b", "target": "/data-b"}},
+		{map[string]any{"type": "bind", "source": "/base-c", "target": "/data-c"}, map[string]any{"type": "bind", "source": "/user-c", "target": "/data-c"}, map[string]any{"type": "bind", "source": "/remote-c", "target": "/data-c"}},
 	}
 }
 
-func resourceValues(base, user, remote, targetA, targetB string) [2][3]any {
-	return [2][3]any{
+func resourceValues(base, user, remote, targetA, targetB, targetC string) [3][3]any {
+	return [3][3]any{
 		{map[string]any{"source": base + "_a", "target": targetA}, map[string]any{"source": user + "_a", "target": targetA}, map[string]any{"source": remote + "_a", "target": targetA}},
 		{map[string]any{"source": base + "_b", "target": targetB}, map[string]any{"source": user + "_b", "target": targetB}, map[string]any{"source": remote + "_b", "target": targetB}},
+		{map[string]any{"source": base + "_c", "target": targetC}, map[string]any{"source": user + "_c", "target": targetC}, map[string]any{"source": remote + "_c", "target": targetC}},
 	}
 }
 
-func deviceValues() [2][3]any {
-	return strings2([3]string{"/dev/base-a:/dev/a", "/dev/user-a:/dev/a", "/dev/remote-a:/dev/a"}, [3]string{"/dev/base-b:/dev/b", "/dev/user-b:/dev/b", "/dev/remote-b:/dev/b"})
+func deviceValues() [3][3]any {
+	return strings3(
+		[3]string{"/dev/base-a:/dev/a", "/dev/user-a:/dev/a", "/dev/remote-a:/dev/a"},
+		[3]string{"/dev/base-b:/dev/b", "/dev/user-b:/dev/b", "/dev/remote-b:/dev/b"},
+		[3]string{"/dev/base-c:/dev/c", "/dev/user-c:/dev/c", "/dev/remote-c:/dev/c"})
 }
-func commandValues() [2][3]any {
-	return [2][3]any{{[]string{"CMD", "base-a"}, []string{"CMD", "user-a"}, []string{"CMD", "remote-a"}}, {[]string{"CMD", "base-b"}, []string{"CMD", "user-b"}, []string{"CMD", "remote-b"}}}
+
+func commandValues() [3][3]any {
+	return [3][3]any{
+		{[]string{"CMD", "base-a"}, []string{"CMD", "user-a"}, []string{"CMD", "remote-a"}},
+		{[]string{"CMD", "base-b"}, []string{"CMD", "user-b"}, []string{"CMD", "remote-b"}},
+		{[]string{"CMD", "base-c"}, []string{"CMD", "user-c"}, []string{"CMD", "remote-c"}},
+	}
 }
-func watchValues() [2][3]any {
-	return objectPair("path", "./base-a", "./user-a", "./remote-a", "./base-b", "./user-b", "./remote-b", "action", "sync")
+
+func watchValues() [3][3]any {
+	return objectTriples("path", "./base-a", "./user-a", "./remote-a", "./base-b", "./user-b", "./remote-b", "./base-c", "./user-c", "./remote-c", "action", "sync")
 }
-func weightDeviceValues() [2][3]any {
-	return [2][3]any{
+
+func weightDeviceValues() [3][3]any {
+	return [3][3]any{
 		{map[string]any{"path": "/dev/a", "weight": 100}, map[string]any{"path": "/dev/a", "weight": 200}, map[string]any{"path": "/dev/a", "weight": 300}},
 		{map[string]any{"path": "/dev/b", "weight": 400}, map[string]any{"path": "/dev/b", "weight": 500}, map[string]any{"path": "/dev/b", "weight": 600}},
+		{map[string]any{"path": "/dev/c", "weight": 700}, map[string]any{"path": "/dev/c", "weight": 800}, map[string]any{"path": "/dev/c", "weight": 900}},
 	}
-}
-func throttleValues(rate string) [2][3]any {
-	return [2][3]any{
-		{map[string]any{"path": "/dev/a", "rate": rate}, map[string]any{"path": "/dev/a", "rate": "2" + rate}, map[string]any{"path": "/dev/a", "rate": "3" + rate}},
-		{map[string]any{"path": "/dev/b", "rate": "11" + rate}, map[string]any{"path": "/dev/b", "rate": "12" + rate}, map[string]any{"path": "/dev/b", "rate": "13" + rate}},
-	}
-}
-func preferenceValues() [2][3]any {
-	return [2][3]any{{map[string]any{"spread": "node.labels.base-a"}, map[string]any{"spread": "node.labels.user-a"}, map[string]any{"spread": "node.labels.remote-a"}}, {map[string]any{"spread": "node.labels.base-b"}, map[string]any{"spread": "node.labels.user-b"}, map[string]any{"spread": "node.labels.remote-b"}}}
-}
-func deviceRequestValues() [2][3]any {
-	return [2][3]any{{map[string]any{"driver": "base-a", "capabilities": []string{"gpu"}}, map[string]any{"driver": "user-a", "capabilities": []string{"gpu"}}, map[string]any{"driver": "remote-a", "capabilities": []string{"gpu"}}}, {map[string]any{"driver": "base-b", "capabilities": []string{"tpu"}}, map[string]any{"driver": "user-b", "capabilities": []string{"tpu"}}, map[string]any{"driver": "remote-b", "capabilities": []string{"tpu"}}}}
-}
-func genericResourceValues() [2][3]any {
-	return [2][3]any{{map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-A", "value": 1}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-A", "value": 2}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-A", "value": 3}}}, {map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-B", "value": 1}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-B", "value": 2}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-B", "value": 3}}}}
-}
-func ipamValues() [2][3]any {
-	return [2][3]any{{map[string]any{"subnet": "10.1.0.0/24"}, map[string]any{"subnet": "10.2.0.0/24"}, map[string]any{"subnet": "10.3.0.0/24"}}, {map[string]any{"subnet": "10.11.0.0/24"}, map[string]any{"subnet": "10.12.0.0/24"}, map[string]any{"subnet": "10.13.0.0/24"}}}
 }
 
-func objectPair(identity string, ba, ua, ra, bb, ub, rb string, attribute string, value any) [2][3]any {
-	return [2][3]any{
-		{map[string]any{identity: ba, attribute: value}, map[string]any{identity: ua, attribute: value}, map[string]any{identity: ra, attribute: value}},
-		{map[string]any{identity: bb, attribute: value}, map[string]any{identity: ub, attribute: value}, map[string]any{identity: rb, attribute: value}},
+func throttleValues(rate string) [3][3]any {
+	return [3][3]any{
+		{map[string]any{"path": "/dev/a", "rate": rate}, map[string]any{"path": "/dev/a", "rate": "2" + rate}, map[string]any{"path": "/dev/a", "rate": "3" + rate}},
+		{map[string]any{"path": "/dev/b", "rate": "11" + rate}, map[string]any{"path": "/dev/b", "rate": "12" + rate}, map[string]any{"path": "/dev/b", "rate": "13" + rate}},
+		{map[string]any{"path": "/dev/c", "rate": "21" + rate}, map[string]any{"path": "/dev/c", "rate": "22" + rate}, map[string]any{"path": "/dev/c", "rate": "23" + rate}},
+	}
+}
+
+func preferenceValues() [3][3]any {
+	return objectTriples("spread", "node.labels.base-a", "node.labels.user-a", "node.labels.remote-a",
+		"node.labels.base-b", "node.labels.user-b", "node.labels.remote-b",
+		"node.labels.base-c", "node.labels.user-c", "node.labels.remote-c")
+}
+
+func deviceRequestValues() [3][3]any {
+	return [3][3]any{
+		{map[string]any{"driver": "base-a", "capabilities": []string{"gpu"}}, map[string]any{"driver": "user-a", "capabilities": []string{"gpu"}}, map[string]any{"driver": "remote-a", "capabilities": []string{"gpu"}}},
+		{map[string]any{"driver": "base-b", "capabilities": []string{"tpu"}}, map[string]any{"driver": "user-b", "capabilities": []string{"tpu"}}, map[string]any{"driver": "remote-b", "capabilities": []string{"tpu"}}},
+		{map[string]any{"driver": "base-c", "capabilities": []string{"npu"}}, map[string]any{"driver": "user-c", "capabilities": []string{"npu"}}, map[string]any{"driver": "remote-c", "capabilities": []string{"npu"}}},
+	}
+}
+
+func genericResourceValues() [3][3]any {
+	return [3][3]any{
+		{map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-A", "value": 1}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-A", "value": 2}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-A", "value": 3}}},
+		{map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-B", "value": 1}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-B", "value": 2}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-B", "value": 3}}},
+		{map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-C", "value": 1}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-C", "value": 2}}, map[string]any{"discrete_resource_spec": map[string]any{"kind": "GPU-C", "value": 3}}},
+	}
+}
+
+func ipamValues() [3][3]any {
+	return [3][3]any{
+		{map[string]any{"subnet": "10.1.0.0/24"}, map[string]any{"subnet": "10.2.0.0/24"}, map[string]any{"subnet": "10.3.0.0/24"}},
+		{map[string]any{"subnet": "10.11.0.0/24"}, map[string]any{"subnet": "10.12.0.0/24"}, map[string]any{"subnet": "10.13.0.0/24"}},
+		{map[string]any{"subnet": "10.21.0.0/24"}, map[string]any{"subnet": "10.22.0.0/24"}, map[string]any{"subnet": "10.23.0.0/24"}},
+	}
+}
+
+func objectTriples(identity string, ba, ua, ra, bb, ub, rb, bc, uc, rc string, extra ...any) [3][3]any {
+	item := func(identityValue string) map[string]any {
+		result := map[string]any{identity: identityValue}
+		for index := 0; index+1 < len(extra); index += 2 {
+			result[extra[index].(string)] = extra[index+1]
+		}
+		return result
+	}
+	return [3][3]any{
+		{item(ba), item(ua), item(ra)},
+		{item(bb), item(ub), item(rb)},
+		{item(bc), item(uc), item(rc)},
 	}
 }

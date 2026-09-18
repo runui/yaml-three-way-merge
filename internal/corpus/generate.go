@@ -67,6 +67,22 @@ func Generate() ([]Case, Manifest, error) {
 		return nil, Manifest{}, err
 	}
 	cases = append(cases, explicit...)
+	resourceCases, err := multiResourceCases()
+	if err != nil {
+		return nil, Manifest{}, err
+	}
+	cases = append(cases, resourceCases...)
+	attributeCases, err := multiAttributeCases()
+	if err != nil {
+		return nil, Manifest{}, err
+	}
+	cases = append(cases, attributeCases...)
+	itemCases, err := multiItemCases()
+	if err != nil {
+		return nil, Manifest{}, err
+	}
+	cases = append(cases, itemCases...)
+	manifest.ExplicitCases = len(explicit) + len(resourceCases) + len(attributeCases) + len(itemCases)
 	manifest.CaseCount = len(cases)
 	return cases, manifest, nil
 }

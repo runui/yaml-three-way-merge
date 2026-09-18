@@ -1,0 +1,15 @@
+services:
+    app:
+        container_name: !reset []
+---
+services:
+    app:
+        container_name: user-value
+---
+services:
+    sidecar:
+        container_name: !reset []
+---
+services:
+    sidecar:
+        container_name: user-value

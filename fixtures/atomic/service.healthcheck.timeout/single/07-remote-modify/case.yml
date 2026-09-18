@@ -1,0 +1,6 @@
+id: atomic/service.healthcheck.timeout/single/07-remote-modify
+field: services.app.healthcheck.timeout
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

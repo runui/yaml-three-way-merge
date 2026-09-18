@@ -1,0 +1,6 @@
+networks:
+    other:
+        attachable: true
+services:
+    app:
+        image: busybox:latest

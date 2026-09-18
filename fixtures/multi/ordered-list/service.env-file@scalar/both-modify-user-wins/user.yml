@@ -1,0 +1,15 @@
+services:
+    app:
+        env_file: !reset []
+---
+services:
+    app:
+        env_file: user.env-a
+---
+services:
+    sidecar:
+        env_file: !reset []
+---
+services:
+    sidecar:
+        env_file: user.env-b

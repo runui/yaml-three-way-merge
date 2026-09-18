@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    default:
+        name: base-value
+    other:
+        name: base-value

@@ -1,0 +1,7 @@
+services:
+    app:
+        healthcheck:
+            retries: 2
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: multi-attribute/service.configs/user-modify-remote-delete-item
+field: services.app.configs
+class: multi
+scenario: user-modify-remote-delete-item
+description: user changes one attribute while newbase removes the whole item
+pair_semantics: logical-items

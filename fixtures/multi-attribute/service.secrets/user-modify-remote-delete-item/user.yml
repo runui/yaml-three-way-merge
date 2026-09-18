@@ -1,0 +1,11 @@
+services:
+    app:
+        secrets: !reset []
+---
+services:
+    app:
+        secrets:
+            - gid: "2000"
+              source: base_secret
+              target: /run/secret
+              uid: "1001"

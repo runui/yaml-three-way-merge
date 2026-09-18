@@ -1,0 +1,6 @@
+id: named-item/deploy.resources.reservations.device.options/pair/07-remote-modify__12-both-modify-different-user-wins
+field: services.app.deploy.resources.reservations.devices[].options
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

@@ -1,0 +1,5 @@
+services:
+    app:
+        image: remote-value
+    sidecar:
+        image: remote-value

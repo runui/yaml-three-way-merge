@@ -1,0 +1,6 @@
+id: atomic/service.network.ipv4-address/single/07-remote-modify
+field: services.app.networks.default.ipv4_address
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

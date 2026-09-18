@@ -1,0 +1,4 @@
+services:
+    app:
+        ulimits:
+            nofile: 200

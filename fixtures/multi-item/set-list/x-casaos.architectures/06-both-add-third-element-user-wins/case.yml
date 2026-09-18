@@ -1,0 +1,6 @@
+id: multi-item/set-list/x-casaos.architectures/06-both-add-third-element-user-wins
+field: x-casaos.architectures
+class: multi
+scenario: 06-both-add-third-element-user-wins
+description: both sides add the third element with different values; user wins while existing elements follow newbase
+pair_semantics: logical-items

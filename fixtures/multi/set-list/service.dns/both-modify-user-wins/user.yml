@@ -1,0 +1,17 @@
+services:
+    app:
+        dns: !reset []
+---
+services:
+    app:
+        dns:
+            - 8.8.8.8-a
+---
+services:
+    sidecar:
+        dns: !reset []
+---
+services:
+    sidecar:
+        dns:
+            - 8.8.8.8-b

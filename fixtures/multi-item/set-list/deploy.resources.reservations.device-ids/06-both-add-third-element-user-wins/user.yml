@@ -1,0 +1,20 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          device_ids:
+                            - GPU-base-a
+                            - GPU-base-b
+                            - GPU-user-c
+                          driver: nvidia

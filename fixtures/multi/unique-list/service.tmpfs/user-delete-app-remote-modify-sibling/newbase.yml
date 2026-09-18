@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        tmpfs:
+            - /base-a
+    sidecar:
+        image: busybox:latest
+        tmpfs:
+            - /remote-b

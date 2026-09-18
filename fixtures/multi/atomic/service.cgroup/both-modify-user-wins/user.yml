@@ -1,0 +1,15 @@
+services:
+    app:
+        cgroup: !reset []
+---
+services:
+    app:
+        cgroup: private
+---
+services:
+    sidecar:
+        cgroup: !reset []
+---
+services:
+    sidecar:
+        cgroup: private

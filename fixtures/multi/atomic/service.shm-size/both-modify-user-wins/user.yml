@@ -1,0 +1,15 @@
+services:
+    app:
+        shm_size: !reset []
+---
+services:
+    app:
+        shm_size: 2
+---
+services:
+    sidecar:
+        shm_size: !reset []
+---
+services:
+    sidecar:
+        shm_size: 2

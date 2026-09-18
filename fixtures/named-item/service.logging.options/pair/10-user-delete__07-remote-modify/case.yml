@@ -1,0 +1,6 @@
+id: named-item/service.logging.options/pair/10-user-delete__07-remote-modify
+field: services.app.logging.options
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 07-remote-modify
+pair_semantics: logical-items

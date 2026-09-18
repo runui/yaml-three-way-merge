@@ -1,0 +1,10 @@
+services:
+    app:
+        image: busybox:latest
+        ports:
+            - mode: host
+              protocol: tcp
+              published: "8080"
+              target: 80
+    sidecar:
+        image: busybox:latest

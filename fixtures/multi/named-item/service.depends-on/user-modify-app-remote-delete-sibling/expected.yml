@@ -1,0 +1,7 @@
+services:
+    app:
+        depends_on:
+            - user-dependency-a
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

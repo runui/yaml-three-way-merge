@@ -1,0 +1,6 @@
+id: named-item/secret.driver-opts/pair/05-both-add-different-user-wins__01-all-absent
+field: secrets.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 01-all-absent
+pair_semantics: logical-items

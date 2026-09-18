@@ -1,0 +1,23 @@
+services:
+    app:
+        blkio_config:
+            device_write_bps: !reset []
+---
+services:
+    app:
+        blkio_config:
+            device_write_bps:
+                - path: /dev/a
+                  rate: 21mb
+---
+services:
+    sidecar:
+        blkio_config:
+            device_write_bps: !reset []
+---
+services:
+    sidecar:
+        blkio_config:
+            device_write_bps:
+                - path: /dev/b
+                  rate: 121mb

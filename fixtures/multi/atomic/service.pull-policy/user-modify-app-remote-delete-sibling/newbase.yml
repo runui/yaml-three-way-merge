@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        pull_policy: always
+    sidecar:
+        image: busybox:latest

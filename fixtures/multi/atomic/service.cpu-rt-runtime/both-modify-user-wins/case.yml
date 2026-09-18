@@ -1,0 +1,6 @@
+id: multi/atomic/service.cpu-rt-runtime/both-modify-user-wins
+field: services.app.cpu_rt_runtime
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

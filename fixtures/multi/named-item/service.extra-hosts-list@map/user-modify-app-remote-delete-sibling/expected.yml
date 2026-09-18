@@ -1,0 +1,7 @@
+services:
+    app:
+        extra_hosts:
+            host-a: user
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

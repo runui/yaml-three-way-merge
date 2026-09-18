@@ -1,0 +1,15 @@
+services:
+    app:
+        tty: !reset []
+---
+services:
+    app:
+        tty: true
+---
+services:
+    sidecar:
+        tty: !reset []
+---
+services:
+    sidecar:
+        tty: true

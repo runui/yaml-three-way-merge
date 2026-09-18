@@ -1,0 +1,6 @@
+id: multi-item/named-item/deploy.resources.reservations.device.options/03-user-deletes-first-remote-modifies-second
+field: services.app.deploy.resources.reservations.devices
+class: multi
+scenario: 03-user-deletes-first-remote-modifies-second
+description: user deletes the first element while newbase changes the second
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: atomic/x-casaos.author/single/01-all-absent
+field: x-casaos.author
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

@@ -1,0 +1,6 @@
+id: atomic/service.oom-score-adj/single/01-all-absent
+field: services.app.oom_score_adj
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

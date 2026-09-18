@@ -1,0 +1,7 @@
+services:
+    app:
+        dns:
+            - 8.8.8.8-a
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,9 @@
+services:
+    app:
+        cap_drop:
+            - SETUID-a
+        image: busybox:latest
+    sidecar:
+        cap_drop:
+            - SETUID-b
+        image: busybox:latest

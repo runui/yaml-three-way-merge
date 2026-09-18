@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - consistency: remote-value
+              source: /host
+              target: /container
+              type: bind

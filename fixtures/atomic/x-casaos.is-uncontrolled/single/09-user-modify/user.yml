@@ -1,0 +1,5 @@
+x-casaos:
+    is_uncontrolled: !reset []
+---
+x-casaos:
+    is_uncontrolled: true

@@ -1,0 +1,15 @@
+services:
+    app:
+        domainname: !reset []
+---
+services:
+    app:
+        domainname: user-value
+---
+services:
+    sidecar:
+        domainname: !reset []
+---
+services:
+    sidecar:
+        domainname: user-value

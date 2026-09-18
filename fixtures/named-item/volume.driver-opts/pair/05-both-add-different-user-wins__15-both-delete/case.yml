@@ -1,0 +1,6 @@
+id: named-item/volume.driver-opts/pair/05-both-add-different-user-wins__15-both-delete
+field: volumes.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 15-both-delete
+pair_semantics: logical-items

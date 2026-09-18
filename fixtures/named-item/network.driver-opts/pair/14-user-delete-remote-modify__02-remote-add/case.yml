@@ -1,0 +1,6 @@
+id: named-item/network.driver-opts/pair/14-user-delete-remote-modify__02-remote-add
+field: networks.default.driver_opts
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 02-remote-add
+pair_semantics: logical-items

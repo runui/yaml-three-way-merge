@@ -1,0 +1,11 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - read_only: true
+              source: /user
+              target: /container
+              type: bind

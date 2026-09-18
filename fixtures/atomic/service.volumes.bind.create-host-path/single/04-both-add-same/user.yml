@@ -1,0 +1,8 @@
+services:
+    app:
+        volumes:
+            - bind:
+                create_host_path: true
+              source: /host
+              target: /container
+              type: bind

@@ -1,0 +1,7 @@
+x-casaos:
+    title: !reset {}
+---
+x-casaos:
+    title:
+        en: title-a-base
+        zh-CN: title-b-user

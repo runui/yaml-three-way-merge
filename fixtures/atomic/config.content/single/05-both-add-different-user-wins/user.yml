@@ -1,0 +1,3 @@
+configs:
+    default:
+        content: user-value

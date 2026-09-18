@@ -1,0 +1,6 @@
+id: atomic/service.secrets.uid/single/04-both-add-same
+field: services.app.secrets[].uid
+class: atomic
+scenario: 04-both-add-same
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

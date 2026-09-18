@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            no_cache: !reset []
+---
+services:
+    app:
+        build:
+            no_cache: true

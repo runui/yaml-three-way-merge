@@ -1,0 +1,9 @@
+secrets:
+    default:
+        labels: !reset {}
+---
+secrets:
+    default:
+        labels:
+            secret.label-b: base
+            secret.label-c: base

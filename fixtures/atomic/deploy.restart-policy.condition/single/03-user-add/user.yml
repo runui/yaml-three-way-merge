@@ -1,0 +1,5 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                condition: on-failure

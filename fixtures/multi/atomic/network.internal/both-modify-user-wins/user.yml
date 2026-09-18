@@ -1,0 +1,15 @@
+networks:
+    default:
+        internal: !reset []
+---
+networks:
+    default:
+        internal: true
+---
+networks:
+    other:
+        internal: !reset []
+---
+networks:
+    other:
+        internal: true

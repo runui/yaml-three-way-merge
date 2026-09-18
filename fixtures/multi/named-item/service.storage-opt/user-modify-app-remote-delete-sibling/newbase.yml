@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        storage_opt:
+            size: size-a-base
+    sidecar:
+        image: busybox:latest

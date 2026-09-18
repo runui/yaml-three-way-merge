@@ -1,0 +1,6 @@
+id: named-item/deploy.resources.reservations.device.options/pair/03-user-add__03-user-add
+field: services.app.deploy.resources.reservations.devices[].options
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 03-user-add
+pair_semantics: logical-items

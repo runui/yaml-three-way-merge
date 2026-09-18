@@ -1,0 +1,6 @@
+id: multi/atomic/build.secrets.mode/user-app-remote-sibling
+field: services.app.build.secrets
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

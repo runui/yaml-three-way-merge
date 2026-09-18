@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            labels: !reset []
+---
+services:
+    app:
+        build:
+            labels:
+                - build.label-b=base
+                - build.label-c=base

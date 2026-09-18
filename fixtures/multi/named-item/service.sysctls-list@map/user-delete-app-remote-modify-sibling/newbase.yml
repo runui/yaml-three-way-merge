@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        sysctls:
+            net.core.value-a: base
+    sidecar:
+        image: busybox:latest
+        sysctls:
+            net.core.value-b: remote

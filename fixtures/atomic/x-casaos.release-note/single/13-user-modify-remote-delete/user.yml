@@ -1,0 +1,5 @@
+x-casaos:
+    release_note: !reset []
+---
+x-casaos:
+    release_note: user-value

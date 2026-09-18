@@ -1,0 +1,8 @@
+services:
+    app:
+        dns_opt: !reset []
+---
+services:
+    app:
+        dns_opt:
+            - rotate-a

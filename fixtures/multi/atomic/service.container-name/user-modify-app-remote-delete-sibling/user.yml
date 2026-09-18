@@ -1,0 +1,7 @@
+services:
+    app:
+        container_name: !reset []
+---
+services:
+    app:
+        container_name: user-value

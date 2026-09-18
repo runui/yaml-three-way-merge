@@ -1,0 +1,27 @@
+services:
+    app:
+        develop:
+            watch: !reset []
+---
+services:
+    app:
+        develop:
+            watch:
+                - action: sync
+                  ignore:
+                    - user.tmp-a
+                  path: .
+---
+services:
+    sidecar:
+        develop:
+            watch: !reset []
+---
+services:
+    sidecar:
+        develop:
+            watch:
+                - action: sync
+                  ignore:
+                    - user.tmp-b
+                  path: .

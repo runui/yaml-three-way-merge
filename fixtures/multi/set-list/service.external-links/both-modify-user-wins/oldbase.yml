@@ -1,0 +1,9 @@
+services:
+    app:
+        external_links:
+            - base:base-a
+        image: busybox:latest
+    sidecar:
+        external_links:
+            - base:base-b
+        image: busybox:latest

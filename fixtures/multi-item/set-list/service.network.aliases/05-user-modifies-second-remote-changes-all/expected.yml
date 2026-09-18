@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        networks:
+            default:
+                aliases:
+                    - remote-alias-a
+                    - user-alias-b
+                    - remote-alias-c

@@ -1,0 +1,15 @@
+services:
+    app:
+        cpu_period: !reset []
+---
+services:
+    app:
+        cpu_period: 2
+---
+services:
+    sidecar:
+        cpu_period: !reset []
+---
+services:
+    sidecar:
+        cpu_period: 2

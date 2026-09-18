@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    default:
+        driver_opts:
+            device: volume-option-b-remote
+            device-c: volume-option-b-user
+            type: volume-option-a-user

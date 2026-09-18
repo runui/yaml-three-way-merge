@@ -1,0 +1,5 @@
+networks:
+    default:
+        ipam:
+            options:
+                b: ipam-option-b-user

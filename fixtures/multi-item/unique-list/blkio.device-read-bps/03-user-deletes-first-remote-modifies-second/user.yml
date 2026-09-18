@@ -1,0 +1,13 @@
+services:
+    app:
+        blkio_config:
+            device_read_bps: !reset []
+---
+services:
+    app:
+        blkio_config:
+            device_read_bps:
+                - path: /dev/b
+                  rate: 111mb
+                - path: /dev/c
+                  rate: 211mb

@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    tagline:
+        en: tagline-a-user
+        zh-CN: tagline-b-base

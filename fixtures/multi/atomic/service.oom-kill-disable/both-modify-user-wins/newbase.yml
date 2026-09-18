@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        oom_kill_disable: true
+    sidecar:
+        image: busybox:latest
+        oom_kill_disable: true

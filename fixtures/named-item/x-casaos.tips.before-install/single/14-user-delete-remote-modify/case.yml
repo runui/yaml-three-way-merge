@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/single/14-user-delete-remote-modify
+field: x-casaos.tips.before_install
+class: named-item
+scenario: 14-user-delete-remote-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

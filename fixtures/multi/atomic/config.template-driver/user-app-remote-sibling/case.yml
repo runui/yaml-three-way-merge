@@ -1,0 +1,6 @@
+id: multi/atomic/config.template-driver/user-app-remote-sibling
+field: configs.default.template_driver
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: named-item/service.storage-opt/pair/02-remote-add__02-remote-add
+field: services.app.storage_opt
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 02-remote-add
+pair_semantics: logical-items

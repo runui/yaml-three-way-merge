@@ -1,0 +1,6 @@
+id: named-item/service.storage-opt/pair/13-user-modify-remote-delete__11-both-modify-same
+field: services.app.storage_opt
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 11-both-modify-same
+pair_semantics: logical-items

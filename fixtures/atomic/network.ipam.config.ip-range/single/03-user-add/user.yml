@@ -1,0 +1,6 @@
+networks:
+    default:
+        ipam:
+            config:
+                - ip_range: user-value
+                  subnet: 10.0.0.0/24

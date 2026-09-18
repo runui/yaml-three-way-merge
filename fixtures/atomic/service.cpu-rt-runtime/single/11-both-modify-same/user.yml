@@ -1,0 +1,7 @@
+services:
+    app:
+        cpu_rt_runtime: !reset []
+---
+services:
+    app:
+        cpu_rt_runtime: 2

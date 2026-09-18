@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        working_dir: user-value
+    sidecar:
+        image: busybox:latest
+        working_dir: remote-value

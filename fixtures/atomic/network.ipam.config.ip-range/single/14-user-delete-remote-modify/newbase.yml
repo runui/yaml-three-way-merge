@@ -1,0 +1,9 @@
+networks:
+    default:
+        ipam:
+            config:
+                - ip_range: remote-value
+                  subnet: 10.0.0.0/24
+services:
+    app:
+        image: busybox:latest

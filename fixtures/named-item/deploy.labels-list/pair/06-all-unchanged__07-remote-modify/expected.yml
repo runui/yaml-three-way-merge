@@ -1,0 +1,7 @@
+services:
+    app:
+        deploy:
+            labels:
+                - deploy.label-a=base
+                - deploy.label-b=remote
+        image: busybox:latest

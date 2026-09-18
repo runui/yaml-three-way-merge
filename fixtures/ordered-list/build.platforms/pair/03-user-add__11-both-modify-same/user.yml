@@ -7,5 +7,5 @@ services:
     app:
         build:
             platforms:
-                - linux/arm64-a
-                - linux/arm64-b
+                - linux/arm64
+                - linux/ppc64le

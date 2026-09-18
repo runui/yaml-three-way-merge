@@ -1,0 +1,7 @@
+services:
+    app:
+        cpu_percent: !reset []
+---
+services:
+    app:
+        cpu_percent: 2

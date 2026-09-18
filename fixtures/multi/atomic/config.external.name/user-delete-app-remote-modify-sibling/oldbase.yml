@@ -1,0 +1,10 @@
+configs:
+    default:
+        external:
+            name: base-value
+    other:
+        external:
+            name: base-value
+services:
+    app:
+        image: busybox:latest

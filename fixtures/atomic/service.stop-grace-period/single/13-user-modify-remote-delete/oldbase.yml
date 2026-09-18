@@ -1,0 +1,4 @@
+services:
+    app:
+        image: busybox:latest
+        stop_grace_period: 1s

@@ -1,0 +1,23 @@
+networks:
+    default:
+        ipam:
+            config: !reset []
+---
+networks:
+    default:
+        ipam:
+            config:
+                - ip_range: user-value
+                  subnet: 10.0.0.0/24
+---
+networks:
+    other:
+        ipam:
+            config: !reset []
+---
+networks:
+    other:
+        ipam:
+            config:
+                - ip_range: user-value
+                  subnet: 10.0.0.0/24

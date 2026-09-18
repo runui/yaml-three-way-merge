@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    description:
+        en: description-a-base

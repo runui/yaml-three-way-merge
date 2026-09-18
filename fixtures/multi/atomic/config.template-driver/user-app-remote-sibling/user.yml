@@ -1,0 +1,7 @@
+configs:
+    default:
+        template_driver: !reset []
+---
+configs:
+    default:
+        template_driver: user-value

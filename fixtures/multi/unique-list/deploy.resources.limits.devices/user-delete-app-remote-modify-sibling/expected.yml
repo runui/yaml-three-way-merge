@@ -1,0 +1,12 @@
+services:
+    app:
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - tpu
+                          driver: remote-b
+        image: busybox:latest

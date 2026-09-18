@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        pids_limit: 2
+    sidecar:
+        image: busybox:latest

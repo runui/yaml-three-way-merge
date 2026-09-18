@@ -1,0 +1,21 @@
+services:
+    app:
+        build:
+            labels: !reset {}
+---
+services:
+    app:
+        build:
+            labels:
+                build.label-a: user
+---
+services:
+    sidecar:
+        build:
+            labels: !reset {}
+---
+services:
+    sidecar:
+        build:
+            labels:
+                build.label-b: user

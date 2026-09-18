@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                failure_action: !reset []
+---
+services:
+    app:
+        deploy:
+            rollback_config:
+                failure_action: rollback

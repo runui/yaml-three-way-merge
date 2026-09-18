@@ -1,0 +1,9 @@
+services:
+    app:
+        annotations:
+            annotation-a: remote
+        image: busybox:latest
+    sidecar:
+        annotations:
+            annotation-b: remote
+        image: busybox:latest

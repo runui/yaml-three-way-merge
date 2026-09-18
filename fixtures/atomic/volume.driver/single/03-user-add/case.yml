@@ -1,0 +1,6 @@
+id: atomic/volume.driver/single/03-user-add
+field: volumes.default.driver
+class: atomic
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

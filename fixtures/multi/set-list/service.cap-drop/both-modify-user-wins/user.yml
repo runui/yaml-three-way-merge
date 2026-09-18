@@ -1,0 +1,17 @@
+services:
+    app:
+        cap_drop: !reset []
+---
+services:
+    app:
+        cap_drop:
+            - SETUID-a
+---
+services:
+    sidecar:
+        cap_drop: !reset []
+---
+services:
+    sidecar:
+        cap_drop:
+            - SETUID-b

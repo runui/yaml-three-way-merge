@@ -1,0 +1,10 @@
+services:
+    app:
+        dns_search: !reset []
+---
+services:
+    app:
+        dns_search:
+            - base.test-a
+            - user.test-b
+            - base.test-c

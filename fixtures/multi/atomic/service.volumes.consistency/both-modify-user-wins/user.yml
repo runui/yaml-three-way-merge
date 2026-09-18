@@ -1,0 +1,23 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - consistency: user-value
+              source: /host
+              target: /container
+              type: bind
+---
+services:
+    sidecar:
+        volumes: !reset []
+---
+services:
+    sidecar:
+        volumes:
+            - consistency: user-value
+              source: /host
+              target: /container
+              type: bind

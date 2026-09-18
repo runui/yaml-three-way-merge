@@ -1,0 +1,9 @@
+services:
+    app:
+        image: busybox:latest
+        logging:
+            driver: remote-value
+    sidecar:
+        image: busybox:latest
+        logging:
+            driver: remote-value

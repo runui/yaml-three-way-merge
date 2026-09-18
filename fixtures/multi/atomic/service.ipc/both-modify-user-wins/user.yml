@@ -1,0 +1,15 @@
+services:
+    app:
+        ipc: !reset []
+---
+services:
+    app:
+        ipc: user-value
+---
+services:
+    sidecar:
+        ipc: !reset []
+---
+services:
+    sidecar:
+        ipc: user-value

@@ -1,0 +1,6 @@
+id: atomic/service.secrets.uid/single/13-user-modify-remote-delete
+field: services.app.secrets[].uid
+class: atomic
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

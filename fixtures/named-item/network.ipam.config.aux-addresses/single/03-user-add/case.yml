@@ -1,0 +1,6 @@
+id: named-item/network.ipam.config.aux-addresses/single/03-user-add
+field: networks.default.ipam.config[].aux_addresses
+class: named-item
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

@@ -1,0 +1,8 @@
+services:
+    app:
+        deploy:
+            rollback_config:
+                parallelism: 2
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: atomic/service.configs.uid/single/10-user-delete
+field: services.app.configs[].uid
+class: atomic
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

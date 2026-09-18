@@ -1,0 +1,6 @@
+id: named-item/x-casaos.description/pair/01-all-absent__05-both-add-different-user-wins
+field: x-casaos.description
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

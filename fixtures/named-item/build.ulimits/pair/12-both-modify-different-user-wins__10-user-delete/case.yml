@@ -1,0 +1,6 @@
+id: named-item/build.ulimits/pair/12-both-modify-different-user-wins__10-user-delete
+field: services.app.build.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 10-user-delete
+pair_semantics: logical-items

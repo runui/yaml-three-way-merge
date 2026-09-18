@@ -1,0 +1,9 @@
+services:
+    app:
+        devices:
+            - permissions: rwm
+              source: /dev/base-a
+              target: /dev/a
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

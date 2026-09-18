@@ -1,0 +1,10 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - read_only: true
+              source: /host
+              target: /container
+              type: bind
+    sidecar:
+        image: busybox:latest

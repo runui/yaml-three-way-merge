@@ -1,0 +1,6 @@
+id: atomic/service.depends-on.restart/single/13-user-modify-remote-delete
+field: services.app.depends_on.default.restart
+class: atomic
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

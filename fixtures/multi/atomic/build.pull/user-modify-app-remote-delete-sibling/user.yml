@@ -1,0 +1,9 @@
+services:
+    app:
+        build:
+            pull: !reset []
+---
+services:
+    app:
+        build:
+            pull: true

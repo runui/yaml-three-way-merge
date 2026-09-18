@@ -1,0 +1,15 @@
+services:
+    app:
+        memswap_limit: !reset []
+---
+services:
+    app:
+        memswap_limit: 2
+---
+services:
+    sidecar:
+        memswap_limit: !reset []
+---
+services:
+    sidecar:
+        memswap_limit: 2

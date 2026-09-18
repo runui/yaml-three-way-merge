@@ -1,0 +1,6 @@
+id: named-item/x-casaos.title/pair/06-all-unchanged__09-user-modify
+field: x-casaos.title
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 09-user-modify
+pair_semantics: logical-items

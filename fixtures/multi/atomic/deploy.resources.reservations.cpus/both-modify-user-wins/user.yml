@@ -1,0 +1,27 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    cpus: !reset []
+---
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    cpus: 2
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    cpus: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    cpus: 2

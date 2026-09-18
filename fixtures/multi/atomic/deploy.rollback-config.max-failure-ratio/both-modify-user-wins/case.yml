@@ -1,0 +1,6 @@
+id: multi/atomic/deploy.rollback-config.max-failure-ratio/both-modify-user-wins
+field: services.app.deploy.rollback_config.max_failure_ratio
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

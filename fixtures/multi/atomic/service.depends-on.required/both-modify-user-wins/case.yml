@@ -1,0 +1,6 @@
+id: multi/atomic/service.depends-on.required/both-modify-user-wins
+field: services.app.depends_on
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

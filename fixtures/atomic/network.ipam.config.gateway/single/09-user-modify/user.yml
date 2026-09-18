@@ -1,0 +1,11 @@
+networks:
+    default:
+        ipam:
+            config: !reset []
+---
+networks:
+    default:
+        ipam:
+            config:
+                - gateway: user-value
+                  subnet: 10.0.0.0/24

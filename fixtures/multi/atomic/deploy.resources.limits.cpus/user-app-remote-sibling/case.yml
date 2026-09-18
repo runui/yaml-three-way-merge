@@ -1,0 +1,6 @@
+id: multi/atomic/deploy.resources.limits.cpus/user-app-remote-sibling
+field: services.app.deploy.resources.limits.cpus
+class: multi
+scenario: user-app-remote-sibling
+description: user changes only app, newbase changes only the sibling resource
+pair_semantics: logical-items

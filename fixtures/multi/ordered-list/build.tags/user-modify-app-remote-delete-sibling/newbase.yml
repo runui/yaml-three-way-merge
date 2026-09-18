@@ -1,0 +1,8 @@
+services:
+    app:
+        build:
+            tags:
+                - example:base-a
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

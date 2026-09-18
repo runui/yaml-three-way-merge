@@ -1,0 +1,9 @@
+services:
+    app:
+        cap_drop: !reset []
+---
+services:
+    app:
+        cap_drop:
+            - NET_RAW-b
+            - NET_RAW-c

@@ -1,0 +1,6 @@
+id: atomic/service.volumes.bind.create-host-path/single/01-all-absent
+field: services.app.volumes[].bind.create_host_path
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

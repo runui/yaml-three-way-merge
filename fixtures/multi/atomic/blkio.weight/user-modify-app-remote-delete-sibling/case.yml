@@ -1,0 +1,6 @@
+id: multi/atomic/blkio.weight/user-modify-app-remote-delete-sibling
+field: services.app.blkio_config.weight
+class: multi
+scenario: user-modify-app-remote-delete-sibling
+description: user changes app, newbase removes the field on the sibling resource
+pair_semantics: logical-items

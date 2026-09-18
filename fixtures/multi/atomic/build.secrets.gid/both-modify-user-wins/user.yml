@@ -1,0 +1,25 @@
+services:
+    app:
+        build:
+            secrets: !reset []
+---
+services:
+    app:
+        build:
+            secrets:
+                - gid: user-value
+                  source: base
+                  target: /run/secrets/base
+---
+services:
+    sidecar:
+        build:
+            secrets: !reset []
+---
+services:
+    sidecar:
+        build:
+            secrets:
+                - gid: user-value
+                  source: base
+                  target: /run/secrets/base

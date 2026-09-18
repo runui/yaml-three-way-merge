@@ -1,0 +1,9 @@
+services:
+    app:
+        expose:
+            - 82-a
+        image: busybox:latest
+    sidecar:
+        expose:
+            - 82-b
+        image: busybox:latest

@@ -1,0 +1,8 @@
+networks:
+    default:
+        driver_opts:
+            bar: com.docker.network-b-base
+            foo: com.docker.network-a-remote
+services:
+    app:
+        image: busybox:latest

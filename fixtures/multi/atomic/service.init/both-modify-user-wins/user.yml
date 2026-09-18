@@ -1,0 +1,15 @@
+services:
+    app:
+        init: !reset []
+---
+services:
+    app:
+        init: true
+---
+services:
+    sidecar:
+        init: !reset []
+---
+services:
+    sidecar:
+        init: true

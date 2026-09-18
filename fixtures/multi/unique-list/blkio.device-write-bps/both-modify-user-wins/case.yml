@@ -1,0 +1,6 @@
+id: multi/unique-list/blkio.device-write-bps/both-modify-user-wins
+field: services.app.blkio_config.device_write_bps
+class: multi
+scenario: both-modify-user-wins
+description: both sides change app and the sibling resource; user intent wins
+pair_semantics: logical-items

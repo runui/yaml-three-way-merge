@@ -1,0 +1,17 @@
+services:
+    app:
+        dns_opt: !reset []
+---
+services:
+    app:
+        dns_opt:
+            - rotate-a
+---
+services:
+    sidecar:
+        dns_opt: !reset []
+---
+services:
+    sidecar:
+        dns_opt:
+            - rotate-b

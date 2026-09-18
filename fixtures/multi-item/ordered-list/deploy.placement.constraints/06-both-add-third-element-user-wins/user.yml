@@ -1,0 +1,14 @@
+services:
+    app:
+        deploy:
+            placement:
+                constraints: !reset []
+---
+services:
+    app:
+        deploy:
+            placement:
+                constraints:
+                    - node.role==manager-a
+                    - node.role==manager-b
+                    - node.labels.zone==user-c

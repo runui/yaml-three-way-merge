@@ -1,0 +1,15 @@
+services:
+    app:
+        oom_score_adj: !reset []
+---
+services:
+    app:
+        oom_score_adj: 2
+---
+services:
+    sidecar:
+        oom_score_adj: !reset []
+---
+services:
+    sidecar:
+        oom_score_adj: 2

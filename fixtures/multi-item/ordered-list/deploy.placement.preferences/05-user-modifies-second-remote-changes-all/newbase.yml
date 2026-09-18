@@ -1,0 +1,9 @@
+services:
+    app:
+        deploy:
+            placement:
+                preferences:
+                    - spread: node.labels.remote-a
+                    - spread: node.labels.remote-b
+                    - spread: node.labels.remote-c
+        image: busybox:latest

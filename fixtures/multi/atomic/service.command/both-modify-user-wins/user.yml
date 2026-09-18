@@ -1,0 +1,19 @@
+services:
+    app:
+        command: !reset []
+---
+services:
+    app:
+        command:
+            - - CMD
+              - user-a
+---
+services:
+    sidecar:
+        command: !reset []
+---
+services:
+    sidecar:
+        command:
+            - - CMD
+              - user-a

@@ -1,0 +1,11 @@
+services:
+    app:
+        build:
+            platforms:
+                - linux/amd64
+        image: busybox:latest
+    sidecar:
+        build:
+            platforms:
+                - linux/arm/v7
+        image: busybox:latest

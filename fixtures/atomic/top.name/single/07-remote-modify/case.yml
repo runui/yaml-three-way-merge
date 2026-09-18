@@ -1,0 +1,6 @@
+id: atomic/top.name/single/07-remote-modify
+field: name
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

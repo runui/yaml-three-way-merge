@@ -1,0 +1,6 @@
+id: atomic/secret.external/single/01-all-absent
+field: secrets.default.external
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

@@ -1,0 +1,15 @@
+secrets:
+    default:
+        file: !reset []
+---
+secrets:
+    default:
+        file: user-value
+---
+secrets:
+    other:
+        file: !reset []
+---
+secrets:
+    other:
+        file: user-value

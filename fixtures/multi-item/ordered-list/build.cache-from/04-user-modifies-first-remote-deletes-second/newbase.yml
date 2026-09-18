@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            cache_from:
+                - type=local,src=base-a
+                - type=local,src=base-c
+        image: busybox:latest

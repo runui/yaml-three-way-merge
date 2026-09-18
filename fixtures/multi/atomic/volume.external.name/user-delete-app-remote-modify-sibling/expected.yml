@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    other:
+        external:
+            name: remote-value

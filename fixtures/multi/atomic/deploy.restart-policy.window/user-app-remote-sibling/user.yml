@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                window: !reset []
+---
+services:
+    app:
+        deploy:
+            restart_policy:
+                window: 2s

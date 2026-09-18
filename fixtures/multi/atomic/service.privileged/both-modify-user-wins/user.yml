@@ -1,0 +1,15 @@
+services:
+    app:
+        privileged: !reset []
+---
+services:
+    app:
+        privileged: true
+---
+services:
+    sidecar:
+        privileged: !reset []
+---
+services:
+    sidecar:
+        privileged: true

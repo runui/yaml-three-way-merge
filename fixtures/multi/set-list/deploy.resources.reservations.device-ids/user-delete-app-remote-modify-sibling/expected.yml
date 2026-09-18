@@ -1,0 +1,21 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: nvidia
+        image: busybox:latest
+    sidecar:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          device_ids:
+                            - GPU-remote-b
+                          driver: nvidia
+        image: busybox:latest

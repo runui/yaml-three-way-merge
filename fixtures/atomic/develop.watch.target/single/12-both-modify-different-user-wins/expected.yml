@@ -1,0 +1,7 @@
+services:
+    app:
+        develop:
+            watch:
+                - path: ./src
+                  target: user-value
+        image: busybox:latest

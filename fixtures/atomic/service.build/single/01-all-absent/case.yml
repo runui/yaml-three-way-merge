@@ -1,0 +1,6 @@
+id: atomic/service.build/single/01-all-absent
+field: services.app.build
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

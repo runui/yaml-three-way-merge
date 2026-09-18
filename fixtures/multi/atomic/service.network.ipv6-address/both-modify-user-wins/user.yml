@@ -1,0 +1,23 @@
+services:
+    app:
+        networks:
+            default:
+                ipv6_address: !reset []
+---
+services:
+    app:
+        networks:
+            default:
+                ipv6_address: user-value
+---
+services:
+    sidecar:
+        networks:
+            default:
+                ipv6_address: !reset []
+---
+services:
+    sidecar:
+        networks:
+            default:
+                ipv6_address: user-value

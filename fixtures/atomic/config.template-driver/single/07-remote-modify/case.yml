@@ -1,0 +1,6 @@
+id: atomic/config.template-driver/single/07-remote-modify
+field: configs.default.template_driver
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: none

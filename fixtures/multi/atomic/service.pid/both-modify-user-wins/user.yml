@@ -1,0 +1,15 @@
+services:
+    app:
+        pid: !reset []
+---
+services:
+    app:
+        pid: user-value
+---
+services:
+    sidecar:
+        pid: !reset []
+---
+services:
+    sidecar:
+        pid: user-value

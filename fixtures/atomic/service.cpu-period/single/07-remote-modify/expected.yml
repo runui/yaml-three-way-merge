@@ -1,0 +1,4 @@
+services:
+    app:
+        cpu_period: 3
+        image: busybox:latest

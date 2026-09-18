@@ -1,0 +1,6 @@
+id: atomic/config.external.name/single/15-both-delete
+field: configs.default.external.name
+class: atomic
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

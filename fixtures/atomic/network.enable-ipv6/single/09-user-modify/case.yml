@@ -1,0 +1,6 @@
+id: atomic/network.enable-ipv6/single/09-user-modify
+field: networks.default.enable_ipv6
+class: atomic
+scenario: 09-user-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

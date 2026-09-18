@@ -1,0 +1,19 @@
+services:
+    app:
+        deploy:
+            replicas: !reset []
+---
+services:
+    app:
+        deploy:
+            replicas: 2
+---
+services:
+    sidecar:
+        deploy:
+            replicas: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            replicas: 2

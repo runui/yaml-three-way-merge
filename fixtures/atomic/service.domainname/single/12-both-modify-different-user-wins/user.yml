@@ -1,0 +1,7 @@
+services:
+    app:
+        domainname: !reset []
+---
+services:
+    app:
+        domainname: user-value

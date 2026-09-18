@@ -1,0 +1,6 @@
+id: atomic/volume.external/single/03-user-add
+field: volumes.default.external
+class: atomic
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

@@ -1,0 +1,4 @@
+networks:
+    default:
+        driver_opts:
+            foo: com.docker.network-a-user

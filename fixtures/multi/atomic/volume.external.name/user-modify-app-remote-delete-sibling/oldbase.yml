@@ -1,0 +1,10 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    default:
+        external:
+            name: base-value
+    other:
+        external:
+            name: base-value

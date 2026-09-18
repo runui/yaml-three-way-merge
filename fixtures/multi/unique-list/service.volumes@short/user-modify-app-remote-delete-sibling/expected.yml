@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - /user-a:/data-a
+    sidecar:
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: named-item/x-casaos.description/single/06-all-unchanged
+field: x-casaos.description
+class: named-item
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

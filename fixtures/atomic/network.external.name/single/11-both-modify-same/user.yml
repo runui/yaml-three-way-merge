@@ -1,0 +1,9 @@
+networks:
+    default:
+        external:
+            name: !reset []
+---
+networks:
+    default:
+        external:
+            name: user-value

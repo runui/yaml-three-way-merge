@@ -1,0 +1,5 @@
+x-casaos:
+    port_map: !reset []
+---
+x-casaos:
+    port_map: user-value

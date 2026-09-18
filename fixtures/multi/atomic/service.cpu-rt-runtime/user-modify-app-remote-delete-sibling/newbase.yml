@@ -1,0 +1,6 @@
+services:
+    app:
+        cpu_rt_runtime: 1
+        image: busybox:latest
+    sidecar:
+        image: busybox:latest

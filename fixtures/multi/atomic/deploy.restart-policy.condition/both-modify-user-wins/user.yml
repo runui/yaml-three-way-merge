@@ -1,0 +1,23 @@
+services:
+    app:
+        deploy:
+            restart_policy:
+                condition: !reset []
+---
+services:
+    app:
+        deploy:
+            restart_policy:
+                condition: on-failure
+---
+services:
+    sidecar:
+        deploy:
+            restart_policy:
+                condition: !reset []
+---
+services:
+    sidecar:
+        deploy:
+            restart_policy:
+                condition: on-failure

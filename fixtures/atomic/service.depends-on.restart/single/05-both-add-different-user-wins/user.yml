@@ -1,0 +1,5 @@
+services:
+    app:
+        depends_on:
+            default:
+                restart: true

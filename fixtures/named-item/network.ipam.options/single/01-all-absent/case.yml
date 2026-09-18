@@ -1,0 +1,6 @@
+id: named-item/network.ipam.options/single/01-all-absent
+field: networks.default.ipam.options
+class: named-item
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

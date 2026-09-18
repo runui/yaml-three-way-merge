@@ -1,0 +1,6 @@
+id: named-item/x-casaos.tips.before-install/single/05-both-add-different-user-wins
+field: x-casaos.tips.before_install
+class: named-item
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

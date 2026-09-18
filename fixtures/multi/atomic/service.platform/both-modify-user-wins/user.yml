@@ -1,0 +1,15 @@
+services:
+    app:
+        platform: !reset []
+---
+services:
+    app:
+        platform: user-value
+---
+services:
+    sidecar:
+        platform: !reset []
+---
+services:
+    sidecar:
+        platform: user-value

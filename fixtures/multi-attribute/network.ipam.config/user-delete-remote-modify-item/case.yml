@@ -1,0 +1,6 @@
+id: multi-attribute/network.ipam.config/user-delete-remote-modify-item
+field: networks.default.ipam.config
+class: multi
+scenario: user-delete-remote-modify-item
+description: user removes the whole item while newbase changes one attribute
+pair_semantics: logical-items

@@ -1,0 +1,19 @@
+services:
+    app:
+        secrets: !reset []
+---
+services:
+    app:
+        secrets:
+            - source: user_secret_a
+              target: /secret-a
+---
+services:
+    sidecar:
+        secrets: !reset []
+---
+services:
+    sidecar:
+        secrets:
+            - source: user_secret_b
+              target: /secret-b

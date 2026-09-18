@@ -1,0 +1,6 @@
+id: named-item/build.ulimits/pair/15-both-delete__03-user-add
+field: services.app.build.ulimits
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 03-user-add
+pair_semantics: logical-items

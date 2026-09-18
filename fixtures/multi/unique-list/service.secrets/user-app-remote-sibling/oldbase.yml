@@ -1,0 +1,11 @@
+services:
+    app:
+        image: busybox:latest
+        secrets:
+            - source: base_secret_a
+              target: /secret-a
+    sidecar:
+        image: busybox:latest
+        secrets:
+            - source: base_secret_b
+              target: /secret-b

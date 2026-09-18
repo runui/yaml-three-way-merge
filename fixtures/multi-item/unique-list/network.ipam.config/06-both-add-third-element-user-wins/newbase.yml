@@ -1,0 +1,10 @@
+networks:
+    default:
+        ipam:
+            config:
+                - subnet: 10.1.0.0/24
+                - subnet: 10.13.0.0/24
+                - subnet: 10.23.0.0/24
+services:
+    app:
+        image: busybox:latest

@@ -1,0 +1,17 @@
+services:
+    app:
+        links: !reset []
+---
+services:
+    app:
+        links:
+            - user:user-a
+---
+services:
+    sidecar:
+        links: !reset []
+---
+services:
+    sidecar:
+        links:
+            - user:user-b
