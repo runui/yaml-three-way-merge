@@ -111,6 +111,29 @@ GOWORK=off go run ./cmd/validate-smd -fixtures fixtures -compare-project -json
 
 该路径在 SMD typed value 内部通过 `RemoveItems` 和 partial `Merge` 应用用户覆盖层，不会先用 Compose merge 还原完整 user YAML。
 
+使用独立的双行为 SMD 策略：分别计算并 replay `oldbase -> user prediction` 与 `oldbase -> newbase`，再把用户行为应用到上游行为预期：
+
+```bash
+GOWORK=off go run ./cmd/validate-smd-intent -fixtures fixtures -json
+```
+
+三个命令分别只运行各自算法：
+
+- `cmd/validate`：项目 `RebaseRepositoryUpdate`；
+- `cmd/validate-smd`：直接将用户 delta 应用到 newbase 的 SMD 策略；
+- `cmd/validate-smd-intent`：显式双 delta、双 replay 和冲突报告的 SMD 策略。
+
+当前双行为 SMD 基线：
+
+```text
+total:          16132
+matched:        14492
+mismatched:      1640
+errors:             0
+```
+
+双行为策略会将 `depends_on` 和 service `networks` 中有唯一稳定 origin token 的 `delete + add` 重建为 modify，再联合解析 user/upstream intent。无法唯一关联时保持原 SMD 行为，不按位置或残余数量猜测。相对直接 SMD 当前新增通过 92 条，未引入已通过 case 回退。
+
 当前基线：
 
 ```text
