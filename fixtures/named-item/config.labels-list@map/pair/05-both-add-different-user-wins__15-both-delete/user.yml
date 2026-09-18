@@ -1,0 +1,8 @@
+configs:
+    default:
+        labels: !reset {}
+---
+configs:
+    default:
+        labels:
+            config.label-a: user

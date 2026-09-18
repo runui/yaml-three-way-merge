@@ -1,0 +1,4 @@
+configs:
+    default:
+        labels:
+            config.label-b: user

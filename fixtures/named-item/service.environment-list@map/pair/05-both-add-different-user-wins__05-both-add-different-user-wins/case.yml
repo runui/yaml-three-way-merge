@@ -1,0 +1,6 @@
+id: named-item/service.environment-list@map/pair/05-both-add-different-user-wins__05-both-add-different-user-wins
+field: services.app.environment
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

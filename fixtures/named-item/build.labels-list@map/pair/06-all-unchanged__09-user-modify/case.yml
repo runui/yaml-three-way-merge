@@ -1,0 +1,6 @@
+id: named-item/build.labels-list@map/pair/06-all-unchanged__09-user-modify
+field: services.app.build.labels
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 09-user-modify
+pair_semantics: logical-items

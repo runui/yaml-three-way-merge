@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        tmpfs:
+            - /user-a
+            - /user-b

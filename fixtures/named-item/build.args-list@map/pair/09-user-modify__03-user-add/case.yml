@@ -1,0 +1,6 @@
+id: named-item/build.args-list@map/pair/09-user-modify__03-user-add
+field: services.app.build.args
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 03-user-add
+pair_semantics: logical-items

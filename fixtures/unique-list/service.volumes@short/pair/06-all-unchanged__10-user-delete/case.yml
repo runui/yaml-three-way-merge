@@ -1,0 +1,6 @@
+id: unique-list/service.volumes@short/pair/06-all-unchanged__10-user-delete
+field: services.app.volumes
+class: unique-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 10-user-delete
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: named-item/service.networks@map/pair/03-user-add__14-user-delete-remote-modify
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

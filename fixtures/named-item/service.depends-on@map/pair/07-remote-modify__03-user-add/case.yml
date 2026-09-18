@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/07-remote-modify__03-user-add
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 03-user-add
+pair_semantics: logical-items

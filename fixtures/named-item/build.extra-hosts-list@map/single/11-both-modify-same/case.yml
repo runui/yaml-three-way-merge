@@ -1,0 +1,6 @@
+id: named-item/build.extra-hosts-list@map/single/11-both-modify-same
+field: services.app.build.extra_hosts
+class: named-item
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

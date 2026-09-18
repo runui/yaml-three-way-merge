@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/10-user-delete__05-both-add-different-user-wins
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

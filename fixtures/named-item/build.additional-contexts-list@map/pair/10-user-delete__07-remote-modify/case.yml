@@ -1,0 +1,6 @@
+id: named-item/build.additional-contexts-list@map/pair/10-user-delete__07-remote-modify
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 07-remote-modify
+pair_semantics: logical-items

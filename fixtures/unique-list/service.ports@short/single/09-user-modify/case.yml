@@ -1,0 +1,6 @@
+id: unique-list/service.ports@short/single/09-user-modify
+field: services.app.ports
+class: unique-list
+scenario: 09-user-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

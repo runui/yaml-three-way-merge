@@ -1,0 +1,6 @@
+id: named-item/build.additional-contexts-list@map/pair/13-user-modify-remote-delete__15-both-delete
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 15-both-delete
+pair_semantics: logical-items

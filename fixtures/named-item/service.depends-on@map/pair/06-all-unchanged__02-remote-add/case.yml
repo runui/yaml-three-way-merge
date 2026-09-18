@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/06-all-unchanged__02-remote-add
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 02-remote-add
+pair_semantics: logical-items

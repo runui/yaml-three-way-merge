@@ -12,8 +12,16 @@ func TestGeneratePreservesCorpusCardinality(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(cases) != 16132 || manifest.CaseCount != 16132 {
-		t.Fatalf("generated %d cases, manifest says %d", len(cases), manifest.CaseCount)
+	// Seven explicit port acceptance scenarios are appended in Generate.
+	expected := 7
+	for _, field := range ArrayFields() {
+		expected += 15
+		if field.Class != ClassAtomic {
+			expected += 225
+		}
+	}
+	if len(cases) != expected || manifest.CaseCount != expected {
+		t.Fatalf("generated %d cases, manifest says %d, want %d", len(cases), manifest.CaseCount, expected)
 	}
 }
 

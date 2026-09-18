@@ -1,0 +1,6 @@
+id: named-item/build.additional-contexts-list@map/pair/15-both-delete__03-user-add
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 03-user-add
+pair_semantics: logical-items

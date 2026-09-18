@@ -1,0 +1,4 @@
+services:
+    app:
+        command: base-command-a
+        image: busybox:latest

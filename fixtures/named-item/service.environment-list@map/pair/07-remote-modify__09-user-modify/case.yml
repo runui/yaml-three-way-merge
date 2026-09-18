@@ -1,0 +1,6 @@
+id: named-item/service.environment-list@map/pair/07-remote-modify__09-user-modify
+field: services.app.environment
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 09-user-modify
+pair_semantics: logical-items

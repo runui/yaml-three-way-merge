@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/single/08-remote-delete
+field: services.app.env_file
+class: ordered-list
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: whole-list

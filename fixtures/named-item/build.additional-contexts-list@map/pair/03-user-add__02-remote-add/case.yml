@@ -1,0 +1,6 @@
+id: named-item/build.additional-contexts-list@map/pair/03-user-add__02-remote-add
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 02-remote-add
+pair_semantics: logical-items

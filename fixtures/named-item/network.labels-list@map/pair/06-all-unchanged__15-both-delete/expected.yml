@@ -1,0 +1,7 @@
+networks:
+    default:
+        labels:
+            network.label-a: base
+services:
+    app:
+        image: busybox:latest

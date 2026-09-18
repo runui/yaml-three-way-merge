@@ -1,0 +1,6 @@
+id: unique-list/service.tmpfs@scalar/pair/09-user-modify__13-user-modify-remote-delete
+field: services.app.tmpfs
+class: unique-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

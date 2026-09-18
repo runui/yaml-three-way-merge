@@ -1,0 +1,7 @@
+services:
+    app:
+        command: !reset []
+---
+services:
+    app:
+        command: user-command-a

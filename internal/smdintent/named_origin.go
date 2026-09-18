@@ -97,8 +97,33 @@ func mergeNamedOrigins(old, user, upstream []namedEntry) ([]namedEntry, bool) {
 		}
 		appendNamedEntry(&result, seen, selected)
 	}
+	userOnlyTokens := map[string]int{}
+	for _, entry := range user {
+		if _, exact := oldByName[entry.name]; exact || matchedOldToken(entry, oldByToken, oldUnique) {
+			continue
+		}
+		if token := stableOriginToken(entry.name); token != "" {
+			userOnlyTokens[token]++
+		}
+	}
+	upstreamOnlyTokens := map[string]int{}
 	for _, entry := range upstream {
 		if _, exact := oldByName[entry.name]; exact || matchedOldToken(entry, oldByToken, oldUnique) {
+			continue
+		}
+		if token := stableOriginToken(entry.name); token != "" {
+			upstreamOnlyTokens[token]++
+		}
+	}
+	for _, entry := range upstream {
+		if _, exact := oldByName[entry.name]; exact || matchedOldToken(entry, oldByToken, oldUnique) {
+			continue
+		}
+		// When base has no entry for this logical item and both sides added a
+		// version of it, the user's addition wins and the upstream duplicate is
+		// dropped. The shared stable origin token identifies the item.
+		if token := stableOriginToken(entry.name); token != "" && userOnlyTokens[token] == 1 && upstreamOnlyTokens[token] == 1 {
+			changed = true
 			continue
 		}
 		appendNamedEntry(&result, seen, entry)

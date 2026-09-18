@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/pair/07-remote-modify__05-both-add-different-user-wins
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 05-both-add-different-user-wins
+pair_semantics: whole-list

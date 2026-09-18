@@ -167,6 +167,8 @@ func Equivalent(leftYAML, rightYAML []byte) (bool, error) {
 	if err != nil {
 		return false, err
 	}
+	pruneEmptyContainers(left)
+	pruneEmptyContainers(right)
 	// Assigning both sides as unchanged states gives canonical port IDs without
 	// making representation-only differences significant.
 	if err := assignPortMergeIDs(left, left, right); err != nil {
@@ -238,6 +240,36 @@ func unwrapInternalLists(value any) any {
 		return current
 	default:
 		return value
+	}
+}
+
+// pruneEmptyContainers removes empty mappings and sequences so that an emptied
+// list is equivalent to an absent one. Without this, replaying a removal that
+// empties a list drops the container while the user prediction keeps it.
+func pruneEmptyContainers(value any) {
+	switch current := value.(type) {
+	case map[string]any:
+		for key, child := range current {
+			pruneEmptyContainers(child)
+			if isEmptyContainer(child) {
+				delete(current, key)
+			}
+		}
+	case []any:
+		for _, child := range current {
+			pruneEmptyContainers(child)
+		}
+	}
+}
+
+func isEmptyContainer(value any) bool {
+	switch current := value.(type) {
+	case map[string]any:
+		return len(current) == 0
+	case []any:
+		return len(current) == 0
+	default:
+		return false
 	}
 }
 

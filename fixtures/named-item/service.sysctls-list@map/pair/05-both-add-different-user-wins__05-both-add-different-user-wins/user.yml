@@ -1,0 +1,5 @@
+services:
+    app:
+        sysctls:
+            net.core.value-a: user
+            net.core.value-b: user

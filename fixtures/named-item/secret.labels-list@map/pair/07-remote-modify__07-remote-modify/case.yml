@@ -1,0 +1,6 @@
+id: named-item/secret.labels-list@map/pair/07-remote-modify__07-remote-modify
+field: secrets.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 07-remote-modify
+pair_semantics: logical-items

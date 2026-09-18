@@ -1,0 +1,6 @@
+id: named-item/network.labels-list@map/single/15-both-delete
+field: networks.default.labels
+class: named-item
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: named-item/build.extra-hosts-list@map/pair/03-user-add__09-user-modify
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 09-user-modify
+pair_semantics: logical-items

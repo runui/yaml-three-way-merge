@@ -1,0 +1,6 @@
+id: named-item/config.labels-list@map/pair/05-both-add-different-user-wins__03-user-add
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 03-user-add
+pair_semantics: logical-items

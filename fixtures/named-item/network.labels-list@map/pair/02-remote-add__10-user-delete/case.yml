@@ -1,0 +1,6 @@
+id: named-item/network.labels-list@map/pair/02-remote-add__10-user-delete
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 10-user-delete
+pair_semantics: logical-items

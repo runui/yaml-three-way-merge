@@ -1,0 +1,6 @@
+id: named-item/build.additional-contexts-list@map/pair/01-all-absent__14-user-delete-remote-modify
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

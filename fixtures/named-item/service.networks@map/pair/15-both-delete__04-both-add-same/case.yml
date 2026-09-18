@@ -1,0 +1,6 @@
+id: named-item/service.networks@map/pair/15-both-delete__04-both-add-same
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 04-both-add-same
+pair_semantics: logical-items

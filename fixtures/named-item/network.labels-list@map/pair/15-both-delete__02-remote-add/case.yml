@@ -1,0 +1,6 @@
+id: named-item/network.labels-list@map/pair/15-both-delete__02-remote-add
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 02-remote-add
+pair_semantics: logical-items

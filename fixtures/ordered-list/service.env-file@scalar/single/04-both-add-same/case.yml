@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/single/04-both-add-same
+field: services.app.env_file
+class: ordered-list
+scenario: 04-both-add-same
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: whole-list

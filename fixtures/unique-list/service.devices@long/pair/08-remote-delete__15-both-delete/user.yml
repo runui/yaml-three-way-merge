@@ -1,0 +1,10 @@
+services:
+    app:
+        devices: !reset []
+---
+services:
+    app:
+        devices:
+            - permissions: rwm
+              source: /dev/base-a
+              target: /dev/a

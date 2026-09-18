@@ -1,0 +1,6 @@
+id: named-item/build.additional-contexts-list@map/single/13-user-modify-remote-delete
+field: services.app.build.additional_contexts
+class: named-item
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: named-item/build.labels-list@map/pair/11-both-modify-same__06-all-unchanged
+field: services.app.build.labels
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 06-all-unchanged
+pair_semantics: logical-items

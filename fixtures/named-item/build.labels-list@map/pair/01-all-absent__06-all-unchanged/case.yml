@@ -1,0 +1,6 @@
+id: named-item/build.labels-list@map/pair/01-all-absent__06-all-unchanged
+field: services.app.build.labels
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 06-all-unchanged
+pair_semantics: logical-items

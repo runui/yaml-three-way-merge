@@ -1,0 +1,6 @@
+id: named-item/service.environment-list@map/pair/06-all-unchanged__15-both-delete
+field: services.app.environment
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 15-both-delete
+pair_semantics: logical-items

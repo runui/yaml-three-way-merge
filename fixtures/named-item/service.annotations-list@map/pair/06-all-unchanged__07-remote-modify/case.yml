@@ -1,0 +1,6 @@
+id: named-item/service.annotations-list@map/pair/06-all-unchanged__07-remote-modify
+field: services.app.annotations
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 07-remote-modify
+pair_semantics: logical-items

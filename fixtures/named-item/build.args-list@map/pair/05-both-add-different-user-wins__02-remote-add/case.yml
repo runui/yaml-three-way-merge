@@ -1,0 +1,6 @@
+id: named-item/build.args-list@map/pair/05-both-add-different-user-wins__02-remote-add
+field: services.app.build.args
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 02-remote-add
+pair_semantics: logical-items

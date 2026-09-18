@@ -1,0 +1,6 @@
+id: unique-list/service.ports@short/pair/03-user-add__09-user-modify
+field: services.app.ports
+class: unique-list
+scenario: pair-cross-product
+description: 03-user-add combined with 09-user-modify
+pair_semantics: logical-items

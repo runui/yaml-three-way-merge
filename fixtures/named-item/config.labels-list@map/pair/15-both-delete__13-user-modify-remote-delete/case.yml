@@ -1,0 +1,6 @@
+id: named-item/config.labels-list@map/pair/15-both-delete__13-user-modify-remote-delete
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

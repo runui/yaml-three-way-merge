@@ -29,6 +29,11 @@ func normalizeYAML(content []byte) (map[string]any, error) {
 				}
 				resource["labels"] = normalized
 			}
+			if resourceType == "networks" {
+				if err := normalizeNetworkIpam(resource); err != nil {
+					return nil, fmt.Errorf("network %q ipam: %w", resourceName, err)
+				}
+			}
 		}
 	}
 	services, _ := document["services"].(map[string]any)
@@ -61,6 +66,19 @@ func normalizeService(service map[string]any) error {
 				return fmt.Errorf("%s: %w", field, err)
 			}
 			service[field] = normalized
+		}
+	}
+	if networks, ok := service["networks"].(map[string]any); ok {
+		for _, raw := range networks {
+			entry, ok := raw.(map[string]any)
+			if !ok {
+				continue
+			}
+			for _, key := range []string{"aliases", "link_local_ips"} {
+				if err := normalizeTokenStringSet(entry, key); err != nil {
+					return fmt.Errorf("networks.%s: %w", key, err)
+				}
+			}
 		}
 	}
 	for _, field := range []string{"env_file", "cap_add", "cap_drop", "dns", "dns_opt", "dns_search", "expose", "profiles", "tmpfs", "device_cgroup_rules", "external_links", "group_add", "links", "security_opt", "volumes_from"} {
@@ -179,16 +197,71 @@ func normalizeDeploy(deploy map[string]any) error {
 	resources, _ := deploy["resources"].(map[string]any)
 	for _, branch := range []string{"limits", "reservations"} {
 		limits, _ := resources[branch].(map[string]any)
-		value, exists := limits["generic_resources"]
-		if !exists {
-			continue
+		if value, exists := limits["generic_resources"]; exists {
+			normalized, err := normalizeGenericResources(value)
+			if err != nil {
+				return fmt.Errorf("resources.%s.generic_resources: %w", branch, err)
+			}
+			limits["generic_resources"] = normalized
 		}
-		normalized, err := normalizeGenericResources(value)
-		if err != nil {
-			return fmt.Errorf("resources.%s.generic_resources: %w", branch, err)
+		if value, exists := limits["devices"]; exists {
+			if err := normalizeDeployDevices(value); err != nil {
+				return fmt.Errorf("resources.%s.devices: %w", branch, err)
+			}
 		}
-		limits["generic_resources"] = normalized
 	}
+	return nil
+}
+
+func normalizeDeployDevices(value any) error {
+	items, ok := value.([]any)
+	if !ok {
+		return fmt.Errorf("expected sequence")
+	}
+	for _, raw := range items {
+		item, ok := raw.(map[string]any)
+		if !ok {
+			return fmt.Errorf("expected mapping item")
+		}
+		driver := fmt.Sprint(item["driver"])
+		if token := stableStringOriginToken(driver); token != "" {
+			item["__merge_id"] = "token:" + token
+		} else {
+			item["__merge_id"] = "added:" + driver
+		}
+		for _, key := range []string{"capabilities", "device_ids"} {
+			if err := normalizeTokenStringSet(item, key); err != nil {
+				return fmt.Errorf("%s: %w", key, err)
+			}
+		}
+	}
+	return nil
+}
+
+// normalizeTokenStringSet rewrites a scalar string sequence into the StringSet
+// internal representation. Elements sharing a stable origin token are given the
+// same identity so a modification is anchored to its logical item.
+func normalizeTokenStringSet(container map[string]any, field string) error {
+	raw, exists := container[field]
+	if !exists {
+		return nil
+	}
+	items, err := normalizeStringList(raw)
+	if err != nil {
+		return err
+	}
+	wrapped := make([]any, len(items))
+	for index, item := range items {
+		value := item.(string)
+		id := ""
+		if token := stableStringOriginToken(value); token != "" {
+			id = "token:" + token
+		} else {
+			id = "added:" + value
+		}
+		wrapped[index] = map[string]any{"__value": value, "__merge_id": id}
+	}
+	container[field] = wrapped
 	return nil
 }
 
@@ -330,6 +403,27 @@ func assignStringSetMergeIDs(baseOld, user, baseNew map[string]any) error {
 	return nil
 }
 
+// normalizeNetworkIpam assigns positional identities to IPAM config entries,
+// which carry no stable cross-version attribute in the authored form.
+func normalizeNetworkIpam(resource map[string]any) error {
+	ipam, ok := resource["ipam"].(map[string]any)
+	if !ok {
+		return nil
+	}
+	config, ok := ipam["config"].([]any)
+	if !ok {
+		return nil
+	}
+	for index, raw := range config {
+		item, ok := raw.(map[string]any)
+		if !ok {
+			return fmt.Errorf("config item must be a mapping")
+		}
+		item["__merge_id"] = "pos:" + strconv.Itoa(index)
+	}
+	return nil
+}
+
 func wrapStringItems(container map[string]any, field string) {
 	raw, _ := container[field].([]any)
 	for index, value := range raw {
@@ -372,13 +466,17 @@ func nestedStringItems(document map[string]any, path []string) []map[string]any 
 }
 
 func correlateStringItems(base, side []map[string]any) {
-	baseByValue := make(map[string][]map[string]any, len(base))
 	for index, item := range base {
 		item["__merge_id"] = "base:" + strconv.Itoa(index)
+	}
+	used := make(map[string]bool, len(base))
+
+	// Pass 1: identical value belongs to the same logical item.
+	baseByValue := make(map[string][]map[string]any, len(base))
+	for _, item := range base {
 		value := fmt.Sprint(item["__value"])
 		baseByValue[value] = append(baseByValue[value], item)
 	}
-	used := make(map[string]bool, len(base))
 	for _, item := range side {
 		value := fmt.Sprint(item["__value"])
 		for _, candidate := range baseByValue[value] {
@@ -391,25 +489,89 @@ func correlateStringItems(base, side []map[string]any) {
 			break
 		}
 	}
-	var remainingBase []map[string]any
+
+	// Pass 2: a stable origin token identifies the same logical item across
+	// versions even when its value changed. This keeps modifications anchored
+	// to their original element and lets deletes shift independent entries.
+	baseByToken := make(map[string][]map[string]any, len(base))
 	for _, item := range base {
-		id := fmt.Sprint(item["__merge_id"])
-		if !used[id] {
-			remainingBase = append(remainingBase, item)
+		token := stableStringOriginToken(fmt.Sprint(item["__value"]))
+		if token == "" {
+			continue
 		}
+		baseByToken[token] = append(baseByToken[token], item)
 	}
-	remainingIndex := 0
 	for _, item := range side {
 		if _, assigned := item["__merge_id"]; assigned {
 			continue
 		}
-		if remainingIndex < len(remainingBase) {
-			item["__merge_id"] = remainingBase[remainingIndex]["__merge_id"]
-			remainingIndex++
+		token := stableStringOriginToken(fmt.Sprint(item["__value"]))
+		if token == "" {
 			continue
 		}
-		item["__merge_id"] = "added:" + fmt.Sprint(item["__value"])
+		for _, candidate := range baseByToken[token] {
+			id := fmt.Sprint(candidate["__merge_id"])
+			if used[id] {
+				continue
+			}
+			item["__merge_id"] = id
+			used[id] = true
+			break
+		}
 	}
+
+	// Pass 3: when no stable origin token exists anywhere, fall back to
+	// positional alignment against unused base entries. This is only safe for
+	// tokenless values; with tokens, correlating each side independently by
+	// position produces inconsistent ids across user and upstream.
+	if len(baseByToken) == 0 {
+		var remainingBase []map[string]any
+		for _, item := range base {
+			id := fmt.Sprint(item["__merge_id"])
+			if !used[id] {
+				remainingBase = append(remainingBase, item)
+			}
+		}
+		remainingIndex := 0
+		for _, item := range side {
+			if _, assigned := item["__merge_id"]; assigned {
+				continue
+			}
+			if stableStringOriginToken(fmt.Sprint(item["__value"])) != "" {
+				continue
+			}
+			if remainingIndex < len(remainingBase) {
+				item["__merge_id"] = remainingBase[remainingIndex]["__merge_id"]
+				remainingIndex++
+			}
+		}
+	}
+
+	// Pass 4: no base anchor. A side element that cannot be matched to base is
+	// given a deterministic id shared with the other side, so the two sides
+	// resolve the same logical item as a modification (user wins) while
+	// distinct tokens remain independent additions.
+	for _, item := range side {
+		if _, assigned := item["__merge_id"]; assigned {
+			continue
+		}
+		value := fmt.Sprint(item["__value"])
+		if token := stableStringOriginToken(value); token != "" {
+			item["__merge_id"] = "token:" + token
+		} else {
+			item["__merge_id"] = "added:" + value
+		}
+	}
+}
+
+// stableStringOriginToken mirrors override.stableOriginToken: a unique trailing
+// token after the last dash is treated as the stable identity of a logical item.
+func stableStringOriginToken(value string) string {
+	index := strings.LastIndexByte(value, '-')
+	if index < 0 || index == len(value)-1 {
+		return ""
+	}
+	return value[index+1:]
 }
 
 func serviceStringItems(document map[string]any, serviceName, field string) []map[string]any {
@@ -498,8 +660,15 @@ func normalizeVolumes(value any) ([]any, error) {
 		default:
 			return nil, fmt.Errorf("unsupported volume item %T", raw)
 		}
+		volumeType := volume.Type
+		if volumeType == "" {
+			volumeType = composetypes.VolumeTypeVolume
+			if strings.HasPrefix(volume.Source, "/") || strings.HasPrefix(volume.Source, ".") || strings.HasPrefix(volume.Source, "~") {
+				volumeType = composetypes.VolumeTypeBind
+			}
+		}
 		result = append(result, map[string]any{
-			"type": volume.Type, "source": volume.Source, "target": volume.Target,
+			"type": volumeType, "source": volume.Source, "target": volume.Target,
 			"read_only": volume.ReadOnly, "consistency": volume.Consistency,
 		})
 	}
@@ -529,6 +698,9 @@ func normalizeDevices(value any) ([]any, error) {
 		default:
 			return nil, fmt.Errorf("unsupported device item %T", raw)
 		}
+		if _, exists := entry["permissions"]; !exists {
+			entry["permissions"] = "rwm"
+		}
 		result = append(result, entry)
 	}
 	return result, nil
@@ -543,7 +715,9 @@ func normalizeFileReferences(value any) ([]any, error) {
 	for _, raw := range items {
 		switch item := raw.(type) {
 		case string:
-			result = append(result, map[string]any{"source": item, "target": item})
+			result = append(result, map[string]any{
+				"source": item, "target": item, "__merge_id": fileReferenceMergeID(item, item),
+			})
 		case map[string]any:
 			entry := make(map[string]any, len(item)+1)
 			for key, value := range item {
@@ -555,12 +729,30 @@ func normalizeFileReferences(value any) ([]any, error) {
 			if mode, exists := entry["mode"].(int); exists {
 				entry["mode"] = int64(mode)
 			}
+			entry["__merge_id"] = fileReferenceMergeID(fmt.Sprint(entry["source"]), fmt.Sprint(entry["target"]))
 			result = append(result, entry)
 		default:
 			return nil, fmt.Errorf("unsupported reference item %T", raw)
 		}
 	}
 	return result, nil
+}
+
+// fileReferenceMergeID derives the merge identity of a config/secret reference.
+// An explicit target distinct from the source is the stable identity. Short
+// syntax carries only the source, so a stable origin token is used instead;
+// this keeps a renamed reference aligned with its original logical item.
+func fileReferenceMergeID(source, target string) string {
+	if target != "" && target != source {
+		return "target:" + target
+	}
+	if token := stableStringOriginToken(source); token != "" {
+		return "token:" + token
+	}
+	if source != "" {
+		return "source:" + source
+	}
+	return "added:reference"
 }
 
 func portExactKey(port map[string]any) string {

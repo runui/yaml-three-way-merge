@@ -1,0 +1,5 @@
+services:
+    app:
+        networks:
+            user-net-a: {}
+            user-net-b: {}

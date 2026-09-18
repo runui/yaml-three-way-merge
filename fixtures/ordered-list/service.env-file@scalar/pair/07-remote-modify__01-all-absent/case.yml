@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/pair/07-remote-modify__01-all-absent
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 01-all-absent
+pair_semantics: whole-list

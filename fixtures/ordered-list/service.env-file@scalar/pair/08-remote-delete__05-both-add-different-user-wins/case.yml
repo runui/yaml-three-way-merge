@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/pair/08-remote-delete__05-both-add-different-user-wins
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 05-both-add-different-user-wins
+pair_semantics: whole-list

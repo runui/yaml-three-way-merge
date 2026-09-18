@@ -1,0 +1,6 @@
+id: named-item/config.labels-list@map/single/02-remote-add
+field: configs.default.labels
+class: named-item
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

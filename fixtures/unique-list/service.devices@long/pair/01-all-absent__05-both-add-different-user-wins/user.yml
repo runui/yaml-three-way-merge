@@ -1,0 +1,6 @@
+services:
+    app:
+        devices:
+            - permissions: rwm
+              source: /dev/user-b
+              target: /dev/b

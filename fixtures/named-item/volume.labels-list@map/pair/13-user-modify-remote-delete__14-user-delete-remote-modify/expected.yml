@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    default:
+        labels:
+            volume.label-a: user

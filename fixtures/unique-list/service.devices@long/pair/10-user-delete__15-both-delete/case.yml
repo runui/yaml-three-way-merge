@@ -1,0 +1,6 @@
+id: unique-list/service.devices@long/pair/10-user-delete__15-both-delete
+field: services.app.devices
+class: unique-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 15-both-delete
+pair_semantics: logical-items

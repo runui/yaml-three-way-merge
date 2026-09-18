@@ -61,7 +61,7 @@ const schemaYAML = typed.YAMLObject(`types:
         namedType: NamedMap
     - name: networks
       type:
-        namedType: NamedMap
+        namedType: ServiceNetworks
     - name: ports
       type:
         namedType: PortList
@@ -240,6 +240,34 @@ const schemaYAML = typed.YAMLObject(`types:
     - name: generic_resources
       type:
         namedType: GenericResourceList
+    - name: devices
+      type:
+        namedType: DeployDeviceList
+    elementType:
+      namedType: UntypedAtomic
+    elementRelationship: separable
+- name: DeployDeviceList
+  list:
+    elementType:
+      namedType: DeployDevice
+    elementRelationship: associative
+    keys:
+    - __merge_id
+- name: DeployDevice
+  map:
+    fields:
+    - name: __merge_id
+      type:
+        scalar: string
+    - name: driver
+      type:
+        scalar: string
+    - name: capabilities
+      type:
+        namedType: StringSet
+    - name: device_ids
+      type:
+        namedType: StringSet
     elementType:
       namedType: UntypedAtomic
     elementRelationship: separable
@@ -266,6 +294,43 @@ const schemaYAML = typed.YAMLObject(`types:
     - name: labels
       type:
         namedType: ScalarMap
+    - name: ipam
+      type:
+        namedType: Ipam
+    elementType:
+      namedType: UntypedAtomic
+    elementRelationship: separable
+- name: Ipam
+  map:
+    fields:
+    - name: config
+      type:
+        namedType: IpamConfigList
+    elementType:
+      namedType: UntypedAtomic
+    elementRelationship: separable
+- name: IpamConfigList
+  list:
+    elementType:
+      namedType: IpamConfig
+    elementRelationship: associative
+    keys:
+    - __merge_id
+- name: IpamConfig
+  map:
+    fields:
+    - name: __merge_id
+      type:
+        scalar: string
+    - name: subnet
+      type:
+        scalar: string
+    - name: ip_range
+      type:
+        scalar: string
+    - name: gateway
+      type:
+        scalar: string
     elementType:
       namedType: UntypedAtomic
     elementRelationship: separable
@@ -300,6 +365,23 @@ const schemaYAML = typed.YAMLObject(`types:
     elementType:
       namedType: UntypedAtomic
     elementRelationship: separable
+- name: ServiceNetworks
+  map:
+    elementType:
+      namedType: ServiceNetwork
+    elementRelationship: separable
+- name: ServiceNetwork
+  map:
+    fields:
+    - name: aliases
+      type:
+        namedType: StringSet
+    - name: link_local_ips
+      type:
+        namedType: StringSet
+    elementType:
+      namedType: UntypedAtomic
+    elementRelationship: separable
 - name: PortList
   list:
     elementType:
@@ -307,6 +389,9 @@ const schemaYAML = typed.YAMLObject(`types:
     elementRelationship: associative
     keys:
     - __merge_id
+    - host_ip
+    - target
+    - protocol
 - name: Port
   map:
     fields:
@@ -369,10 +454,13 @@ const schemaYAML = typed.YAMLObject(`types:
       namedType: FileReference
     elementRelationship: associative
     keys:
-    - target
+    - __merge_id
 - name: FileReference
   map:
     fields:
+    - name: __merge_id
+      type:
+        scalar: string
     - name: target
       type:
         scalar: string

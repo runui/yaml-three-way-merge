@@ -1,0 +1,6 @@
+id: unique-list/service.devices@long/single/06-all-unchanged
+field: services.app.devices
+class: unique-list
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

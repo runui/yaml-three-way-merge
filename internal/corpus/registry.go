@@ -1,6 +1,53 @@
 package corpus
 
-import "strings"
+import (
+	"sort"
+	"strings"
+)
+
+// variantRegistry holds the alternative syntax encodings registered for a field
+// ID. Variant files call registerVariants from init, so groups can be added
+// independently without editing this file.
+var variantRegistry = map[string][]FieldVariant{}
+
+func registerVariants(fieldID string, variants ...FieldVariant) {
+	variantRegistry[fieldID] = append(variantRegistry[fieldID], variants...)
+}
+
+// VariantFieldID is the stable, filesystem-safe identifier for a variant case.
+func VariantFieldID(fieldID, variant string) string {
+	if variant == "" {
+		return fieldID
+	}
+	return fieldID + "@" + variant
+}
+
+// ArrayFields lists every Compose v1.20.2 and x-casaos field whose authored
+// form is a sequence or supports a sequence short form, expanded with every
+// registered syntax variant.
+func ArrayFields() []FieldSpec {
+	return expandVariants(baseArrayFields())
+}
+
+func expandVariants(base []FieldSpec) []FieldSpec {
+	var result []FieldSpec
+	for _, field := range base {
+		result = append(result, field)
+		variants := variantRegistry[field.ID]
+		sort.SliceStable(variants, func(i, j int) bool { return variants[i].Name < variants[j].Name })
+		for _, variant := range variants {
+			expanded := field
+			expanded.ID = VariantFieldID(field.ID, variant.Name)
+			expanded.Variant = variant.Name
+			expanded.Render = variant.Render
+			if variant.ResetBoundary != nil {
+				expanded.ResetBoundary = append([]string(nil), variant.ResetBoundary...)
+			}
+			result = append(result, expanded)
+		}
+	}
+	return result
+}
 
 func arrayField(id, path string, class MergeClass, values [2][3]any) FieldSpec {
 	semantics := PairByLogicalItem
@@ -36,9 +83,9 @@ func strings2(a, b [3]string) [2][3]any {
 	return [2][3]any{{a[0], a[1], a[2]}, {b[0], b[1], b[2]}}
 }
 
-// ArrayFields lists every Compose v1.20.2 and x-casaos field whose authored
+// baseArrayFields lists every Compose v1.20.2 and x-casaos field whose authored
 // form is a sequence or supports a sequence short form.
-func ArrayFields() []FieldSpec {
+func baseArrayFields() []FieldSpec {
 	return []FieldSpec{
 		arrayField("top.include", "include", ClassOrderedList, strings2(
 			[3]string{"./base.yml", "./user.yml", "./remote.yml"},

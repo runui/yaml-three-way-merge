@@ -1,0 +1,13 @@
+services:
+    app:
+        depends_on: !reset {}
+---
+services:
+    app:
+        depends_on:
+            base-dependency-b:
+                condition: service_started
+                required: true
+            user-dependency-a:
+                condition: service_started
+                required: true

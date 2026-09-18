@@ -1,0 +1,6 @@
+id: named-item/secret.labels-list@map/pair/06-all-unchanged__04-both-add-same
+field: secrets.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 04-both-add-same
+pair_semantics: logical-items

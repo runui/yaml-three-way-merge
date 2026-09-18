@@ -1,0 +1,8 @@
+services:
+    app:
+        image: busybox:latest
+volumes:
+    default:
+        labels:
+            volume.label-a: base
+            volume.label-b: base

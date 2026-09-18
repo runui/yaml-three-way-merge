@@ -8,9 +8,34 @@ import (
 
 	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/internal/compose"
 	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/corpus"
+	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/smdintent"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+// TestFixtureCorpusAgainstIntentImplementation is the regression gate for the
+// replayed user-intent merge: every fixture must reproduce the independently
+// generated expected result. The cases in knownUnsupportedIntent are excluded
+// because their expected result is not determined by the three input documents.
+func TestFixtureCorpusAgainstIntentImplementation(t *testing.T) {
+	cases, _, err := corpus.Load(filepath.Join("..", "..", "fixtures"))
+	require.NoError(t, err)
+	var unexpected []string
+	for _, item := range cases {
+		merged, err := smdintent.Merge(item.BaseOld, item.User, item.BaseNew)
+		require.NoError(t, err, item.Metadata.ID)
+		equal, err := smdintent.Equivalent(merged.YAML, item.Expected)
+		require.NoError(t, err, item.Metadata.ID)
+		if equal {
+			continue
+		}
+		if _, known := knownUnsupportedIntent[item.Metadata.ID]; known {
+			continue
+		}
+		unexpected = append(unexpected, item.Metadata.ID)
+	}
+	assert.Empty(t, unexpected, "unexpected merge mismatches")
+}
 
 func TestFixtureCorpusAgainstCurrentImplementation(t *testing.T) {
 	cases, _, err := corpus.Load(filepath.Join("..", "..", "fixtures"))
@@ -38,42 +63,52 @@ func TestFixtureManifestIsComplete(t *testing.T) {
 	cases, manifest, err := corpus.Load(filepath.Join("..", "..", "fixtures"))
 	require.NoError(t, err)
 	assert.Equal(t, len(cases), manifest.CaseCount)
-	assert.Equal(t, 16132, manifest.CaseCount)
 	assert.Equal(t, 15, manifest.StateCount)
-	assert.Equal(t, len(corpus.ArrayFields()), len(manifest.Fields))
+	fields := corpus.ArrayFields()
+	assert.Equal(t, len(fields), len(manifest.Fields))
+	// Seven explicit port acceptance scenarios are appended in Generate.
+	expected := 7
 	for _, field := range manifest.Fields {
 		assert.Equal(t, 15, field.MatrixCases, field.ID)
 		if field.Class != corpus.ClassAtomic {
 			assert.Equal(t, 225, field.CrossCases, field.ID)
+			expected += 15 + 225
+		} else {
+			expected += 15
 		}
-		for _, spec := range corpus.ArrayFields() {
+		for _, spec := range fields {
 			if spec.ID == field.ID {
 				assert.Equal(t, spec.PairSemantics, field.PairSemantics, field.ID)
 			}
 		}
 	}
+	assert.Equal(t, expected, manifest.CaseCount)
 }
 
 func TestArrayFieldRegistryIsAuditable(t *testing.T) {
 	fields := corpus.ArrayFields()
 	ids := make([]string, 0, len(fields))
-	paths := make([]string, 0, len(fields))
+	var baseIDs, basePaths []string
 	for _, field := range fields {
 		ids = append(ids, field.ID)
-		paths = append(paths, field.MetadataPath())
+		if field.Variant == "" {
+			baseIDs = append(baseIDs, field.ID)
+			basePaths = append(basePaths, field.MetadataPath())
+		}
 	}
-	assert.Len(t, ids, 70)
 	assert.Equal(t, len(ids), len(unique(ids)), "duplicate field IDs")
-	assert.Equal(t, len(paths), len(unique(paths)), "duplicate YAML paths")
+	assert.Equal(t, len(baseIDs), len(unique(baseIDs)), "duplicate base field IDs")
+	assert.Equal(t, len(basePaths), len(unique(basePaths)), "duplicate base YAML paths")
+	assert.Len(t, baseIDs, 70)
 	for _, required := range []string{
 		"service.ports", "service.volumes", "service.devices", "service.configs", "service.secrets",
 		"service.environment", // map-like fields are intentionally excluded from this array-focused phase.
 	} {
 		if required == "service.environment" {
-			assert.False(t, slices.Contains(ids, required), "environment is not an array corpus field")
+			assert.False(t, slices.Contains(baseIDs, required), "environment is not an array corpus field")
 			continue
 		}
-		assert.True(t, slices.Contains(ids, required), required)
+		assert.True(t, slices.Contains(baseIDs, required), required)
 	}
 }
 

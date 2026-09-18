@@ -1,0 +1,7 @@
+services:
+    app:
+        entrypoint: !reset []
+---
+services:
+    app:
+        entrypoint: user-entrypoint-a

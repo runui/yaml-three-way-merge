@@ -1,0 +1,6 @@
+id: unique-list/service.devices@long/pair/06-all-unchanged__01-all-absent
+field: services.app.devices
+class: unique-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 01-all-absent
+pair_semantics: logical-items

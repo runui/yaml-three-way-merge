@@ -1,0 +1,8 @@
+services:
+    app:
+        annotations: !reset {}
+---
+services:
+    app:
+        annotations:
+            annotation-a: base

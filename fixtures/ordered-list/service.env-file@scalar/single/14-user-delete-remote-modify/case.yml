@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/single/14-user-delete-remote-modify
+field: services.app.env_file
+class: ordered-list
+scenario: 14-user-delete-remote-modify
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: whole-list

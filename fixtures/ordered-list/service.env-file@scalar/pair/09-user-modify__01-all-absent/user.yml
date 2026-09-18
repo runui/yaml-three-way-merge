@@ -1,0 +1,7 @@
+services:
+    app:
+        env_file: !reset []
+---
+services:
+    app:
+        env_file: user.env-a

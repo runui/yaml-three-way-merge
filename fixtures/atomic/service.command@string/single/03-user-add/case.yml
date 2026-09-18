@@ -1,0 +1,6 @@
+id: atomic/service.command@string/single/03-user-add
+field: services.app.command
+class: atomic
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

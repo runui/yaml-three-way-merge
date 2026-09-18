@@ -1,0 +1,7 @@
+services:
+    app:
+        tmpfs: !reset []
+---
+services:
+    app:
+        tmpfs: /user-b

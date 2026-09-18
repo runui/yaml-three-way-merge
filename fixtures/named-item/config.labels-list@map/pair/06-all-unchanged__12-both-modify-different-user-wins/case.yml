@@ -1,0 +1,6 @@
+id: named-item/config.labels-list@map/pair/06-all-unchanged__12-both-modify-different-user-wins
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/pair/12-both-modify-different-user-wins__04-both-add-same
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 04-both-add-same
+pair_semantics: whole-list

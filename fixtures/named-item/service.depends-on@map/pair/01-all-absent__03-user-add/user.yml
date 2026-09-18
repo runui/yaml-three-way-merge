@@ -1,0 +1,6 @@
+services:
+    app:
+        depends_on:
+            user-dependency-b:
+                condition: service_started
+                required: true

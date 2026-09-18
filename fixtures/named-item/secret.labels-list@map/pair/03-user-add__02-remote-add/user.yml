@@ -1,0 +1,4 @@
+secrets:
+    default:
+        labels:
+            secret.label-a: user

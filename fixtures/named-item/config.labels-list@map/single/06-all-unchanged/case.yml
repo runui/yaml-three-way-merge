@@ -1,0 +1,6 @@
+id: named-item/config.labels-list@map/single/06-all-unchanged
+field: configs.default.labels
+class: named-item
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

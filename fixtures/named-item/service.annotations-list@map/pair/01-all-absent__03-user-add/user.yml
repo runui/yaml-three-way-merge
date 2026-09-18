@@ -1,0 +1,4 @@
+services:
+    app:
+        annotations:
+            annotation-b: user

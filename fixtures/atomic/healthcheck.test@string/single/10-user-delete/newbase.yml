@@ -1,0 +1,5 @@
+services:
+    app:
+        healthcheck:
+            test: CMD base-a
+        image: busybox:latest

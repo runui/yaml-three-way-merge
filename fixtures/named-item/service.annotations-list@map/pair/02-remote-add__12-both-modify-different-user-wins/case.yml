@@ -1,0 +1,6 @@
+id: named-item/service.annotations-list@map/pair/02-remote-add__12-both-modify-different-user-wins
+field: services.app.annotations
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

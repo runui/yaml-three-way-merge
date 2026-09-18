@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/03-user-add__03-user-add
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 03-user-add
+pair_semantics: logical-items

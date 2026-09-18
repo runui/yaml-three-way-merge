@@ -1,0 +1,6 @@
+id: named-item/service.networks@map/pair/10-user-delete__03-user-add
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 03-user-add
+pair_semantics: logical-items

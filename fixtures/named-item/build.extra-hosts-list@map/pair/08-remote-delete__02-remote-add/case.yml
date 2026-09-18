@@ -1,0 +1,6 @@
+id: named-item/build.extra-hosts-list@map/pair/08-remote-delete__02-remote-add
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 02-remote-add
+pair_semantics: logical-items

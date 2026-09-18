@@ -1,0 +1,4 @@
+services:
+    app:
+        entrypoint: remote-entrypoint-a
+        image: busybox:latest

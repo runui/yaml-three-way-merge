@@ -1,0 +1,9 @@
+services:
+    app:
+        ports: !reset []
+---
+services:
+    app:
+        ports:
+            - 8081:80
+            - 8882:81

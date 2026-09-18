@@ -1,0 +1,5 @@
+networks:
+    default:
+        labels:
+            network.label-a: user
+            network.label-b: user

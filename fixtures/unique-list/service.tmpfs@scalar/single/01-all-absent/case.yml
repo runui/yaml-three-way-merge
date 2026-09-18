@@ -1,0 +1,6 @@
+id: unique-list/service.tmpfs@scalar/single/01-all-absent
+field: services.app.tmpfs
+class: unique-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: named-item/service.annotations-list@map/pair/11-both-modify-same__11-both-modify-same
+field: services.app.annotations
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 11-both-modify-same
+pair_semantics: logical-items

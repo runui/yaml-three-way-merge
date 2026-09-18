@@ -78,6 +78,30 @@ func TestReportDistinguishesUpstreamModifyFromAdd(t *testing.T) {
 	assert.True(t, equal, "actual:\n%s", result.YAML)
 }
 
+func TestUserDeleteKeepsIndependentUpstreamMapSibling(t *testing.T) {
+	result, err := Merge(
+		[]byte("services:\n  app:\n    image: busybox\n    build:\n      args: [B=old]\n"),
+		[]byte("services:\n  app:\n    build: !reset {}\n"),
+		[]byte("services:\n  app:\n    image: busybox\n    build:\n      args: [A=remote, B=old]\n"),
+	)
+	require.NoError(t, err)
+	equal, err := Equivalent(result.YAML, []byte("services:\n  app:\n    image: busybox\n    build:\n      args: {A: remote}\n"))
+	require.NoError(t, err)
+	assert.True(t, equal, "actual:\n%s", result.YAML)
+}
+
+func TestUserClearOldListKeepsIndependentUpstreamItem(t *testing.T) {
+	result, err := Merge(
+		[]byte("services:\n  app:\n    image: busybox\n    volumes:\n      - {type: bind, source: /old, target: /old}\n"),
+		[]byte("services:\n  app:\n    volumes: !reset []\n"),
+		[]byte("services:\n  app:\n    image: busybox\n    volumes:\n      - {type: bind, source: /old, target: /old}\n      - {type: bind, source: /remote, target: /remote}\n"),
+	)
+	require.NoError(t, err)
+	equal, err := Equivalent(result.YAML, []byte("services:\n  app:\n    image: busybox\n    volumes:\n      - {type: bind, source: /remote, target: /remote}\n"))
+	require.NoError(t, err)
+	assert.True(t, equal, "actual:\n%s", result.YAML)
+}
+
 func TestNamedOriginBothModifyUserWins(t *testing.T) {
 	result, err := Merge(
 		[]byte("services:\n  app:\n    depends_on: [base-dependency-a]\n"),
@@ -103,15 +127,30 @@ func TestNamedOriginUserDeleteWinsRemoteRename(t *testing.T) {
 	assert.True(t, equal, "actual:\n%s", result.YAML)
 }
 
-func TestNamedOriginKeepsConcurrentAddsWithoutOldOrigin(t *testing.T) {
+func TestNamedOriginConcurrentAddsOnSameOriginUserWins(t *testing.T) {
 	result, err := Merge(
 		[]byte("services:\n  app: {}\n"),
 		[]byte("services:\n  app:\n    networks: [user-net-a]\n"),
 		[]byte("services:\n  app:\n    networks: [remote-net-a]\n"),
 	)
 	require.NoError(t, err)
-	equal, err := Equivalent(result.YAML, []byte("services:\n  app:\n    networks: [remote-net-a, user-net-a]\n"))
+	// Both additions carry the same stable origin token, so they identify the
+	// same logical item and the user's version wins.
+	equal, err := Equivalent(result.YAML, []byte("services:\n  app:\n    networks: [user-net-a]\n"))
 	require.NoError(t, err)
 	assert.True(t, equal, "actual:\n%s", result.YAML)
-	assert.Equal(t, 0, result.Report.OriginRewrites)
+	assert.Equal(t, 1, result.Report.OriginRewrites)
+}
+
+func TestMergeKeepsDifferentConcurrentAddsWithDistinctOrigins(t *testing.T) {
+	result, err := Merge(
+		[]byte("services:\n  app: {}\n"),
+		[]byte("services:\n  app:\n    networks: [user-net-a]\n"),
+		[]byte("services:\n  app:\n    networks: [remote-net-b]\n"),
+	)
+	require.NoError(t, err)
+	// Distinct origin tokens identify different logical items and are both kept.
+	equal, err := Equivalent(result.YAML, []byte("services:\n  app:\n    networks: [remote-net-b, user-net-a]\n"))
+	require.NoError(t, err)
+	assert.True(t, equal, "actual:\n%s", result.YAML)
 }

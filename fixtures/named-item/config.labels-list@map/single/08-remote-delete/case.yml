@@ -1,0 +1,6 @@
+id: named-item/config.labels-list@map/single/08-remote-delete
+field: configs.default.labels
+class: named-item
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

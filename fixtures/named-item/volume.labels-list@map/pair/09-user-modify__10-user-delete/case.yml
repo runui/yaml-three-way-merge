@@ -1,0 +1,6 @@
+id: named-item/volume.labels-list@map/pair/09-user-modify__10-user-delete
+field: volumes.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 10-user-delete
+pair_semantics: logical-items

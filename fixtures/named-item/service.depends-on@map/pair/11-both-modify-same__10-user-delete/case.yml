@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/11-both-modify-same__10-user-delete
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 10-user-delete
+pair_semantics: logical-items

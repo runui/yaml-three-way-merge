@@ -32,6 +32,12 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: service.annotations-list@map
+      path: services.app.annotations
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: service.profiles
       path: services.app.profiles
       class: set-list
@@ -56,13 +62,31 @@ fields:
       matrix_cases: 15
       cross_cases: 0
       pair_semantics: none
+    - id: service.command@string
+      path: services.app.command
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
     - id: service.entrypoint
       path: services.app.entrypoint
       class: atomic
       matrix_cases: 15
       cross_cases: 0
       pair_semantics: none
+    - id: service.entrypoint@string
+      path: services.app.entrypoint
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
     - id: service.environment-list
+      path: services.app.environment
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.environment-list@map
       path: services.app.environment
       class: named-item
       matrix_cases: 15
@@ -86,6 +110,12 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: service.depends-on@map
+      path: services.app.depends_on
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: service.device-cgroup-rules
       path: services.app.device_cgroup_rules
       class: set-list
@@ -93,6 +123,12 @@ fields:
       cross_cases: 225
       pair_semantics: logical-items
     - id: service.devices
+      path: services.app.devices
+      class: unique-list
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.devices@long
       path: services.app.devices
       class: unique-list
       matrix_cases: 15
@@ -122,6 +158,12 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: whole-list
+    - id: service.env-file@scalar
+      path: services.app.env_file
+      class: ordered-list
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: whole-list
     - id: service.expose
       path: services.app.expose
       class: set-list
@@ -135,6 +177,12 @@ fields:
       cross_cases: 225
       pair_semantics: logical-items
     - id: service.extra-hosts-list
+      path: services.app.extra_hosts
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.extra-hosts-list@map
       path: services.app.extra_hosts
       class: named-item
       matrix_cases: 15
@@ -158,13 +206,31 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: service.labels-list@map
+      path: services.app.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: service.networks
       path: services.app.networks
       class: named-item
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: service.networks@map
+      path: services.app.networks
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: service.ports
+      path: services.app.ports
+      class: unique-list
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.ports@short
       path: services.app.ports
       class: unique-list
       matrix_cases: 15
@@ -182,13 +248,31 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: service.sysctls-list@map
+      path: services.app.sysctls
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: service.tmpfs
       path: services.app.tmpfs
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: service.tmpfs@scalar
+      path: services.app.tmpfs
+      class: unique-list
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: service.volumes
+      path: services.app.volumes
+      class: unique-list
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.volumes@short
       path: services.app.volumes
       class: unique-list
       matrix_cases: 15
@@ -212,7 +296,19 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: build.args-list@map
+      path: services.app.build.args
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: build.labels-list
+      path: services.app.build.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: build.labels-list@map
       path: services.app.build.labels
       class: named-item
       matrix_cases: 15
@@ -224,7 +320,19 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: build.additional-contexts-list@map
+      path: services.app.build.additional_contexts
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: build.extra-hosts-list
+      path: services.app.build.extra_hosts
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: build.extra-hosts-list@map
       path: services.app.build.extra_hosts
       class: named-item
       matrix_cases: 15
@@ -303,6 +411,12 @@ fields:
       cross_cases: 225
       pair_semantics: logical-items
     - id: healthcheck.test
+      path: services.app.healthcheck.test
+      class: atomic
+      matrix_cases: 15
+      cross_cases: 0
+      pair_semantics: none
+    - id: healthcheck.test@string
       path: services.app.healthcheck.test
       class: atomic
       matrix_cases: 15
@@ -392,7 +506,19 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: network.labels-list@map
+      path: networks.default.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: volume.labels-list
+      path: volumes.default.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: volume.labels-list@map
       path: volumes.default.labels
       class: named-item
       matrix_cases: 15
@@ -404,7 +530,19 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
+    - id: config.labels-list@map
+      path: configs.default.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
     - id: secret.labels-list
+      path: secrets.default.labels
+      class: named-item
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: secret.labels-list@map
       path: secrets.default.labels
       class: named-item
       matrix_cases: 15
@@ -428,4 +566,4 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: whole-list
-case_count: 16132
+case_count: 20977

@@ -31,6 +31,21 @@ type FieldSpec struct {
 	PairSemantics PairSemantics
 	ResetBoundary []string
 	Wrap          func([]any, bool) map[string]any
+	// Render, when set, encodes the logical values into a root fragment using a
+	// particular syntax variant. It takes precedence over Wrap and Path.
+	Render func(FieldSpec, []any, bool) map[string]any
+	// Variant names the syntax variant this spec encodes. Empty is the default.
+	Variant string
+}
+
+// FieldVariant registers an alternative, syntactically valid encoding of the
+// same logical field. The merge semantics are unchanged; only the YAML shape
+// differs (for example short vs long syntax, list vs mapping, scalar vs
+// sequence).
+type FieldVariant struct {
+	Name          string
+	Render        func(FieldSpec, []any, bool) map[string]any
+	ResetBoundary []string
 }
 
 type State struct {

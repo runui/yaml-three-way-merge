@@ -1,0 +1,10 @@
+services:
+    app:
+        build:
+            additional_contexts: !reset {}
+---
+services:
+    app:
+        build:
+            additional_contexts:
+                context-b: user

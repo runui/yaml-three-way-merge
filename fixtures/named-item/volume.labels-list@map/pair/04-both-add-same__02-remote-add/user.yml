@@ -1,0 +1,4 @@
+volumes:
+    default:
+        labels:
+            volume.label-a: user

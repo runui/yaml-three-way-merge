@@ -1,0 +1,6 @@
+id: named-item/secret.labels-list@map/pair/14-user-delete-remote-modify__02-remote-add
+field: secrets.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 02-remote-add
+pair_semantics: logical-items

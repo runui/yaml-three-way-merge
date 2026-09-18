@@ -1,0 +1,6 @@
+id: named-item/secret.labels-list@map/pair/01-all-absent__13-user-modify-remote-delete
+field: secrets.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

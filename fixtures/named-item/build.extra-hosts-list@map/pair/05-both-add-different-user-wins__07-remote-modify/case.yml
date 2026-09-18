@@ -1,0 +1,6 @@
+id: named-item/build.extra-hosts-list@map/pair/05-both-add-different-user-wins__07-remote-modify
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 07-remote-modify
+pair_semantics: logical-items

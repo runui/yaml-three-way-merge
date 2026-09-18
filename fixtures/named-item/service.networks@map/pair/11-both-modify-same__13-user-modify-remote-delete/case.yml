@@ -1,0 +1,6 @@
+id: named-item/service.networks@map/pair/11-both-modify-same__13-user-modify-remote-delete
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

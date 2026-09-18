@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/06-all-unchanged__14-user-delete-remote-modify
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

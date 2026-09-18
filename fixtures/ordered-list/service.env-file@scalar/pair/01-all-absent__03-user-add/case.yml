@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/pair/01-all-absent__03-user-add
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 03-user-add
+pair_semantics: whole-list

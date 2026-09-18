@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            labels:
+                build.label-a: remote
+                build.label-b: base
+        image: busybox:latest

@@ -1,0 +1,6 @@
+id: named-item/build.args-list@map/pair/01-all-absent__15-both-delete
+field: services.app.build.args
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 15-both-delete
+pair_semantics: logical-items

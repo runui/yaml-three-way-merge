@@ -36,10 +36,12 @@ func renderCase(field FieldSpec, id, scenario, description string, base, user, r
 
 func renderComplete(field FieldSpec, values []any) ([]byte, error) {
 	root := map[string]any{"services": map[string]any{"app": map[string]any{"image": "busybox:latest"}}}
-	if field.Wrap != nil {
-		wrapped := field.Wrap(values, len(values) > 0)
-		mergeMaps(root, wrapped)
-	} else if len(values) > 0 {
+	switch {
+	case field.Render != nil:
+		mergeMaps(root, field.Render(field, values, len(values) > 0))
+	case field.Wrap != nil:
+		mergeMaps(root, field.Wrap(values, len(values) > 0))
+	case len(values) > 0:
 		setPath(root, field.Path, values)
 	}
 	return yaml.Marshal(root)

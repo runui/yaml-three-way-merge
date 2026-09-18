@@ -1,0 +1,13 @@
+services:
+    app:
+        devices: !reset []
+---
+services:
+    app:
+        devices:
+            - permissions: rwm
+              source: /dev/user-a
+              target: /dev/a
+            - permissions: rwm
+              source: /dev/user-b
+              target: /dev/b

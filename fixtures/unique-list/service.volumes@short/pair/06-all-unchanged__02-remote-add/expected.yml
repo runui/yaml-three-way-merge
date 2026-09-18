@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - /base-a:/data-a
+            - /remote-b:/data-b

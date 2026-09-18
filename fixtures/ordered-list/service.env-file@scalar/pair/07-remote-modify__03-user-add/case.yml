@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/pair/07-remote-modify__03-user-add
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 03-user-add
+pair_semantics: whole-list

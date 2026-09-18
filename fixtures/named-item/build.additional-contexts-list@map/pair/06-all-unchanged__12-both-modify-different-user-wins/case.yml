@@ -1,0 +1,6 @@
+id: named-item/build.additional-contexts-list@map/pair/06-all-unchanged__12-both-modify-different-user-wins
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

@@ -1,0 +1,5 @@
+services:
+    app:
+        build:
+            labels:
+                build.label-a: user

@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/01-all-absent__03-user-add
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 03-user-add
+pair_semantics: logical-items

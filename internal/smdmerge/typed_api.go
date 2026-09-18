@@ -58,6 +58,7 @@ func MarshalTypedValue(value *typed.TypedValue) ([]byte, error) {
 		return nil, fmt.Errorf("clone typed result: %w", err)
 	}
 	pruneNilContainers(output)
+	pruneEmptyContainers(output)
 	output = unwrapInternalLists(output)
 	stripInternalFields(output)
 	content, err := yaml.Marshal(output)

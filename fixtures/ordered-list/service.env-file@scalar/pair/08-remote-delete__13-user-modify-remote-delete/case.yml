@@ -1,0 +1,6 @@
+id: ordered-list/service.env-file@scalar/pair/08-remote-delete__13-user-modify-remote-delete
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 13-user-modify-remote-delete
+pair_semantics: whole-list

@@ -1,0 +1,5 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - /remote-b:/data-b

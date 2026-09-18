@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"sort"
 
@@ -30,23 +31,33 @@ type summary struct {
 }
 
 func main() {
-	root := flag.String("fixtures", "fixtures", "fixture directory")
-	jsonOutput := flag.Bool("json", false, "write JSON summary")
-	caseID := flag.String("case", "", "run one fixture case")
-	compareProject := flag.Bool("compare-project", false, "compare matches with the project rebase implementation")
-	flag.Parse()
+	os.Exit(run(os.Args[1:], os.Stdout, os.Stderr))
+}
+
+func run(args []string, stdout, stderr io.Writer) int {
+	flags := flag.NewFlagSet("validate-smd", flag.ContinueOnError)
+	flags.SetOutput(stderr)
+	root := flags.String("fixtures", "fixtures", "fixture directory")
+	jsonOutput := flags.Bool("json", false, "write JSON summary")
+	caseID := flags.String("case", "", "run one fixture case")
+	compareProject := flags.Bool("compare-project", false, "compare matches with the project rebase implementation")
+	if err := flags.Parse(args); err != nil {
+		return 2
+	}
 
 	cases, _, err := corpus.Load(*root)
 	if err != nil {
-		_, _ = fmt.Fprintf(os.Stderr, "load fixtures: %v\n", err)
-		os.Exit(2)
+		_, _ = fmt.Fprintf(stderr, "load fixtures: %v\n", err)
+		return 2
 	}
 	result := summary{Total: len(cases), ByField: map[string]int{}, ErrorsByField: map[string]int{}, SMDOnlyByField: map[string]int{}, ProjectOnlyByField: map[string]int{}}
+	found := false
 	for _, item := range cases {
 		if *caseID != "" && item.Metadata.ID != *caseID {
 			result.Total--
 			continue
 		}
+		found = true
 		actual, err := smdmerge.Merge(item.BaseOld, item.User, item.BaseNew)
 		if err != nil {
 			result.Errors++
@@ -74,7 +85,7 @@ func main() {
 				result.MismatchSamples = append(result.MismatchSamples, item.Metadata.ID)
 			}
 			if *caseID != "" {
-				_, _ = fmt.Fprintf(os.Stderr, "actual:\n%s\nexpected:\n%s\n", actual, item.Expected)
+				_, _ = fmt.Fprintf(stderr, "actual:\n%s\nexpected:\n%s\n", actual, item.Expected)
 			}
 		}
 		if *compareProject {
@@ -96,26 +107,32 @@ func main() {
 		}
 	}
 
+	if *caseID != "" && !found {
+		_, _ = fmt.Fprintf(stderr, "case not found: %s\n", *caseID)
+		return 2
+	}
+
 	if *jsonOutput {
-		encoder := json.NewEncoder(os.Stdout)
+		encoder := json.NewEncoder(stdout)
 		encoder.SetIndent("", "  ")
 		if err := encoder.Encode(result); err != nil {
-			_, _ = fmt.Fprintf(os.Stderr, "write report: %v\n", err)
-			os.Exit(2)
+			_, _ = fmt.Fprintf(stderr, "write report: %v\n", err)
+			return 2
 		}
 	} else {
-		fmt.Printf("Total: %d\nMatched: %d\nMismatched: %d\nErrors: %d\n", result.Total, result.Matched, result.Mismatched, result.Errors)
+		fmt.Fprintf(stdout, "Total: %d\nMatched: %d\nMismatched: %d\nErrors: %d\n", result.Total, result.Matched, result.Mismatched, result.Errors)
 		fields := make([]string, 0, len(result.ByField))
 		for field := range result.ByField {
 			fields = append(fields, field)
 		}
 		sort.Strings(fields)
-		fmt.Println("Mismatched by field:")
+		fmt.Fprintln(stdout, "Mismatched by field:")
 		for _, field := range fields {
-			fmt.Printf("  %s: %d\n", field, result.ByField[field])
+			fmt.Fprintf(stdout, "  %s: %d\n", field, result.ByField[field])
 		}
 	}
 	if result.Errors > 0 || result.Mismatched > 0 {
-		os.Exit(1)
+		return 1
 	}
+	return 0
 }

@@ -1,0 +1,4 @@
+services:
+    app:
+        entrypoint: user-entrypoint-a
+        image: busybox:latest

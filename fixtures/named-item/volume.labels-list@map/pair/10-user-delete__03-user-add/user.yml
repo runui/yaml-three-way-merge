@@ -1,0 +1,8 @@
+volumes:
+    default:
+        labels: !reset {}
+---
+volumes:
+    default:
+        labels:
+            volume.label-b: user

@@ -1,0 +1,8 @@
+services:
+    app:
+        volumes: !reset []
+---
+services:
+    app:
+        volumes:
+            - /base-b:/data-b

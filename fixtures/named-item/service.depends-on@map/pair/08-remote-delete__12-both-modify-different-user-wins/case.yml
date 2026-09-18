@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/pair/08-remote-delete__12-both-modify-different-user-wins
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

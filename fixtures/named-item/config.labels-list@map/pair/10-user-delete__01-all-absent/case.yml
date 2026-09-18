@@ -1,0 +1,6 @@
+id: named-item/config.labels-list@map/pair/10-user-delete__01-all-absent
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 01-all-absent
+pair_semantics: logical-items

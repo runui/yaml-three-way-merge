@@ -1,0 +1,6 @@
+id: named-item/service.environment-list@map/single/01-all-absent
+field: services.app.environment
+class: named-item
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

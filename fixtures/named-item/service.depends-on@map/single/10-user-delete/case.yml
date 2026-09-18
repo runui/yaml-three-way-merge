@@ -1,0 +1,6 @@
+id: named-item/service.depends-on@map/single/10-user-delete
+field: services.app.depends_on
+class: named-item
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items
