@@ -3,3 +3,4 @@ field: x-casaos.architectures
 class: set-list
 scenario: pair-cross-product
 description: 05-both-add-different-user-wins combined with 07-remote-modify
+pair_semantics: logical-items

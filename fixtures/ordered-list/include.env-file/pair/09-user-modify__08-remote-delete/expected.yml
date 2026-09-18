@@ -1,6 +1,7 @@
 include:
     - env_file:
         - user.env-a
+        - base.env-b
       path:
         - compose.yml
 services:

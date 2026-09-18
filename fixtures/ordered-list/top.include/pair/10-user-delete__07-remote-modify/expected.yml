@@ -1,5 +1,5 @@
 include:
-    - ./remote-b.yml
+    - ./base-b.yml
 services:
     app:
         image: busybox:latest

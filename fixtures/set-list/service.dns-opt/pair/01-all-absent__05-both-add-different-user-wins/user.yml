@@ -1,7 +1,4 @@
-services: !reset {}
----
 services:
-  app:
-    dns_opt:
-      - rotate-b
-    image: busybox:latest
+    app:
+        dns_opt:
+            - rotate-b

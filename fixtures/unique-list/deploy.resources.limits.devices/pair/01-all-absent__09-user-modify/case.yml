@@ -3,3 +3,4 @@ field: services.app.deploy.resources.limits.devices
 class: unique-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 09-user-modify
+pair_semantics: logical-items

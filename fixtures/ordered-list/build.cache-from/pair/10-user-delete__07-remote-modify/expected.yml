@@ -2,5 +2,5 @@ services:
     app:
         build:
             cache_from:
-                - type=local,src=remote-b
+                - type=local,src=base-b
         image: busybox:latest

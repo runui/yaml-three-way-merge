@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        group_add: !reset []
 ---
 services:
-  app:
-    group_add:
-      - 1000-a
-      - 1001-b
-    image: busybox:latest
+    app:
+        group_add:
+            - 1000-a
+            - 1001-b

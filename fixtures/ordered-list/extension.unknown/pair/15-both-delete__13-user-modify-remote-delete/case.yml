@@ -3,3 +3,4 @@ field: x-validation.items
 class: ordered-list
 scenario: pair-cross-product
 description: 15-both-delete combined with 13-user-modify-remote-delete
+pair_semantics: whole-list

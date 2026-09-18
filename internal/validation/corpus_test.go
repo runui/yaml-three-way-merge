@@ -3,6 +3,7 @@ package validation
 import (
 	"path/filepath"
 	"slices"
+	"strings"
 	"testing"
 
 	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/internal/compose"
@@ -24,15 +25,31 @@ func TestFixtureCorpusAgainstCurrentImplementation(t *testing.T) {
 	}
 }
 
+func TestFixtureUserOverridesDoNotResetWholeServices(t *testing.T) {
+	cases, _, err := corpus.Load(filepath.Join("..", "..", "fixtures"))
+	require.NoError(t, err)
+	for _, item := range cases {
+		assert.NotContains(t, string(item.User), "services: !reset {}", item.Metadata.ID)
+		assert.False(t, strings.Contains(string(item.User), "services:\n  !reset"), item.Metadata.ID)
+	}
+}
+
 func TestFixtureManifestIsComplete(t *testing.T) {
 	cases, manifest, err := corpus.Load(filepath.Join("..", "..", "fixtures"))
 	require.NoError(t, err)
 	assert.Equal(t, len(cases), manifest.CaseCount)
+	assert.Equal(t, 16132, manifest.CaseCount)
+	assert.Equal(t, 15, manifest.StateCount)
 	assert.Equal(t, len(corpus.ArrayFields()), len(manifest.Fields))
 	for _, field := range manifest.Fields {
 		assert.Equal(t, 15, field.MatrixCases, field.ID)
 		if field.Class != corpus.ClassAtomic {
 			assert.Equal(t, 225, field.CrossCases, field.ID)
+		}
+		for _, spec := range corpus.ArrayFields() {
+			if spec.ID == field.ID {
+				assert.Equal(t, spec.PairSemantics, field.PairSemantics, field.ID)
+			}
 		}
 	}
 }

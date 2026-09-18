@@ -3,3 +3,4 @@ field: services.app.depends_on
 class: named-item
 scenario: 15-both-delete
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

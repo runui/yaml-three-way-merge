@@ -3,4 +3,5 @@ services:
         image: busybox:latest
 x-validation:
     items:
+        - base-a
         - user-b

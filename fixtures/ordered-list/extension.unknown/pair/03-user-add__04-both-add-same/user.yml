@@ -1,9 +1,4 @@
-services: !reset {}
----
-services:
-  app:
-    image: busybox:latest
 x-validation:
-  items:
-    - user-a
-    - user-b
+    items:
+        - user-a
+        - user-b

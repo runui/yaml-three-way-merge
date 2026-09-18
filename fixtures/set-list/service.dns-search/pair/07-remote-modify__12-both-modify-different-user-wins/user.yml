@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        dns_search: !reset []
 ---
 services:
-  app:
-    dns_search:
-      - base.test-a
-      - user.test-b
-    image: busybox:latest
+    app:
+        dns_search:
+            - base.test-a
+            - user.test-b

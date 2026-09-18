@@ -3,3 +3,4 @@ field: services.app.dns_search
 class: set-list
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 07-remote-modify
+pair_semantics: logical-items

@@ -3,3 +3,4 @@ field: services.app.develop.watch[].ignore
 class: ordered-list
 scenario: pair-cross-product
 description: 13-user-modify-remote-delete combined with 08-remote-delete
+pair_semantics: whole-list

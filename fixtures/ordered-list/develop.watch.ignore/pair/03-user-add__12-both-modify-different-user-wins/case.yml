@@ -3,3 +3,4 @@ field: services.app.develop.watch[].ignore
 class: ordered-list
 scenario: pair-cross-product
 description: 03-user-add combined with 12-both-modify-different-user-wins
+pair_semantics: whole-list

@@ -1,11 +1,13 @@
-services: !reset {}
+services:
+    app:
+        blkio_config:
+            device_read_iops: !reset []
 ---
 services:
-  app:
-    blkio_config:
-      device_read_iops:
-        - path: /dev/a
-          rate: "100"
-        - path: /dev/b
-          rate: "100"
-    image: busybox:latest
+    app:
+        blkio_config:
+            device_read_iops:
+                - path: /dev/a
+                  rate: "2100"
+                - path: /dev/b
+                  rate: "12100"

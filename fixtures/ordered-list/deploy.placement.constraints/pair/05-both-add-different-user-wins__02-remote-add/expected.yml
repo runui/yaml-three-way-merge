@@ -4,5 +4,4 @@ services:
             placement:
                 constraints:
                     - node.labels.zone==user-a
-                    - node.labels.zone==remote-b
         image: busybox:latest

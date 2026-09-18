@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        profiles: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    profiles:
-      - base-a
-      - user-b
+    app:
+        profiles:
+            - base-a
+            - user-b

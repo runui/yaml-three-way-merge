@@ -3,3 +3,4 @@ field: configs.default.labels
 class: named-item
 scenario: pair-cross-product
 description: 15-both-delete combined with 06-all-unchanged
+pair_semantics: logical-items

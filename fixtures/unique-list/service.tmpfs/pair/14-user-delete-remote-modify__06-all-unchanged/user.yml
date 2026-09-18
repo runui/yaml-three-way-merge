@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        tmpfs: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    tmpfs:
-      - /base-b
+    app:
+        tmpfs:
+            - /base-b

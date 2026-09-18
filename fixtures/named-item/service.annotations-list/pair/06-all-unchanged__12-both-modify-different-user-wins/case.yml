@@ -3,3 +3,4 @@ field: services.app.annotations
 class: named-item
 scenario: pair-cross-product
 description: 06-all-unchanged combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

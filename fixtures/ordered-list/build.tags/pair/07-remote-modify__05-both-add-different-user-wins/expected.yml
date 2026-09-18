@@ -2,6 +2,6 @@ services:
     app:
         build:
             tags:
-                - example:remote-a
+                - example:base-a
                 - example:user-b
         image: busybox:latest

@@ -1,12 +1,13 @@
-services: !reset {}
+services:
+    app:
+        volumes: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    volumes:
-      - source: /user-a
-        target: /data-a
-        type: bind
-      - source: /base-b
-        target: /data-b
-        type: bind
+    app:
+        volumes:
+            - source: /user-a
+              target: /data-a
+              type: bind
+            - source: /base-b
+              target: /data-b
+              type: bind

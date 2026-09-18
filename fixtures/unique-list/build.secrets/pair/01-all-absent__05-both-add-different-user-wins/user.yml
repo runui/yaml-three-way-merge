@@ -1,9 +1,6 @@
-services: !reset {}
----
 services:
-  app:
-    build:
-      secrets:
-        - source: user_secret_b
-          target: /run/secrets/b
-    image: busybox:latest
+    app:
+        build:
+            secrets:
+                - source: user_secret_b
+                  target: /run/secrets/b

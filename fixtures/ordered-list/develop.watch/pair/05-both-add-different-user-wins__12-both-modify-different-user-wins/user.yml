@@ -1,11 +1,13 @@
-services: !reset {}
+services:
+    app:
+        develop:
+            watch: !reset []
 ---
 services:
-  app:
-    develop:
-      watch:
-        - action: sync
-          path: ./user-a
-        - action: sync
-          path: ./user-b
-    image: busybox:latest
+    app:
+        develop:
+            watch:
+                - action: sync
+                  path: ./user-a
+                - action: sync
+                  path: ./user-b

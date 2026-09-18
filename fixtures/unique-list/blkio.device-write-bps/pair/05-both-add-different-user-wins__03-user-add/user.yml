@@ -1,11 +1,8 @@
-services: !reset {}
----
 services:
-  app:
-    blkio_config:
-      device_write_bps:
-        - path: /dev/a
-          rate: 1mb
-        - path: /dev/b
-          rate: 1mb
-    image: busybox:latest
+    app:
+        blkio_config:
+            device_write_bps:
+                - path: /dev/a
+                  rate: 21mb
+                - path: /dev/b
+                  rate: 121mb

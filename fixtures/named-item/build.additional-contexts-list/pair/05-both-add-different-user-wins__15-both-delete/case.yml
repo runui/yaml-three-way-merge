@@ -3,3 +3,4 @@ field: services.app.build.additional_contexts
 class: named-item
 scenario: pair-cross-product
 description: 05-both-add-different-user-wins combined with 15-both-delete
+pair_semantics: logical-items

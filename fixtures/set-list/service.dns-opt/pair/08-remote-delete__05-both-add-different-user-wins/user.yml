@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        dns_opt: !reset []
 ---
 services:
-  app:
-    dns_opt:
-      - use-vc-a
-      - rotate-b
-    image: busybox:latest
+    app:
+        dns_opt:
+            - use-vc-a
+            - rotate-b

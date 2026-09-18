@@ -1,3 +1,7 @@
 services:
     app:
+        deploy:
+            placement:
+                constraints:
+                    - node.role==manager-a
         image: busybox:latest

@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        command: !reset []
 ---
 services:
-  app:
-    command:
-      - user-command-a
-    image: busybox:latest
+    app:
+        command:
+            - user-command-a

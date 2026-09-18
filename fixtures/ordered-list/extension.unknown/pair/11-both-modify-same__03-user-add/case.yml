@@ -3,3 +3,4 @@ field: x-validation.items
 class: ordered-list
 scenario: pair-cross-product
 description: 11-both-modify-same combined with 03-user-add
+pair_semantics: whole-list

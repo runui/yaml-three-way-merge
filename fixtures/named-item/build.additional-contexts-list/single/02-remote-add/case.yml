@@ -3,3 +3,4 @@ field: services.app.build.additional_contexts
 class: named-item
 scenario: 02-remote-add
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

@@ -1,7 +1,4 @@
-services: !reset {}
----
 services:
-  app:
-    cap_drop:
-      - SETUID-b
-    image: busybox:latest
+    app:
+        cap_drop:
+            - SETUID-b

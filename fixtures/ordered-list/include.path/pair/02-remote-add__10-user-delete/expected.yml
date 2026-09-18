@@ -1,6 +1,3 @@
-include:
-    - path:
-        - remote.yml-a
 services:
     app:
         image: busybox:latest

@@ -1,5 +1,6 @@
 include:
     - path:
+        - base.yml-a
         - user.yml-b
 services:
     app:

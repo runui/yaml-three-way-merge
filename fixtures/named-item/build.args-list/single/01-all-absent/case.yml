@@ -3,3 +3,4 @@ field: services.app.build.args
 class: named-item
 scenario: 01-all-absent
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

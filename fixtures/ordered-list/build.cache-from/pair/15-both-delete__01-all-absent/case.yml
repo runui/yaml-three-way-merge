@@ -3,3 +3,4 @@ field: services.app.build.cache_from
 class: ordered-list
 scenario: pair-cross-product
 description: 15-both-delete combined with 01-all-absent
+pair_semantics: whole-list

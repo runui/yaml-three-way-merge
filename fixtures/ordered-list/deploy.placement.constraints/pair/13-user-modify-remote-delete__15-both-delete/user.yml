@@ -1,9 +1,12 @@
-services: !reset {}
+services:
+    app:
+        deploy:
+            placement:
+                constraints: !reset []
 ---
 services:
-  app:
-    deploy:
-      placement:
-        constraints:
-          - node.labels.zone==user-a
-    image: busybox:latest
+    app:
+        deploy:
+            placement:
+                constraints:
+                    - node.labels.zone==user-a

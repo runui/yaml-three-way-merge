@@ -1,6 +1,6 @@
 include:
     - env_file:
-        - remote.env-a
+        - base.env-a
       path:
         - compose.yml
 services:

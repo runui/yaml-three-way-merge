@@ -3,3 +3,4 @@ field: services.app.networks.default.link_local_ips
 class: set-list
 scenario: pair-cross-product
 description: 08-remote-delete combined with 09-user-modify
+pair_semantics: logical-items

@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        devices: !reset []
 ---
 services:
-  app:
-    devices:
-      - /dev/base-a:/dev/a
-      - /dev/user-b:/dev/b
-    image: busybox:latest
+    app:
+        devices:
+            - /dev/base-a:/dev/a
+            - /dev/user-b:/dev/b

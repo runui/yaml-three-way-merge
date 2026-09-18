@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        environment: !reset []
 ---
 services:
-  app:
-    environment:
-      - ENV-b=base
-    image: busybox:latest
+    app:
+        environment:
+            - ENV-b=base

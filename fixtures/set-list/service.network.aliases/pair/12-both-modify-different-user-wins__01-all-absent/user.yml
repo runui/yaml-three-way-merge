@@ -1,9 +1,12 @@
-services: !reset {}
+services:
+    app:
+        networks:
+            default:
+                aliases: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    networks:
-      default:
-        aliases:
-          - user-alias-a
+    app:
+        networks:
+            default:
+                aliases:
+                    - user-alias-a

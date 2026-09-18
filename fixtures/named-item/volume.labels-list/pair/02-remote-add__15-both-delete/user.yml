@@ -1,6 +1,1 @@
-services: !reset {}
 volumes: !reset {}
----
-services:
-  app:
-    image: busybox:latest

@@ -3,3 +3,4 @@ field: services.app.blkio_config.device_write_iops
 class: unique-list
 scenario: 08-remote-delete
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

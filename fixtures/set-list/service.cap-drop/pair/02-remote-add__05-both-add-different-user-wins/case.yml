@@ -3,3 +3,4 @@ field: services.app.cap_drop
 class: set-list
 scenario: pair-cross-product
 description: 02-remote-add combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

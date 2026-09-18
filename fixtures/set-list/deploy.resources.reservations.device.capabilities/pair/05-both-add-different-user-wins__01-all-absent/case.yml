@@ -3,3 +3,4 @@ field: services.app.deploy.resources.reservations.devices[].capabilities
 class: set-list
 scenario: pair-cross-product
 description: 05-both-add-different-user-wins combined with 01-all-absent
+pair_semantics: logical-items

@@ -5,5 +5,5 @@ services:
                 - path: /dev/a
                   weight: 100
                 - path: /dev/b
-                  weight: 100
+                  weight: 500
         image: busybox:latest

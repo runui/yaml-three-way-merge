@@ -3,3 +3,4 @@ field: services.app.deploy.placement.preferences
 class: ordered-list
 scenario: 13-user-modify-remote-delete
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: whole-list

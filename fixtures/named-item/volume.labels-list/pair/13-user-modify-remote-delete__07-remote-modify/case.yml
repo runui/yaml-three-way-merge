@@ -3,3 +3,4 @@ field: volumes.default.labels
 class: named-item
 scenario: pair-cross-product
 description: 13-user-modify-remote-delete combined with 07-remote-modify
+pair_semantics: logical-items

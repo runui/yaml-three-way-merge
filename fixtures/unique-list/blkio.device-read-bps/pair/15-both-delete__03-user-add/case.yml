@@ -3,3 +3,4 @@ field: services.app.blkio_config.device_read_bps
 class: unique-list
 scenario: pair-cross-product
 description: 15-both-delete combined with 03-user-add
+pair_semantics: logical-items

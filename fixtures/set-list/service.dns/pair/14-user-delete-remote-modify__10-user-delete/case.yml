@@ -3,3 +3,4 @@ field: services.app.dns
 class: set-list
 scenario: pair-cross-product
 description: 14-user-delete-remote-modify combined with 10-user-delete
+pair_semantics: logical-items

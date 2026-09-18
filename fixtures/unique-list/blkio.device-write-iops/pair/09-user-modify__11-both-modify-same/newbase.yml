@@ -5,5 +5,5 @@ services:
                 - path: /dev/a
                   rate: "100"
                 - path: /dev/b
-                  rate: "100"
+                  rate: "12100"
         image: busybox:latest

@@ -3,15 +3,32 @@ package corpus
 import "strings"
 
 func arrayField(id, path string, class MergeClass, values [2][3]any) FieldSpec {
+	semantics := PairByLogicalItem
+	if class == ClassAtomic {
+		semantics = PairDisabled
+	} else if class == ClassOrderedList {
+		semantics = PairAsWholeList
+	}
 	return FieldSpec{
 		ID: id, Path: strings.Split(path, "."), Class: class,
 		Values: values[0], SecondValues: values[1], CrossProduct: class != ClassAtomic,
+		PairSemantics: semantics, ResetBoundary: strings.Split(path, "."),
 	}
 }
 
-func wrappedArrayField(id, displayPath string, class MergeClass, values [2][3]any, wrap func([]any) map[string]any) FieldSpec {
+func wrappedArrayField(id, displayPath string, class MergeClass, values [2][3]any, wrap func([]any, bool) map[string]any) FieldSpec {
 	field := arrayField(id, displayPath, class, values)
 	field.Wrap = wrap
+	switch id {
+	case "include.path", "include.env-file":
+		field.ResetBoundary = []string{"include"}
+	case "develop.watch.ignore":
+		field.ResetBoundary = []string{"services", "app", "develop", "watch"}
+	case "deploy.resources.limits.device.capabilities", "deploy.resources.limits.device-ids":
+		field.ResetBoundary = []string{"services", "app", "deploy", "resources", "limits", "devices"}
+	case "deploy.resources.reservations.device.capabilities", "deploy.resources.reservations.device-ids":
+		field.ResetBoundary = []string{"services", "app", "deploy", "resources", "reservations", "devices"}
+	}
 	return field
 }
 
@@ -110,20 +127,33 @@ func keyValueValues(key string) [2][3]any {
 	)
 }
 
-func wrapInclude(key string) func([]any) map[string]any {
-	return func(values []any) map[string]any {
-		return map[string]any{"services": map[string]any{"app": map[string]any{"image": "busybox:latest"}}, "include": []any{map[string]any{"path": []string{"compose.yml"}, key: values}}}
+func wrapInclude(key string) func([]any, bool) map[string]any {
+	return func(values []any, present bool) map[string]any {
+		if key == "path" && !present {
+			return map[string]any{}
+		}
+		item := map[string]any{"path": []string{"compose.yml"}}
+		if key == "path" || present {
+			item[key] = values
+		}
+		return map[string]any{"include": []any{item}}
 	}
 }
 
-func wrapDevelopIgnore(values []any) map[string]any {
-	return map[string]any{"services": map[string]any{"app": map[string]any{"image": "busybox:latest", "develop": map[string]any{"watch": []any{map[string]any{"path": ".", "action": "sync", "ignore": values}}}}}}
+func wrapDevelopIgnore(values []any, present bool) map[string]any {
+	item := map[string]any{"path": ".", "action": "sync"}
+	if present {
+		item["ignore"] = values
+	}
+	return map[string]any{"services": map[string]any{"app": map[string]any{"develop": map[string]any{"watch": []any{item}}}}}
 }
 
-func wrapDeviceRequest(branch, key string) func([]any) map[string]any {
-	return func(values []any) map[string]any {
+func wrapDeviceRequest(branch, key string) func([]any, bool) map[string]any {
+	return func(values []any, present bool) map[string]any {
 		device := map[string]any{"driver": "nvidia", "capabilities": []string{"gpu"}}
-		device[key] = values
+		if key == "capabilities" || present {
+			device[key] = values
+		}
 		return map[string]any{"services": map[string]any{"app": map[string]any{"image": "busybox:latest", "deploy": map[string]any{"resources": map[string]any{branch: map[string]any{"devices": []any{device}}}}}}}
 	}
 }
@@ -163,10 +193,16 @@ func watchValues() [2][3]any {
 	return objectPair("path", "./base-a", "./user-a", "./remote-a", "./base-b", "./user-b", "./remote-b", "action", "sync")
 }
 func weightDeviceValues() [2][3]any {
-	return objectPair("path", "/dev/a", "/dev/a", "/dev/a", "/dev/b", "/dev/b", "/dev/b", "weight", 100)
+	return [2][3]any{
+		{map[string]any{"path": "/dev/a", "weight": 100}, map[string]any{"path": "/dev/a", "weight": 200}, map[string]any{"path": "/dev/a", "weight": 300}},
+		{map[string]any{"path": "/dev/b", "weight": 400}, map[string]any{"path": "/dev/b", "weight": 500}, map[string]any{"path": "/dev/b", "weight": 600}},
+	}
 }
 func throttleValues(rate string) [2][3]any {
-	return objectPair("path", "/dev/a", "/dev/a", "/dev/a", "/dev/b", "/dev/b", "/dev/b", "rate", rate)
+	return [2][3]any{
+		{map[string]any{"path": "/dev/a", "rate": rate}, map[string]any{"path": "/dev/a", "rate": "2" + rate}, map[string]any{"path": "/dev/a", "rate": "3" + rate}},
+		{map[string]any{"path": "/dev/b", "rate": "11" + rate}, map[string]any{"path": "/dev/b", "rate": "12" + rate}, map[string]any{"path": "/dev/b", "rate": "13" + rate}},
+	}
 }
 func preferenceValues() [2][3]any {
 	return [2][3]any{{map[string]any{"spread": "node.labels.base-a"}, map[string]any{"spread": "node.labels.user-a"}, map[string]any{"spread": "node.labels.remote-a"}}, {map[string]any{"spread": "node.labels.base-b"}, map[string]any{"spread": "node.labels.user-b"}, map[string]any{"spread": "node.labels.remote-b"}}}

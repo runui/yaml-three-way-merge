@@ -1,9 +1,11 @@
-services: !reset {}
+services:
+    app:
+        blkio_config:
+            weight_device: !reset []
 ---
 services:
-  app:
-    blkio_config:
-      weight_device:
-        - path: /dev/b
-          weight: 100
-    image: busybox:latest
+    app:
+        blkio_config:
+            weight_device:
+                - path: /dev/b
+                  weight: 400

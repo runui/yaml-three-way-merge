@@ -3,3 +3,4 @@ field: services.app.build.platforms
 class: ordered-list
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 15-both-delete
+pair_semantics: whole-list

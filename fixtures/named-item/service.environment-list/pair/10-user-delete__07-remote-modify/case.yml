@@ -3,3 +3,4 @@ field: services.app.environment
 class: named-item
 scenario: pair-cross-product
 description: 10-user-delete combined with 07-remote-modify
+pair_semantics: logical-items

@@ -1,9 +1,11 @@
-services: !reset {}
+services:
+    app:
+        build:
+            args: !reset []
 ---
 services:
-  app:
-    build:
-      args:
-        - ARG-a=user
-        - ARG-b=base
-    image: busybox:latest
+    app:
+        build:
+            args:
+                - ARG-a=user
+                - ARG-b=base

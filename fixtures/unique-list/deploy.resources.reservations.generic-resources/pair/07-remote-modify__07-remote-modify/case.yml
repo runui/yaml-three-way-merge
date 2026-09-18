@@ -3,3 +3,4 @@ field: services.app.deploy.resources.reservations.generic_resources
 class: unique-list
 scenario: pair-cross-product
 description: 07-remote-modify combined with 07-remote-modify
+pair_semantics: logical-items

@@ -3,3 +3,4 @@ field: include[].path
 class: ordered-list
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 02-remote-add
+pair_semantics: whole-list

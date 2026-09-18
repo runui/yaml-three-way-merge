@@ -3,3 +3,4 @@ field: services.app.group_add
 class: set-list
 scenario: 08-remote-delete
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

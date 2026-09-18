@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        cap_add: !reset []
 ---
 services:
-  app:
-    cap_add:
-      - SYS_ADMIN-a
-      - SYS_ADMIN-b
-    image: busybox:latest
+    app:
+        cap_add:
+            - SYS_ADMIN-a
+            - SYS_ADMIN-b

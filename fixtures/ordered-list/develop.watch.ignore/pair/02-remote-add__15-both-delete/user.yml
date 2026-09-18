@@ -1,5 +1,11 @@
-services: !reset {}
+services:
+    app:
+        develop:
+            watch: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
+    app:
+        develop:
+            watch:
+                - action: sync
+                  path: .

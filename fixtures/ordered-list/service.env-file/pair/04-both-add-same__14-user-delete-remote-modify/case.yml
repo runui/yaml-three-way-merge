@@ -3,3 +3,4 @@ field: services.app.env_file
 class: ordered-list
 scenario: pair-cross-product
 description: 04-both-add-same combined with 14-user-delete-remote-modify
+pair_semantics: whole-list

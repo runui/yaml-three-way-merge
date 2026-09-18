@@ -1,15 +1,19 @@
-services: !reset {}
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
 ---
 services:
-  app:
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities:
-                - gpu
-              driver: base-a
-            - capabilities:
-                - tpu
-              driver: user-b
-    image: busybox:latest
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: base-a
+                        - capabilities:
+                            - tpu
+                          driver: user-b

@@ -1,3 +1,7 @@
 services:
     app:
+        develop:
+            watch:
+                - action: sync
+                  path: .
         image: busybox:latest

@@ -3,3 +3,4 @@ field: services.app.configs
 class: unique-list
 scenario: pair-cross-product
 description: 04-both-add-same combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

@@ -3,3 +3,4 @@ field: services.app.blkio_config.device_write_bps
 class: unique-list
 scenario: pair-cross-product
 description: 07-remote-modify combined with 04-both-add-same
+pair_semantics: logical-items

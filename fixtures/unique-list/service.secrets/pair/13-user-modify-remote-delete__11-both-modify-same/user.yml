@@ -1,10 +1,11 @@
-services: !reset {}
+services:
+    app:
+        secrets: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    secrets:
-      - source: user_secret_a
-        target: /secret-a
-      - source: user_secret_b
-        target: /secret-b
+    app:
+        secrets:
+            - source: user_secret_a
+              target: /secret-a
+            - source: user_secret_b
+              target: /secret-b

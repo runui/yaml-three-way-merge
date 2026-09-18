@@ -1,11 +1,8 @@
-services: !reset {}
+include: !reset []
 ---
 include:
-  - env_file:
-      - user.env-a
-      - user.env-b
-    path:
-      - compose.yml
-services:
-  app:
-    image: busybox:latest
+    - env_file:
+        - user.env-a
+        - user.env-b
+      path:
+        - compose.yml

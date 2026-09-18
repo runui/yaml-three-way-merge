@@ -3,3 +3,4 @@ field: services.app.annotations
 class: named-item
 scenario: pair-cross-product
 description: 01-all-absent combined with 06-all-unchanged
+pair_semantics: logical-items

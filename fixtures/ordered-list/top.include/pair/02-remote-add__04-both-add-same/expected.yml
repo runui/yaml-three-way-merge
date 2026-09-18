@@ -1,5 +1,4 @@
 include:
-    - ./remote.yml
     - ./user-b.yml
 services:
     app:

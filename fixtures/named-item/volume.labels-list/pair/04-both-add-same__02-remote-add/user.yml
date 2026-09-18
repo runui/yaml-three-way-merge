@@ -1,9 +1,4 @@
-services: !reset {}
----
-services:
-  app:
-    image: busybox:latest
 volumes:
-  default:
-    labels:
-      - volume.label-a=user
+    default:
+        labels:
+            - volume.label-a=user

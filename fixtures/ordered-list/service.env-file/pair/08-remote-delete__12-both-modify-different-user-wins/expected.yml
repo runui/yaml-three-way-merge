@@ -1,5 +1,6 @@
 services:
     app:
         env_file:
+            - base.env-a
             - user.env-b
         image: busybox:latest

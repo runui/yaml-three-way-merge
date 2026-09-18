@@ -1,9 +1,11 @@
-services: !reset {}
+services:
+    app:
+        build:
+            ssh: !reset []
 ---
 services:
-  app:
-    build:
-      ssh:
-        - base-a
-        - user-b
-    image: busybox:latest
+    app:
+        build:
+            ssh:
+                - base-a
+                - user-b

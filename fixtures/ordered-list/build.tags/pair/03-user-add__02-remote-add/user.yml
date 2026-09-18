@@ -1,8 +1,5 @@
-services: !reset {}
----
 services:
-  app:
-    build:
-      tags:
-        - example:user-a
-    image: busybox:latest
+    app:
+        build:
+            tags:
+                - example:user-a

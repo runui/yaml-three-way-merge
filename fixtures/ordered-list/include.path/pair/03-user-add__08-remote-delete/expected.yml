@@ -1,6 +1,7 @@
 include:
     - path:
         - user.yml-a
+        - base.yml-b
 services:
     app:
         image: busybox:latest

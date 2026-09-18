@@ -3,5 +3,5 @@ services:
         deploy:
             placement:
                 constraints:
-                    - node.labels.zone==remote-a
+                    - node.role==manager-a
         image: busybox:latest

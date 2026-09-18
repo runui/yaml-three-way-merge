@@ -3,3 +3,4 @@ field: services.app.networks
 class: named-item
 scenario: pair-cross-product
 description: 15-both-delete combined with 15-both-delete
+pair_semantics: logical-items

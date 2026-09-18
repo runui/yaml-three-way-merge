@@ -3,3 +3,4 @@ field: services.app.build.tags
 class: ordered-list
 scenario: pair-cross-product
 description: 02-remote-add combined with 15-both-delete
+pair_semantics: whole-list

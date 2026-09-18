@@ -5,5 +5,5 @@ services:
                 - action: sync
                   path: ./user-a
                 - action: sync
-                  path: ./remote-b
+                  path: ./base-b
         image: busybox:latest

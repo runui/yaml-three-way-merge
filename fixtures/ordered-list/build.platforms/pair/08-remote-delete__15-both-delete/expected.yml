@@ -1,3 +1,6 @@
 services:
     app:
+        build:
+            platforms:
+                - linux/amd64-a
         image: busybox:latest

@@ -4,4 +4,6 @@ services:
             watch:
                 - action: sync
                   path: ./user-a
+                - action: sync
+                  path: ./base-b
         image: busybox:latest

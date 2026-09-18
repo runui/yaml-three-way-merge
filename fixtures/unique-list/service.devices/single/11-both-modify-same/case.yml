@@ -3,3 +3,4 @@ field: services.app.devices
 class: unique-list
 scenario: 11-both-modify-same
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

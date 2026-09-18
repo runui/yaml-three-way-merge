@@ -3,3 +3,4 @@ field: services.app.env_file
 class: ordered-list
 scenario: 01-all-absent
 description: user is untouched, so the logical item follows newbase
+pair_semantics: whole-list

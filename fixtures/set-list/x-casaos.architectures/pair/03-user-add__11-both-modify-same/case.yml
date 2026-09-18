@@ -3,3 +3,4 @@ field: x-casaos.architectures
 class: set-list
 scenario: pair-cross-product
 description: 03-user-add combined with 11-both-modify-same
+pair_semantics: logical-items

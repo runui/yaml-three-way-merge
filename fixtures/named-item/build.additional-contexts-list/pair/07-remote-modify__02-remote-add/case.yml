@@ -3,3 +3,4 @@ field: services.app.build.additional_contexts
 class: named-item
 scenario: pair-cross-product
 description: 07-remote-modify combined with 02-remote-add
+pair_semantics: logical-items

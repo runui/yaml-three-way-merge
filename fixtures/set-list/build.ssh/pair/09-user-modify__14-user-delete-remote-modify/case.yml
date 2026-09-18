@@ -3,3 +3,4 @@ field: services.app.build.ssh
 class: set-list
 scenario: pair-cross-product
 description: 09-user-modify combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

@@ -3,3 +3,4 @@ field: configs.default.labels
 class: named-item
 scenario: pair-cross-product
 description: 05-both-add-different-user-wins combined with 02-remote-add
+pair_semantics: logical-items

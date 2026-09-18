@@ -3,3 +3,4 @@ field: services.app.networks.default.aliases
 class: set-list
 scenario: pair-cross-product
 description: 08-remote-delete combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

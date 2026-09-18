@@ -3,3 +3,4 @@ field: services.app.security_opt
 class: set-list
 scenario: pair-cross-product
 description: 15-both-delete combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

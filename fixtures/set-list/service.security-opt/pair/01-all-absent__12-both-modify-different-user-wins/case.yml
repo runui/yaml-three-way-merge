@@ -3,3 +3,4 @@ field: services.app.security_opt
 class: set-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

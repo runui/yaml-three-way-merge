@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        configs: !reset []
 ---
 services:
-  app:
-    configs:
-      - source: base_config_a
-        target: /config-a
-    image: busybox:latest
+    app:
+        configs:
+            - source: base_config_a
+              target: /config-a

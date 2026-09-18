@@ -3,3 +3,4 @@ field: services.app.blkio_config.device_read_iops
 class: unique-list
 scenario: pair-cross-product
 description: 11-both-modify-same combined with 04-both-add-same
+pair_semantics: logical-items

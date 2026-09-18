@@ -3,3 +3,4 @@ field: services.app.tmpfs
 class: unique-list
 scenario: 09-user-modify
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

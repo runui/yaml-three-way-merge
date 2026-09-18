@@ -3,7 +3,7 @@ services:
         blkio_config:
             device_write_iops:
                 - path: /dev/a
-                  rate: "100"
+                  rate: "3100"
                 - path: /dev/b
-                  rate: "100"
+                  rate: "12100"
         image: busybox:latest

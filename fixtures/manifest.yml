@@ -1,5 +1,5 @@
 compose_go_version: v1.20.2
-policy: user changes relative to oldbase win per logical item; untouched items follow newbase
+policy: user changes relative to oldbase win according to each field's pair semantics; untouched values follow newbase
 files_per_case:
     - case.yml
     - oldbase.yml
@@ -13,349 +13,419 @@ fields:
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: include.path
       path: include[].path
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: include.env-file
       path: include[].env_file
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: service.annotations-list
       path: services.app.annotations
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.profiles
       path: services.app.profiles
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.cap-add
       path: services.app.cap_add
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.cap-drop
       path: services.app.cap_drop
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.command
       path: services.app.command
       class: atomic
       matrix_cases: 15
       cross_cases: 0
+      pair_semantics: none
     - id: service.entrypoint
       path: services.app.entrypoint
       class: atomic
       matrix_cases: 15
       cross_cases: 0
+      pair_semantics: none
     - id: service.environment-list
       path: services.app.environment
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.configs
       path: services.app.configs
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.secrets
       path: services.app.secrets
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.depends-on
       path: services.app.depends_on
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.device-cgroup-rules
       path: services.app.device_cgroup_rules
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.devices
       path: services.app.devices
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.dns
       path: services.app.dns
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.dns-opt
       path: services.app.dns_opt
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.dns-search
       path: services.app.dns_search
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.env-file
       path: services.app.env_file
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: service.expose
       path: services.app.expose
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.external-links
       path: services.app.external_links
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.extra-hosts-list
       path: services.app.extra_hosts
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.group-add
       path: services.app.group_add
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.links
       path: services.app.links
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.labels-list
       path: services.app.labels
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.networks
       path: services.app.networks
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.ports
       path: services.app.ports
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.security-opt
       path: services.app.security_opt
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.sysctls-list
       path: services.app.sysctls
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.tmpfs
       path: services.app.tmpfs
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.volumes
       path: services.app.volumes
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.volumes-from
       path: services.app.volumes_from
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: build.ssh
       path: services.app.build.ssh
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: build.args-list
       path: services.app.build.args
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: build.labels-list
       path: services.app.build.labels
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: build.additional-contexts-list
       path: services.app.build.additional_contexts
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: build.extra-hosts-list
       path: services.app.build.extra_hosts
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: build.cache-from
       path: services.app.build.cache_from
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: build.cache-to
       path: services.app.build.cache_to
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: build.secrets
       path: services.app.build.secrets
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: build.tags
       path: services.app.build.tags
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: build.platforms
       path: services.app.build.platforms
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: develop.watch
       path: services.app.develop.watch
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: develop.watch.ignore
       path: services.app.develop.watch[].ignore
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: blkio.weight-device
       path: services.app.blkio_config.weight_device
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: blkio.device-read-bps
       path: services.app.blkio_config.device_read_bps
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: blkio.device-read-iops
       path: services.app.blkio_config.device_read_iops
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: blkio.device-write-bps
       path: services.app.blkio_config.device_write_bps
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: blkio.device-write-iops
       path: services.app.blkio_config.device_write_iops
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: healthcheck.test
       path: services.app.healthcheck.test
       class: atomic
       matrix_cases: 15
       cross_cases: 0
+      pair_semantics: none
     - id: deploy.resources.limits.devices
       path: services.app.deploy.resources.limits.devices
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.resources.limits.device.capabilities
       path: services.app.deploy.resources.limits.devices[].capabilities
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.resources.limits.device-ids
       path: services.app.deploy.resources.limits.devices[].device_ids
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.resources.limits.generic-resources
       path: services.app.deploy.resources.limits.generic_resources
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.resources.reservations.devices
       path: services.app.deploy.resources.reservations.devices
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.resources.reservations.device.capabilities
       path: services.app.deploy.resources.reservations.devices[].capabilities
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.resources.reservations.device-ids
       path: services.app.deploy.resources.reservations.devices[].device_ids
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.resources.reservations.generic-resources
       path: services.app.deploy.resources.reservations.generic_resources
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: deploy.placement.constraints
       path: services.app.deploy.placement.constraints
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: deploy.placement.preferences
       path: services.app.deploy.placement.preferences
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: service.network.aliases
       path: services.app.networks.default.aliases
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: service.network.link-local-ips
       path: services.app.networks.default.link_local_ips
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: network.ipam.config
       path: networks.default.ipam.config
       class: unique-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: network.labels-list
       path: networks.default.labels
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: volume.labels-list
       path: volumes.default.labels
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: config.labels-list
       path: configs.default.labels
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: secret.labels-list
       path: secrets.default.labels
       class: named-item
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: x-casaos.screenshot-link
       path: x-casaos.screenshot_link
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
     - id: x-casaos.architectures
       path: x-casaos.architectures
       class: set-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: logical-items
     - id: extension.unknown
       path: x-validation.items
       class: ordered-list
       matrix_cases: 15
       cross_cases: 225
+      pair_semantics: whole-list
 case_count: 16132

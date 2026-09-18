@@ -3,3 +3,4 @@ field: include[].path
 class: ordered-list
 scenario: pair-cross-product
 description: 10-user-delete combined with 05-both-add-different-user-wins
+pair_semantics: whole-list

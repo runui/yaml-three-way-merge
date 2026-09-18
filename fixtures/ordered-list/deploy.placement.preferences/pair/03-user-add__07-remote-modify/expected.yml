@@ -4,5 +4,5 @@ services:
             placement:
                 preferences:
                     - spread: node.labels.user-a
-                    - spread: node.labels.remote-b
+                    - spread: node.labels.base-b
         image: busybox:latest

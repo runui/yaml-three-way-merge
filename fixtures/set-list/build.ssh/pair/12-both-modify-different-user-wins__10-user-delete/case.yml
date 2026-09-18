@@ -3,3 +3,4 @@ field: services.app.build.ssh
 class: set-list
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 10-user-delete
+pair_semantics: logical-items

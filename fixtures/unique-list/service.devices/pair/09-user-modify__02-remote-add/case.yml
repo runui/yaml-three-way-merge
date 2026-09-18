@@ -3,3 +3,4 @@ field: services.app.devices
 class: unique-list
 scenario: pair-cross-product
 description: 09-user-modify combined with 02-remote-add
+pair_semantics: logical-items

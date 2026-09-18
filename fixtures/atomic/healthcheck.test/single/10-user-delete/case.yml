@@ -3,3 +3,4 @@ field: services.app.healthcheck.test
 class: atomic
 scenario: 10-user-delete
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: none

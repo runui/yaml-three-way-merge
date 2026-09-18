@@ -1,11 +1,9 @@
-networks: !reset {}
-services: !reset {}
+networks:
+    default:
+        labels: !reset []
 ---
 networks:
-  default:
-    labels:
-      - network.label-a=user
-      - network.label-b=base
-services:
-  app:
-    image: busybox:latest
+    default:
+        labels:
+            - network.label-a=user
+            - network.label-b=base

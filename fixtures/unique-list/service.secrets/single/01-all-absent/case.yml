@@ -3,3 +3,4 @@ field: services.app.secrets
 class: unique-list
 scenario: 01-all-absent
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

@@ -3,5 +3,4 @@ services:
         build:
             platforms:
                 - linux/arm64-a
-                - linux/386-b
         image: busybox:latest

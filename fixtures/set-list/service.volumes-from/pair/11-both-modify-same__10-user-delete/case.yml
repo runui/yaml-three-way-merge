@@ -3,3 +3,4 @@ field: services.app.volumes_from
 class: set-list
 scenario: pair-cross-product
 description: 11-both-modify-same combined with 10-user-delete
+pair_semantics: logical-items

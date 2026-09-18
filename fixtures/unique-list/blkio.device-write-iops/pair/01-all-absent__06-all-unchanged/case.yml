@@ -3,3 +3,4 @@ field: services.app.blkio_config.device_write_iops
 class: unique-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 06-all-unchanged
+pair_semantics: logical-items

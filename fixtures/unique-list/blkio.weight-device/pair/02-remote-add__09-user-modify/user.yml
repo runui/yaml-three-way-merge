@@ -1,1 +1,11 @@
-{}
+services:
+    app:
+        blkio_config:
+            weight_device: !reset []
+---
+services:
+    app:
+        blkio_config:
+            weight_device:
+                - path: /dev/b
+                  weight: 500

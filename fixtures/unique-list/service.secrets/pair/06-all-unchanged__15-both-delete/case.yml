@@ -3,3 +3,4 @@ field: services.app.secrets
 class: unique-list
 scenario: pair-cross-product
 description: 06-all-unchanged combined with 15-both-delete
+pair_semantics: logical-items

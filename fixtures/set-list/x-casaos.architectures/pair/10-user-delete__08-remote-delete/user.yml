@@ -1,9 +1,6 @@
-services: !reset {}
-x-casaos: !reset {}
----
-services:
-  app:
-    image: busybox:latest
 x-casaos:
-  architectures:
-    - amd64-b
+    architectures: !reset []
+---
+x-casaos:
+    architectures:
+        - amd64-b

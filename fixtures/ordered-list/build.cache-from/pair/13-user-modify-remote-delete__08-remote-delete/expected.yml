@@ -3,4 +3,5 @@ services:
         build:
             cache_from:
                 - type=local,src=user-a
+                - type=local,src=base-b
         image: busybox:latest

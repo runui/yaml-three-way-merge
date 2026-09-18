@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        external_links: !reset []
 ---
 services:
-  app:
-    external_links:
-      - base:base-a
-    image: busybox:latest
+    app:
+        external_links:
+            - base:base-a

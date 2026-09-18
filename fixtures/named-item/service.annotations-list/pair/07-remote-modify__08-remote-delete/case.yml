@@ -3,3 +3,4 @@ field: services.app.annotations
 class: named-item
 scenario: pair-cross-product
 description: 07-remote-modify combined with 08-remote-delete
+pair_semantics: logical-items

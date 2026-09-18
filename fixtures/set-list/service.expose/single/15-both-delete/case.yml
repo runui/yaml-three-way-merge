@@ -3,3 +3,4 @@ field: services.app.expose
 class: set-list
 scenario: 15-both-delete
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

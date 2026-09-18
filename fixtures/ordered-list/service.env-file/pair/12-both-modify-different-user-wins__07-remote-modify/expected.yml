@@ -2,5 +2,5 @@ services:
     app:
         env_file:
             - user.env-a
-            - remote.env-b
+            - base.env-b
         image: busybox:latest

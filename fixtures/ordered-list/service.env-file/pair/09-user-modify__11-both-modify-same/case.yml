@@ -3,3 +3,4 @@ field: services.app.env_file
 class: ordered-list
 scenario: pair-cross-product
 description: 09-user-modify combined with 11-both-modify-same
+pair_semantics: whole-list

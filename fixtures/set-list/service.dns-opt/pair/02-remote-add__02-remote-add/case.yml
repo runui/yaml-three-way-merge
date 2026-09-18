@@ -3,3 +3,4 @@ field: services.app.dns_opt
 class: set-list
 scenario: pair-cross-product
 description: 02-remote-add combined with 02-remote-add
+pair_semantics: logical-items

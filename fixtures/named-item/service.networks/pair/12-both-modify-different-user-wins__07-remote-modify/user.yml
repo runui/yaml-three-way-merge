@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        networks: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    networks:
-      - user-net-a
-      - base-net-b
+    app:
+        networks:
+            - user-net-a
+            - base-net-b

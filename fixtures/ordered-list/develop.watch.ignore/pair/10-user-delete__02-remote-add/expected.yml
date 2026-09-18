@@ -3,7 +3,5 @@ services:
         develop:
             watch:
                 - action: sync
-                  ignore:
-                    - remote.tmp-b
                   path: .
         image: busybox:latest

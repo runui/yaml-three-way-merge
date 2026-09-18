@@ -3,3 +3,4 @@ field: services.app.deploy.resources.limits.devices
 class: unique-list
 scenario: pair-cross-product
 description: 05-both-add-different-user-wins combined with 08-remote-delete
+pair_semantics: logical-items

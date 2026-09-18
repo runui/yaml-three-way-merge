@@ -3,5 +3,5 @@ services:
         develop:
             watch:
                 - action: sync
-                  path: ./remote-b
+                  path: ./base-b
         image: busybox:latest

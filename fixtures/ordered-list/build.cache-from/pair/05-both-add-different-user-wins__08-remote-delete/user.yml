@@ -1,9 +1,11 @@
-services: !reset {}
+services:
+    app:
+        build:
+            cache_from: !reset []
 ---
 services:
-  app:
-    build:
-      cache_from:
-        - type=local,src=user-a
-        - type=local,src=base-b
-    image: busybox:latest
+    app:
+        build:
+            cache_from:
+                - type=local,src=user-a
+                - type=local,src=base-b

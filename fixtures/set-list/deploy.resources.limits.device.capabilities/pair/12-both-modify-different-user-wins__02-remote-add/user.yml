@@ -1,12 +1,16 @@
-services: !reset {}
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices: !reset []
 ---
 services:
-  app:
-    deploy:
-      resources:
-        limits:
-          devices:
-            - capabilities:
-                - tpu-a
-              driver: nvidia
-    image: busybox:latest
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - tpu-a
+                          driver: nvidia

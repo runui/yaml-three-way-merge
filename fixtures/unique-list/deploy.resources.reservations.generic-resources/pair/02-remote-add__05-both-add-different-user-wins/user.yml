@@ -1,12 +1,9 @@
-services: !reset {}
----
 services:
-  app:
-    deploy:
-      resources:
-        reservations:
-          generic_resources:
-            - discrete_resource_spec:
-                kind: GPU-B
-                value: 2
-    image: busybox:latest
+    app:
+        deploy:
+            resources:
+                reservations:
+                    generic_resources:
+                        - discrete_resource_spec:
+                            kind: GPU-B
+                            value: 2

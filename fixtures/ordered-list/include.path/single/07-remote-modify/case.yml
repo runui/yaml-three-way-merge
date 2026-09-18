@@ -3,3 +3,4 @@ field: include[].path
 class: ordered-list
 scenario: 07-remote-modify
 description: user is untouched, so the logical item follows newbase
+pair_semantics: whole-list

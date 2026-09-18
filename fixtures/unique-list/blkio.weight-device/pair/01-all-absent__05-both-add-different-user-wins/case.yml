@@ -3,3 +3,4 @@ field: services.app.blkio_config.weight_device
 class: unique-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

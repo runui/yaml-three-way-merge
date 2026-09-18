@@ -3,3 +3,4 @@ field: include
 class: ordered-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 08-remote-delete
+pair_semantics: whole-list

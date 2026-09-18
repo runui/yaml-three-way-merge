@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        annotations: !reset []
 ---
 services:
-  app:
-    annotations:
-      - annotation-a=user
-      - annotation-b=base
-    image: busybox:latest
+    app:
+        annotations:
+            - annotation-a=user
+            - annotation-b=base

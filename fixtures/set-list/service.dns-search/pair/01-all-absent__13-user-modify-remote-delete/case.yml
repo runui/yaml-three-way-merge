@@ -3,3 +3,4 @@ field: services.app.dns_search
 class: set-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 13-user-modify-remote-delete
+pair_semantics: logical-items

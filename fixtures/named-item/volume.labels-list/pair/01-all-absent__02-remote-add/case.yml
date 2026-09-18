@@ -3,3 +3,4 @@ field: volumes.default.labels
 class: named-item
 scenario: pair-cross-product
 description: 01-all-absent combined with 02-remote-add
+pair_semantics: logical-items

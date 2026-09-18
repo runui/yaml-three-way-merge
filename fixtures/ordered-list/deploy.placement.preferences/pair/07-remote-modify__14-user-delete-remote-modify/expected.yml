@@ -3,5 +3,5 @@ services:
         deploy:
             placement:
                 preferences:
-                    - spread: node.labels.remote-a
+                    - spread: node.labels.base-a
         image: busybox:latest

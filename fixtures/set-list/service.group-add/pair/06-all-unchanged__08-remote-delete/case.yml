@@ -3,3 +3,4 @@ field: services.app.group_add
 class: set-list
 scenario: pair-cross-product
 description: 06-all-unchanged combined with 08-remote-delete
+pair_semantics: logical-items

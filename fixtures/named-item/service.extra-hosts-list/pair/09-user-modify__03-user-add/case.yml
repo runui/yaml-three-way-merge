@@ -3,3 +3,4 @@ field: services.app.extra_hosts
 class: named-item
 scenario: pair-cross-product
 description: 09-user-modify combined with 03-user-add
+pair_semantics: logical-items

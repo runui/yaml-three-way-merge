@@ -1,7 +1,4 @@
-services: !reset {}
----
 services:
-  app:
-    entrypoint:
-      - user-entrypoint-a
-    image: busybox:latest
+    app:
+        entrypoint:
+            - user-entrypoint-a

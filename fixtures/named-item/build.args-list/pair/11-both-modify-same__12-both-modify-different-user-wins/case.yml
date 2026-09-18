@@ -3,3 +3,4 @@ field: services.app.build.args
 class: named-item
 scenario: pair-cross-product
 description: 11-both-modify-same combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

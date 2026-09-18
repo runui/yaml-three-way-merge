@@ -3,3 +3,4 @@ field: services.app.develop.watch[].ignore
 class: ordered-list
 scenario: pair-cross-product
 description: 02-remote-add combined with 04-both-add-same
+pair_semantics: whole-list

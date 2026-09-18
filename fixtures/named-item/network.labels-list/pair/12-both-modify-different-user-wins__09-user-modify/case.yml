@@ -3,3 +3,4 @@ field: networks.default.labels
 class: named-item
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 09-user-modify
+pair_semantics: logical-items

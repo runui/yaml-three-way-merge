@@ -3,3 +3,4 @@ field: services.app.depends_on
 class: named-item
 scenario: pair-cross-product
 description: 09-user-modify combined with 04-both-add-same
+pair_semantics: logical-items

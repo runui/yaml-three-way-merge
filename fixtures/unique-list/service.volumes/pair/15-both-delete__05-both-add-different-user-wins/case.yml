@@ -3,3 +3,4 @@ field: services.app.volumes
 class: unique-list
 scenario: pair-cross-product
 description: 15-both-delete combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

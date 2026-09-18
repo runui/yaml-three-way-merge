@@ -3,3 +3,4 @@ field: x-casaos.architectures
 class: set-list
 scenario: 03-user-add
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

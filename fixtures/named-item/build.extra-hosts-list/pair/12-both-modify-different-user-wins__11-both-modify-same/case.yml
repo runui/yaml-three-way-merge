@@ -3,3 +3,4 @@ field: services.app.build.extra_hosts
 class: named-item
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 11-both-modify-same
+pair_semantics: logical-items

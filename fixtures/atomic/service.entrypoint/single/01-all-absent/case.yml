@@ -3,3 +3,4 @@ field: services.app.entrypoint
 class: atomic
 scenario: 01-all-absent
 description: user is untouched, so the logical item follows newbase
+pair_semantics: none

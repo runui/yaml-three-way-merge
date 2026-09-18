@@ -3,3 +3,4 @@ field: services.app.extra_hosts
 class: named-item
 scenario: pair-cross-product
 description: 11-both-modify-same combined with 10-user-delete
+pair_semantics: logical-items

@@ -4,4 +4,3 @@ services:
 x-validation:
     items:
         - user-a
-        - remote-b

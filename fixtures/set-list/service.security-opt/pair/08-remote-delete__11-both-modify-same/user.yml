@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        security_opt: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    security_opt:
-      - label=base-a
-      - label=user-b
+    app:
+        security_opt:
+            - label=base-a
+            - label=user-b

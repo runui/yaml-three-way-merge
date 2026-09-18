@@ -1,7 +1,4 @@
-services: !reset {}
----
 services:
-  app:
-    image: busybox:latest
-    labels:
-      - label-b=user
+    app:
+        labels:
+            - label-b=user

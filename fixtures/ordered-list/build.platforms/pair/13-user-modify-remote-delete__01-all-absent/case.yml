@@ -3,3 +3,4 @@ field: services.app.build.platforms
 class: ordered-list
 scenario: pair-cross-product
 description: 13-user-modify-remote-delete combined with 01-all-absent
+pair_semantics: whole-list

@@ -3,3 +3,4 @@ field: x-casaos.screenshot_link
 class: ordered-list
 scenario: 11-both-modify-same
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: whole-list

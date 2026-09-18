@@ -3,3 +3,4 @@ field: services.app.cap_add
 class: set-list
 scenario: pair-cross-product
 description: 13-user-modify-remote-delete combined with 15-both-delete
+pair_semantics: logical-items

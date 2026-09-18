@@ -1,5 +1,15 @@
-services: !reset {}
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities: []
+                          driver: nvidia

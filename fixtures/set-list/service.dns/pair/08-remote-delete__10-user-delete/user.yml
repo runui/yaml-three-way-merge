@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        dns: !reset []
 ---
 services:
-  app:
-    dns:
-      - 1.1.1.1-a
-    image: busybox:latest
+    app:
+        dns:
+            - 1.1.1.1-a

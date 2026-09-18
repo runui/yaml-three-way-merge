@@ -3,5 +3,5 @@ services:
         build:
             tags:
                 - example:user-a
-                - example:remote-b
+                - example:base-b
         image: busybox:latest

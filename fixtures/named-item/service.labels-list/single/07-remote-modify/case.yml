@@ -3,3 +3,4 @@ field: services.app.labels
 class: named-item
 scenario: 07-remote-modify
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

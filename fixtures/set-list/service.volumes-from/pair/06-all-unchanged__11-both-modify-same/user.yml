@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        volumes_from: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    volumes_from:
-      - base:ro-a
-      - user:ro-b
+    app:
+        volumes_from:
+            - base:ro-a
+            - user:ro-b

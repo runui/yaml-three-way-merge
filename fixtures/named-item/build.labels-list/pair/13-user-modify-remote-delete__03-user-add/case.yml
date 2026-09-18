@@ -3,3 +3,4 @@ field: services.app.build.labels
 class: named-item
 scenario: pair-cross-product
 description: 13-user-modify-remote-delete combined with 03-user-add
+pair_semantics: logical-items

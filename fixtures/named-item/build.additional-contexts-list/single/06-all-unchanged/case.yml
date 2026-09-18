@@ -3,3 +3,4 @@ field: services.app.build.additional_contexts
 class: named-item
 scenario: 06-all-unchanged
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

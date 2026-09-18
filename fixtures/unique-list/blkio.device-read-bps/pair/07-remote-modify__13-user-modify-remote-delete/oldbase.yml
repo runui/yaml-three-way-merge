@@ -5,5 +5,5 @@ services:
                 - path: /dev/a
                   rate: 1mb
                 - path: /dev/b
-                  rate: 1mb
+                  rate: 111mb
         image: busybox:latest

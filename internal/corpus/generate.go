@@ -1,8 +1,11 @@
 package corpus
 
 import (
+	"bytes"
 	"fmt"
 	"path/filepath"
+
+	"gopkg.in/yaml.v3"
 )
 
 func Generate() ([]Case, Manifest, error) {
@@ -11,12 +14,12 @@ func Generate() ([]Case, Manifest, error) {
 	cases := make([]Case, 0, len(fields)*len(states)*len(states))
 	manifest := Manifest{
 		ComposeGoVersion: "v1.20.2",
-		Policy:           "user changes relative to oldbase win per logical item; untouched items follow newbase",
+		Policy:           "user changes relative to oldbase win according to each field's pair semantics; untouched values follow newbase",
 		FilesPerCase:     []string{"case.yml", "oldbase.yml", "user.yml", "newbase.yml", "expected.yml"},
 		StateCount:       len(states),
 	}
 	for _, field := range fields {
-		entry := ManifestField{ID: field.ID, Path: joinPath(field.Path), Class: field.Class, MatrixCases: len(states)}
+		entry := ManifestField{ID: field.ID, Path: joinPath(field.Path), Class: field.Class, MatrixCases: len(states), PairSemantics: field.PairSemantics}
 		for _, state := range states {
 			base := atomValues(state.Base, field.Values)
 			user := atomValues(state.User, field.Values)
@@ -37,7 +40,16 @@ func Generate() ([]Case, Manifest, error) {
 					base := append(atomValues(first.Base, field.Values), atomValues(second.Base, field.SecondValues)...)
 					user := append(atomValues(first.User, field.Values), atomValues(second.User, field.SecondValues)...)
 					remote := append(atomValues(first.Remote, field.Values), atomValues(second.Remote, field.SecondValues)...)
-					expected := append(atomValues(first.Expected, field.Values), atomValues(second.Expected, field.SecondValues)...)
+					var expected []any
+					if field.PairSemantics == PairAsWholeList {
+						if slicesEqual(user, base) {
+							expected = remote
+						} else {
+							expected = user
+						}
+					} else {
+						expected = append(atomValues(first.Expected, field.Values), atomValues(second.Expected, field.SecondValues)...)
+					}
 					id := filepath.Join(string(field.Class), field.ID, "pair", first.ID+"__"+second.ID)
 					generated, err := renderCase(field, id, "pair-cross-product", first.ID+" combined with "+second.ID, base, user, remote, expected)
 					if err != nil {
@@ -64,6 +76,20 @@ func atomValues(atom Atom, values [3]any) []any {
 		return nil
 	}
 	return []any{values[atom.Value]}
+}
+
+func slicesEqual(left, right []any) bool {
+	if len(left) != len(right) {
+		return false
+	}
+	for index := range left {
+		leftYAML, _ := yaml.Marshal(left[index])
+		rightYAML, _ := yaml.Marshal(right[index])
+		if !bytes.Equal(leftYAML, rightYAML) {
+			return false
+		}
+	}
+	return true
 }
 
 func stateDescription(state State) string {

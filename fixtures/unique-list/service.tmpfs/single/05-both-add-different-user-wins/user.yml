@@ -1,7 +1,4 @@
-services: !reset {}
----
 services:
-  app:
-    image: busybox:latest
-    tmpfs:
-      - /user-a
+    app:
+        tmpfs:
+            - /user-a

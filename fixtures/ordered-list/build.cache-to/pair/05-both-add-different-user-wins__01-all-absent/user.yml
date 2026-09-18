@@ -1,8 +1,5 @@
-services: !reset {}
----
 services:
-  app:
-    build:
-      cache_to:
-        - type=local,dest=user-a
-    image: busybox:latest
+    app:
+        build:
+            cache_to:
+                - type=local,dest=user-a

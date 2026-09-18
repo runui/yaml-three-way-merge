@@ -3,3 +3,4 @@ field: services.app.deploy.resources.reservations.generic_resources
 class: unique-list
 scenario: pair-cross-product
 description: 11-both-modify-same combined with 03-user-add
+pair_semantics: logical-items

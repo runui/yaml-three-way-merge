@@ -3,3 +3,4 @@ field: services.app.ports
 class: unique-list
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 08-remote-delete
+pair_semantics: logical-items

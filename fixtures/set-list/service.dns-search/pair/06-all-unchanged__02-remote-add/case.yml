@@ -3,3 +3,4 @@ field: services.app.dns_search
 class: set-list
 scenario: pair-cross-product
 description: 06-all-unchanged combined with 02-remote-add
+pair_semantics: logical-items

@@ -3,3 +3,4 @@ field: networks.default.ipam.config
 class: unique-list
 scenario: pair-cross-product
 description: 10-user-delete combined with 03-user-add
+pair_semantics: logical-items

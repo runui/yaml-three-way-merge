@@ -3,3 +3,4 @@ field: services.app.deploy.resources.limits.devices[].device_ids
 class: set-list
 scenario: pair-cross-product
 description: 09-user-modify combined with 04-both-add-same
+pair_semantics: logical-items

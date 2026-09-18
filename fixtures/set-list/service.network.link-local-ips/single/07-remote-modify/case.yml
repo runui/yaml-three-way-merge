@@ -3,3 +3,4 @@ field: services.app.networks.default.link_local_ips
 class: set-list
 scenario: 07-remote-modify
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

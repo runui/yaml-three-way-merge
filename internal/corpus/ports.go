@@ -3,7 +3,7 @@ package corpus
 import "fmt"
 
 func portAcceptanceCases() ([]Case, error) {
-	field := FieldSpec{ID: "service.ports", Path: []string{"services", "app", "ports"}, Class: ClassUniqueList}
+	field := arrayField("service.ports", "services.app.ports", ClassUniqueList, portValues())
 	type fixture struct {
 		id                        string
 		old, user, next, expected []any

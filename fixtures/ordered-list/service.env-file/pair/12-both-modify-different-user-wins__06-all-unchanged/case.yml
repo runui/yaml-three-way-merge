@@ -3,3 +3,4 @@ field: services.app.env_file
 class: ordered-list
 scenario: pair-cross-product
 description: 12-both-modify-different-user-wins combined with 06-all-unchanged
+pair_semantics: whole-list

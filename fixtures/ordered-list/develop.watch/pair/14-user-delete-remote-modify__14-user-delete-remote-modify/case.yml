@@ -3,3 +3,4 @@ field: services.app.develop.watch
 class: ordered-list
 scenario: pair-cross-product
 description: 14-user-delete-remote-modify combined with 14-user-delete-remote-modify
+pair_semantics: whole-list

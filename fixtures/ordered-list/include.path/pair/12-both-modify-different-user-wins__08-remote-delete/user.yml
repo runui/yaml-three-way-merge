@@ -1,10 +1,6 @@
 include: !reset []
-services: !reset {}
 ---
 include:
-  - path:
-      - user.yml-a
-      - base.yml-b
-services:
-  app:
-    image: busybox:latest
+    - path:
+        - user.yml-a
+        - base.yml-b

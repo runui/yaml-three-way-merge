@@ -1,9 +1,4 @@
-services: !reset {}
----
-services:
-  app:
-    image: busybox:latest
 x-casaos:
-  screenshot_link:
-    - user.png-a
-    - user.png-b
+    screenshot_link:
+        - user.png-a
+        - user.png-b

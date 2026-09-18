@@ -3,3 +3,4 @@ field: services.app.networks
 class: named-item
 scenario: pair-cross-product
 description: 15-both-delete combined with 07-remote-modify
+pair_semantics: logical-items

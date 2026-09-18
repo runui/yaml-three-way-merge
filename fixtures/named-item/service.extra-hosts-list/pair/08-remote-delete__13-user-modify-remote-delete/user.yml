@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        extra_hosts: !reset []
 ---
 services:
-  app:
-    extra_hosts:
-      - host-a=base
-      - host-b=user
-    image: busybox:latest
+    app:
+        extra_hosts:
+            - host-a=base
+            - host-b=user

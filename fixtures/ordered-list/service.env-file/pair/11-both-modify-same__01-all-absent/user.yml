@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        env_file: !reset []
 ---
 services:
-  app:
-    env_file:
-      - user.env-a
-    image: busybox:latest
+    app:
+        env_file:
+            - user.env-a

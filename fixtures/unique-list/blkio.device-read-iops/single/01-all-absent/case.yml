@@ -3,3 +3,4 @@ field: services.app.blkio_config.device_read_iops
 class: unique-list
 scenario: 01-all-absent
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

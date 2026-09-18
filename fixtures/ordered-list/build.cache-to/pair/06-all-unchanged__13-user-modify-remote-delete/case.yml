@@ -3,3 +3,4 @@ field: services.app.build.cache_to
 class: ordered-list
 scenario: pair-cross-product
 description: 06-all-unchanged combined with 13-user-modify-remote-delete
+pair_semantics: whole-list

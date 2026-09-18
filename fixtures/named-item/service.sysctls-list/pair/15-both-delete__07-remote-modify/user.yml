@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        sysctls: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    sysctls:
-      - net.core.value-b=base
+    app:
+        sysctls:
+            - net.core.value-b=base

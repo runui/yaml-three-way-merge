@@ -4,3 +4,4 @@ services:
 x-casaos:
     screenshot_link:
         - user.png-a
+        - base.png-b

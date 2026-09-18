@@ -1,9 +1,11 @@
-services: !reset {}
+services:
+    app:
+        healthcheck:
+            test: !reset []
 ---
 services:
-  app:
-    healthcheck:
-      test:
-        - - CMD
-          - user-a
-    image: busybox:latest
+    app:
+        healthcheck:
+            test:
+                - - CMD
+                  - user-a

@@ -4,6 +4,6 @@ services:
             watch:
                 - action: sync
                   ignore:
-                    - remote.tmp-b
+                    - base.tmp-b
                   path: .
         image: busybox:latest

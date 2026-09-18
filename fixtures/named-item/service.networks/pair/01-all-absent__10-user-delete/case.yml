@@ -3,3 +3,4 @@ field: services.app.networks
 class: named-item
 scenario: pair-cross-product
 description: 01-all-absent combined with 10-user-delete
+pair_semantics: logical-items

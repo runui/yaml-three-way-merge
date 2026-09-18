@@ -3,3 +3,4 @@ field: services.app.deploy.resources.reservations.devices[].capabilities
 class: set-list
 scenario: pair-cross-product
 description: 09-user-modify combined with 06-all-unchanged
+pair_semantics: logical-items

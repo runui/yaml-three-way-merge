@@ -3,3 +3,4 @@ field: include[].env_file
 class: ordered-list
 scenario: pair-cross-product
 description: 02-remote-add combined with 06-all-unchanged
+pair_semantics: whole-list

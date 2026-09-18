@@ -1,8 +1,9 @@
-services: !reset {}
+services:
+    app:
+        device_cgroup_rules: !reset []
 ---
 services:
-  app:
-    device_cgroup_rules:
-      - c 1:5 rwm-a
-      - c 1:5 rwm-b
-    image: busybox:latest
+    app:
+        device_cgroup_rules:
+            - c 1:5 rwm-a
+            - c 1:5 rwm-b

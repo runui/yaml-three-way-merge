@@ -1,8 +1,5 @@
-services: !reset {}
----
 services:
-  app:
-    expose:
-      - 81-a
-      - 81-b
-    image: busybox:latest
+    app:
+        expose:
+            - 81-a
+            - 81-b

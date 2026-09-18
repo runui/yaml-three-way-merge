@@ -1,9 +1,4 @@
-services: !reset {}
----
 configs:
-  default:
-    labels:
-      - config.label-a=user
-services:
-  app:
-    image: busybox:latest
+    default:
+        labels:
+            - config.label-a=user

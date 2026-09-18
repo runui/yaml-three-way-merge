@@ -1,9 +1,10 @@
-services: !reset {}
+services:
+    app:
+        ports: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    ports:
-      - protocol: tcp
-        published: "8081"
-        target: 80
+    app:
+        ports:
+            - protocol: tcp
+              published: "8081"
+              target: 80

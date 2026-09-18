@@ -1,7 +1,4 @@
-services: !reset {}
----
 services:
-  app:
-    devices:
-      - /dev/user-b:/dev/b
-    image: busybox:latest
+    app:
+        devices:
+            - /dev/user-b:/dev/b

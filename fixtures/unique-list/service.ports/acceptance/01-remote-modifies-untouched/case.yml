@@ -3,3 +3,4 @@ field: services.app.ports
 class: unique-list
 scenario: user-acceptance
 description: user-provided expected behavior
+pair_semantics: logical-items

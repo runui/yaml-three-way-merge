@@ -3,3 +3,4 @@ field: x-casaos.screenshot_link
 class: ordered-list
 scenario: pair-cross-product
 description: 10-user-delete combined with 15-both-delete
+pair_semantics: whole-list

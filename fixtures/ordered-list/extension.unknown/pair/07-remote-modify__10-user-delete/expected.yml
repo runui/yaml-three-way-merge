@@ -3,4 +3,4 @@ services:
         image: busybox:latest
 x-validation:
     items:
-        - remote-a
+        - base-a

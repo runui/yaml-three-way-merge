@@ -5,6 +5,5 @@ services:
                 - action: sync
                   ignore:
                     - user.tmp-a
-                    - remote.tmp-b
                   path: .
         image: busybox:latest

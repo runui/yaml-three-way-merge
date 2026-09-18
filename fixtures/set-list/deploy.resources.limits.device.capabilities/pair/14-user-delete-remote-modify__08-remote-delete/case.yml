@@ -3,3 +3,4 @@ field: services.app.deploy.resources.limits.devices[].capabilities
 class: set-list
 scenario: pair-cross-product
 description: 14-user-delete-remote-modify combined with 08-remote-delete
+pair_semantics: logical-items

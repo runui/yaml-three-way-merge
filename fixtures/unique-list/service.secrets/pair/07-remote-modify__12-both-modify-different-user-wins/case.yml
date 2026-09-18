@@ -3,3 +3,4 @@ field: services.app.secrets
 class: unique-list
 scenario: pair-cross-product
 description: 07-remote-modify combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

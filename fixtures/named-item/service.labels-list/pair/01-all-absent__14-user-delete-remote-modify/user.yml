@@ -1,5 +1,3 @@
-services: !reset {}
----
 services:
-  app:
-    image: busybox:latest
+    app:
+        labels: !reset []

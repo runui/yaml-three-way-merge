@@ -1,6 +1,1 @@
 configs: !reset {}
-services: !reset {}
----
-services:
-  app:
-    image: busybox:latest

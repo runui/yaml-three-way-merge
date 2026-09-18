@@ -1,11 +1,10 @@
-networks: !reset {}
-services: !reset {}
+networks:
+    default:
+        ipam:
+            config: !reset []
 ---
 networks:
-  default:
-    ipam:
-      config:
-        - subnet: 10.2.0.0/24
-services:
-  app:
-    image: busybox:latest
+    default:
+        ipam:
+            config:
+                - subnet: 10.2.0.0/24

@@ -1,7 +1,7 @@
 include:
     - env_file:
         - user.env-a
-        - remote.env-b
+        - base.env-b
       path:
         - compose.yml
 services:

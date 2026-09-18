@@ -3,3 +3,4 @@ field: services.app.deploy.resources.limits.generic_resources
 class: unique-list
 scenario: pair-cross-product
 description: 08-remote-delete combined with 03-user-add
+pair_semantics: logical-items

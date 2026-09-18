@@ -1,6 +1,5 @@
 include:
     - path:
-        - remote.yml-a
         - user.yml-b
 services:
     app:

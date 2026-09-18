@@ -3,3 +3,4 @@ field: services.app.deploy.resources.reservations.generic_resources
 class: unique-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 06-all-unchanged
+pair_semantics: logical-items

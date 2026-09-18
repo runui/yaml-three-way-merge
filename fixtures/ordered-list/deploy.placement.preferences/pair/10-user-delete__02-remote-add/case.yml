@@ -3,3 +3,4 @@ field: services.app.deploy.placement.preferences
 class: ordered-list
 scenario: pair-cross-product
 description: 10-user-delete combined with 02-remote-add
+pair_semantics: whole-list

@@ -3,3 +3,4 @@ field: services.app.networks.default.aliases
 class: set-list
 scenario: 02-remote-add
 description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

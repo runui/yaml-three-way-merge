@@ -3,3 +3,4 @@ field: services.app.build.args
 class: named-item
 scenario: pair-cross-product
 description: 06-all-unchanged combined with 01-all-absent
+pair_semantics: logical-items

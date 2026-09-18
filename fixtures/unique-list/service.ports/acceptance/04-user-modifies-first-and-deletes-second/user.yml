@@ -1,7 +1,8 @@
-services: !reset {}
+services:
+    app:
+        ports: !reset []
 ---
 services:
-  app:
-    image: busybox:latest
-    ports:
-      - 8083:80
+    app:
+        ports:
+            - 8083:80

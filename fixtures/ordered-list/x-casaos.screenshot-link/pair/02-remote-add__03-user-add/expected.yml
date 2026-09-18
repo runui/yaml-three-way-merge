@@ -3,5 +3,4 @@ services:
         image: busybox:latest
 x-casaos:
     screenshot_link:
-        - remote.png-a
         - user.png-b

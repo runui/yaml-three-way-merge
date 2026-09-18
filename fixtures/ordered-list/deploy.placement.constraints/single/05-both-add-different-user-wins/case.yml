@@ -3,3 +3,4 @@ field: services.app.deploy.placement.constraints
 class: ordered-list
 scenario: 05-both-add-different-user-wins
 description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: whole-list

@@ -3,3 +3,4 @@ field: include
 class: ordered-list
 scenario: pair-cross-product
 description: 14-user-delete-remote-modify combined with 05-both-add-different-user-wins
+pair_semantics: whole-list

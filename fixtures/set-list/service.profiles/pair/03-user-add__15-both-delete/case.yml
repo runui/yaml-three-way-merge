@@ -3,3 +3,4 @@ field: services.app.profiles
 class: set-list
 scenario: pair-cross-product
 description: 03-user-add combined with 15-both-delete
+pair_semantics: logical-items

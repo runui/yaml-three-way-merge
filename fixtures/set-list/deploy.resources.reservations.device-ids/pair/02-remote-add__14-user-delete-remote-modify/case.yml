@@ -3,3 +3,4 @@ field: services.app.deploy.resources.reservations.devices[].device_ids
 class: set-list
 scenario: pair-cross-product
 description: 02-remote-add combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

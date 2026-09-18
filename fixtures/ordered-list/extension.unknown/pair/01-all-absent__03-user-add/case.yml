@@ -3,3 +3,4 @@ field: x-validation.items
 class: ordered-list
 scenario: pair-cross-product
 description: 01-all-absent combined with 03-user-add
+pair_semantics: whole-list

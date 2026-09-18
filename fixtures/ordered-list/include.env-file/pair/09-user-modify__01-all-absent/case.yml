@@ -3,3 +3,4 @@ field: include[].env_file
 class: ordered-list
 scenario: pair-cross-product
 description: 09-user-modify combined with 01-all-absent
+pair_semantics: whole-list

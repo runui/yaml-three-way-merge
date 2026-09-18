@@ -3,3 +3,4 @@ field: services.app.build.cache_from
 class: ordered-list
 scenario: pair-cross-product
 description: 08-remote-delete combined with 11-both-modify-same
+pair_semantics: whole-list

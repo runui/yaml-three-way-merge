@@ -3,5 +3,5 @@ services:
         blkio_config:
             weight_device:
                 - path: /dev/a
-                  weight: 100
+                  weight: 300
         image: busybox:latest
