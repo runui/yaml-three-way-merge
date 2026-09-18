@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            platforms:
+                - linux/arm64-a
+        image: busybox:latest

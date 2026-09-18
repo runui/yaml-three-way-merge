@@ -1,0 +1,5 @@
+id: unique-list/service.volumes/pair/11-both-modify-same__03-user-add
+field: services.app.volumes
+class: unique-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 03-user-add

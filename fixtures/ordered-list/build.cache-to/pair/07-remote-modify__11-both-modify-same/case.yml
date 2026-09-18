@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/07-remote-modify__11-both-modify-same
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 11-both-modify-same

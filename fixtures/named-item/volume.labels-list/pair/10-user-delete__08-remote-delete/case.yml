@@ -1,0 +1,5 @@
+id: named-item/volume.labels-list/pair/10-user-delete__08-remote-delete
+field: volumes.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 08-remote-delete

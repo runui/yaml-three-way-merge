@@ -1,0 +1,5 @@
+id: named-item/volume.labels-list/single/01-all-absent
+field: volumes.default.labels
+class: named-item
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

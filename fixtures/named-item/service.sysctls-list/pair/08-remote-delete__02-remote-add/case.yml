@@ -1,0 +1,5 @@
+id: named-item/service.sysctls-list/pair/08-remote-delete__02-remote-add
+field: services.app.sysctls
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 02-remote-add

@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/12-both-modify-different-user-wins__11-both-modify-same
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 11-both-modify-same

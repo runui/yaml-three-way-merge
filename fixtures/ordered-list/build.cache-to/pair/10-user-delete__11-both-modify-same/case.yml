@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/10-user-delete__11-both-modify-same
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 11-both-modify-same

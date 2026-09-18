@@ -1,0 +1,5 @@
+id: atomic/healthcheck.test/single/15-both-delete
+field: services.app.healthcheck.test
+class: atomic
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

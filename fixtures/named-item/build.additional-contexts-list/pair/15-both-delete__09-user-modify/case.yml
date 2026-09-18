@@ -1,0 +1,5 @@
+id: named-item/build.additional-contexts-list/pair/15-both-delete__09-user-modify
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 09-user-modify

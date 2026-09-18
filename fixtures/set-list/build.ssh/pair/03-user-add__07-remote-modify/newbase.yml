@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            ssh:
+                - remote-b
+        image: busybox:latest

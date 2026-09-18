@@ -1,0 +1,5 @@
+id: set-list/service.dns-search/single/06-all-unchanged
+field: services.app.dns_search
+class: set-list
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+id: ordered-list/include.env-file/pair/01-all-absent__10-user-delete
+field: include[].env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 10-user-delete

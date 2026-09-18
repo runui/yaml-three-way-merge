@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/single/05-both-add-different-user-wins
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins

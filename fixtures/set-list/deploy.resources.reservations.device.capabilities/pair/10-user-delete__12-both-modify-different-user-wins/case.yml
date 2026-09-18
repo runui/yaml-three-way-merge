@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device.capabilities/pair/10-user-delete__12-both-modify-different-user-wins
+field: services.app.deploy.resources.reservations.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 12-both-modify-different-user-wins

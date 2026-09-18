@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.limits.device.capabilities/pair/05-both-add-different-user-wins__03-user-add
+field: services.app.deploy.resources.limits.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 03-user-add

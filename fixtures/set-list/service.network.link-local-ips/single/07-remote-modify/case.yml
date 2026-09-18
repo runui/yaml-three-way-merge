@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/single/07-remote-modify
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase

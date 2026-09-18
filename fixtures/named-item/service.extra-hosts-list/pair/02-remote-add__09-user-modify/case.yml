@@ -1,0 +1,5 @@
+id: named-item/service.extra-hosts-list/pair/02-remote-add__09-user-modify
+field: services.app.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 09-user-modify

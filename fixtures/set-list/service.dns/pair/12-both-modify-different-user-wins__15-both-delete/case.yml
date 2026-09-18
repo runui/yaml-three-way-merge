@@ -1,0 +1,5 @@
+id: set-list/service.dns/pair/12-both-modify-different-user-wins__15-both-delete
+field: services.app.dns
+class: set-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 15-both-delete

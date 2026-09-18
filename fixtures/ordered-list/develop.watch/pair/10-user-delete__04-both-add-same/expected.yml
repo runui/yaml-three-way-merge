@@ -1,0 +1,7 @@
+services:
+    app:
+        develop:
+            watch:
+                - action: sync
+                  path: ./user-b
+        image: busybox:latest

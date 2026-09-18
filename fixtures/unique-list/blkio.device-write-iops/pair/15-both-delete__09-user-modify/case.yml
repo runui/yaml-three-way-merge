@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-write-iops/pair/15-both-delete__09-user-modify
+field: services.app.blkio_config.device_write_iops
+class: unique-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 09-user-modify

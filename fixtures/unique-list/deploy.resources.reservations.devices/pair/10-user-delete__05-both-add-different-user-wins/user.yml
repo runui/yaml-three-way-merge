@@ -1,0 +1,12 @@
+services: !reset {}
+---
+services:
+  app:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+                - tpu
+              driver: user-b
+    image: busybox:latest

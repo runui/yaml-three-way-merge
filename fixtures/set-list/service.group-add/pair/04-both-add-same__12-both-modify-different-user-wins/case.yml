@@ -1,0 +1,5 @@
+id: set-list/service.group-add/pair/04-both-add-same__12-both-modify-different-user-wins
+field: services.app.group_add
+class: set-list
+scenario: pair-cross-product
+description: 04-both-add-same combined with 12-both-modify-different-user-wins

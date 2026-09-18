@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/pair/08-remote-delete__11-both-modify-same
+field: x-casaos.architectures
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 11-both-modify-same

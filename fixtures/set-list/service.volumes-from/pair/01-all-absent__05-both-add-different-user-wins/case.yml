@@ -1,0 +1,5 @@
+id: set-list/service.volumes-from/pair/01-all-absent__05-both-add-different-user-wins
+field: services.app.volumes_from
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 05-both-add-different-user-wins

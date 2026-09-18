@@ -1,0 +1,5 @@
+id: set-list/service.security-opt/single/01-all-absent
+field: services.app.security_opt
+class: set-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,11 @@
+services:
+    app:
+        deploy:
+            resources:
+                limits:
+                    devices:
+                        - capabilities:
+                            - npu-a
+                            - gpu-b
+                          driver: nvidia
+        image: busybox:latest

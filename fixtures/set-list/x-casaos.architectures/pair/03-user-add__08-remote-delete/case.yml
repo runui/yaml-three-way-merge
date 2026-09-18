@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/pair/03-user-add__08-remote-delete
+field: x-casaos.architectures
+class: set-list
+scenario: pair-cross-product
+description: 03-user-add combined with 08-remote-delete

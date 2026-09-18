@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch.ignore/pair/02-remote-add__02-remote-add
+field: services.app.develop.watch[].ignore
+class: ordered-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 02-remote-add

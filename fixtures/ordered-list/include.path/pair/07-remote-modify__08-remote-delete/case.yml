@@ -1,0 +1,5 @@
+id: ordered-list/include.path/pair/07-remote-modify__08-remote-delete
+field: include[].path
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 08-remote-delete

@@ -1,0 +1,5 @@
+id: ordered-list/build.platforms/pair/13-user-modify-remote-delete__02-remote-add
+field: services.app.build.platforms
+class: ordered-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 02-remote-add

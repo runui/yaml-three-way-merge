@@ -1,0 +1,5 @@
+id: set-list/build.ssh/pair/06-all-unchanged__14-user-delete-remote-modify
+field: services.app.build.ssh
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 14-user-delete-remote-modify

@@ -1,0 +1,5 @@
+id: set-list/service.dns/single/01-all-absent
+field: services.app.dns
+class: set-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

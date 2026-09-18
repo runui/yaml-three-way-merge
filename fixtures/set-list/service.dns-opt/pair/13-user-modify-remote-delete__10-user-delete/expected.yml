@@ -1,0 +1,5 @@
+services:
+    app:
+        dns_opt:
+            - rotate-a
+        image: busybox:latest

@@ -1,0 +1,5 @@
+id: set-list/service.expose/pair/08-remote-delete__06-all-unchanged
+field: services.app.expose
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 06-all-unchanged

@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    build:
+      args:
+        - ARG-a=user
+        - ARG-b=user
+    image: busybox:latest

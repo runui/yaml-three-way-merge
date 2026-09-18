@@ -1,0 +1,5 @@
+id: set-list/service.profiles/pair/12-both-modify-different-user-wins__07-remote-modify
+field: services.app.profiles
+class: set-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 07-remote-modify

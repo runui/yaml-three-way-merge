@@ -1,0 +1,5 @@
+id: set-list/service.volumes-from/single/01-all-absent
+field: services.app.volumes_from
+class: set-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/14-user-delete-remote-modify__05-both-add-different-user-wins
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 05-both-add-different-user-wins

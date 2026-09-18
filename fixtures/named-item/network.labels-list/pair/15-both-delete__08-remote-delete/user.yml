@@ -1,0 +1,10 @@
+networks: !reset {}
+services: !reset {}
+---
+networks:
+  default:
+    labels:
+      - network.label-b=base
+services:
+  app:
+    image: busybox:latest

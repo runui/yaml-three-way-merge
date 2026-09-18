@@ -1,0 +1,8 @@
+services: !reset {}
+---
+services:
+  app:
+    configs:
+      - source: base_config_b
+        target: /config-b
+    image: busybox:latest

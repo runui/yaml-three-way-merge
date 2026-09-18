@@ -1,0 +1,5 @@
+id: set-list/service.profiles/pair/04-both-add-same__05-both-add-different-user-wins
+field: services.app.profiles
+class: set-list
+scenario: pair-cross-product
+description: 04-both-add-same combined with 05-both-add-different-user-wins

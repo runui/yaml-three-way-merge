@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        secrets:
+            - source: user_secret_a
+              target: /secret-a

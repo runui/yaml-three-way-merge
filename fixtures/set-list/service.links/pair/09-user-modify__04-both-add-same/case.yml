@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/09-user-modify__04-both-add-same
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 04-both-add-same

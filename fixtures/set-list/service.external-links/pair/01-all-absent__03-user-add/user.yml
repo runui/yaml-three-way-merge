@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    external_links:
+      - user:user-b
+    image: busybox:latest

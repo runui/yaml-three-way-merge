@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/03-user-add__04-both-add-same
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 03-user-add combined with 04-both-add-same

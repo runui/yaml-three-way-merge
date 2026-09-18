@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device.capabilities/pair/12-both-modify-different-user-wins__14-user-delete-remote-modify
+field: services.app.deploy.resources.reservations.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 14-user-delete-remote-modify

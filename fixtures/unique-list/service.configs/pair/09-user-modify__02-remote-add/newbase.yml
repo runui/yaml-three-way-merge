@@ -1,0 +1,8 @@
+services:
+    app:
+        configs:
+            - source: base_config_a
+              target: /config-a
+            - source: remote_config_b
+              target: /config-b
+        image: busybox:latest

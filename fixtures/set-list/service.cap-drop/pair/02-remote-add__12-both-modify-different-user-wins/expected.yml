@@ -1,0 +1,6 @@
+services:
+    app:
+        cap_drop:
+            - SETGID-a
+            - SETUID-b
+        image: busybox:latest

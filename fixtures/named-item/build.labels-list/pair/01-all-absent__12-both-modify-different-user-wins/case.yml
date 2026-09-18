@@ -1,0 +1,5 @@
+id: named-item/build.labels-list/pair/01-all-absent__12-both-modify-different-user-wins
+field: services.app.build.labels
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 12-both-modify-different-user-wins

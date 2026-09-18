@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/13-user-modify-remote-delete__08-remote-delete
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 08-remote-delete

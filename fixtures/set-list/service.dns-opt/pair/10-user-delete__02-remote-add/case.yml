@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/10-user-delete__02-remote-add
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 02-remote-add

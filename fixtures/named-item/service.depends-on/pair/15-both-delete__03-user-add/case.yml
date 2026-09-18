@@ -1,0 +1,5 @@
+id: named-item/service.depends-on/pair/15-both-delete__03-user-add
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 03-user-add

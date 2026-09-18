@@ -1,0 +1,5 @@
+id: ordered-list/x-casaos.screenshot-link/pair/03-user-add__07-remote-modify
+field: x-casaos.screenshot_link
+class: ordered-list
+scenario: pair-cross-product
+description: 03-user-add combined with 07-remote-modify

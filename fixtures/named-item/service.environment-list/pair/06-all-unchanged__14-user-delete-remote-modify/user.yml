@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    environment:
+      - ENV-a=base
+    image: busybox:latest

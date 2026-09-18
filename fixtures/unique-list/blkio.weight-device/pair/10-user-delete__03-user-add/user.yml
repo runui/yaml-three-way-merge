@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    blkio_config:
+      weight_device:
+        - path: /dev/b
+          weight: 100
+    image: busybox:latest

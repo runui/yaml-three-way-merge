@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/13-user-modify-remote-delete__02-remote-add
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 02-remote-add

@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.limits.generic-resources/pair/10-user-delete__08-remote-delete
+field: services.app.deploy.resources.limits.generic_resources
+class: unique-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 08-remote-delete

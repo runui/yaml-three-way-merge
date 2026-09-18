@@ -1,0 +1,5 @@
+id: named-item/service.environment-list/pair/07-remote-modify__07-remote-modify
+field: services.app.environment
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 07-remote-modify

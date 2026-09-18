@@ -1,0 +1,5 @@
+id: set-list/service.group-add/pair/01-all-absent__03-user-add
+field: services.app.group_add
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 03-user-add

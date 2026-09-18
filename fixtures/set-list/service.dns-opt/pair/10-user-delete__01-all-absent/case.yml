@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/10-user-delete__01-all-absent
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 01-all-absent

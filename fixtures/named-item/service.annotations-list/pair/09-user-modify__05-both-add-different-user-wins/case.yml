@@ -1,0 +1,5 @@
+id: named-item/service.annotations-list/pair/09-user-modify__05-both-add-different-user-wins
+field: services.app.annotations
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 05-both-add-different-user-wins

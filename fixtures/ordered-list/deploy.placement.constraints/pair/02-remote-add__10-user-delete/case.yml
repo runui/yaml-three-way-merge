@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.constraints/pair/02-remote-add__10-user-delete
+field: services.app.deploy.placement.constraints
+class: ordered-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 10-user-delete

@@ -1,0 +1,8 @@
+services: !reset {}
+---
+services:
+  app:
+    build:
+      extra_hosts:
+        - build-host-b=user
+    image: busybox:latest

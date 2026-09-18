@@ -1,0 +1,5 @@
+id: named-item/volume.labels-list/pair/02-remote-add__14-user-delete-remote-modify
+field: volumes.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 14-user-delete-remote-modify

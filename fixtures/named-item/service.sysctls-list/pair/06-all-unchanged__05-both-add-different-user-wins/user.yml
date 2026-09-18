@@ -1,0 +1,8 @@
+services: !reset {}
+---
+services:
+  app:
+    image: busybox:latest
+    sysctls:
+      - net.core.value-a=base
+      - net.core.value-b=user

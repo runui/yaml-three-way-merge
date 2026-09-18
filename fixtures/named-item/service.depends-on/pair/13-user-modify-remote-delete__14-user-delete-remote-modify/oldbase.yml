@@ -1,0 +1,6 @@
+services:
+    app:
+        depends_on:
+            - base-dependency-a
+            - base-dependency-b
+        image: busybox:latest

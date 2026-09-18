@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-bps/pair/06-all-unchanged__05-both-add-different-user-wins
+field: services.app.blkio_config.device_read_bps
+class: unique-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 05-both-add-different-user-wins

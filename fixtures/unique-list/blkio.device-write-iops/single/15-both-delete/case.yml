@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-write-iops/single/15-both-delete
+field: services.app.blkio_config.device_write_iops
+class: unique-list
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

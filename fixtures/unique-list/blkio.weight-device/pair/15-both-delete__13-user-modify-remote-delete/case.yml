@@ -1,0 +1,5 @@
+id: unique-list/blkio.weight-device/pair/15-both-delete__13-user-modify-remote-delete
+field: services.app.blkio_config.weight_device
+class: unique-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 13-user-modify-remote-delete

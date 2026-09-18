@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/pair/15-both-delete__08-remote-delete
+field: networks.default.ipam.config
+class: unique-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 08-remote-delete

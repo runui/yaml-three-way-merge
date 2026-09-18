@@ -1,0 +1,7 @@
+services:
+    app:
+        blkio_config:
+            device_write_iops:
+                - path: /dev/a
+                  rate: "100"
+        image: busybox:latest

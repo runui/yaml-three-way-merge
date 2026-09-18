@@ -1,0 +1,5 @@
+id: named-item/build.extra-hosts-list/pair/06-all-unchanged__12-both-modify-different-user-wins
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 12-both-modify-different-user-wins

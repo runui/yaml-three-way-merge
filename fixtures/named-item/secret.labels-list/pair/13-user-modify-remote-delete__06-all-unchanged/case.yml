@@ -1,0 +1,5 @@
+id: named-item/secret.labels-list/pair/13-user-modify-remote-delete__06-all-unchanged
+field: secrets.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 06-all-unchanged

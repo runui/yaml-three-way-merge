@@ -1,0 +1,5 @@
+id: named-item/service.depends-on/pair/15-both-delete__12-both-modify-different-user-wins
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 12-both-modify-different-user-wins

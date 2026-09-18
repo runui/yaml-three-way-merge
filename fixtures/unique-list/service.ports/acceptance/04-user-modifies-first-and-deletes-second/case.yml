@@ -1,0 +1,5 @@
+id: unique-list/service.ports/acceptance/04-user-modifies-first-and-deletes-second
+field: services.app.ports
+class: unique-list
+scenario: user-acceptance
+description: user-provided expected behavior

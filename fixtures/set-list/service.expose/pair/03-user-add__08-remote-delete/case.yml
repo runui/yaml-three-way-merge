@@ -1,0 +1,5 @@
+id: set-list/service.expose/pair/03-user-add__08-remote-delete
+field: services.app.expose
+class: set-list
+scenario: pair-cross-product
+description: 03-user-add combined with 08-remote-delete

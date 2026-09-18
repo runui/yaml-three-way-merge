@@ -1,0 +1,5 @@
+id: set-list/service.network.aliases/single/03-user-add
+field: services.app.networks.default.aliases
+class: set-list
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins

@@ -1,0 +1,5 @@
+id: named-item/volume.labels-list/pair/04-both-add-same__03-user-add
+field: volumes.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 04-both-add-same combined with 03-user-add

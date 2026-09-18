@@ -1,0 +1,5 @@
+id: named-item/volume.labels-list/pair/08-remote-delete__05-both-add-different-user-wins
+field: volumes.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 05-both-add-different-user-wins

@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/07-remote-modify__01-all-absent
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 01-all-absent

@@ -1,0 +1,5 @@
+id: named-item/build.extra-hosts-list/pair/02-remote-add__01-all-absent
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 01-all-absent

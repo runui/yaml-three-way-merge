@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.preferences/pair/10-user-delete__01-all-absent
+field: services.app.deploy.placement.preferences
+class: ordered-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 01-all-absent

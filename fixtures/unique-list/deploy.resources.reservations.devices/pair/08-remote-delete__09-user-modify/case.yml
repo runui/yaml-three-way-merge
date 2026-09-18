@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.reservations.devices/pair/08-remote-delete__09-user-modify
+field: services.app.deploy.resources.reservations.devices
+class: unique-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 09-user-modify

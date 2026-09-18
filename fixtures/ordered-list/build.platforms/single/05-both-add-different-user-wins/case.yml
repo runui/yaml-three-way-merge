@@ -1,0 +1,5 @@
+id: ordered-list/build.platforms/single/05-both-add-different-user-wins
+field: services.app.build.platforms
+class: ordered-list
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins

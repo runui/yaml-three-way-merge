@@ -1,0 +1,10 @@
+secrets: !reset {}
+services: !reset {}
+---
+secrets:
+  default:
+    labels:
+      - secret.label-a=base
+services:
+  app:
+    image: busybox:latest

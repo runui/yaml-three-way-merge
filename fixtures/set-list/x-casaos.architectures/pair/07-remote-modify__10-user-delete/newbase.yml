@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+x-casaos:
+    architectures:
+        - 386-a
+        - amd64-b

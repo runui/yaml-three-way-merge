@@ -1,0 +1,5 @@
+id: unique-list/service.devices/pair/07-remote-modify__11-both-modify-same
+field: services.app.devices
+class: unique-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 11-both-modify-same

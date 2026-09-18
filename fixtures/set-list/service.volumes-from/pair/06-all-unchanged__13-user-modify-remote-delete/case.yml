@@ -1,0 +1,5 @@
+id: set-list/service.volumes-from/pair/06-all-unchanged__13-user-modify-remote-delete
+field: services.app.volumes_from
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 13-user-modify-remote-delete

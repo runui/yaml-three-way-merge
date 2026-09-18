@@ -1,0 +1,5 @@
+id: set-list/service.dns-search/pair/09-user-modify__03-user-add
+field: services.app.dns_search
+class: set-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 03-user-add

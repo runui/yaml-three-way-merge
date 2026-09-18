@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.preferences/pair/03-user-add__15-both-delete
+field: services.app.deploy.placement.preferences
+class: ordered-list
+scenario: pair-cross-product
+description: 03-user-add combined with 15-both-delete

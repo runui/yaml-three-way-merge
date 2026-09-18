@@ -1,0 +1,5 @@
+id: ordered-list/include.env-file/pair/02-remote-add__13-user-modify-remote-delete
+field: include[].env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 13-user-modify-remote-delete

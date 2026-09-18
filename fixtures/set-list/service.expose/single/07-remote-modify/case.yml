@@ -1,0 +1,5 @@
+id: set-list/service.expose/single/07-remote-modify
+field: services.app.expose
+class: set-list
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+id: ordered-list/extension.unknown/pair/15-both-delete__08-remote-delete
+field: x-validation.items
+class: ordered-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 08-remote-delete

@@ -1,0 +1,6 @@
+services:
+    app:
+        configs:
+            - source: remote_config_b
+              target: /config-b
+        image: busybox:latest

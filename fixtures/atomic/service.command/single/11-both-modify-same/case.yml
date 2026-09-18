@@ -1,0 +1,5 @@
+id: atomic/service.command/single/11-both-modify-same
+field: services.app.command
+class: atomic
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins

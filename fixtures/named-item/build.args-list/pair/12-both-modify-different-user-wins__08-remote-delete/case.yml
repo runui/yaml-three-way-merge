@@ -1,0 +1,5 @@
+id: named-item/build.args-list/pair/12-both-modify-different-user-wins__08-remote-delete
+field: services.app.build.args
+class: named-item
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 08-remote-delete

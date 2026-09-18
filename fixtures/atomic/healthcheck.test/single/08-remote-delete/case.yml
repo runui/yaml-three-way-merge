@@ -1,0 +1,5 @@
+id: atomic/healthcheck.test/single/08-remote-delete
+field: services.app.healthcheck.test
+class: atomic
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

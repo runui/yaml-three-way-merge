@@ -1,0 +1,5 @@
+id: named-item/build.args-list/single/15-both-delete
+field: services.app.build.args
+class: named-item
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

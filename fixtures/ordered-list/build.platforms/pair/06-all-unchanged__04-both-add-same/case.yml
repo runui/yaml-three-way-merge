@@ -1,0 +1,5 @@
+id: ordered-list/build.platforms/pair/06-all-unchanged__04-both-add-same
+field: services.app.build.platforms
+class: ordered-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 04-both-add-same

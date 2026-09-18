@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device.capabilities/pair/02-remote-add__07-remote-modify
+field: services.app.deploy.resources.reservations.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 07-remote-modify

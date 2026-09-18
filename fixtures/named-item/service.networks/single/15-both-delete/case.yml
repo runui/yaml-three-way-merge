@@ -1,0 +1,5 @@
+id: named-item/service.networks/single/15-both-delete
+field: services.app.networks
+class: named-item
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

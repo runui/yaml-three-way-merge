@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/05-both-add-different-user-wins__10-user-delete
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 10-user-delete

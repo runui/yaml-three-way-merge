@@ -1,0 +1,5 @@
+id: atomic/service.command/single/01-all-absent
+field: services.app.command
+class: atomic
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

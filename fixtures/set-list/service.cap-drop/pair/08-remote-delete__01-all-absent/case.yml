@@ -1,0 +1,5 @@
+id: set-list/service.cap-drop/pair/08-remote-delete__01-all-absent
+field: services.app.cap_drop
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 01-all-absent

@@ -1,0 +1,5 @@
+id: ordered-list/x-casaos.screenshot-link/single/06-all-unchanged
+field: x-casaos.screenshot_link
+class: ordered-list
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase

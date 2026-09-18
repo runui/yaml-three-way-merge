@@ -1,0 +1,5 @@
+id: named-item/service.sysctls-list/pair/10-user-delete__10-user-delete
+field: services.app.sysctls
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 10-user-delete

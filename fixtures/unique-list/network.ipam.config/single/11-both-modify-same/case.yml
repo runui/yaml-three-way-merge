@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/single/11-both-modify-same
+field: networks.default.ipam.config
+class: unique-list
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins

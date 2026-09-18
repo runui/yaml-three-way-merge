@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch/pair/07-remote-modify__04-both-add-same
+field: services.app.develop.watch
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 04-both-add-same

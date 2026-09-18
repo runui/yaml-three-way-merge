@@ -1,0 +1,6 @@
+services: !reset {}
+x-validation: !reset {}
+---
+services:
+  app:
+    image: busybox:latest

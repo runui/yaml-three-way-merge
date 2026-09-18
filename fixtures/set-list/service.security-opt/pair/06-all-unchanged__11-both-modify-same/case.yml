@@ -1,0 +1,5 @@
+id: set-list/service.security-opt/pair/06-all-unchanged__11-both-modify-same
+field: services.app.security_opt
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 11-both-modify-same

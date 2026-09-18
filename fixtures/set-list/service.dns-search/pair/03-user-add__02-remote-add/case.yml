@@ -1,0 +1,5 @@
+id: set-list/service.dns-search/pair/03-user-add__02-remote-add
+field: services.app.dns_search
+class: set-list
+scenario: pair-cross-product
+description: 03-user-add combined with 02-remote-add

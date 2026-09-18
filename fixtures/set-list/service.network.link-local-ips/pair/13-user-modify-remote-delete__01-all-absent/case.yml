@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/pair/13-user-modify-remote-delete__01-all-absent
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 01-all-absent

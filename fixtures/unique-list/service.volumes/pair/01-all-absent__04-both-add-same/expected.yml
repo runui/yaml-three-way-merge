@@ -1,0 +1,7 @@
+services:
+    app:
+        image: busybox:latest
+        volumes:
+            - source: /user-b
+              target: /data-b
+              type: bind

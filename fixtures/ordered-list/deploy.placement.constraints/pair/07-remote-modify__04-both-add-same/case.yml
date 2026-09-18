@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.constraints/pair/07-remote-modify__04-both-add-same
+field: services.app.deploy.placement.constraints
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 04-both-add-same

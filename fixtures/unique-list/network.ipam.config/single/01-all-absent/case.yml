@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/single/01-all-absent
+field: networks.default.ipam.config
+class: unique-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

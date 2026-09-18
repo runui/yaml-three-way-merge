@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device.capabilities/single/11-both-modify-same
+field: services.app.deploy.resources.reservations.devices[].capabilities
+class: set-list
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins

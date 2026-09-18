@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.constraints/pair/05-both-add-different-user-wins__05-both-add-different-user-wins
+field: services.app.deploy.placement.constraints
+class: ordered-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 05-both-add-different-user-wins

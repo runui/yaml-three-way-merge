@@ -1,0 +1,5 @@
+id: ordered-list/top.include/pair/09-user-modify__12-both-modify-different-user-wins
+field: include
+class: ordered-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 12-both-modify-different-user-wins

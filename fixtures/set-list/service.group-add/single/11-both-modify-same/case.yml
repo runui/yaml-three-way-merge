@@ -1,0 +1,5 @@
+id: set-list/service.group-add/single/11-both-modify-same
+field: services.app.group_add
+class: set-list
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins

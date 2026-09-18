@@ -1,0 +1,6 @@
+services:
+    app:
+        image: busybox:latest
+        sysctls:
+            - net.core.value-a=user
+            - net.core.value-b=base

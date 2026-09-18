@@ -1,0 +1,5 @@
+id: ordered-list/include.path/pair/02-remote-add__10-user-delete
+field: include[].path
+class: ordered-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 10-user-delete

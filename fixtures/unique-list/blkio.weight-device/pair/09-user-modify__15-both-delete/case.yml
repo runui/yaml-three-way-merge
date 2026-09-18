@@ -1,0 +1,5 @@
+id: unique-list/blkio.weight-device/pair/09-user-modify__15-both-delete
+field: services.app.blkio_config.weight_device
+class: unique-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 15-both-delete

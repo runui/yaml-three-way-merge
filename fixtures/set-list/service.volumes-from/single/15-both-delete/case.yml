@@ -1,0 +1,5 @@
+id: set-list/service.volumes-from/single/15-both-delete
+field: services.app.volumes_from
+class: set-list
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

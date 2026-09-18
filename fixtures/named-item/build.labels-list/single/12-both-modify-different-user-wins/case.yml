@@ -1,0 +1,5 @@
+id: named-item/build.labels-list/single/12-both-modify-different-user-wins
+field: services.app.build.labels
+class: named-item
+scenario: 12-both-modify-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins

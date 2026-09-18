@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/pair/01-all-absent__05-both-add-different-user-wins
+field: networks.default.ipam.config
+class: unique-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 05-both-add-different-user-wins

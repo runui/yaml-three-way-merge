@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            args:
+                - ARG-b=user
+        image: busybox:latest

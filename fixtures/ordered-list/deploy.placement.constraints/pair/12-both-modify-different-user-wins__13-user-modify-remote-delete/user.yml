@@ -1,0 +1,10 @@
+services: !reset {}
+---
+services:
+  app:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.zone==user-a
+          - node.labels.zone==user-b
+    image: busybox:latest

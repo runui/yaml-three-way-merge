@@ -1,0 +1,9 @@
+include:
+    - env_file:
+        - remote.env-a
+        - user.env-b
+      path:
+        - compose.yml
+services:
+    app:
+        image: busybox:latest

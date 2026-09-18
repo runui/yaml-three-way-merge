@@ -1,0 +1,5 @@
+id: set-list/service.cap-drop/pair/06-all-unchanged__07-remote-modify
+field: services.app.cap_drop
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 07-remote-modify

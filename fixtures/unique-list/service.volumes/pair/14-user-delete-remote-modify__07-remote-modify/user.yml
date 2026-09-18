@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    image: busybox:latest
+    volumes:
+      - source: /base-b
+        target: /data-b
+        type: bind

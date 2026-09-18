@@ -1,0 +1,5 @@
+id: named-item/volume.labels-list/pair/09-user-modify__07-remote-modify
+field: volumes.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 07-remote-modify

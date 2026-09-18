@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/10-user-delete__02-remote-add
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 02-remote-add

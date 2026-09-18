@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch/pair/12-both-modify-different-user-wins__02-remote-add
+field: services.app.develop.watch
+class: ordered-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 02-remote-add

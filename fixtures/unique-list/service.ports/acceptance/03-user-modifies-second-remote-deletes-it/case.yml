@@ -1,0 +1,5 @@
+id: unique-list/service.ports/acceptance/03-user-modifies-second-remote-deletes-it
+field: services.app.ports
+class: unique-list
+scenario: user-acceptance
+description: user-provided expected behavior

@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-from/pair/07-remote-modify__05-both-add-different-user-wins
+field: services.app.build.cache_from
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 05-both-add-different-user-wins

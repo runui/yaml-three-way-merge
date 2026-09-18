@@ -1,0 +1,5 @@
+id: named-item/build.extra-hosts-list/pair/01-all-absent__04-both-add-same
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 04-both-add-same

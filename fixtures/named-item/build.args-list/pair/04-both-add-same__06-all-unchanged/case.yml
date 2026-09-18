@@ -1,0 +1,5 @@
+id: named-item/build.args-list/pair/04-both-add-same__06-all-unchanged
+field: services.app.build.args
+class: named-item
+scenario: pair-cross-product
+description: 04-both-add-same combined with 06-all-unchanged

@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device.capabilities/pair/01-all-absent__11-both-modify-same
+field: services.app.deploy.resources.reservations.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 11-both-modify-same

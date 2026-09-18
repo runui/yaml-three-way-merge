@@ -1,0 +1,5 @@
+id: ordered-list/x-casaos.screenshot-link/pair/09-user-modify__10-user-delete
+field: x-casaos.screenshot_link
+class: ordered-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 10-user-delete

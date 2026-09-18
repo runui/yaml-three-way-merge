@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/pair/10-user-delete__06-all-unchanged
+field: services.app.build.secrets
+class: unique-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 06-all-unchanged

@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/pair/03-user-add__08-remote-delete
+field: services.app.build.secrets
+class: unique-list
+scenario: pair-cross-product
+description: 03-user-add combined with 08-remote-delete

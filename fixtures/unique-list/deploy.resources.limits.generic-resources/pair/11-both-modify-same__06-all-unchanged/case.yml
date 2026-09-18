@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.limits.generic-resources/pair/11-both-modify-same__06-all-unchanged
+field: services.app.deploy.resources.limits.generic_resources
+class: unique-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 06-all-unchanged

@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device-ids/pair/15-both-delete__03-user-add
+field: services.app.deploy.resources.reservations.devices[].device_ids
+class: set-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 03-user-add

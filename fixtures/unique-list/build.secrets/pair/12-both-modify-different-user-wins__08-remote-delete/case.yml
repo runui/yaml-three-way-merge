@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/pair/12-both-modify-different-user-wins__08-remote-delete
+field: services.app.build.secrets
+class: unique-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 08-remote-delete

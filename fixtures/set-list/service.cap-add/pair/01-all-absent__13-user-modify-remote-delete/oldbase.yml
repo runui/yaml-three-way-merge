@@ -1,0 +1,5 @@
+services:
+    app:
+        cap_add:
+            - NET_ADMIN-b
+        image: busybox:latest

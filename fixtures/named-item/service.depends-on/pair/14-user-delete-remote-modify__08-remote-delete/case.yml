@@ -1,0 +1,5 @@
+id: named-item/service.depends-on/pair/14-user-delete-remote-modify__08-remote-delete
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 08-remote-delete

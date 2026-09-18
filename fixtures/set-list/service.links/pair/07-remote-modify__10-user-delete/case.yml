@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/07-remote-modify__10-user-delete
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 10-user-delete

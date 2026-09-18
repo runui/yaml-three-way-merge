@@ -1,0 +1,12 @@
+services: !reset {}
+---
+services:
+  app:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+                - tpu-a
+              driver: nvidia
+    image: busybox:latest

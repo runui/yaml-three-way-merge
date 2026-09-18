@@ -1,0 +1,5 @@
+id: set-list/service.volumes-from/pair/02-remote-add__02-remote-add
+field: services.app.volumes_from
+class: set-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 02-remote-add

@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/pair/09-user-modify__02-remote-add
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 02-remote-add

@@ -1,0 +1,5 @@
+services:
+    app:
+        external_links:
+            - base:base-a
+        image: busybox:latest

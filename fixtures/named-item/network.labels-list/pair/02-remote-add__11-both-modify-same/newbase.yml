@@ -1,0 +1,8 @@
+networks:
+    default:
+        labels:
+            - network.label-a=remote
+            - network.label-b=user
+services:
+    app:
+        image: busybox:latest

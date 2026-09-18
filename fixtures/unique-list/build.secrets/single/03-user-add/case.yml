@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/single/03-user-add
+field: services.app.build.secrets
+class: unique-list
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins

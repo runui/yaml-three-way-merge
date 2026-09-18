@@ -1,0 +1,5 @@
+id: set-list/service.device-cgroup-rules/pair/06-all-unchanged__06-all-unchanged
+field: services.app.device_cgroup_rules
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 06-all-unchanged

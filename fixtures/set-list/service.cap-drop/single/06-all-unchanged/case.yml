@@ -1,0 +1,5 @@
+id: set-list/service.cap-drop/single/06-all-unchanged
+field: services.app.cap_drop
+class: set-list
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase

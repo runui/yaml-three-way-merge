@@ -1,0 +1,10 @@
+services:
+    app:
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
+                          driver: base-a
+        image: busybox:latest

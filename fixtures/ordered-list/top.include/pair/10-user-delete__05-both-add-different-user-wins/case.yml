@@ -1,0 +1,5 @@
+id: ordered-list/top.include/pair/10-user-delete__05-both-add-different-user-wins
+field: include
+class: ordered-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 05-both-add-different-user-wins

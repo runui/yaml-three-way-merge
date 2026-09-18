@@ -1,0 +1,5 @@
+id: ordered-list/x-casaos.screenshot-link/single/07-remote-modify
+field: x-casaos.screenshot_link
+class: ordered-list
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase

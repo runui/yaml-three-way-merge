@@ -1,0 +1,5 @@
+id: named-item/service.labels-list/pair/12-both-modify-different-user-wins__07-remote-modify
+field: services.app.labels
+class: named-item
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 07-remote-modify

@@ -1,0 +1,5 @@
+id: named-item/service.environment-list/pair/05-both-add-different-user-wins__11-both-modify-same
+field: services.app.environment
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 11-both-modify-same

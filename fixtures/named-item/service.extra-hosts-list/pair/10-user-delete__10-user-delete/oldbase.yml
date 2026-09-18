@@ -1,0 +1,6 @@
+services:
+    app:
+        extra_hosts:
+            - host-a=base
+            - host-b=base
+        image: busybox:latest

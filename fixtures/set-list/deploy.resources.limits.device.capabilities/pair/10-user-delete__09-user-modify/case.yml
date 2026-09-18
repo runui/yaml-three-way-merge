@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.limits.device.capabilities/pair/10-user-delete__09-user-modify
+field: services.app.deploy.resources.limits.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 09-user-modify

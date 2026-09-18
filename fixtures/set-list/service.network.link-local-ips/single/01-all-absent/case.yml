@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/single/01-all-absent
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

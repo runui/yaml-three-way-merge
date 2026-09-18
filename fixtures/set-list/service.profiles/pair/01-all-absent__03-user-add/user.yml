@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    image: busybox:latest
+    profiles:
+      - user-b

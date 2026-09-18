@@ -1,0 +1,5 @@
+id: unique-list/service.ports/single/06-all-unchanged
+field: services.app.ports
+class: unique-list
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase

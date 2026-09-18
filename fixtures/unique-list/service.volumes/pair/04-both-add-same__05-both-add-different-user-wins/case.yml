@@ -1,0 +1,5 @@
+id: unique-list/service.volumes/pair/04-both-add-same__05-both-add-different-user-wins
+field: services.app.volumes
+class: unique-list
+scenario: pair-cross-product
+description: 04-both-add-same combined with 05-both-add-different-user-wins

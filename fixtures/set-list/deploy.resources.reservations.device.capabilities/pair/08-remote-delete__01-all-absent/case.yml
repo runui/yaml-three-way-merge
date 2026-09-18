@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device.capabilities/pair/08-remote-delete__01-all-absent
+field: services.app.deploy.resources.reservations.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 01-all-absent

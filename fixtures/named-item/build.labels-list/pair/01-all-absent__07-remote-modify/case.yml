@@ -1,0 +1,5 @@
+id: named-item/build.labels-list/pair/01-all-absent__07-remote-modify
+field: services.app.build.labels
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 07-remote-modify

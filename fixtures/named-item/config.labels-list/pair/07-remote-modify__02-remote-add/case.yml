@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/07-remote-modify__02-remote-add
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 02-remote-add

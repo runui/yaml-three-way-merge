@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/15-both-delete__10-user-delete
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 10-user-delete

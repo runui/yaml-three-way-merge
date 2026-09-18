@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch/pair/09-user-modify__07-remote-modify
+field: services.app.develop.watch
+class: ordered-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 07-remote-modify

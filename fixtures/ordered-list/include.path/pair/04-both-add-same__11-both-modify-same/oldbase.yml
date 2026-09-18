@@ -1,0 +1,6 @@
+include:
+    - path:
+        - base.yml-b
+services:
+    app:
+        image: busybox:latest

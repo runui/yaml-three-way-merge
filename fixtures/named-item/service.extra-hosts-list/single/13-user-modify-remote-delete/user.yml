@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    extra_hosts:
+      - host-a=user
+    image: busybox:latest

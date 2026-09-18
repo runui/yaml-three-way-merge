@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    build:
+      ssh:
+        - user-a
+        - base-b
+    image: busybox:latest

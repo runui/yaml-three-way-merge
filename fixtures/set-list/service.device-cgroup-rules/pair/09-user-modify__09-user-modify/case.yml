@@ -1,0 +1,5 @@
+id: set-list/service.device-cgroup-rules/pair/09-user-modify__09-user-modify
+field: services.app.device_cgroup_rules
+class: set-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 09-user-modify

@@ -1,0 +1,5 @@
+id: atomic/healthcheck.test/single/09-user-modify
+field: services.app.healthcheck.test
+class: atomic
+scenario: 09-user-modify
+description: user changed the logical item relative to oldbase, so user intent wins

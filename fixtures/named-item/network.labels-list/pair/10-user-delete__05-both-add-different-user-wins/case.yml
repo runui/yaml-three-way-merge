@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/pair/10-user-delete__05-both-add-different-user-wins
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 05-both-add-different-user-wins

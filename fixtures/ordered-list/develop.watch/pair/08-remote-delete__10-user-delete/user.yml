@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    develop:
+      watch:
+        - action: sync
+          path: ./base-a
+    image: busybox:latest

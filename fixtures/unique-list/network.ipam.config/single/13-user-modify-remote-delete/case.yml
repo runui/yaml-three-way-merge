@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/single/13-user-modify-remote-delete
+field: networks.default.ipam.config
+class: unique-list
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins

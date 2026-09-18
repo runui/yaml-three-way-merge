@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    build:
+      platforms:
+        - linux/amd64-a
+        - linux/arm64-b
+    image: busybox:latest

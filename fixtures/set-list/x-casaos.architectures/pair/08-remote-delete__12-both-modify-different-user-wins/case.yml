@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/pair/08-remote-delete__12-both-modify-different-user-wins
+field: x-casaos.architectures
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 12-both-modify-different-user-wins

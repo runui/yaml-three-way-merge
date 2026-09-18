@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/15-both-delete__14-user-delete-remote-modify
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 14-user-delete-remote-modify

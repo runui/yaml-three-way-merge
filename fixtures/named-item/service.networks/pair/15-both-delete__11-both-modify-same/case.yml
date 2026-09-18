@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/15-both-delete__11-both-modify-same
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 11-both-modify-same

@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/pair/10-user-delete__06-all-unchanged
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 06-all-unchanged

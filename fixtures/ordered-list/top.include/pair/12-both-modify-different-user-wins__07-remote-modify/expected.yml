@@ -1,0 +1,6 @@
+include:
+    - ./user.yml
+    - ./remote-b.yml
+services:
+    app:
+        image: busybox:latest

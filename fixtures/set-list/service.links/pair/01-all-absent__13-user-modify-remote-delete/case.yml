@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/01-all-absent__13-user-modify-remote-delete
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 13-user-modify-remote-delete

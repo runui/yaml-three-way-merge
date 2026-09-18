@@ -1,0 +1,5 @@
+id: named-item/secret.labels-list/pair/03-user-add__12-both-modify-different-user-wins
+field: secrets.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 12-both-modify-different-user-wins

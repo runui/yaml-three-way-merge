@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/pair/09-user-modify__02-remote-add
+field: networks.default.ipam.config
+class: unique-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 02-remote-add

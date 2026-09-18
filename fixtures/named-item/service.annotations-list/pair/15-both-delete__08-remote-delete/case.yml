@@ -1,0 +1,5 @@
+id: named-item/service.annotations-list/pair/15-both-delete__08-remote-delete
+field: services.app.annotations
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 08-remote-delete

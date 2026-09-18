@@ -1,0 +1,5 @@
+id: ordered-list/build.platforms/pair/05-both-add-different-user-wins__04-both-add-same
+field: services.app.build.platforms
+class: ordered-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 04-both-add-same

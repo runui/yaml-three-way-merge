@@ -1,0 +1,5 @@
+id: set-list/service.expose/pair/15-both-delete__05-both-add-different-user-wins
+field: services.app.expose
+class: set-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 05-both-add-different-user-wins

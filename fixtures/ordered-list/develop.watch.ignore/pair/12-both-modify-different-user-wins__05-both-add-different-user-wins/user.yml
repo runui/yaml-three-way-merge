@@ -1,0 +1,12 @@
+services: !reset {}
+---
+services:
+  app:
+    develop:
+      watch:
+        - action: sync
+          ignore:
+            - user.tmp-a
+            - user.tmp-b
+          path: .
+    image: busybox:latest

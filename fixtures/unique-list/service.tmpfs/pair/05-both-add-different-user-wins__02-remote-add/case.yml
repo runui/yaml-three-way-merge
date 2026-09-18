@@ -1,0 +1,5 @@
+id: unique-list/service.tmpfs/pair/05-both-add-different-user-wins__02-remote-add
+field: services.app.tmpfs
+class: unique-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 02-remote-add

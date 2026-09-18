@@ -1,0 +1,5 @@
+id: set-list/service.group-add/pair/05-both-add-different-user-wins__08-remote-delete
+field: services.app.group_add
+class: set-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 08-remote-delete

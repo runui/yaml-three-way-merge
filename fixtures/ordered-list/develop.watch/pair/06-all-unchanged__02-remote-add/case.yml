@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch/pair/06-all-unchanged__02-remote-add
+field: services.app.develop.watch
+class: ordered-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 02-remote-add

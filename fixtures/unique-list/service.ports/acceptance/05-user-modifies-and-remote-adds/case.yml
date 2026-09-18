@@ -1,0 +1,5 @@
+id: unique-list/service.ports/acceptance/05-user-modifies-and-remote-adds
+field: services.app.ports
+class: unique-list
+scenario: user-acceptance
+description: user-provided expected behavior

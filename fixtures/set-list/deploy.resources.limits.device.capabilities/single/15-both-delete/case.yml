@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.limits.device.capabilities/single/15-both-delete
+field: services.app.deploy.resources.limits.devices[].capabilities
+class: set-list
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

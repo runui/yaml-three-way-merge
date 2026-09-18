@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/pair/02-remote-add__02-remote-add
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 02-remote-add

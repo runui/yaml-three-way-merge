@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/09-user-modify__06-all-unchanged
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 06-all-unchanged

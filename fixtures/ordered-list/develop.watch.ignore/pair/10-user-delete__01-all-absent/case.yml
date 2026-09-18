@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch.ignore/pair/10-user-delete__01-all-absent
+field: services.app.develop.watch[].ignore
+class: ordered-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 01-all-absent

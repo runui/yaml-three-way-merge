@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-write-iops/single/08-remote-delete
+field: services.app.blkio_config.device_write_iops
+class: unique-list
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

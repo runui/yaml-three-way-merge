@@ -1,0 +1,5 @@
+id: set-list/service.network.aliases/single/07-remote-modify
+field: services.app.networks.default.aliases
+class: set-list
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/pair/07-remote-modify__04-both-add-same
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 04-both-add-same

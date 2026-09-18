@@ -1,0 +1,5 @@
+id: unique-list/service.devices/pair/14-user-delete-remote-modify__07-remote-modify
+field: services.app.devices
+class: unique-list
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 07-remote-modify

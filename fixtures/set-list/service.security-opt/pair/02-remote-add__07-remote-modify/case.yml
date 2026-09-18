@@ -1,0 +1,5 @@
+id: set-list/service.security-opt/pair/02-remote-add__07-remote-modify
+field: services.app.security_opt
+class: set-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 07-remote-modify

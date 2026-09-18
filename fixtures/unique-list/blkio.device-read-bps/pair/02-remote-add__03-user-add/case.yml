@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-bps/pair/02-remote-add__03-user-add
+field: services.app.blkio_config.device_read_bps
+class: unique-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 03-user-add

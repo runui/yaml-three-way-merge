@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.reservations.generic-resources/pair/10-user-delete__04-both-add-same
+field: services.app.deploy.resources.reservations.generic_resources
+class: unique-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 04-both-add-same

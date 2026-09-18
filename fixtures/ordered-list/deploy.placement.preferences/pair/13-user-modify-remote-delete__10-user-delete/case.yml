@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.preferences/pair/13-user-modify-remote-delete__10-user-delete
+field: services.app.deploy.placement.preferences
+class: ordered-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 10-user-delete

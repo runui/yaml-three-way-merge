@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/pair/09-user-modify__11-both-modify-same
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 11-both-modify-same

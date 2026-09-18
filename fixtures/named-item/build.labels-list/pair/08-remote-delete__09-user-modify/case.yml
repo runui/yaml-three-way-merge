@@ -1,0 +1,5 @@
+id: named-item/build.labels-list/pair/08-remote-delete__09-user-modify
+field: services.app.build.labels
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 09-user-modify

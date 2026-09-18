@@ -1,0 +1,5 @@
+include:
+    - ./user-b.yml
+services:
+    app:
+        image: busybox:latest

@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            labels:
+                - build.label-a=base
+        image: busybox:latest

@@ -1,0 +1,5 @@
+id: ordered-list/extension.unknown/single/03-user-add
+field: x-validation.items
+class: ordered-list
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins

@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-bps/pair/14-user-delete-remote-modify__09-user-modify
+field: services.app.blkio_config.device_read_bps
+class: unique-list
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 09-user-modify

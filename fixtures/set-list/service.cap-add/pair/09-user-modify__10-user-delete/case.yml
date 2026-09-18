@@ -1,0 +1,5 @@
+id: set-list/service.cap-add/pair/09-user-modify__10-user-delete
+field: services.app.cap_add
+class: set-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 10-user-delete

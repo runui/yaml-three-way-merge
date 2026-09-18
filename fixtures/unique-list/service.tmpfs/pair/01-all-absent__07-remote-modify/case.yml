@@ -1,0 +1,5 @@
+id: unique-list/service.tmpfs/pair/01-all-absent__07-remote-modify
+field: services.app.tmpfs
+class: unique-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 07-remote-modify

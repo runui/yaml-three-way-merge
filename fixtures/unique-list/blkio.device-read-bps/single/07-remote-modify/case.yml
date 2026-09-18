@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-bps/single/07-remote-modify
+field: services.app.blkio_config.device_read_bps
+class: unique-list
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase

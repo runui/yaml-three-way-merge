@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-from/single/01-all-absent
+field: services.app.build.cache_from
+class: ordered-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

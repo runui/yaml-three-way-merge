@@ -1,0 +1,5 @@
+id: set-list/service.cap-add/pair/10-user-delete__05-both-add-different-user-wins
+field: services.app.cap_add
+class: set-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 05-both-add-different-user-wins

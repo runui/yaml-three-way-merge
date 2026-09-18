@@ -1,0 +1,5 @@
+id: named-item/service.labels-list/pair/03-user-add__11-both-modify-same
+field: services.app.labels
+class: named-item
+scenario: pair-cross-product
+description: 03-user-add combined with 11-both-modify-same

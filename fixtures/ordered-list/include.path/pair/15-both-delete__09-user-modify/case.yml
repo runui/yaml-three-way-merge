@@ -1,0 +1,5 @@
+id: ordered-list/include.path/pair/15-both-delete__09-user-modify
+field: include[].path
+class: ordered-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 09-user-modify

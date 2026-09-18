@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-write-iops/pair/01-all-absent__05-both-add-different-user-wins
+field: services.app.blkio_config.device_write_iops
+class: unique-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 05-both-add-different-user-wins

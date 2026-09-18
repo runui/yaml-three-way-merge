@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.reservations.generic-resources/single/01-all-absent
+field: services.app.deploy.resources.reservations.generic_resources
+class: unique-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

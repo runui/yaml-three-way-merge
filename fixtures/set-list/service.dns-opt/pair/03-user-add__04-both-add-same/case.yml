@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/03-user-add__04-both-add-same
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 03-user-add combined with 04-both-add-same

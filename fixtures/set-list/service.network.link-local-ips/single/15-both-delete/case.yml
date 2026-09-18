@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/single/15-both-delete
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

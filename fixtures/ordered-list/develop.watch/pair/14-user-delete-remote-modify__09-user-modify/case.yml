@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch/pair/14-user-delete-remote-modify__09-user-modify
+field: services.app.develop.watch
+class: ordered-list
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 09-user-modify

@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device-ids/pair/03-user-add__07-remote-modify
+field: services.app.deploy.resources.reservations.devices[].device_ids
+class: set-list
+scenario: pair-cross-product
+description: 03-user-add combined with 07-remote-modify

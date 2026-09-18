@@ -1,0 +1,5 @@
+id: ordered-list/include.path/pair/05-both-add-different-user-wins__11-both-modify-same
+field: include[].path
+class: ordered-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 11-both-modify-same

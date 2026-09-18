@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.reservations.generic-resources/pair/12-both-modify-different-user-wins__08-remote-delete
+field: services.app.deploy.resources.reservations.generic_resources
+class: unique-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 08-remote-delete

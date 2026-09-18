@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    deploy:
+      placement:
+        constraints:
+          - node.role==manager-b
+    image: busybox:latest

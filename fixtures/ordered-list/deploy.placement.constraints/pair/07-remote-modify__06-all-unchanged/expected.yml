@@ -1,0 +1,8 @@
+services:
+    app:
+        deploy:
+            placement:
+                constraints:
+                    - node.labels.zone==remote-a
+                    - node.role==manager-b
+        image: busybox:latest

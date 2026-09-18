@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/11-both-modify-same__14-user-delete-remote-modify
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 14-user-delete-remote-modify

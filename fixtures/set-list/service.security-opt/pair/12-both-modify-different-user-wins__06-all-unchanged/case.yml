@@ -1,0 +1,5 @@
+id: set-list/service.security-opt/pair/12-both-modify-different-user-wins__06-all-unchanged
+field: services.app.security_opt
+class: set-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 06-all-unchanged

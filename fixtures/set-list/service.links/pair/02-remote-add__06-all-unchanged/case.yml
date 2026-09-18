@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/02-remote-add__06-all-unchanged
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 06-all-unchanged

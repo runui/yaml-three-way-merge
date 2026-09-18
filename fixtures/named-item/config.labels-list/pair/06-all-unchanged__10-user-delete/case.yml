@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/06-all-unchanged__10-user-delete
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 10-user-delete

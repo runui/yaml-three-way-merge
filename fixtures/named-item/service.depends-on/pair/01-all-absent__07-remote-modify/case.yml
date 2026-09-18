@@ -1,0 +1,5 @@
+id: named-item/service.depends-on/pair/01-all-absent__07-remote-modify
+field: services.app.depends_on
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 07-remote-modify

@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/pair/09-user-modify__06-all-unchanged
+field: x-casaos.architectures
+class: set-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 06-all-unchanged

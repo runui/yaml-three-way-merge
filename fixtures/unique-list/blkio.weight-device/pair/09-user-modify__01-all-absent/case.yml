@@ -1,0 +1,5 @@
+id: unique-list/blkio.weight-device/pair/09-user-modify__01-all-absent
+field: services.app.blkio_config.weight_device
+class: unique-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 01-all-absent

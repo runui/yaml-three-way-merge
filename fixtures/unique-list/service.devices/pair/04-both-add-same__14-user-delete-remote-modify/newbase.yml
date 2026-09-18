@@ -1,0 +1,6 @@
+services:
+    app:
+        devices:
+            - /dev/user-a:/dev/a
+            - /dev/remote-b:/dev/b
+        image: busybox:latest

@@ -1,0 +1,10 @@
+configs: !reset {}
+services: !reset {}
+---
+configs:
+  default:
+    labels:
+      - config.label-b=base
+services:
+  app:
+    image: busybox:latest

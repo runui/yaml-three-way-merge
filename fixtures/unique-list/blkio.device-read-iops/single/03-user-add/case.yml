@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-iops/single/03-user-add
+field: services.app.blkio_config.device_read_iops
+class: unique-list
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins

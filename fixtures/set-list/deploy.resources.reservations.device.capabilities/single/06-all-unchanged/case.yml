@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device.capabilities/single/06-all-unchanged
+field: services.app.deploy.resources.reservations.devices[].capabilities
+class: set-list
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase

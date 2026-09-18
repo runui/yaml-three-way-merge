@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    group_add:
+      - 1000-b
+    image: busybox:latest

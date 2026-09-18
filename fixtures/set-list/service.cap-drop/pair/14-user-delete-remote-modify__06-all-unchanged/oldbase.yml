@@ -1,0 +1,6 @@
+services:
+    app:
+        cap_drop:
+            - NET_RAW-a
+            - NET_RAW-b
+        image: busybox:latest

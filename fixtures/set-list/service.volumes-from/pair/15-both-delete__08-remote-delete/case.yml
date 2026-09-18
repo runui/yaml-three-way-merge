@@ -1,0 +1,5 @@
+id: set-list/service.volumes-from/pair/15-both-delete__08-remote-delete
+field: services.app.volumes_from
+class: set-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 08-remote-delete

@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    deploy:
+      placement:
+        preferences:
+          - spread: node.labels.user-a
+    image: busybox:latest

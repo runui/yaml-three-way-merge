@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/single/07-remote-modify
+field: services.app.build.cache_to
+class: ordered-list
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+id: set-list/service.device-cgroup-rules/pair/01-all-absent__08-remote-delete
+field: services.app.device_cgroup_rules
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 08-remote-delete

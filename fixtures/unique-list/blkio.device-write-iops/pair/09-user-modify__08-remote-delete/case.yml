@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-write-iops/pair/09-user-modify__08-remote-delete
+field: services.app.blkio_config.device_write_iops
+class: unique-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 08-remote-delete

@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch.ignore/pair/01-all-absent__07-remote-modify
+field: services.app.develop.watch[].ignore
+class: ordered-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 07-remote-modify

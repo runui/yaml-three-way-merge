@@ -1,0 +1,5 @@
+id: named-item/build.additional-contexts-list/pair/08-remote-delete__01-all-absent
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 01-all-absent

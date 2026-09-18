@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/04-both-add-same__08-remote-delete
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 04-both-add-same combined with 08-remote-delete

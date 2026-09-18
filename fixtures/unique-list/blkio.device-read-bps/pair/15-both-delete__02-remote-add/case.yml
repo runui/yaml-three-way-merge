@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-bps/pair/15-both-delete__02-remote-add
+field: services.app.blkio_config.device_read_bps
+class: unique-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 02-remote-add

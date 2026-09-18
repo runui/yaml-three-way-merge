@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/06-all-unchanged__02-remote-add
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 02-remote-add

@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            platforms:
+                - linux/386-a
+        image: busybox:latest

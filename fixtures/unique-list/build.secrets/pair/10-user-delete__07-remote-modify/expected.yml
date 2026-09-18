@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            secrets:
+                - source: remote_secret_b
+                  target: /run/secrets/b
+        image: busybox:latest

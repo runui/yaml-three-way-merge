@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/08-remote-delete__06-all-unchanged
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 06-all-unchanged

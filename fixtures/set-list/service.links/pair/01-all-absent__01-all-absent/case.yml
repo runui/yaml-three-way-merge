@@ -1,0 +1,5 @@
+id: set-list/service.links/pair/01-all-absent__01-all-absent
+field: services.app.links
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 01-all-absent

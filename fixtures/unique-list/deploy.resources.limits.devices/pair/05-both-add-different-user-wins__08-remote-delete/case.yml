@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.limits.devices/pair/05-both-add-different-user-wins__08-remote-delete
+field: services.app.deploy.resources.limits.devices
+class: unique-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 08-remote-delete

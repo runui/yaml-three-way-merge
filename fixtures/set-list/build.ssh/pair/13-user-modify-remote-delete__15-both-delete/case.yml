@@ -1,0 +1,5 @@
+id: set-list/build.ssh/pair/13-user-modify-remote-delete__15-both-delete
+field: services.app.build.ssh
+class: set-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 15-both-delete

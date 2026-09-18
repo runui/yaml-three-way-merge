@@ -1,0 +1,5 @@
+id: named-item/volume.labels-list/pair/10-user-delete__04-both-add-same
+field: volumes.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 04-both-add-same

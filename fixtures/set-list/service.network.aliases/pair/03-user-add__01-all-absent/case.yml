@@ -1,0 +1,5 @@
+id: set-list/service.network.aliases/pair/03-user-add__01-all-absent
+field: services.app.networks.default.aliases
+class: set-list
+scenario: pair-cross-product
+description: 03-user-add combined with 01-all-absent

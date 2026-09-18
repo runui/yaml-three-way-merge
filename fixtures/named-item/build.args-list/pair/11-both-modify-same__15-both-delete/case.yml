@@ -1,0 +1,5 @@
+id: named-item/build.args-list/pair/11-both-modify-same__15-both-delete
+field: services.app.build.args
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 15-both-delete

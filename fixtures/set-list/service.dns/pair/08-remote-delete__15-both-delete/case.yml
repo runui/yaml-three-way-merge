@@ -1,0 +1,5 @@
+id: set-list/service.dns/pair/08-remote-delete__15-both-delete
+field: services.app.dns
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 15-both-delete

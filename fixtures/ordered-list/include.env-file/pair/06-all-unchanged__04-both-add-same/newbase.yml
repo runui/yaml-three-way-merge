@@ -1,0 +1,9 @@
+include:
+    - env_file:
+        - base.env-a
+        - user.env-b
+      path:
+        - compose.yml
+services:
+    app:
+        image: busybox:latest

@@ -1,0 +1,5 @@
+services:
+    app:
+        annotations:
+            - annotation-a=remote
+        image: busybox:latest

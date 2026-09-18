@@ -1,0 +1,5 @@
+id: named-item/secret.labels-list/pair/15-both-delete__01-all-absent
+field: secrets.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 01-all-absent

@@ -1,0 +1,10 @@
+services:
+    app:
+        develop:
+            watch:
+                - action: sync
+                  ignore:
+                    - base.tmp-a
+                    - user.tmp-b
+                  path: .
+        image: busybox:latest

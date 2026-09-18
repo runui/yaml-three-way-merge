@@ -1,0 +1,5 @@
+id: ordered-list/top.include/pair/02-remote-add__01-all-absent
+field: include
+class: ordered-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 01-all-absent

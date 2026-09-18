@@ -1,0 +1,5 @@
+id: set-list/service.network.link-local-ips/single/08-remote-delete
+field: services.app.networks.default.link_local_ips
+class: set-list
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

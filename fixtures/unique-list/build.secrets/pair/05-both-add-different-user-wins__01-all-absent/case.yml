@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/pair/05-both-add-different-user-wins__01-all-absent
+field: services.app.build.secrets
+class: unique-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 01-all-absent

@@ -1,0 +1,5 @@
+services:
+    app:
+        devices:
+            - /dev/user-b:/dev/b
+        image: busybox:latest

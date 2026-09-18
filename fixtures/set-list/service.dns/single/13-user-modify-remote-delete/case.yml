@@ -1,0 +1,5 @@
+id: set-list/service.dns/single/13-user-modify-remote-delete
+field: services.app.dns
+class: set-list
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins

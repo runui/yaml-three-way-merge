@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    depends_on:
+      - user-dependency-b
+    image: busybox:latest

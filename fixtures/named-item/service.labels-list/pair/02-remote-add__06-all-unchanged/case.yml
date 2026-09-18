@@ -1,0 +1,5 @@
+id: named-item/service.labels-list/pair/02-remote-add__06-all-unchanged
+field: services.app.labels
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 06-all-unchanged

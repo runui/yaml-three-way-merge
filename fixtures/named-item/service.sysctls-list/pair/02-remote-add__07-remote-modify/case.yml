@@ -1,0 +1,5 @@
+id: named-item/service.sysctls-list/pair/02-remote-add__07-remote-modify
+field: services.app.sysctls
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 07-remote-modify

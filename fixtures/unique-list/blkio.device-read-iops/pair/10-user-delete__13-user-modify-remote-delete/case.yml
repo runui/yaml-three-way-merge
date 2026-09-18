@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-iops/pair/10-user-delete__13-user-modify-remote-delete
+field: services.app.blkio_config.device_read_iops
+class: unique-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 13-user-modify-remote-delete

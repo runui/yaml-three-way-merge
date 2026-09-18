@@ -1,0 +1,6 @@
+services:
+    app:
+        dns_opt:
+            - single-request-a
+            - use-vc-b
+        image: busybox:latest

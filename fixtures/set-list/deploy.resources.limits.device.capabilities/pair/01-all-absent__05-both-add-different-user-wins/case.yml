@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.limits.device.capabilities/pair/01-all-absent__05-both-add-different-user-wins
+field: services.app.deploy.resources.limits.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 05-both-add-different-user-wins

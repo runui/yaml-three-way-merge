@@ -6,67 +6,38 @@ import (
 	"io"
 )
 
-func WriteJSON(writer io.Writer, results []Result) error {
-	encoder := json.NewEncoder(writer)
-	encoder.SetIndent("", "  ")
-	return encoder.Encode(results)
+type Summary struct {
+	Total         int `json:"total"`
+	Matched       int `json:"matched"`
+	Mismatched    int `json:"mismatched"`
+	Errors        int `json:"errors"`
+	NonIdempotent int `json:"non_idempotent"`
 }
 
-func WriteMarkdown(writer io.Writer, results []Result) error {
-	if _, err := fmt.Fprintln(writer, "| Case | Field | Current expected | Current | SMD expected | SMD | Round trip | Idempotent |"); err != nil {
-		return err
-	}
-	if _, err := fmt.Fprintln(writer, "| --- | --- | --- | --- | --- | --- | --- | --- |"); err != nil {
-		return err
-	}
-	currentMatched := 0
-	currentKnownGaps := 0
-	smdMatched := 0
-	smdKnownGaps := 0
-	unexpected := 0
-	for _, result := range results {
-		verdict := "MATCH"
-		if !result.MatchesDesired {
-			verdict = "DIFF"
-		}
-		if result.Error != "" {
-			verdict = "ERROR: " + result.Error
-		}
-		smdVerdict := "MATCH"
-		if !result.SMDMatchesDesired {
-			smdVerdict = "DIFF"
-		}
-		if result.SMDError != "" {
-			smdVerdict = "ERROR: " + result.SMDError
-		}
-		if result.MatchesClassification {
-			switch result.Case.Expectation {
-			case ExpectationMatch:
-				currentMatched++
-			case ExpectationKnownGap:
-				currentKnownGaps++
-			}
-		} else {
-			unexpected++
-		}
-		if result.SMDMatchesClassification {
-			switch result.Case.ExpectedSMDClassification() {
-			case ExpectationMatch:
-				smdMatched++
-			case ExpectationKnownGap:
-				smdKnownGaps++
-			}
-		} else {
-			unexpected++
-		}
-		if _, err := fmt.Fprintf(writer, "| `%s` | `%s` | %s | %s | %s | %s | %t | %t |\n",
-			result.Case.ID, result.Case.Field, result.Case.Expectation, verdict,
-			result.Case.ExpectedSMDClassification(), smdVerdict, result.ReconstructionOK, result.Idempotent); err != nil {
-			return err
+func Summarize(results []Result) Summary {
+	result := Summary{Total: len(results)}
+	for _, item := range results {
+		switch {
+		case item.Error != nil:
+			result.Errors++
+		case !item.Idempotent:
+			result.NonIdempotent++
+		case item.Matches:
+			result.Matched++
+		default:
+			result.Mismatched++
 		}
 	}
-	_, err := fmt.Fprintf(writer,
-		"\nSummary: current=%d matches/%d known gaps; SMD=%d matches/%d known gaps; %d unexpected classification changes.\n",
-		currentMatched, currentKnownGaps, smdMatched, smdKnownGaps, unexpected)
+	return result
+}
+
+func WriteSummary(writer io.Writer, results []Result, jsonOutput bool) error {
+	summary := Summarize(results)
+	if jsonOutput {
+		encoder := json.NewEncoder(writer)
+		encoder.SetIndent("", "  ")
+		return encoder.Encode(summary)
+	}
+	_, err := fmt.Fprintf(writer, "Total: %d\nMatched: %d\nMismatched: %d\nErrors: %d\nNon-idempotent: %d\n", summary.Total, summary.Matched, summary.Mismatched, summary.Errors, summary.NonIdempotent)
 	return err
 }

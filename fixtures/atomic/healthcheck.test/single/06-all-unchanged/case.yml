@@ -1,0 +1,5 @@
+id: atomic/healthcheck.test/single/06-all-unchanged
+field: services.app.healthcheck.test
+class: atomic
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,6 @@
+services: !reset {}
+x-casaos: !reset {}
+---
+services:
+  app:
+    image: busybox:latest

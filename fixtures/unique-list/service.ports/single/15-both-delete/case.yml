@@ -1,0 +1,5 @@
+id: unique-list/service.ports/single/15-both-delete
+field: services.app.ports
+class: unique-list
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

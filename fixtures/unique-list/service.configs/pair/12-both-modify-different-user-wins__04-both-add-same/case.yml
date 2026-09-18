@@ -1,0 +1,5 @@
+id: unique-list/service.configs/pair/12-both-modify-different-user-wins__04-both-add-same
+field: services.app.configs
+class: unique-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 04-both-add-same

@@ -1,0 +1,6 @@
+services:
+    app:
+        build:
+            labels:
+                - build.label-a=user
+        image: busybox:latest

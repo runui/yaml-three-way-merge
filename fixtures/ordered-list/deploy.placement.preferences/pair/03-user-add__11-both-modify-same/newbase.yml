@@ -1,0 +1,7 @@
+services:
+    app:
+        deploy:
+            placement:
+                preferences:
+                    - spread: node.labels.user-b
+        image: busybox:latest

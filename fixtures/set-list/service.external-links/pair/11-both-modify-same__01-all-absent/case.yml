@@ -1,0 +1,5 @@
+id: set-list/service.external-links/pair/11-both-modify-same__01-all-absent
+field: services.app.external_links
+class: set-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 01-all-absent

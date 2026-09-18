@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/pair/03-user-add__08-remote-delete
+field: networks.default.ipam.config
+class: unique-list
+scenario: pair-cross-product
+description: 03-user-add combined with 08-remote-delete

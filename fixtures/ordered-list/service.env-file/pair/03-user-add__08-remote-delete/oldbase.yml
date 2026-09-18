@@ -1,0 +1,5 @@
+services:
+    app:
+        env_file:
+            - base.env-b
+        image: busybox:latest

@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/05-both-add-different-user-wins__11-both-modify-same
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 11-both-modify-same

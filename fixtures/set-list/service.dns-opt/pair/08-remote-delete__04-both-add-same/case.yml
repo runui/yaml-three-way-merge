@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/08-remote-delete__04-both-add-same
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 04-both-add-same

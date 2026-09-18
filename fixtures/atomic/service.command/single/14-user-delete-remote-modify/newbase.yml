@@ -1,0 +1,5 @@
+services:
+    app:
+        command:
+            - remote-command-a
+        image: busybox:latest

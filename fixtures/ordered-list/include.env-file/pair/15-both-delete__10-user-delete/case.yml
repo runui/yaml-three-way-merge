@@ -1,0 +1,5 @@
+id: ordered-list/include.env-file/pair/15-both-delete__10-user-delete
+field: include[].env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 10-user-delete

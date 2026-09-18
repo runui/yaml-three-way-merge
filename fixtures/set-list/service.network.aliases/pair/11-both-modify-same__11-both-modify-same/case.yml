@@ -1,0 +1,5 @@
+id: set-list/service.network.aliases/pair/11-both-modify-same__11-both-modify-same
+field: services.app.networks.default.aliases
+class: set-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 11-both-modify-same

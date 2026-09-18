@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/single/08-remote-delete
+field: x-casaos.architectures
+class: set-list
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

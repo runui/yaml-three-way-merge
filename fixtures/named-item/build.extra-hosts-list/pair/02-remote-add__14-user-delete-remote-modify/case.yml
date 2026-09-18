@@ -1,0 +1,5 @@
+id: named-item/build.extra-hosts-list/pair/02-remote-add__14-user-delete-remote-modify
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 02-remote-add combined with 14-user-delete-remote-modify

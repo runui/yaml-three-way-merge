@@ -1,0 +1,5 @@
+id: named-item/config.labels-list/pair/15-both-delete__11-both-modify-same
+field: configs.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 11-both-modify-same

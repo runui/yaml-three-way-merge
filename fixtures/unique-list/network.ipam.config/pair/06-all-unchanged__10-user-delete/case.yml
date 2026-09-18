@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/pair/06-all-unchanged__10-user-delete
+field: networks.default.ipam.config
+class: unique-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 10-user-delete

@@ -1,0 +1,5 @@
+id: ordered-list/extension.unknown/pair/06-all-unchanged__10-user-delete
+field: x-validation.items
+class: ordered-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 10-user-delete

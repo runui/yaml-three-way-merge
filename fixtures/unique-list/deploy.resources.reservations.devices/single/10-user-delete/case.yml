@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.reservations.devices/single/10-user-delete
+field: services.app.deploy.resources.reservations.devices
+class: unique-list
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins

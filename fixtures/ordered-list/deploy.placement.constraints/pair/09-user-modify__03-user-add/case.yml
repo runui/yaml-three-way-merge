@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.constraints/pair/09-user-modify__03-user-add
+field: services.app.deploy.placement.constraints
+class: ordered-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 03-user-add

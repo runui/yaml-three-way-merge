@@ -1,0 +1,5 @@
+id: set-list/service.dns-search/pair/13-user-modify-remote-delete__01-all-absent
+field: services.app.dns_search
+class: set-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 01-all-absent

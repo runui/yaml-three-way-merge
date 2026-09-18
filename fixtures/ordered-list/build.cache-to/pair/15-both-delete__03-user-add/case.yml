@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/15-both-delete__03-user-add
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 03-user-add

@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/single/01-all-absent
+field: services.app.build.secrets
+class: unique-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

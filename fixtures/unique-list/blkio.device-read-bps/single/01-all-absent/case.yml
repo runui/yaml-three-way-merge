@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-read-bps/single/01-all-absent
+field: services.app.blkio_config.device_read_bps
+class: unique-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

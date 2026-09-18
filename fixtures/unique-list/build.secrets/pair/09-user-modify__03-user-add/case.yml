@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/pair/09-user-modify__03-user-add
+field: services.app.build.secrets
+class: unique-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 03-user-add

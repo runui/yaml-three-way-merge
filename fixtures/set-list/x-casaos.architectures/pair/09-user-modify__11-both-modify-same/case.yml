@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/pair/09-user-modify__11-both-modify-same
+field: x-casaos.architectures
+class: set-list
+scenario: pair-cross-product
+description: 09-user-modify combined with 11-both-modify-same

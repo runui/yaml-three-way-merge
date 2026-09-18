@@ -1,0 +1,6 @@
+services:
+    app:
+        cap_add:
+            - CHOWN-a
+            - CHOWN-b
+        image: busybox:latest

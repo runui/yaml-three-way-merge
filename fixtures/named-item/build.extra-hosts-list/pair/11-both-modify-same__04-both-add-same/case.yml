@@ -1,0 +1,5 @@
+id: named-item/build.extra-hosts-list/pair/11-both-modify-same__04-both-add-same
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 04-both-add-same

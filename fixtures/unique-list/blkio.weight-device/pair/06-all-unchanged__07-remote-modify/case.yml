@@ -1,0 +1,5 @@
+id: unique-list/blkio.weight-device/pair/06-all-unchanged__07-remote-modify
+field: services.app.blkio_config.weight_device
+class: unique-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 07-remote-modify

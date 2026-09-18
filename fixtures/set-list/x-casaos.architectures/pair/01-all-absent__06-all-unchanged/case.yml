@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/pair/01-all-absent__06-all-unchanged
+field: x-casaos.architectures
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 06-all-unchanged

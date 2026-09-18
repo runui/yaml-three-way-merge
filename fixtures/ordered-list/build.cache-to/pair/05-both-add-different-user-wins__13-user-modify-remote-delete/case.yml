@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/05-both-add-different-user-wins__13-user-modify-remote-delete
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 13-user-modify-remote-delete

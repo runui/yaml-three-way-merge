@@ -1,0 +1,5 @@
+id: ordered-list/x-casaos.screenshot-link/pair/15-both-delete__04-both-add-same
+field: x-casaos.screenshot_link
+class: ordered-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 04-both-add-same

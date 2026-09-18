@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.preferences/pair/15-both-delete__06-all-unchanged
+field: services.app.deploy.placement.preferences
+class: ordered-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 06-all-unchanged

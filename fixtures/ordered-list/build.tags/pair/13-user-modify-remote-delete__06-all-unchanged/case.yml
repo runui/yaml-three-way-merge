@@ -1,0 +1,5 @@
+id: ordered-list/build.tags/pair/13-user-modify-remote-delete__06-all-unchanged
+field: services.app.build.tags
+class: ordered-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 06-all-unchanged

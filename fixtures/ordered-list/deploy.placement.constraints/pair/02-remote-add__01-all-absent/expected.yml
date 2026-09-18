@@ -1,0 +1,7 @@
+services:
+    app:
+        deploy:
+            placement:
+                constraints:
+                    - node.labels.zone==remote-a
+        image: busybox:latest

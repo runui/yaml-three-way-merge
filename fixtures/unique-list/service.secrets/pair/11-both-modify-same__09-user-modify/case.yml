@@ -1,0 +1,5 @@
+id: unique-list/service.secrets/pair/11-both-modify-same__09-user-modify
+field: services.app.secrets
+class: unique-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 09-user-modify

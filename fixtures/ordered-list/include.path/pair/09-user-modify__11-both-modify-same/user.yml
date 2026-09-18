@@ -1,0 +1,10 @@
+include: !reset []
+services: !reset {}
+---
+include:
+  - path:
+      - user.yml-a
+      - user.yml-b
+services:
+  app:
+    image: busybox:latest

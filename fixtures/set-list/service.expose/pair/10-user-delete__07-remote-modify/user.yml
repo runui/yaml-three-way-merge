@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    expose:
+      - 80-b
+    image: busybox:latest

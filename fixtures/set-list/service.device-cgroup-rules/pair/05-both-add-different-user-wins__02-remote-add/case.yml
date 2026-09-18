@@ -1,0 +1,5 @@
+id: set-list/service.device-cgroup-rules/pair/05-both-add-different-user-wins__02-remote-add
+field: services.app.device_cgroup_rules
+class: set-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 02-remote-add

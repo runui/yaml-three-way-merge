@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    build:
+      secrets:
+        - source: base_secret_b
+          target: /run/secrets/b
+    image: busybox:latest

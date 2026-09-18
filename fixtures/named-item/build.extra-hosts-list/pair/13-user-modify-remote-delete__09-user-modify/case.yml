@@ -1,0 +1,5 @@
+id: named-item/build.extra-hosts-list/pair/13-user-modify-remote-delete__09-user-modify
+field: services.app.build.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 09-user-modify

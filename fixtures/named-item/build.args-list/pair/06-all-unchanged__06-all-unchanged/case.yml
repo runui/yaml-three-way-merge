@@ -1,0 +1,5 @@
+id: named-item/build.args-list/pair/06-all-unchanged__06-all-unchanged
+field: services.app.build.args
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 06-all-unchanged

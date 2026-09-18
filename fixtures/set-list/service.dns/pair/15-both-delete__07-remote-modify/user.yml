@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    dns:
+      - 1.1.1.1-b
+    image: busybox:latest

@@ -1,0 +1,5 @@
+id: set-list/build.ssh/single/03-user-add
+field: services.app.build.ssh
+class: set-list
+scenario: 03-user-add
+description: user changed the logical item relative to oldbase, so user intent wins

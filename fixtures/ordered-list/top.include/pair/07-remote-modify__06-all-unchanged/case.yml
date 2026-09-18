@@ -1,0 +1,5 @@
+id: ordered-list/top.include/pair/07-remote-modify__06-all-unchanged
+field: include
+class: ordered-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 06-all-unchanged

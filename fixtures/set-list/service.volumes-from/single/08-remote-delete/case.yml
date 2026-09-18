@@ -1,0 +1,5 @@
+id: set-list/service.volumes-from/single/08-remote-delete
+field: services.app.volumes_from
+class: set-list
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

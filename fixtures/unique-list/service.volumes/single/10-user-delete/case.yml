@@ -1,0 +1,5 @@
+id: unique-list/service.volumes/single/10-user-delete
+field: services.app.volumes
+class: unique-list
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins

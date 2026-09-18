@@ -1,0 +1,5 @@
+id: ordered-list/build.platforms/single/04-both-add-same
+field: services.app.build.platforms
+class: ordered-list
+scenario: 04-both-add-same
+description: user changed the logical item relative to oldbase, so user intent wins

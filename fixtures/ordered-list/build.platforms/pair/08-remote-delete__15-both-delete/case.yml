@@ -1,0 +1,5 @@
+id: ordered-list/build.platforms/pair/08-remote-delete__15-both-delete
+field: services.app.build.platforms
+class: ordered-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 15-both-delete

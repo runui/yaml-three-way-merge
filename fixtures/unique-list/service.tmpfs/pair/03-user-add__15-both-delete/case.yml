@@ -1,0 +1,5 @@
+id: unique-list/service.tmpfs/pair/03-user-add__15-both-delete
+field: services.app.tmpfs
+class: unique-list
+scenario: pair-cross-product
+description: 03-user-add combined with 15-both-delete

@@ -1,0 +1,5 @@
+id: unique-list/network.ipam.config/pair/11-both-modify-same__08-remote-delete
+field: networks.default.ipam.config
+class: unique-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 08-remote-delete

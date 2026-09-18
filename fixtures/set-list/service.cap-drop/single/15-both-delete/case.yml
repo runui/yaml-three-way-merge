@@ -1,0 +1,5 @@
+id: set-list/service.cap-drop/single/15-both-delete
+field: services.app.cap_drop
+class: set-list
+scenario: 15-both-delete
+description: user changed the logical item relative to oldbase, so user intent wins

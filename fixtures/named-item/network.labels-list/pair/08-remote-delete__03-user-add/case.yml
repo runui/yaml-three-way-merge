@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/pair/08-remote-delete__03-user-add
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 08-remote-delete combined with 03-user-add

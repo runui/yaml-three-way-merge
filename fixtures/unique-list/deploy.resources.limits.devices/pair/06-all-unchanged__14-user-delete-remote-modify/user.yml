@@ -1,0 +1,12 @@
+services: !reset {}
+---
+services:
+  app:
+    deploy:
+      resources:
+        limits:
+          devices:
+            - capabilities:
+                - gpu
+              driver: base-a
+    image: busybox:latest

@@ -1,0 +1,5 @@
+id: ordered-list/include.env-file/pair/08-remote-delete__03-user-add
+field: include[].env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 03-user-add

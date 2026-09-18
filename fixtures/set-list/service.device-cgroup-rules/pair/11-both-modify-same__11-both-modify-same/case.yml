@@ -1,0 +1,5 @@
+id: set-list/service.device-cgroup-rules/pair/11-both-modify-same__11-both-modify-same
+field: services.app.device_cgroup_rules
+class: set-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 11-both-modify-same

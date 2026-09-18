@@ -1,0 +1,10 @@
+services: !reset {}
+---
+include:
+  - env_file:
+      - user.env-b
+    path:
+      - compose.yml
+services:
+  app:
+    image: busybox:latest

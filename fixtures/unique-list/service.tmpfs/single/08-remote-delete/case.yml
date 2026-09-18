@@ -1,0 +1,5 @@
+id: unique-list/service.tmpfs/single/08-remote-delete
+field: services.app.tmpfs
+class: unique-list
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

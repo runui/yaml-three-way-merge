@@ -1,0 +1,5 @@
+id: named-item/build.additional-contexts-list/single/05-both-add-different-user-wins
+field: services.app.build.additional_contexts
+class: named-item
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins

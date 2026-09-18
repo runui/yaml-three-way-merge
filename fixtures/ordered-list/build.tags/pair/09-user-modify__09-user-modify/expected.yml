@@ -1,0 +1,7 @@
+services:
+    app:
+        build:
+            tags:
+                - example:user-a
+                - example:user-b
+        image: busybox:latest

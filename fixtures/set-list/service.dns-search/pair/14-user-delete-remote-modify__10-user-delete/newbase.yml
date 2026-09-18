@@ -1,0 +1,6 @@
+services:
+    app:
+        dns_search:
+            - remote.test-a
+            - base.test-b
+        image: busybox:latest

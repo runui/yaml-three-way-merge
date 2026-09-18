@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/01-all-absent__11-both-modify-same
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 01-all-absent combined with 11-both-modify-same

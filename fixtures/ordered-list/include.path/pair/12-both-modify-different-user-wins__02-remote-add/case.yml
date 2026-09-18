@@ -1,0 +1,5 @@
+id: ordered-list/include.path/pair/12-both-modify-different-user-wins__02-remote-add
+field: include[].path
+class: ordered-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 02-remote-add

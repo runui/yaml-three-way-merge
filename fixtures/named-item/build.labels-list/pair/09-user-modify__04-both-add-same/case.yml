@@ -1,0 +1,5 @@
+id: named-item/build.labels-list/pair/09-user-modify__04-both-add-same
+field: services.app.build.labels
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 04-both-add-same

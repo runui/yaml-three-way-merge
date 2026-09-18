@@ -1,0 +1,5 @@
+id: ordered-list/deploy.placement.preferences/pair/05-both-add-different-user-wins__12-both-modify-different-user-wins
+field: services.app.deploy.placement.preferences
+class: ordered-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 12-both-modify-different-user-wins

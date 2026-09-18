@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-write-bps/pair/07-remote-modify__08-remote-delete
+field: services.app.blkio_config.device_write_bps
+class: unique-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 08-remote-delete

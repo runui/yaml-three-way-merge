@@ -1,0 +1,5 @@
+id: ordered-list/build.tags/pair/10-user-delete__10-user-delete
+field: services.app.build.tags
+class: ordered-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 10-user-delete

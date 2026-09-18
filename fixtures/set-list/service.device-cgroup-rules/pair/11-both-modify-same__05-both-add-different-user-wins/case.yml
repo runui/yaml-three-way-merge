@@ -1,0 +1,5 @@
+id: set-list/service.device-cgroup-rules/pair/11-both-modify-same__05-both-add-different-user-wins
+field: services.app.device_cgroup_rules
+class: set-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 05-both-add-different-user-wins

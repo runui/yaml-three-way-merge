@@ -1,0 +1,5 @@
+id: set-list/service.dns/pair/08-remote-delete__05-both-add-different-user-wins
+field: services.app.dns
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 05-both-add-different-user-wins

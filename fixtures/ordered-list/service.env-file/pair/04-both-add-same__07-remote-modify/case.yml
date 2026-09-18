@@ -1,0 +1,5 @@
+id: ordered-list/service.env-file/pair/04-both-add-same__07-remote-modify
+field: services.app.env_file
+class: ordered-list
+scenario: pair-cross-product
+description: 04-both-add-same combined with 07-remote-modify

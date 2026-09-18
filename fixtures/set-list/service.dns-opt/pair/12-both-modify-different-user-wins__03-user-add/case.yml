@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/12-both-modify-different-user-wins__03-user-add
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 03-user-add

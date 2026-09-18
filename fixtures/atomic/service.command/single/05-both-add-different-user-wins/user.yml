@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    command:
+      - user-command-a
+    image: busybox:latest

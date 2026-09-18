@@ -1,0 +1,5 @@
+id: named-item/service.depends-on/single/12-both-modify-different-user-wins
+field: services.app.depends_on
+class: named-item
+scenario: 12-both-modify-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins

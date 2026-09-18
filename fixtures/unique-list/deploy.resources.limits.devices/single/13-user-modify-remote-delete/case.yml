@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.limits.devices/single/13-user-modify-remote-delete
+field: services.app.deploy.resources.limits.devices
+class: unique-list
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins

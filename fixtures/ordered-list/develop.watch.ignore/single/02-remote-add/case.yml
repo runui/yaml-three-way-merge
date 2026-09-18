@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch.ignore/single/02-remote-add
+field: services.app.develop.watch[].ignore
+class: ordered-list
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase

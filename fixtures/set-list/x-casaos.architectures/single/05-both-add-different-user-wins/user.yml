@@ -1,0 +1,8 @@
+services: !reset {}
+---
+services:
+  app:
+    image: busybox:latest
+x-casaos:
+  architectures:
+    - arm64-a

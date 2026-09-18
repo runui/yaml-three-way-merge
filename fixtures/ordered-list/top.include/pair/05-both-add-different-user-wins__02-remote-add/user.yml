@@ -1,0 +1,7 @@
+services: !reset {}
+---
+include:
+  - ./user.yml
+services:
+  app:
+    image: busybox:latest

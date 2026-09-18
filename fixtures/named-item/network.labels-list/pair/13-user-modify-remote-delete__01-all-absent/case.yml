@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/pair/13-user-modify-remote-delete__01-all-absent
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 01-all-absent

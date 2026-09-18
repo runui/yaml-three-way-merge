@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-to/pair/06-all-unchanged__12-both-modify-different-user-wins
+field: services.app.build.cache_to
+class: ordered-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 12-both-modify-different-user-wins

@@ -1,0 +1,5 @@
+id: set-list/service.group-add/pair/12-both-modify-different-user-wins__01-all-absent
+field: services.app.group_add
+class: set-list
+scenario: pair-cross-product
+description: 12-both-modify-different-user-wins combined with 01-all-absent

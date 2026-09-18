@@ -1,0 +1,5 @@
+id: set-list/service.security-opt/pair/11-both-modify-same__07-remote-modify
+field: services.app.security_opt
+class: set-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 07-remote-modify

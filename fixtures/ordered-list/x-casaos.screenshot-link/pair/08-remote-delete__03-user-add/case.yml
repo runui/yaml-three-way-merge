@@ -1,0 +1,5 @@
+id: ordered-list/x-casaos.screenshot-link/pair/08-remote-delete__03-user-add
+field: x-casaos.screenshot_link
+class: ordered-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 03-user-add

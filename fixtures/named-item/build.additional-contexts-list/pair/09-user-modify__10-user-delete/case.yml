@@ -1,0 +1,5 @@
+id: named-item/build.additional-contexts-list/pair/09-user-modify__10-user-delete
+field: services.app.build.additional_contexts
+class: named-item
+scenario: pair-cross-product
+description: 09-user-modify combined with 10-user-delete

@@ -1,0 +1,5 @@
+id: set-list/service.profiles/pair/02-remote-add__04-both-add-same
+field: services.app.profiles
+class: set-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 04-both-add-same

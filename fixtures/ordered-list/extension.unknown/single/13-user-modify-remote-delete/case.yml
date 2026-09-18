@@ -1,0 +1,5 @@
+id: ordered-list/extension.unknown/single/13-user-modify-remote-delete
+field: x-validation.items
+class: ordered-list
+scenario: 13-user-modify-remote-delete
+description: user changed the logical item relative to oldbase, so user intent wins

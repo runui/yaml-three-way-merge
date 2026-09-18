@@ -1,0 +1,5 @@
+id: named-item/service.extra-hosts-list/pair/07-remote-modify__06-all-unchanged
+field: services.app.extra_hosts
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 06-all-unchanged

@@ -1,0 +1,5 @@
+id: named-item/service.annotations-list/single/08-remote-delete
+field: services.app.annotations
+class: named-item
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+id: unique-list/build.secrets/single/11-both-modify-same
+field: services.app.build.secrets
+class: unique-list
+scenario: 11-both-modify-same
+description: user changed the logical item relative to oldbase, so user intent wins

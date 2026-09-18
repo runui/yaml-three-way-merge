@@ -1,0 +1,5 @@
+id: set-list/service.security-opt/pair/01-all-absent__07-remote-modify
+field: services.app.security_opt
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 07-remote-modify

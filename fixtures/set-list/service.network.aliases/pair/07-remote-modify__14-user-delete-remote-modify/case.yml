@@ -1,0 +1,5 @@
+id: set-list/service.network.aliases/pair/07-remote-modify__14-user-delete-remote-modify
+field: services.app.networks.default.aliases
+class: set-list
+scenario: pair-cross-product
+description: 07-remote-modify combined with 14-user-delete-remote-modify

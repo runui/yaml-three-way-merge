@@ -1,0 +1,5 @@
+id: ordered-list/x-casaos.screenshot-link/pair/14-user-delete-remote-modify__14-user-delete-remote-modify
+field: x-casaos.screenshot_link
+class: ordered-list
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 14-user-delete-remote-modify

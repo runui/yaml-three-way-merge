@@ -1,0 +1,5 @@
+id: unique-list/service.tmpfs/single/02-remote-add
+field: services.app.tmpfs
+class: unique-list
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase

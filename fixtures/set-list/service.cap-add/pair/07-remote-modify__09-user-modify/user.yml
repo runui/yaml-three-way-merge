@@ -1,0 +1,8 @@
+services: !reset {}
+---
+services:
+  app:
+    cap_add:
+      - NET_ADMIN-a
+      - SYS_ADMIN-b
+    image: busybox:latest

@@ -1,0 +1,5 @@
+id: ordered-list/include.path/pair/15-both-delete__02-remote-add
+field: include[].path
+class: ordered-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 02-remote-add

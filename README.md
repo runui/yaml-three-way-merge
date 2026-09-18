@@ -1,111 +1,111 @@
 # YAML Three-Way Merge Validation
 
-这个项目独立验证 ZimaOS App Management 当前的 Compose 三方合并实现。它不复制生产代码，而是通过本地 `replace` 直接调用当前工作区中的：
-
-- `override.Build`
-- `compose.MergeYAML`
-- `override.RebaseRepositoryUpdate`
-- `structured-merge-diff/v7` 的 `Compare`、`RemoveItems`、`ExtractItems` 和 `Merge`
-
-## 合并原则
-
-输入有三个状态：
+该项目以用户意图为唯一基准，验证 ZimaOS App Management 的 YAML 三方合并：
 
 ```text
-B = base_old.yaml
-U = 用户基于 B 得到的完整有效配置
-N = base_new.yaml
+oldbase.yml  当前应用商店版本
+user.yml     用户相对于 oldbase 的真实覆盖层
+newbase.yml  应用商店待升级版本
+expected.yml 用户期望的最终有效配置
 ```
 
-对于具有稳定身份的逻辑配置项，目标规则是：
+当前阶段只聚焦数组类字段，包括 YAML 原生 sequence，以及 Compose 中支持 sequence 短语法的字段。
+
+## 用户意图规则
+
+对于每一个逻辑数组元素：
 
 ```text
-如果 U 相对 B 有修改、新增或删除：使用 U
-如果 U 与 B 相同：跟随 N
+user 与 oldbase 相同：跟随 newbase
+user 相对 oldbase 修改：使用 user
+user 相对 oldbase 删除：保持删除
+user 相对 oldbase 新增：保留用户新增
+newbase 新增且用户没有操作：继承远程新增
 ```
 
-用户优先作用于最小可识别单元：
+规则作用于逻辑元素，不是整个数组。测试数据中的期望结果独立生成，不调用生产合并算法。
 
-- scalar：字段路径
-- map：map key
-- 有稳定身份的数组：数组元素 identity
-- 无法安全识别 identity 的数组：整体回退，并报告风险
+## 数据布局
 
-## 验证链路
-
-每个案例执行真实生产链路：
+所有测试数据均以文件夹和 YAML 文件保存：
 
 ```text
-old override = Build(B, U)
-reconstructed U = MergeYAML(B, old override)
-new override = RebaseRepositoryUpdate(B, N, old override)
-actual = MergeYAML(N, new override)
+fixtures/
+  manifest.yml
+  <merge-class>/
+    <field>/
+      single/
+        <state>/
+          case.yml
+          oldbase.yml
+          user.yml
+          newbase.yml
+          expected.yml
+      pair/
+        <state-a>__<state-b>/
+          case.yml
+          oldbase.yml
+          user.yml
+          newbase.yml
+          expected.yml
 ```
 
-随后检查：
+`user.yml` 是真实覆盖层，删除数组时使用 `!reset []`；删除后写入用户值时使用两个 YAML document 表达 reset 和新值。
 
-- `Build + MergeYAML` 是否还原用户完整配置
-- 当前三方合并结果是否符合目标用户优先语义
-- 生成的新 override 是否幂等
-- 已知差异是否仍被稳定归类
+## 穷举范围
 
-## 运行
+- 70 个数组、嵌套数组或数组短语法字段。
+- 每个字段包含 15 个单逻辑项三方状态。
+- 除整体原子字段外，每个字段包含两个逻辑项的 `15 × 15 = 225` 完整组合。
+- `ports` 额外包含用户提供的 7 个固定验收场景。
+- 当前共 16,132 个 fixture case，每个 case 有 5 个 YAML 文件。
 
-项目位于嵌套 Go module 中，必须关闭父目录的 `go.work`：
+字段和数量记录在 `fixtures/manifest.yml`。完整性元测试会检查：
+
+- 字段清单没有重复 ID 或路径；
+- 每个字段恰好有 15 个单项状态；
+- 每个非原子字段恰好有 225 个双项组合；
+- 磁盘 case 数与 manifest 一致；
+- 每个 case 的 5 个 YAML 文件都存在。
+
+“穷举”指穷举用户意图的行为状态组合，不可能穷举无限的字符串、端口号或数组长度。
+
+## 生成数据
 
 ```bash
-GOWORK=off go test -count=1 ./...
-GOWORK=off go run ./cmd/validate
+GOWORK=off go run ./cmd/generate-fixtures -output fixtures
 ```
 
-输出 JSON：
+生成器会重建整个 `fixtures` 目录。运行时测试只读取落盘 YAML，不动态隐藏测试数据。
+
+## 验证
+
+检查 fixture 完整性：
 
 ```bash
-GOWORK=off go run ./cmd/validate -json
+GOWORK=off go test -run 'TestFixtureManifestIsComplete|TestArrayFieldRegistryIsAuditable' ./internal/validation
 ```
 
-只要存在不符合目标语义的案例就返回非零状态：
+严格运行所有用户期望测试：
 
 ```bash
-GOWORK=off go run ./cmd/validate -strict
+GOWORK=off go test -run TestFixtureCorpusAgainstCurrentImplementation ./internal/validation
 ```
 
-矩阵本身是逻辑基线测试集合，不是性能 benchmark。运行指定基线：
+当前实现不能通过全部用户期望是正常现象；失败 case 就是后续生产合并算法的修复基准。
+
+只输出汇总：
 
 ```bash
-GOWORK=off go test -count=1 -run TestMergeBaselineMatrix ./internal/validation
+GOWORK=off go run ./cmd/validate -fixtures fixtures -json
 ```
 
-每个逻辑案例下分别执行 `current` 和 `structured-merge-diff` 两个子测试。当前实现允许明确登记的 `KNOWN_GAP` 保持通过；SMD 试验实现默认必须符合目标语义，只有无法安全定义合并规则的字段才单独登记差异。
+当前基线：
 
-## SMD 试验实现
-
-SMD adapter 先将 Compose 的 map/list、短/长语法标准化，再使用 schema-aware field paths 计算 `base_old -> user` 的增删改，将这些用户变化应用到 `base_new`。
-
-端口会注入仅存在于合并过程中的 `__merge_id`。它先按完整 Compose identity 匹配，再仅在 `host_ip + target + protocol` 在相关状态中唯一时关联 published port 的变化；遇到多绑定歧义会返回错误，不会猜测。该内部字段在输出前删除。
-
-## 当前覆盖
-
-第一批案例覆盖：
-
-- 具有稳定身份配置项的完整 15 状态矩阵
-- scalar 和 service map 的标准用户优先规则
-- `environment`
-- `ports`
-- `volumes`
-- `devices`
-- `configs`
-- `labels` 的 map/list 表示
-- `depends_on` 的短语法
-- `env_file`
-- `cap_add`
-- `command`
-- 未知 `x-*` 数组
-
-其中包含当前已知的关键差异：
-
-- 端口 published 值变化后，当前 identity 不能关联旧项，用户删除可能被远程修改复活
-- 用户和远程同时修改同一 container port 时，当前实现可能同时保留两项
-- `devices`、`depends_on`、`env_file`、集合数组和未知数组在三方合并时按整个数组回退，可能丢失远程独立新增项
-
-后续应继续扩展 `Cases()`，但不要在本项目中复制或修补生产合并算法。
+```text
+total:          16132
+matched:        12243
+mismatched:      3889
+errors:             0
+non-idempotent:     0
+```

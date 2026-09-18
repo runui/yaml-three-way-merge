@@ -1,0 +1,5 @@
+id: named-item/service.annotations-list/pair/15-both-delete__03-user-add
+field: services.app.annotations
+class: named-item
+scenario: pair-cross-product
+description: 15-both-delete combined with 03-user-add

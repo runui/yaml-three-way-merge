@@ -1,0 +1,5 @@
+id: ordered-list/develop.watch.ignore/single/01-all-absent
+field: services.app.develop.watch[].ignore
+class: ordered-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

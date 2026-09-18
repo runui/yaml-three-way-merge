@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/07-remote-modify__15-both-delete
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 07-remote-modify combined with 15-both-delete

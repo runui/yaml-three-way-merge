@@ -1,0 +1,5 @@
+id: named-item/service.sysctls-list/pair/05-both-add-different-user-wins__08-remote-delete
+field: services.app.sysctls
+class: named-item
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 08-remote-delete

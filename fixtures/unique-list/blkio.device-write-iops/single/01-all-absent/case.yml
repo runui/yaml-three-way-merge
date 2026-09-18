@@ -1,0 +1,5 @@
+id: unique-list/blkio.device-write-iops/single/01-all-absent
+field: services.app.blkio_config.device_write_iops
+class: unique-list
+scenario: 01-all-absent
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.limits.devices/pair/10-user-delete__05-both-add-different-user-wins
+field: services.app.deploy.resources.limits.devices
+class: unique-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 05-both-add-different-user-wins

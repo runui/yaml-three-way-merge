@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/pair/06-all-unchanged__12-both-modify-different-user-wins
+field: networks.default.labels
+class: named-item
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 12-both-modify-different-user-wins

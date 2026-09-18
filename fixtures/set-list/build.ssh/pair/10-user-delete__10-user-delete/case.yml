@@ -1,0 +1,5 @@
+id: set-list/build.ssh/pair/10-user-delete__10-user-delete
+field: services.app.build.ssh
+class: set-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 10-user-delete

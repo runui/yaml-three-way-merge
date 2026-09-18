@@ -1,0 +1,8 @@
+services: !reset {}
+---
+services:
+  app:
+    dns_search:
+      - user.test-a
+      - base.test-b
+    image: busybox:latest

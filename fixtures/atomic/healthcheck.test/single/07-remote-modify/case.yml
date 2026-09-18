@@ -1,0 +1,5 @@
+id: atomic/healthcheck.test/single/07-remote-modify
+field: services.app.healthcheck.test
+class: atomic
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase

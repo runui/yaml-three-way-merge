@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.limits.generic-resources/pair/10-user-delete__12-both-modify-different-user-wins
+field: services.app.deploy.resources.limits.generic_resources
+class: unique-list
+scenario: pair-cross-product
+description: 10-user-delete combined with 12-both-modify-different-user-wins

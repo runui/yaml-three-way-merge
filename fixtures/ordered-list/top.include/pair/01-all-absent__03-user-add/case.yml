@@ -1,0 +1,5 @@
+id: ordered-list/top.include/pair/01-all-absent__03-user-add
+field: include
+class: ordered-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 03-user-add

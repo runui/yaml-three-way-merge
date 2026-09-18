@@ -1,0 +1,6 @@
+services:
+    app:
+        cap_add:
+            - SYS_ADMIN-a
+            - SYS_ADMIN-b
+        image: busybox:latest

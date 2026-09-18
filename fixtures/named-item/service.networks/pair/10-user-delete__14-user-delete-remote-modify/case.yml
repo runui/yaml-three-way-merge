@@ -1,0 +1,5 @@
+id: named-item/service.networks/pair/10-user-delete__14-user-delete-remote-modify
+field: services.app.networks
+class: named-item
+scenario: pair-cross-product
+description: 10-user-delete combined with 14-user-delete-remote-modify

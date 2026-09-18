@@ -1,0 +1,5 @@
+id: ordered-list/build.cache-from/pair/01-all-absent__06-all-unchanged
+field: services.app.build.cache_from
+class: ordered-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 06-all-unchanged

@@ -1,0 +1,5 @@
+id: ordered-list/top.include/pair/02-remote-add__08-remote-delete
+field: include
+class: ordered-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 08-remote-delete

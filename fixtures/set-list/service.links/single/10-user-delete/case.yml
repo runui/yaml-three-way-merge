@@ -1,0 +1,5 @@
+id: set-list/service.links/single/10-user-delete
+field: services.app.links
+class: set-list
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins

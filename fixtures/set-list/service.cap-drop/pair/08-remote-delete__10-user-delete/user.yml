@@ -1,0 +1,7 @@
+services: !reset {}
+---
+services:
+  app:
+    cap_drop:
+      - NET_RAW-a
+    image: busybox:latest

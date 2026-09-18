@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.limits.devices/pair/01-all-absent__07-remote-modify
+field: services.app.deploy.resources.limits.devices
+class: unique-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 07-remote-modify

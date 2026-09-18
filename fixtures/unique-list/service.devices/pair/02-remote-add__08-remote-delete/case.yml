@@ -1,0 +1,5 @@
+id: unique-list/service.devices/pair/02-remote-add__08-remote-delete
+field: services.app.devices
+class: unique-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 08-remote-delete

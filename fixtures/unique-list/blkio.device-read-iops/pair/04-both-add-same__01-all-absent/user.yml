@@ -1,0 +1,9 @@
+services: !reset {}
+---
+services:
+  app:
+    blkio_config:
+      device_read_iops:
+        - path: /dev/a
+          rate: "100"
+    image: busybox:latest

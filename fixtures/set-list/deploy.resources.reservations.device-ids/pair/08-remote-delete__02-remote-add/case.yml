@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device-ids/pair/08-remote-delete__02-remote-add
+field: services.app.deploy.resources.reservations.devices[].device_ids
+class: set-list
+scenario: pair-cross-product
+description: 08-remote-delete combined with 02-remote-add

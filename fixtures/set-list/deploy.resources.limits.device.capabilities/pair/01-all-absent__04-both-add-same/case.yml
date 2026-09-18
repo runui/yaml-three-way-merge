@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.limits.device.capabilities/pair/01-all-absent__04-both-add-same
+field: services.app.deploy.resources.limits.devices[].capabilities
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 04-both-add-same

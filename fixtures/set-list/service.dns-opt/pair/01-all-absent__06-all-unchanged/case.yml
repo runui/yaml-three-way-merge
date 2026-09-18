@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/01-all-absent__06-all-unchanged
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 06-all-unchanged

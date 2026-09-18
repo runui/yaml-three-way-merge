@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/single/06-all-unchanged
+field: x-casaos.architectures
+class: set-list
+scenario: 06-all-unchanged
+description: user is untouched, so the logical item follows newbase

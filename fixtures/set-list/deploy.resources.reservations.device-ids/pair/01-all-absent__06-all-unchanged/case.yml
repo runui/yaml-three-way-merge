@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.reservations.device-ids/pair/01-all-absent__06-all-unchanged
+field: services.app.deploy.resources.reservations.devices[].device_ids
+class: set-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 06-all-unchanged

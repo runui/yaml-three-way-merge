@@ -1,0 +1,5 @@
+id: set-list/service.dns-opt/pair/14-user-delete-remote-modify__03-user-add
+field: services.app.dns_opt
+class: set-list
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 03-user-add

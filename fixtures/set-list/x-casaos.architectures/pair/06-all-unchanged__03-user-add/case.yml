@@ -1,0 +1,5 @@
+id: set-list/x-casaos.architectures/pair/06-all-unchanged__03-user-add
+field: x-casaos.architectures
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 03-user-add

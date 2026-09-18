@@ -1,0 +1,5 @@
+id: named-item/network.labels-list/single/08-remote-delete
+field: networks.default.labels
+class: named-item
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase

@@ -1,0 +1,5 @@
+services:
+    app:
+        device_cgroup_rules:
+            - c 1:7 rwm-a
+        image: busybox:latest

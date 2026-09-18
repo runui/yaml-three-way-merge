@@ -1,0 +1,5 @@
+id: set-list/deploy.resources.limits.device.capabilities/single/02-remote-add
+field: services.app.deploy.resources.limits.devices[].capabilities
+class: set-list
+scenario: 02-remote-add
+description: user is untouched, so the logical item follows newbase

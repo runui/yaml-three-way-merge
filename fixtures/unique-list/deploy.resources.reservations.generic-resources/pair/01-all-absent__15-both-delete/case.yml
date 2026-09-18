@@ -1,0 +1,5 @@
+id: unique-list/deploy.resources.reservations.generic-resources/pair/01-all-absent__15-both-delete
+field: services.app.deploy.resources.reservations.generic_resources
+class: unique-list
+scenario: pair-cross-product
+description: 01-all-absent combined with 15-both-delete

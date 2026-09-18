@@ -1,0 +1,5 @@
+id: set-list/service.external-links/pair/06-all-unchanged__11-both-modify-same
+field: services.app.external_links
+class: set-list
+scenario: pair-cross-product
+description: 06-all-unchanged combined with 11-both-modify-same

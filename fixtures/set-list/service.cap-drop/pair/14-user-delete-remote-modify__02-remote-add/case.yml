@@ -1,0 +1,5 @@
+id: set-list/service.cap-drop/pair/14-user-delete-remote-modify__02-remote-add
+field: services.app.cap_drop
+class: set-list
+scenario: pair-cross-product
+description: 14-user-delete-remote-modify combined with 02-remote-add

@@ -1,0 +1,5 @@
+id: set-list/service.expose/pair/11-both-modify-same__09-user-modify
+field: services.app.expose
+class: set-list
+scenario: pair-cross-product
+description: 11-both-modify-same combined with 09-user-modify
