@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/smdmerge"
+	"github.com/runui/yaml-three-way-merge/internal/smdmerge"
 	"sigs.k8s.io/structured-merge-diff/v7/fieldpath"
 	"sigs.k8s.io/structured-merge-diff/v7/typed"
 )

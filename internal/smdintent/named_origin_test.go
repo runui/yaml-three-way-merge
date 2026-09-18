@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/smdmerge"
+	"github.com/runui/yaml-three-way-merge/internal/smdmerge"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

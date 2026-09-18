@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/corpus"
+	"github.com/runui/yaml-three-way-merge/internal/corpus"
 )
 
 func main() {

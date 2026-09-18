@@ -3,9 +3,9 @@ package validation
 import (
 	"fmt"
 
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/internal/compose"
-	packoverride "github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/override"
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/corpus"
+	"github.com/runui/yaml-three-way-merge/internal/compose"
+	"github.com/runui/yaml-three-way-merge/internal/corpus"
+	"github.com/runui/yaml-three-way-merge/internal/rebase"
 )
 
 type Result struct {
@@ -19,7 +19,7 @@ type Result struct {
 
 func Run(item corpus.Case) Result {
 	result := Result{Case: item}
-	overrideYAML, err := packoverride.RebaseRepositoryUpdate(item.BaseOld, item.BaseNew, item.User, packoverride.RepositoryRebaseOptions{})
+	overrideYAML, err := rebase.RebaseRepositoryUpdate(item.BaseOld, item.BaseNew, item.User, rebase.RepositoryRebaseOptions{})
 	if err != nil {
 		result.Error = fmt.Errorf("rebase: %w", err)
 		return result
@@ -36,7 +36,7 @@ func Run(item corpus.Case) Result {
 		result.Error = fmt.Errorf("compare expected: %w", err)
 		return result
 	}
-	secondOverride, err := packoverride.RebaseRepositoryUpdate(item.BaseNew, item.BaseNew, overrideYAML, packoverride.RepositoryRebaseOptions{})
+	secondOverride, err := rebase.RebaseRepositoryUpdate(item.BaseNew, item.BaseNew, overrideYAML, rebase.RepositoryRebaseOptions{})
 	if err != nil {
 		result.Error = fmt.Errorf("rebase idempotence: %w", err)
 		return result

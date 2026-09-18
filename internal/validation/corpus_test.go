@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/internal/compose"
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/corpus"
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/smdintent"
+	"github.com/runui/yaml-three-way-merge/internal/compose"
+	"github.com/runui/yaml-three-way-merge/internal/corpus"
+	"github.com/runui/yaml-three-way-merge/internal/smdintent"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

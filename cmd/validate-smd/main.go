@@ -8,9 +8,9 @@ import (
 	"os"
 	"sort"
 
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/corpus"
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/smdmerge"
-	"github.com/IceWhaleTech/ZimaOS-AppManagement/service/compose_app/pack/validationharness/internal/validation"
+	"github.com/runui/yaml-three-way-merge/internal/corpus"
+	"github.com/runui/yaml-three-way-merge/internal/smdmerge"
+	"github.com/runui/yaml-three-way-merge/internal/validation"
 )
 
 type summary struct {
