@@ -1,6 +1,0 @@
-id: atomic/deploy.resources.limits.generic-resource.kind/single/03-user-add
-field: services.app.deploy.resources.limits.generic_resources[].discrete_resource_spec.kind
-class: atomic
-scenario: 03-user-add
-description: user changed the logical item relative to oldbase, so user intent wins
-pair_semantics: none

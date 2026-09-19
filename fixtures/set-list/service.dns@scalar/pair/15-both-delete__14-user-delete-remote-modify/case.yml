@@ -1,0 +1,6 @@
+id: set-list/service.dns@scalar/pair/15-both-delete__14-user-delete-remote-modify
+field: services.app.dns
+class: set-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 14-user-delete-remote-modify
+pair_semantics: logical-items

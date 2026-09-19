@@ -1,0 +1,7 @@
+services:
+    app:
+        dns_search: !reset []
+---
+services:
+    app:
+        dns_search: base.test-b

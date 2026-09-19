@@ -1,0 +1,7 @@
+services:
+    app:
+        dns: !reset []
+---
+services:
+    app:
+        dns: 8.8.8.8-b

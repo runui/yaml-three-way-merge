@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/single/05-both-add-different-user-wins
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: 05-both-add-different-user-wins
-description: user changed the logical item relative to oldbase, so user intent wins
-pair_semantics: logical-items

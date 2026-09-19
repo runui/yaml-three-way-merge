@@ -1,0 +1,6 @@
+id: set-list/service.dns@scalar/pair/13-user-modify-remote-delete__10-user-delete
+field: services.app.dns
+class: set-list
+scenario: pair-cross-product
+description: 13-user-modify-remote-delete combined with 10-user-delete
+pair_semantics: logical-items

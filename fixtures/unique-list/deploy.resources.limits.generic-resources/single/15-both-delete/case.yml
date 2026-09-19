@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.generic-resources/single/15-both-delete
-field: services.app.deploy.resources.limits.generic_resources
-class: unique-list
-scenario: 15-both-delete
-description: user changed the logical item relative to oldbase, so user intent wins
-pair_semantics: logical-items

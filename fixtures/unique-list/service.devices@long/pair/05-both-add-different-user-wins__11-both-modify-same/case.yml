@@ -1,6 +1,0 @@
-id: unique-list/service.devices@long/pair/05-both-add-different-user-wins__11-both-modify-same
-field: services.app.devices
-class: unique-list
-scenario: pair-cross-product
-description: 05-both-add-different-user-wins combined with 11-both-modify-same
-pair_semantics: logical-items

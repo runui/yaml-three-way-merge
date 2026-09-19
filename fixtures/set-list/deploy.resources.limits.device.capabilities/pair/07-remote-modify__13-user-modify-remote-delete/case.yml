@@ -1,6 +1,0 @@
-id: set-list/deploy.resources.limits.device.capabilities/pair/07-remote-modify__13-user-modify-remote-delete
-field: services.app.deploy.resources.limits.devices[].capabilities
-class: set-list
-scenario: pair-cross-product
-description: 07-remote-modify combined with 13-user-modify-remote-delete
-pair_semantics: logical-items

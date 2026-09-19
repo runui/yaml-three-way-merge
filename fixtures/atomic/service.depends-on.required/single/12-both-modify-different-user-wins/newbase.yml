@@ -2,5 +2,6 @@ services:
     app:
         depends_on:
             default:
+                condition: service_started
                 required: true
         image: busybox:latest

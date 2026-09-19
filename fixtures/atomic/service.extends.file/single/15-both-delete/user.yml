@@ -1,3 +1,4 @@
 services:
     app:
-        extends: !reset {}
+        extends:
+            file: !reset []

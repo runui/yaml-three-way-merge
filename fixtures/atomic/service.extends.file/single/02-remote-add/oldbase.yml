@@ -1,3 +1,5 @@
 services:
     app:
+        extends:
+            service: base
         image: busybox:latest

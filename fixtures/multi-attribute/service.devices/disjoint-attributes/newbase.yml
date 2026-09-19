@@ -1,7 +1,0 @@
-services:
-    app:
-        devices:
-            - permissions: r
-              source: /dev/base-a
-              target: /dev/a
-        image: busybox:latest

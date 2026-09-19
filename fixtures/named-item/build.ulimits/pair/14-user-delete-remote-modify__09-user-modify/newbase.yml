@@ -2,6 +2,8 @@ services:
     app:
         build:
             ulimits:
-                nofile: nofile-a-remote
-                nproc: nofile-b-base
+                nofile: 300
+                nproc:
+                    hard: 200
+                    soft: 100
         image: busybox:latest

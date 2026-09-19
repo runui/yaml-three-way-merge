@@ -2,4 +2,4 @@ services:
     app:
         image: busybox:latest
 x-casaos:
-    id: base-value
+    id: com.example.base

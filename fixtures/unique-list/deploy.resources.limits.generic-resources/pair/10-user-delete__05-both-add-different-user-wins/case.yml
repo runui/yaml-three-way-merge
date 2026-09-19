@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.generic-resources/pair/10-user-delete__05-both-add-different-user-wins
-field: services.app.deploy.resources.limits.generic_resources
-class: unique-list
-scenario: pair-cross-product
-description: 10-user-delete combined with 05-both-add-different-user-wins
-pair_semantics: logical-items

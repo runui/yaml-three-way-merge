@@ -4,7 +4,7 @@ services:
 ---
 services:
     app:
-        entrypoint: CMD user-a
+        entrypoint: echo user-a
 ---
 services:
     sidecar:
@@ -12,4 +12,4 @@ services:
 ---
 services:
     sidecar:
-        entrypoint: CMD user-a
+        entrypoint: echo user-a

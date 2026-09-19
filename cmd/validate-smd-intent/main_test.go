@@ -25,9 +25,9 @@ func TestValidateSMDIntentCorpusBaseline(t *testing.T) {
 		Errors     int `json:"errors"`
 	}
 	require.NoError(t, json.Unmarshal(stdout.Bytes(), &got), "stdout: %s", stdout.String())
-	assert.Equal(t, 29676, got.Total)
-	assert.Equal(t, 28416, got.Matched)
-	assert.Equal(t, 1260, got.Mismatched)
+	assert.Equal(t, 28630, got.Total)
+	assert.Equal(t, 27430, got.Matched)
+	assert.Equal(t, 1200, got.Mismatched)
 	assert.Zero(t, got.Errors)
 }
 

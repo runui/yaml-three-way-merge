@@ -1,6 +1,0 @@
-id: multi/atomic/service.extends.file/both-modify-user-wins
-field: services.app.extends.file
-class: multi
-scenario: both-modify-user-wins
-description: both sides change app and the sibling resource; user intent wins
-pair_semantics: logical-items

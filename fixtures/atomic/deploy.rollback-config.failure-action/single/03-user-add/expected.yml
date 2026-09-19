@@ -2,5 +2,5 @@ services:
     app:
         deploy:
             rollback_config:
-                failure_action: rollback
+                failure_action: pause
         image: busybox:latest

@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/single/13-user-modify-remote-delete
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: 13-user-modify-remote-delete
-description: user changed the logical item relative to oldbase, so user intent wins
-pair_semantics: logical-items

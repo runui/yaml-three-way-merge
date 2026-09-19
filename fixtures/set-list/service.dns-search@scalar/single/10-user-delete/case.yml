@@ -1,0 +1,6 @@
+id: set-list/service.dns-search@scalar/single/10-user-delete
+field: services.app.dns_search
+class: set-list
+scenario: 10-user-delete
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

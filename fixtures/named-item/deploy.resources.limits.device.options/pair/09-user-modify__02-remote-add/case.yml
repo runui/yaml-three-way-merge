@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/pair/09-user-modify__02-remote-add
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: pair-cross-product
-description: 09-user-modify combined with 02-remote-add
-pair_semantics: logical-items

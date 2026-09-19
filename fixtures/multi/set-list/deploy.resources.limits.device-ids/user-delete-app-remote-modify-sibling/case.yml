@@ -1,6 +1,0 @@
-id: multi/set-list/deploy.resources.limits.device-ids/user-delete-app-remote-modify-sibling
-field: services.app.deploy.resources.limits.devices
-class: multi
-scenario: user-delete-app-remote-modify-sibling
-description: user removes the field on app, newbase changes the sibling resource
-pair_semantics: logical-items

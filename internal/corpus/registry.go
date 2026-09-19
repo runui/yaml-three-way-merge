@@ -78,8 +78,6 @@ func wrappedArrayField(id, displayPath string, class MergeClass, values [3][3]an
 		field.ResetBoundary = []string{"include"}
 	case "develop.watch.ignore":
 		field.ResetBoundary = []string{"services", "app", "develop", "watch"}
-	case "deploy.resources.limits.device.capabilities", "deploy.resources.limits.device-ids":
-		field.ResetBoundary = []string{"services", "app", "deploy", "resources", "limits", "devices"}
 	case "deploy.resources.reservations.device.capabilities", "deploy.resources.reservations.device-ids":
 		field.ResetBoundary = []string{"services", "app", "deploy", "resources", "reservations", "devices"}
 	}
@@ -106,8 +104,8 @@ func baseArrayFields() []FieldSpec {
 		arrayField("service.profiles", "services.app.profiles", ClassSetList, stringValues("base", "user", "remote")),
 		arrayField("service.cap-add", "services.app.cap_add", ClassSetList, stringValues("NET_ADMIN", "SYS_ADMIN", "CHOWN")),
 		arrayField("service.cap-drop", "services.app.cap_drop", ClassSetList, stringValues("NET_RAW", "SETUID", "SETGID")),
-		arrayField("service.command", "services.app.command", ClassAtomic, commandValues()),
-		arrayField("service.entrypoint", "services.app.entrypoint", ClassAtomic, commandValues()),
+		atomicField("service.command", "services.app.command", commandTriple()),
+		atomicField("service.entrypoint", "services.app.entrypoint", commandTriple()),
 		arrayField("service.environment-list", "services.app.environment", ClassNamedItem, keyValueValues("ENV")),
 		arrayField("service.configs", "services.app.configs", ClassUniqueList, resourceValues("base_config", "user_config", "remote_config", "/config-a", "/config-b", "/config-c")),
 		arrayField("service.secrets", "services.app.secrets", ClassUniqueList, resourceValues("base_secret", "user_secret", "remote_secret", "/secret-a", "/secret-b", "/secret-c")),
@@ -153,12 +151,8 @@ func baseArrayFields() []FieldSpec {
 		arrayField("blkio.device-read-iops", "services.app.blkio_config.device_read_iops", ClassUniqueList, throttleValues("100")),
 		arrayField("blkio.device-write-bps", "services.app.blkio_config.device_write_bps", ClassUniqueList, throttleValues("1mb")),
 		arrayField("blkio.device-write-iops", "services.app.blkio_config.device_write_iops", ClassUniqueList, throttleValues("100")),
-		arrayField("healthcheck.test", "services.app.healthcheck.test", ClassAtomic, commandValues()),
+		atomicField("healthcheck.test", "services.app.healthcheck.test", healthcheckTriple()),
 
-		arrayField("deploy.resources.limits.devices", "services.app.deploy.resources.limits.devices", ClassUniqueList, deviceRequestValues()),
-		wrappedArrayField("deploy.resources.limits.device.capabilities", "services.app.deploy.resources.limits.devices[].capabilities", ClassSetList, stringValues("gpu", "tpu", "npu"), wrapDeviceRequest("limits", "capabilities")),
-		wrappedArrayField("deploy.resources.limits.device-ids", "services.app.deploy.resources.limits.devices[].device_ids", ClassSetList, stringValues("GPU-base", "GPU-user", "GPU-remote"), wrapDeviceRequest("limits", "device_ids")),
-		arrayField("deploy.resources.limits.generic-resources", "services.app.deploy.resources.limits.generic_resources", ClassUniqueList, genericResourceValues()),
 		arrayField("deploy.resources.reservations.devices", "services.app.deploy.resources.reservations.devices", ClassUniqueList, deviceRequestValues()),
 		wrappedArrayField("deploy.resources.reservations.device.capabilities", "services.app.deploy.resources.reservations.devices[].capabilities", ClassSetList, stringValues("gpu", "tpu", "npu"), wrapDeviceRequest("reservations", "capabilities")),
 		wrappedArrayField("deploy.resources.reservations.device-ids", "services.app.deploy.resources.reservations.devices[].device_ids", ClassSetList, stringValues("GPU-base", "GPU-user", "GPU-remote"), wrapDeviceRequest("reservations", "device_ids")),
@@ -257,11 +251,19 @@ func deviceValues() [3][3]any {
 		[3]string{"/dev/base-c:/dev/c", "/dev/user-c:/dev/c", "/dev/remote-c:/dev/c"})
 }
 
-func commandValues() [3][3]any {
-	return [3][3]any{
-		{[]string{"CMD", "base-a"}, []string{"CMD", "user-a"}, []string{"CMD", "remote-a"}},
-		{[]string{"CMD", "base-b"}, []string{"CMD", "user-b"}, []string{"CMD", "remote-b"}},
-		{[]string{"CMD", "base-c"}, []string{"CMD", "user-c"}, []string{"CMD", "remote-c"}},
+func commandTriple() [3]any {
+	return [3]any{
+		[]string{"echo", "base-a"},
+		[]string{"echo", "user-a"},
+		[]string{"echo", "remote-a"},
+	}
+}
+
+func healthcheckTriple() [3]any {
+	return [3]any{
+		[]string{"CMD", "base-a"},
+		[]string{"CMD", "user-a"},
+		[]string{"CMD", "remote-a"},
 	}
 }
 

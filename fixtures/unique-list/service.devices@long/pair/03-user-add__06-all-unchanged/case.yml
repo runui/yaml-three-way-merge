@@ -1,6 +1,0 @@
-id: unique-list/service.devices@long/pair/03-user-add__06-all-unchanged
-field: services.app.devices
-class: unique-list
-scenario: pair-cross-product
-description: 03-user-add combined with 06-all-unchanged
-pair_semantics: logical-items

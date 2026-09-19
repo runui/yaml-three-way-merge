@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/pair/15-both-delete__05-both-add-different-user-wins
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: pair-cross-product
-description: 15-both-delete combined with 05-both-add-different-user-wins
-pair_semantics: logical-items

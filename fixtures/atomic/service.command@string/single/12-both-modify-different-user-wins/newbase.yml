@@ -1,4 +1,4 @@
 services:
     app:
-        command: CMD remote-a
+        command: echo remote-a
         image: busybox:latest

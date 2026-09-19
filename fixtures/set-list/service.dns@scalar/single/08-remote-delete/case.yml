@@ -1,0 +1,6 @@
+id: set-list/service.dns@scalar/single/08-remote-delete
+field: services.app.dns
+class: set-list
+scenario: 08-remote-delete
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

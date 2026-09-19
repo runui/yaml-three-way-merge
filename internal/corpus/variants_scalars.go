@@ -33,6 +33,16 @@ func init() {
 		Render:        renderScalarList,
 		ResetBoundary: []string{"services", "app", "tmpfs"},
 	})
+	registerVariants("service.dns", FieldVariant{
+		Name:          "scalar",
+		Render:        renderScalarList,
+		ResetBoundary: []string{"services", "app", "dns"},
+	})
+	registerVariants("service.dns-search", FieldVariant{
+		Name:          "scalar",
+		Render:        renderScalarList,
+		ResetBoundary: []string{"services", "app", "dns_search"},
+	})
 }
 
 // renderScalarString joins every present logical value into a single

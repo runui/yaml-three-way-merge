@@ -2,7 +2,7 @@ services:
     app:
         build:
             ulimits:
-                nofile: nofile-a-user
+                nofile: 200
         image: busybox:latest
     sidecar:
         image: busybox:latest

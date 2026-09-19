@@ -2,10 +2,12 @@ services:
     app:
         depends_on:
             default:
+                condition: service_started
                 restart: true
         image: busybox:latest
     sidecar:
         depends_on:
             default:
+                condition: service_started
                 restart: true
         image: busybox:latest

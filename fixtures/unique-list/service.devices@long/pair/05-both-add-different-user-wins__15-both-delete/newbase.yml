@@ -1,7 +1,0 @@
-services:
-    app:
-        devices:
-            - permissions: rwm
-              source: /dev/remote-a
-              target: /dev/a
-        image: busybox:latest

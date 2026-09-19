@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.devices/pair/14-user-delete-remote-modify__08-remote-delete
-field: services.app.deploy.resources.limits.devices
-class: unique-list
-scenario: pair-cross-product
-description: 14-user-delete-remote-modify combined with 08-remote-delete
-pair_semantics: logical-items

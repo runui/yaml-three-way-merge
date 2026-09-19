@@ -1,6 +1,0 @@
-services:
-    app:
-        devices:
-            - permissions: rwm
-              source: /dev/user-a
-              target: /dev/a

@@ -6,7 +6,7 @@ services:
     app:
         volumes:
             - bind:
-                selinux: user-value
+                selinux: Z
               source: /host
               target: /container
               type: bind
@@ -19,7 +19,7 @@ services:
     sidecar:
         volumes:
             - bind:
-                selinux: user-value
+                selinux: Z
               source: /host
               target: /container
               type: bind

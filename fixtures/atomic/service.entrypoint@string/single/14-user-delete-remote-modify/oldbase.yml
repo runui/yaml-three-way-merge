@@ -1,4 +1,4 @@
 services:
     app:
-        entrypoint: CMD base-a
+        entrypoint: echo base-a
         image: busybox:latest

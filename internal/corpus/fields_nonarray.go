@@ -207,7 +207,7 @@ func serviceScalarFields() []FieldSpec {
 		atomicField("service.build", "services.app.build", textTriple()),
 		atomicField("service.extends", "services.app.extends", textTriple()),
 		atomicField("service.extends.service", "services.app.extends.service", textTriple()),
-		atomicField("service.extends.file", "services.app.extends.file", textTriple()),
+		wrappedScalar("service.extends.file", "services.app.extends.file", textTriple(), wrapExtendsFile, nil),
 		atomicField("service.credential-spec.config", "services.app.credential_spec.config", textTriple()),
 		atomicField("service.credential-spec.file", "services.app.credential_spec.file", textTriple()),
 		atomicField("service.credential-spec.registry", "services.app.credential_spec.registry", textTriple()),
@@ -264,7 +264,7 @@ func deployScalarFields() []FieldSpec {
 		atomicField("deploy.update-config.order", "services.app.deploy.update_config.order", twoValue("start-first", "stop-first")),
 		atomicField("deploy.rollback-config.parallelism", "services.app.deploy.rollback_config.parallelism", intTriple()),
 		atomicField("deploy.rollback-config.delay", "services.app.deploy.rollback_config.delay", durationTriple()),
-		atomicField("deploy.rollback-config.failure-action", "services.app.deploy.rollback_config.failure_action", enumTriple("continue", "rollback", "pause")),
+		atomicField("deploy.rollback-config.failure-action", "services.app.deploy.rollback_config.failure_action", twoValue("continue", "pause")),
 		atomicField("deploy.rollback-config.monitor", "services.app.deploy.rollback_config.monitor", durationTriple()),
 		atomicField("deploy.rollback-config.max-failure-ratio", "services.app.deploy.rollback_config.max_failure_ratio", floatTriple()),
 		atomicField("deploy.rollback-config.order", "services.app.deploy.rollback_config.order", twoValue("start-first", "stop-first")),
@@ -325,9 +325,9 @@ func includeScalarFields() []FieldSpec {
 
 func casaOSScalarFields() []FieldSpec {
 	return []FieldSpec{
-		atomicField("x-casaos.id", "x-casaos.id", textTriple()),
+		atomicField("x-casaos.id", "x-casaos.id", enumTriple("com.example.base", "com.example.user", "com.example.remote")),
 		atomicField("x-casaos.repo-id", "x-casaos.repo_id", textTriple()),
-		atomicField("x-casaos.version", "x-casaos.version", textTriple()),
+		atomicField("x-casaos.version", "x-casaos.version", enumTriple("1.0.0", "2.0.0", "3.0.0")),
 		atomicField("x-casaos.icon", "x-casaos.icon", textTriple()),
 		atomicField("x-casaos.release-note", "x-casaos.release_note", textTriple()),
 		atomicField("x-casaos.thumbnail", "x-casaos.thumbnail", textTriple()),
@@ -363,7 +363,7 @@ func nestedScalarFields() []FieldSpec {
 		wrappedScalar("service.volumes.consistency", "services.app.volumes[].consistency", textTriple(), wrapVolumeField("consistency"), []string{"services", "app", "volumes"}),
 		wrappedScalar("service.volumes.bind.propagation", "services.app.volumes[].bind.propagation", textTriple(), wrapVolumeField("bind.propagation"), []string{"services", "app", "volumes"}),
 		wrappedScalar("service.volumes.bind.create-host-path", "services.app.volumes[].bind.create_host_path", boolTriple(), wrapVolumeField("bind.create_host_path"), []string{"services", "app", "volumes"}),
-		wrappedScalar("service.volumes.bind.selinux", "services.app.volumes[].bind.selinux", textTriple(), wrapVolumeField("bind.selinux"), []string{"services", "app", "volumes"}),
+		wrappedScalar("service.volumes.bind.selinux", "services.app.volumes[].bind.selinux", twoValue("z", "Z"), wrapVolumeField("bind.selinux"), []string{"services", "app", "volumes"}),
 		wrappedScalar("service.volumes.volume.nocopy", "services.app.volumes[].volume.nocopy", boolTriple(), wrapVolumeField("volume.nocopy"), []string{"services", "app", "volumes"}),
 		wrappedScalar("service.volumes.tmpfs.size", "services.app.volumes[].tmpfs.size", intTriple(), wrapVolumeField("tmpfs.size"), []string{"services", "app", "volumes"}),
 		wrappedScalar("service.volumes.tmpfs.mode", "services.app.volumes[].tmpfs.mode", intTriple(), wrapVolumeField("tmpfs.mode"), []string{"services", "app", "volumes"}),
@@ -382,11 +382,9 @@ func nestedScalarFields() []FieldSpec {
 		wrappedScalar("build.secrets.mode", "services.app.build.secrets[].mode", intTriple(), wrapBuildSecretField("mode"), []string{"services", "app", "build", "secrets"}),
 
 		// deploy devices[]: driver is covered by the sequence corpus.
-		wrappedScalar("deploy.resources.limits.device.count", "services.app.deploy.resources.limits.devices[].count", intTriple(), wrapDeviceRequestField("limits", "count"), []string{"services", "app", "deploy", "resources", "limits", "devices"}),
 		wrappedScalar("deploy.resources.reservations.device.count", "services.app.deploy.resources.reservations.devices[].count", intTriple(), wrapDeviceRequestField("reservations", "count"), []string{"services", "app", "deploy", "resources", "reservations", "devices"}),
 
 		// generic_resources[]: value is covered by the sequence corpus.
-		wrappedScalar("deploy.resources.limits.generic-resource.kind", "services.app.deploy.resources.limits.generic_resources[].discrete_resource_spec.kind", textTriple(), wrapGenericResourceKind("limits"), []string{"services", "app", "deploy", "resources", "limits", "generic_resources"}),
 		wrappedScalar("deploy.resources.reservations.generic-resource.kind", "services.app.deploy.resources.reservations.generic_resources[].discrete_resource_spec.kind", textTriple(), wrapGenericResourceKind("reservations"), []string{"services", "app", "deploy", "resources", "reservations", "generic_resources"}),
 
 		// network ipam.config[]: subnet is covered by network.ipam.config.
@@ -409,7 +407,6 @@ func nestedScalarFields() []FieldSpec {
 func mapFields() []FieldSpec {
 	loggingA, loggingB := pairTriples("max-size")
 	storageA, storageB := pairTriples("size")
-	buildUlimitA, buildUlimitB := pairTriples("nofile")
 	networkOptA, networkOptB := pairTriples("com.docker.network")
 	ipamOptA, ipamOptB := pairTriples("ipam-option")
 	volumeOptA, volumeOptB := pairTriples("volume-option")
@@ -428,7 +425,8 @@ func mapFields() []FieldSpec {
 		mapField("service.storage-opt", "services.app.storage_opt", "size", "driver", storageA, storageB),
 		mapField("service.ulimits", "services.app.ulimits", "nofile", "nproc",
 			[3]any{100, 200, 300}, [3]any{map[string]any{"soft": 100, "hard": 200}, map[string]any{"soft": 200, "hard": 300}, map[string]any{"soft": 300, "hard": 400}}),
-		mapField("build.ulimits", "services.app.build.ulimits", "nofile", "nproc", buildUlimitA, buildUlimitB),
+		mapField("build.ulimits", "services.app.build.ulimits", "nofile", "nproc",
+			[3]any{100, 200, 300}, [3]any{map[string]any{"soft": 100, "hard": 200}, map[string]any{"soft": 200, "hard": 300}, map[string]any{"soft": 300, "hard": 400}}),
 		mapField("network.driver-opts", "networks.default.driver_opts", "foo", "bar", networkOptA, networkOptB),
 		mapField("network.ipam.options", "networks.default.ipam.options", "a", "b", ipamOptA, ipamOptB),
 		mapField("volume.driver-opts", "volumes.default.driver_opts", "type", "device", volumeOptA, volumeOptB),
@@ -444,7 +442,6 @@ func mapFields() []FieldSpec {
 		arrayField("deploy.labels-list", "services.app.deploy.labels", ClassNamedItem, keyValueValues("deploy.label")),
 
 		wrappedMapField("network.ipam.config.aux-addresses", "networks.default.ipam.config[].aux_addresses", "host-a", "host-b", ipamAuxA, ipamAuxB, buildIpamAuxAddresses, []string{"networks", "default", "ipam", "config"}),
-		wrappedMapField("deploy.resources.limits.device.options", "services.app.deploy.resources.limits.devices[].options", "a", "b", deviceOptionA, deviceOptionB, buildDeviceOptions("limits"), []string{"services", "app", "deploy", "resources", "limits", "devices"}),
 		wrappedMapField("deploy.resources.reservations.device.options", "services.app.deploy.resources.reservations.devices[].options", "a", "b", deviceOptionA, deviceOptionB, buildDeviceOptions("reservations"), []string{"services", "app", "deploy", "resources", "reservations", "devices"}),
 	}
 }

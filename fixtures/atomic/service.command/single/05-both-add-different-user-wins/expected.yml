@@ -1,6 +1,6 @@
 services:
     app:
         command:
-            - - CMD
-              - user-a
+            - echo
+            - user-a
         image: busybox:latest

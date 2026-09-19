@@ -2,12 +2,12 @@ services:
     app:
         healthcheck:
             test:
-                - - CMD
-                  - base-a
+                - CMD
+                - base-a
         image: busybox:latest
     sidecar:
         healthcheck:
             test:
-                - - CMD
-                  - remote-a
+                - CMD
+                - remote-a
         image: busybox:latest

@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/pair/05-both-add-different-user-wins__14-user-delete-remote-modify
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: pair-cross-product
-description: 05-both-add-different-user-wins combined with 14-user-delete-remote-modify
-pair_semantics: logical-items

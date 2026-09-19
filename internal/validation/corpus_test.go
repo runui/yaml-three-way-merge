@@ -112,8 +112,11 @@ func TestArrayFieldRegistryIsAuditable(t *testing.T) {
 	assert.Equal(t, len(ids), len(unique(ids)), "duplicate field IDs")
 	assert.Equal(t, len(baseIDs), len(unique(baseIDs)), "duplicate base field IDs")
 	assert.Equal(t, len(basePaths), len(unique(basePaths)), "duplicate base YAML paths")
-	// 70 sequence fields plus 196 scalar/mapping fields.
-	assert.Len(t, baseIDs, 266)
+	// 66 sequence fields plus 193 scalar/mapping fields. Device-related
+	// limits.* fields are intentionally absent: Compose only allows
+	// devices/generic_resources under reservations, so those fields live on
+	// deploy.resources.reservations.* only.
+	assert.Len(t, baseIDs, 259)
 	for _, required := range []string{
 		// sequence fields
 		"service.ports", "service.volumes", "service.devices", "service.configs", "service.secrets",
@@ -124,7 +127,7 @@ func TestArrayFieldRegistryIsAuditable(t *testing.T) {
 		"include.project-directory", "x-casaos.scheme", "x-casaos.autostart",
 		// nested array-item leaves
 		"service.volumes.read-only", "service.ports.mode", "service.configs.mode",
-		"deploy.resources.limits.device.count", "network.ipam.config.gateway",
+		"deploy.resources.reservations.device.count", "network.ipam.config.gateway",
 		"develop.watch.action", "service.depends-on.condition",
 		// free-form maps and the deploy.labels list form
 		"service.logging.options", "service.ulimits", "network.ipam.options",

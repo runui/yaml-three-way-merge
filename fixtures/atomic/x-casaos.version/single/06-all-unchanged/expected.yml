@@ -2,4 +2,4 @@ services:
     app:
         image: busybox:latest
 x-casaos:
-    version: base-value
+    version: 1.0.0

@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.generic-resources/pair/07-remote-modify__05-both-add-different-user-wins
-field: services.app.deploy.resources.limits.generic_resources
-class: unique-list
-scenario: pair-cross-product
-description: 07-remote-modify combined with 05-both-add-different-user-wins
-pair_semantics: logical-items

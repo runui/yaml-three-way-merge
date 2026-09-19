@@ -1,0 +1,6 @@
+id: set-list/service.dns@scalar/single/05-both-add-different-user-wins
+field: services.app.dns
+class: set-list
+scenario: 05-both-add-different-user-wins
+description: user changed the logical item relative to oldbase, so user intent wins
+pair_semantics: logical-items

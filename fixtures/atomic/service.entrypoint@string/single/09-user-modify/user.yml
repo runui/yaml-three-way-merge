@@ -4,4 +4,4 @@ services:
 ---
 services:
     app:
-        entrypoint: CMD user-a
+        entrypoint: echo user-a

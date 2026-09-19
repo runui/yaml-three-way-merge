@@ -1,6 +1,0 @@
-id: set-list/deploy.resources.limits.device.capabilities/single/11-both-modify-same
-field: services.app.deploy.resources.limits.devices[].capabilities
-class: set-list
-scenario: 11-both-modify-same
-description: user changed the logical item relative to oldbase, so user intent wins
-pair_semantics: logical-items

@@ -1,6 +1,0 @@
-id: unique-list/service.devices@long/pair/08-remote-delete__08-remote-delete
-field: services.app.devices
-class: unique-list
-scenario: pair-cross-product
-description: 08-remote-delete combined with 08-remote-delete
-pair_semantics: logical-items

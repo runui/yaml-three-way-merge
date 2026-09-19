@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.devices/pair/11-both-modify-same__15-both-delete
-field: services.app.deploy.resources.limits.devices
-class: unique-list
-scenario: pair-cross-product
-description: 11-both-modify-same combined with 15-both-delete
-pair_semantics: logical-items

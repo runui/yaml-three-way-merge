@@ -2,4 +2,5 @@ services:
     app:
         extends:
             file: base-value
+            service: base
         image: busybox:latest

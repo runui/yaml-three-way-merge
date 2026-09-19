@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/single/07-remote-modify
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: 07-remote-modify
-description: user is untouched, so the logical item follows newbase
-pair_semantics: logical-items

@@ -1,6 +1,0 @@
-id: multi-attribute/deploy.resources.limits.devices/user-delete-remote-modify-item
-field: services.app.deploy.resources.limits.devices
-class: multi
-scenario: user-delete-remote-modify-item
-description: user removes the whole item while newbase changes one attribute
-pair_semantics: logical-items

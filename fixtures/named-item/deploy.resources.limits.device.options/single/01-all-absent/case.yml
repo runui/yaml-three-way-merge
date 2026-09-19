@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/single/01-all-absent
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: 01-all-absent
-description: user is untouched, so the logical item follows newbase
-pair_semantics: logical-items

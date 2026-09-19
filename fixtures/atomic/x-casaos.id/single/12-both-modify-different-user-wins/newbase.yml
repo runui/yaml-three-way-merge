@@ -2,4 +2,4 @@ services:
     app:
         image: busybox:latest
 x-casaos:
-    id: remote-value
+    id: com.example.remote

@@ -3,7 +3,7 @@ services:
         image: busybox:latest
         volumes:
             - bind:
-                selinux: remote-value
+                selinux: Z
               source: /host
               target: /container
               type: bind
@@ -11,7 +11,7 @@ services:
         image: busybox:latest
         volumes:
             - bind:
-                selinux: remote-value
+                selinux: Z
               source: /host
               target: /container
               type: bind

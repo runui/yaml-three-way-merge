@@ -1,6 +1,6 @@
 services:
     app:
         entrypoint:
-            - - CMD
-              - user-a
+            - echo
+            - user-a
         image: busybox:latest

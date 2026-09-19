@@ -1,6 +1,0 @@
-id: set-list/deploy.resources.limits.device-ids/pair/01-all-absent__10-user-delete
-field: services.app.deploy.resources.limits.devices[].device_ids
-class: set-list
-scenario: pair-cross-product
-description: 01-all-absent combined with 10-user-delete
-pair_semantics: logical-items

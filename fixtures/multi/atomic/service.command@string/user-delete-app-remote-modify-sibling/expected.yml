@@ -2,5 +2,5 @@ services:
     app:
         image: busybox:latest
     sidecar:
-        command: CMD remote-a
+        command: echo remote-a
         image: busybox:latest

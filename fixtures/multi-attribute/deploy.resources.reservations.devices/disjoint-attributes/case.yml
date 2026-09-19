@@ -1,0 +1,6 @@
+id: multi-attribute/deploy.resources.reservations.devices/disjoint-attributes
+field: services.app.deploy.resources.reservations.devices
+class: multi
+scenario: disjoint-attributes
+description: user and newbase change different attributes of the same array item
+pair_semantics: logical-items

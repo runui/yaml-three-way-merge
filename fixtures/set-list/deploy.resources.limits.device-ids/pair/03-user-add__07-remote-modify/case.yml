@@ -1,6 +1,0 @@
-id: set-list/deploy.resources.limits.device-ids/pair/03-user-add__07-remote-modify
-field: services.app.deploy.resources.limits.devices[].device_ids
-class: set-list
-scenario: pair-cross-product
-description: 03-user-add combined with 07-remote-modify
-pair_semantics: logical-items

@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.generic-resources/pair/10-user-delete__02-remote-add
-field: services.app.deploy.resources.limits.generic_resources
-class: unique-list
-scenario: pair-cross-product
-description: 10-user-delete combined with 02-remote-add
-pair_semantics: logical-items

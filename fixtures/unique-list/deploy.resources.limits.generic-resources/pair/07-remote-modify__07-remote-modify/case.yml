@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.generic-resources/pair/07-remote-modify__07-remote-modify
-field: services.app.deploy.resources.limits.generic_resources
-class: unique-list
-scenario: pair-cross-product
-description: 07-remote-modify combined with 07-remote-modify
-pair_semantics: logical-items

@@ -1,7 +1,7 @@
 services:
     app:
-        entrypoint: CMD user-a
+        entrypoint: echo user-a
         image: busybox:latest
     sidecar:
-        entrypoint: CMD remote-a
+        entrypoint: echo remote-a
         image: busybox:latest

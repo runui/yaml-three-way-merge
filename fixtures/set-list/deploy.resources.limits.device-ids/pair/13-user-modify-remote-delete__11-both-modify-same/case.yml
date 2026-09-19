@@ -1,6 +1,0 @@
-id: set-list/deploy.resources.limits.device-ids/pair/13-user-modify-remote-delete__11-both-modify-same
-field: services.app.deploy.resources.limits.devices[].device_ids
-class: set-list
-scenario: pair-cross-product
-description: 13-user-modify-remote-delete combined with 11-both-modify-same
-pair_semantics: logical-items

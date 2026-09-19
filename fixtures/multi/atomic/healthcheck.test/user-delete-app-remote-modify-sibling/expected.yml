@@ -4,6 +4,6 @@ services:
     sidecar:
         healthcheck:
             test:
-                - - CMD
-                  - remote-a
+                - CMD
+                - remote-a
         image: busybox:latest

@@ -1,9 +1,0 @@
-services:
-    app:
-        image: busybox:latest
-    sidecar:
-        devices:
-            - permissions: rwm
-              source: /dev/remote-b
-              target: /dev/b
-        image: busybox:latest

@@ -3,7 +3,7 @@ services:
         image: busybox:latest
         volumes:
             - bind:
-                selinux: user-value
+                selinux: Z
               source: /host
               target: /container
               type: bind

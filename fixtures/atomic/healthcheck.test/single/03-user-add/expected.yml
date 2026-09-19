@@ -2,6 +2,6 @@ services:
     app:
         healthcheck:
             test:
-                - - CMD
-                  - user-a
+                - CMD
+                - user-a
         image: busybox:latest

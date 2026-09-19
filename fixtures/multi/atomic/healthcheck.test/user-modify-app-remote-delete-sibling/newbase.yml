@@ -2,8 +2,8 @@ services:
     app:
         healthcheck:
             test:
-                - - CMD
-                  - base-a
+                - CMD
+                - base-a
         image: busybox:latest
     sidecar:
         image: busybox:latest

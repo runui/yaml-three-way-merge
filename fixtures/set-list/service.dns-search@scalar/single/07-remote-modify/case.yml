@@ -1,0 +1,6 @@
+id: set-list/service.dns-search@scalar/single/07-remote-modify
+field: services.app.dns_search
+class: set-list
+scenario: 07-remote-modify
+description: user is untouched, so the logical item follows newbase
+pair_semantics: logical-items

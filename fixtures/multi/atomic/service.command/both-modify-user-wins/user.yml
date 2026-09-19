@@ -5,8 +5,8 @@ services:
 services:
     app:
         command:
-            - - CMD
-              - user-a
+            - echo
+            - user-a
 ---
 services:
     sidecar:
@@ -15,5 +15,5 @@ services:
 services:
     sidecar:
         command:
-            - - CMD
-              - user-a
+            - echo
+            - user-a

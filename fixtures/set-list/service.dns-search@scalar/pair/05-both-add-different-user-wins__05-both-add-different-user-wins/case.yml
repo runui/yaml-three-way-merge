@@ -1,0 +1,6 @@
+id: set-list/service.dns-search@scalar/pair/05-both-add-different-user-wins__05-both-add-different-user-wins
+field: services.app.dns_search
+class: set-list
+scenario: pair-cross-product
+description: 05-both-add-different-user-wins combined with 05-both-add-different-user-wins
+pair_semantics: logical-items

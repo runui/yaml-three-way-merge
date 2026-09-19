@@ -5,7 +5,7 @@ services:
 services:
     app:
         volumes:
-            - source: /host
+            - source: data
               target: /container
               type: volume
 ---
@@ -16,6 +16,6 @@ services:
 services:
     sidecar:
         volumes:
-            - source: /host
+            - source: data
               target: /container
               type: volume

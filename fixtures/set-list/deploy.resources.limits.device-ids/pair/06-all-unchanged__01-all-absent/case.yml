@@ -1,6 +1,0 @@
-id: set-list/deploy.resources.limits.device-ids/pair/06-all-unchanged__01-all-absent
-field: services.app.deploy.resources.limits.devices[].device_ids
-class: set-list
-scenario: pair-cross-product
-description: 06-all-unchanged combined with 01-all-absent
-pair_semantics: logical-items

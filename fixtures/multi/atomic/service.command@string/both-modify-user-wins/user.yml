@@ -4,7 +4,7 @@ services:
 ---
 services:
     app:
-        command: CMD user-a
+        command: echo user-a
 ---
 services:
     sidecar:
@@ -12,4 +12,4 @@ services:
 ---
 services:
     sidecar:
-        command: CMD user-a
+        command: echo user-a

@@ -403,7 +403,7 @@ func multiAttrSpecs() []multiAttrSpec {
 	return []multiAttrSpec{
 		{
 			id: "service.ports", path: []string{"services", "app", "ports"},
-			identity: identity("target", 80, "protocol", "tcp", "published", "8080"),
+			identity: identity("target", 80, "protocol", "tcp"),
 			attrs: []itemAttr{
 				{name: "published", base: "8080", user: "8181", remote: "8282"},
 				{name: "mode", base: "host", user: "ingress", remote: "host"},
@@ -442,17 +442,10 @@ func multiAttrSpecs() []multiAttrSpec {
 			scaffold: serviceScaffold,
 		},
 		{
-			id: "service.devices", path: []string{"services", "app", "devices"},
-			identity: identity("target", "/dev/a"),
-			attrs: []itemAttr{
-				{name: "source", base: "/dev/base-a", user: "/dev/user-a", remote: "/dev/remote-a"},
-				{name: "permissions", base: "rwm", user: "rw", remote: "r"},
-			},
-			wrap:     func(item map[string]any) map[string]any { return serviceMapping("devices", []any{item}) },
-			scaffold: serviceScaffold,
-		},
-		{
-			id: "deploy.resources.limits.devices", path: []string{"services", "app", "deploy", "resources", "limits", "devices"},
+			// service devices are authored as strings in the pinned Compose
+			// version, so there are no independently addressable item
+			// attributes to model here; the whole element is the logical item.
+			id: "deploy.resources.reservations.devices", path: []string{"services", "app", "deploy", "resources", "reservations", "devices"},
 			identity: identity("driver", "nvidia"),
 			attrs: []itemAttr{
 				// The trailing token after the last dash is the logical-item
@@ -461,7 +454,7 @@ func multiAttrSpecs() []multiAttrSpec {
 				{name: "device_ids", base: []any{"idbase-a"}, user: []any{"iduser-a"}, remote: []any{"idremote-a"}},
 			},
 			wrap: func(item map[string]any) map[string]any {
-				return serviceMapping("deploy", map[string]any{"resources": map[string]any{"limits": map[string]any{"devices": []any{item}}}})
+				return serviceMapping("deploy", map[string]any{"resources": map[string]any{"reservations": map[string]any{"devices": []any{item}}}})
 			},
 			scaffold: serviceScaffold,
 		},

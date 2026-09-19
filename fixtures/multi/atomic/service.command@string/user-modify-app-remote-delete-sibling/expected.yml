@@ -1,6 +1,6 @@
 services:
     app:
-        command: CMD user-a
+        command: echo user-a
         image: busybox:latest
     sidecar:
         image: busybox:latest

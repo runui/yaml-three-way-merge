@@ -1,0 +1,4 @@
+services:
+    app:
+        dns_search: base.test-b
+        image: busybox:latest

@@ -6,4 +6,5 @@ services:
     app:
         depends_on:
             default:
+                condition: service_started
                 restart: true

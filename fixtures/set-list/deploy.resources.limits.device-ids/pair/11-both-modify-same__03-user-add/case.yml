@@ -1,6 +1,0 @@
-id: set-list/deploy.resources.limits.device-ids/pair/11-both-modify-same__03-user-add
-field: services.app.deploy.resources.limits.devices[].device_ids
-class: set-list
-scenario: pair-cross-product
-description: 11-both-modify-same combined with 03-user-add
-pair_semantics: logical-items

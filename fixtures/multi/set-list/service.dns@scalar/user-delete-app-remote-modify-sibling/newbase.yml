@@ -1,0 +1,7 @@
+services:
+    app:
+        dns: 1.1.1.1-a
+        image: busybox:latest
+    sidecar:
+        dns: 9.9.9.9-b
+        image: busybox:latest

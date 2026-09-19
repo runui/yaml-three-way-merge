@@ -1,9 +1,0 @@
-services:
-    app:
-        deploy:
-            resources:
-                limits:
-                    generic_resources:
-                        - discrete_resource_spec:
-                            kind: user-value
-                            value: 1

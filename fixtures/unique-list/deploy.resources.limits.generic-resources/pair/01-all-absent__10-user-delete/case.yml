@@ -1,6 +1,0 @@
-id: unique-list/deploy.resources.limits.generic-resources/pair/01-all-absent__10-user-delete
-field: services.app.deploy.resources.limits.generic_resources
-class: unique-list
-scenario: pair-cross-product
-description: 01-all-absent combined with 10-user-delete
-pair_semantics: logical-items

@@ -1,0 +1,6 @@
+id: multi/set-list/service.dns@scalar/user-delete-app-remote-modify-sibling
+field: services.app.dns
+class: multi
+scenario: user-delete-app-remote-modify-sibling
+description: user removes the field on app, newbase changes the sibling resource
+pair_semantics: logical-items

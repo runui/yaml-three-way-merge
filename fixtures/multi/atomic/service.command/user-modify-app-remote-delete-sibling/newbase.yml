@@ -1,8 +1,8 @@
 services:
     app:
         command:
-            - - CMD
-              - base-a
+            - echo
+            - base-a
         image: busybox:latest
     sidecar:
         image: busybox:latest

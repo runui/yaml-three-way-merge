@@ -5,5 +5,5 @@ services:
 services:
     app:
         entrypoint:
-            - - CMD
-              - user-a
+            - echo
+            - user-a

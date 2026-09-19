@@ -2,8 +2,10 @@ services:
     app:
         image: busybox:latest
         volumes:
-            - source: /host
+            - source: data
               target: /container
               type: bind
     sidecar:
         image: busybox:latest
+volumes:
+    data: {}

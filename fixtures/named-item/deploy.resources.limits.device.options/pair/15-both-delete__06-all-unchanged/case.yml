@@ -1,6 +1,0 @@
-id: named-item/deploy.resources.limits.device.options/pair/15-both-delete__06-all-unchanged
-field: services.app.deploy.resources.limits.devices[].options
-class: named-item
-scenario: pair-cross-product
-description: 15-both-delete combined with 06-all-unchanged
-pair_semantics: logical-items

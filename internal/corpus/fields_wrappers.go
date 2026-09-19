@@ -41,17 +41,32 @@ func wrapPortField(key string) func([]any, bool) map[string]any {
 
 func wrapVolumeField(key string) func([]any, bool) map[string]any {
 	return func(values []any, present bool) map[string]any {
+		// A named volume used by type: volume must be declared, so a fixed
+		// volume definition is carried as constant context even when the item
+		// itself is absent. Source "data" is a valid relative bind path and a
+		// valid named-volume reference, so the same item is valid for every
+		// value type takes.
+		context := map[string]any{}
+		if key == "type" {
+			context["volumes"] = map[string]any{"data": map[string]any{}}
+		}
 		if !present {
-			return map[string]any{}
+			return context
 		}
 		item := map[string]any{"source": "/host", "target": "/container"}
 		// type is one of the modeled values, so only inject it as context for
 		// the other volume attributes.
 		if key != "type" {
 			item["type"] = "bind"
+		} else {
+			item["source"] = "data"
 		}
 		setNestedValue(item, strings.Split(key, "."), values[0])
-		return serviceMapping("volumes", []any{item})
+		root := serviceMapping("volumes", []any{item})
+		for name, value := range context {
+			root[name] = value
+		}
+		return root
 	}
 }
 
@@ -117,12 +132,30 @@ func wrapDevelopWatchField(key string) func([]any, bool) map[string]any {
 
 func wrapDependsOnField(key string) func([]any, bool) map[string]any {
 	return func(values []any, present bool) map[string]any {
-		if !present {
+		if key == "condition" && !present {
+			// condition is the required member of a long-form dependency; when
+			// it disappears the whole dependency does.
 			return map[string]any{}
 		}
-		dependency := map[string]any{key: values[0]}
+		dependency := map[string]any{"condition": "service_started"}
+		if key == "condition" {
+			dependency["condition"] = values[0]
+		} else if present {
+			dependency[key] = values[0]
+		}
 		return map[string]any{"services": map[string]any{"app": map[string]any{"image": "busybox:latest", "depends_on": map[string]any{"default": dependency}}}}
 	}
+}
+
+// wrapExtendsFile models the `file` member of the extends mapping. The mapping
+// requires a `service`, so the referenced service is fixed context and only the
+// file path varies.
+func wrapExtendsFile(values []any, present bool) map[string]any {
+	extends := map[string]any{"service": "base"}
+	if present {
+		extends["file"] = values[0]
+	}
+	return serviceMapping("extends", extends)
 }
 
 func buildIpamAuxAddresses(merged map[string]any, present bool) map[string]any {

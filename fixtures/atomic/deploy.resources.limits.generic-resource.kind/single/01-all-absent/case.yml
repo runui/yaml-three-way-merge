@@ -1,6 +1,0 @@
-id: atomic/deploy.resources.limits.generic-resource.kind/single/01-all-absent
-field: services.app.deploy.resources.limits.generic_resources[].discrete_resource_spec.kind
-class: atomic
-scenario: 01-all-absent
-description: user is untouched, so the logical item follows newbase
-pair_semantics: none

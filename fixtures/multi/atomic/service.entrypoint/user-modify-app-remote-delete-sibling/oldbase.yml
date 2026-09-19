@@ -1,11 +1,11 @@
 services:
     app:
         entrypoint:
-            - - CMD
-              - base-a
+            - echo
+            - base-a
         image: busybox:latest
     sidecar:
         entrypoint:
-            - - CMD
-              - base-a
+            - echo
+            - base-a
         image: busybox:latest

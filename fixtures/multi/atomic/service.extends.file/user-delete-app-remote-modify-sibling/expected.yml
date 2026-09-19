@@ -1,7 +1,0 @@
-services:
-    app:
-        image: busybox:latest
-    sidecar:
-        extends:
-            file: remote-value
-        image: busybox:latest

@@ -1,0 +1,6 @@
+id: set-list/service.dns-search@scalar/pair/15-both-delete__10-user-delete
+field: services.app.dns_search
+class: set-list
+scenario: pair-cross-product
+description: 15-both-delete combined with 10-user-delete
+pair_semantics: logical-items

@@ -1,6 +1,0 @@
-id: unique-list/service.devices@long/single/10-user-delete
-field: services.app.devices
-class: unique-list
-scenario: 10-user-delete
-description: user changed the logical item relative to oldbase, so user intent wins
-pair_semantics: logical-items

@@ -2,4 +2,6 @@ services:
     app:
         build:
             ulimits:
-                nproc: nofile-b-user
+                nproc:
+                    hard: 300
+                    soft: 200

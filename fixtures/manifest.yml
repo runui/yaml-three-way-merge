@@ -128,13 +128,13 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
-    - id: service.devices@long
-      path: services.app.devices
-      class: unique-list
+    - id: service.dns
+      path: services.app.dns
+      class: set-list
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
-    - id: service.dns
+    - id: service.dns@scalar
       path: services.app.dns
       class: set-list
       matrix_cases: 15
@@ -147,6 +147,12 @@ fields:
       cross_cases: 225
       pair_semantics: logical-items
     - id: service.dns-search
+      path: services.app.dns_search
+      class: set-list
+      matrix_cases: 15
+      cross_cases: 225
+      pair_semantics: logical-items
+    - id: service.dns-search@scalar
       path: services.app.dns_search
       class: set-list
       matrix_cases: 15
@@ -422,30 +428,6 @@ fields:
       matrix_cases: 15
       cross_cases: 0
       pair_semantics: none
-    - id: deploy.resources.limits.devices
-      path: services.app.deploy.resources.limits.devices
-      class: unique-list
-      matrix_cases: 15
-      cross_cases: 225
-      pair_semantics: logical-items
-    - id: deploy.resources.limits.device.capabilities
-      path: services.app.deploy.resources.limits.devices[].capabilities
-      class: set-list
-      matrix_cases: 15
-      cross_cases: 225
-      pair_semantics: logical-items
-    - id: deploy.resources.limits.device-ids
-      path: services.app.deploy.resources.limits.devices[].device_ids
-      class: set-list
-      matrix_cases: 15
-      cross_cases: 225
-      pair_semantics: logical-items
-    - id: deploy.resources.limits.generic-resources
-      path: services.app.deploy.resources.limits.generic_resources
-      class: unique-list
-      matrix_cases: 15
-      cross_cases: 225
-      pair_semantics: logical-items
     - id: deploy.resources.reservations.devices
       path: services.app.deploy.resources.reservations.devices
       class: unique-list
@@ -1574,20 +1556,8 @@ fields:
       matrix_cases: 15
       cross_cases: 0
       pair_semantics: none
-    - id: deploy.resources.limits.device.count
-      path: services.app.deploy.resources.limits.devices[].count
-      class: atomic
-      matrix_cases: 15
-      cross_cases: 0
-      pair_semantics: none
     - id: deploy.resources.reservations.device.count
       path: services.app.deploy.resources.reservations.devices[].count
-      class: atomic
-      matrix_cases: 15
-      cross_cases: 0
-      pair_semantics: none
-    - id: deploy.resources.limits.generic-resource.kind
-      path: services.app.deploy.resources.limits.generic_resources[].discrete_resource_spec.kind
       class: atomic
       matrix_cases: 15
       cross_cases: 0
@@ -1736,17 +1706,11 @@ fields:
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
-    - id: deploy.resources.limits.device.options
-      path: services.app.deploy.resources.limits.devices[].options
-      class: named-item
-      matrix_cases: 15
-      cross_cases: 225
-      pair_semantics: logical-items
     - id: deploy.resources.reservations.device.options
       path: services.app.deploy.resources.reservations.devices[].options
       class: named-item
       matrix_cases: 15
       cross_cases: 225
       pair_semantics: logical-items
-explicit_cases: 1701
-case_count: 29676
+explicit_cases: 1645
+case_count: 28630

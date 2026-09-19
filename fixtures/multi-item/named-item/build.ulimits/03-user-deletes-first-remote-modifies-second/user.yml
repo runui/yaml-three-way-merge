@@ -7,5 +7,9 @@ services:
     app:
         build:
             ulimits:
-                nproc: nofile-b-base
-                nproc-c: nofile-b-base
+                nproc:
+                    hard: 200
+                    soft: 100
+                nproc-c:
+                    hard: 200
+                    soft: 100

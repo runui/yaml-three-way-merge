@@ -1,0 +1,6 @@
+id: set-list/service.dns-search@scalar/pair/02-remote-add__12-both-modify-different-user-wins
+field: services.app.dns_search
+class: set-list
+scenario: pair-cross-product
+description: 02-remote-add combined with 12-both-modify-different-user-wins
+pair_semantics: logical-items

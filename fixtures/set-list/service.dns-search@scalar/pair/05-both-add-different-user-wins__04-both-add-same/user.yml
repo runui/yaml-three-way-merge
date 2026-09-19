@@ -1,0 +1,5 @@
+services:
+    app:
+        dns_search:
+            - user.test-a
+            - user.test-b

@@ -1,6 +1,0 @@
-id: multi-item/set-list/deploy.resources.limits.device-ids/06-both-add-third-element-user-wins
-field: services.app.deploy.resources.limits.devices
-class: multi
-scenario: 06-both-add-third-element-user-wins
-description: both sides add the third element with different values; user wins while existing elements follow newbase
-pair_semantics: logical-items

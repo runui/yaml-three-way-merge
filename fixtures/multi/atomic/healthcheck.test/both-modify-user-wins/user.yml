@@ -7,8 +7,8 @@ services:
     app:
         healthcheck:
             test:
-                - - CMD
-                  - user-a
+                - CMD
+                - user-a
 ---
 services:
     sidecar:
@@ -19,5 +19,5 @@ services:
     sidecar:
         healthcheck:
             test:
-                - - CMD
-                  - user-a
+                - CMD
+                - user-a

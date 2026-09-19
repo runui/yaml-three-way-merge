@@ -1,0 +1,6 @@
+services:
+    app:
+        dns:
+            - 9.9.9.9-b
+            - 1.1.1.1-c
+        image: busybox:latest

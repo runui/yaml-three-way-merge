@@ -2,5 +2,5 @@ services:
     app:
         build:
             ulimits:
-                nofile: nofile-a-base
+                nofile: 100
         image: busybox:latest

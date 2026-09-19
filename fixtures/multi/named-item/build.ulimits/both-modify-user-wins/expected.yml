@@ -2,10 +2,12 @@ services:
     app:
         build:
             ulimits:
-                nofile: nofile-a-user
+                nofile: 200
         image: busybox:latest
     sidecar:
         build:
             ulimits:
-                nproc: nofile-b-user
+                nproc:
+                    hard: 300
+                    soft: 200
         image: busybox:latest

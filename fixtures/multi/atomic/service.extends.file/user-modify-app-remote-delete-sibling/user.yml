@@ -1,9 +1,0 @@
-services:
-    app:
-        extends:
-            file: !reset []
----
-services:
-    app:
-        extends:
-            file: user-value

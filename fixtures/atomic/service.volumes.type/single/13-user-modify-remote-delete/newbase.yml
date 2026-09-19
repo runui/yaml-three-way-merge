@@ -1,3 +1,5 @@
 services:
     app:
         image: busybox:latest
+volumes:
+    data: {}
