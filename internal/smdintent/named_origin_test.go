@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/runui/yaml-three-way-merge/internal/smdmerge"
+	"github.com/runui/yaml-three-way-merge/internal/smdmodel"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -29,9 +29,9 @@ func TestReconcileNamedOriginsWithFixturePrediction(t *testing.T) {
 	require.NoError(t, err)
 	newYAML, err := os.ReadFile(filepath.Join(dir, "newbase.yml"))
 	require.NoError(t, err)
-	scenario, err := smdmerge.CompileTypedScenario(oldYAML, userOverride, newYAML)
+	scenario, err := smdmodel.CompileTypedScenario(oldYAML, userOverride, newYAML)
 	require.NoError(t, err)
-	userYAML, err := smdmerge.MarshalTypedValue(scenario.UserPrediction)
+	userYAML, err := smdmodel.MarshalTypedValue(scenario.UserPrediction)
 	require.NoError(t, err)
 	content, rewrites, err := reconcileNamedOrigins(oldYAML, userYAML, newYAML, newYAML)
 	require.NoError(t, err)
@@ -51,9 +51,9 @@ func TestMergeReconcilesNamedOriginsFromFixture(t *testing.T) {
 	require.NoError(t, err)
 	result, err := Merge(oldYAML, userOverride, newYAML)
 	require.NoError(t, err)
-	scenario, err := smdmerge.CompileTypedScenario(oldYAML, userOverride, newYAML)
+	scenario, err := smdmodel.CompileTypedScenario(oldYAML, userOverride, newYAML)
 	require.NoError(t, err)
-	userYAML, err := smdmerge.MarshalTypedValue(scenario.UserPrediction)
+	userYAML, err := smdmodel.MarshalTypedValue(scenario.UserPrediction)
 	require.NoError(t, err)
 	reconciled, rewrites, err := reconcileNamedOrigins(oldYAML, userYAML, newYAML, result.YAML)
 	require.NoError(t, err)

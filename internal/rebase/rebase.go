@@ -119,7 +119,7 @@ func mergeRebaseMapping(path []string, previousBase, previousEffective, targetBa
 }
 
 func mergeUniqueResourceSequence(path []string, previousBase, previousEffective, targetBase nodeState) (nodeState, bool) {
-	baseItems, baseOrder, ok := indexedSequence(path, previousBase)
+	baseItems, _, ok := indexedSequence(path, previousBase)
 	if !ok {
 		return nodeState{}, false
 	}
@@ -131,8 +131,6 @@ func mergeUniqueResourceSequence(path []string, previousBase, previousEffective,
 	if !ok {
 		return nodeState{}, false
 	}
-	_ = baseOrder
-
 	// Compose merges these resources by identity rather than list position. This
 	// prevents an old generated list reset from hiding new repository resources.
 	result := &yaml.Node{Kind: yaml.SequenceNode, Tag: "!!seq"}

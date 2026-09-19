@@ -1,4 +1,4 @@
-package smdmerge
+package smdmodel
 
 import (
 	"fmt"
@@ -53,10 +53,7 @@ func CompileTypedScenario(baseOldYAML, userOverrideYAML, baseNewYAML []byte) (Ty
 
 // MarshalTypedValue removes SMD-only identity fields and emits Compose YAML.
 func MarshalTypedValue(value *typed.TypedValue) ([]byte, error) {
-	output, err := cloneUnstructured(value.AsValue().Unstructured())
-	if err != nil {
-		return nil, fmt.Errorf("clone typed result: %w", err)
-	}
+	output := cloneUnstructured(value.AsValue().Unstructured())
 	pruneNilContainers(output)
 	pruneEmptyContainers(output)
 	output = unwrapInternalLists(output)
@@ -68,14 +65,23 @@ func MarshalTypedValue(value *typed.TypedValue) ([]byte, error) {
 	return content, nil
 }
 
-func cloneUnstructured(value any) (any, error) {
-	content, err := yaml.Marshal(value)
-	if err != nil {
-		return nil, err
+// cloneUnstructured copies containers without a YAML round trip. Scalar types
+// must survive unchanged, and output cleanup must never mutate a compiled value.
+func cloneUnstructured(value any) any {
+	switch current := value.(type) {
+	case map[string]any:
+		clone := make(map[string]any, len(current))
+		for key, child := range current {
+			clone[key] = cloneUnstructured(child)
+		}
+		return clone
+	case []any:
+		clone := make([]any, len(current))
+		for i, child := range current {
+			clone[i] = cloneUnstructured(child)
+		}
+		return clone
+	default:
+		return value
 	}
-	var clone any
-	if err := yaml.Unmarshal(content, &clone); err != nil {
-		return nil, err
-	}
-	return clone, nil
 }

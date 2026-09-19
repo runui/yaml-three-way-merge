@@ -6,35 +6,28 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"sort"
 
 	"github.com/runui/yaml-three-way-merge/internal/corpus"
-	"github.com/runui/yaml-three-way-merge/internal/smdintent"
+	"github.com/runui/yaml-three-way-merge/internal/validation"
+	"github.com/runui/yaml-three-way-merge/merge"
 )
 
 type intentTotals struct {
-	UserAdded           int                       `json:"user_added"`
-	UserModified        int                       `json:"user_modified"`
-	UserRemoved         int                       `json:"user_removed"`
-	UpstreamAdded       int                       `json:"upstream_added"`
-	UpstreamModified    int                       `json:"upstream_modified"`
-	UpstreamRemoved     int                       `json:"upstream_removed"`
-	IndependentUser     int                       `json:"independent_user"`
-	IndependentUpstream int                       `json:"independent_upstream"`
-	OriginRewrites      int                       `json:"origin_rewrites"`
-	Conflicts           smdintent.ConflictSummary `json:"conflicts"`
+	UserAdded           int                   `json:"user_added"`
+	UserModified        int                   `json:"user_modified"`
+	UserRemoved         int                   `json:"user_removed"`
+	UpstreamAdded       int                   `json:"upstream_added"`
+	UpstreamModified    int                   `json:"upstream_modified"`
+	UpstreamRemoved     int                   `json:"upstream_removed"`
+	IndependentUser     int                   `json:"independent_user"`
+	IndependentUpstream int                   `json:"independent_upstream"`
+	OriginRewrites      int                   `json:"origin_rewrites"`
+	Conflicts           merge.ConflictSummary `json:"conflicts"`
 }
 
 type summary struct {
-	Total           int            `json:"total"`
-	Matched         int            `json:"matched"`
-	Mismatched      int            `json:"mismatched"`
-	Errors          int            `json:"errors"`
-	ByField         map[string]int `json:"mismatched_by_field,omitempty"`
-	ErrorsByField   map[string]int `json:"errors_by_field,omitempty"`
-	MismatchSamples []string       `json:"mismatch_samples,omitempty"`
-	ErrorSamples    []string       `json:"error_samples,omitempty"`
-	Intent          intentTotals   `json:"intent"`
+	validation.MergeSummary
+	Intent intentTotals `json:"intent"`
 }
 
 func main() {
@@ -56,47 +49,29 @@ func run(args []string, stdout, stderr io.Writer) int {
 		_, _ = fmt.Fprintf(stderr, "load fixtures: %v\n", err)
 		return 2
 	}
-	result := summary{ByField: map[string]int{}, ErrorsByField: map[string]int{}}
-	found := false
+	var result summary
 	for _, item := range cases {
 		if *caseID != "" && item.Metadata.ID != *caseID {
 			continue
 		}
-		found = true
 		result.Total++
-		merged, err := smdintent.Merge(item.BaseOld, item.User, item.BaseNew)
+		merged, err := merge.Merge(merge.Input{PreviousBase: item.BaseOld, UserOverride: item.User, TargetBase: item.BaseNew})
 		if err != nil {
-			result.Errors++
-			result.ErrorsByField[item.Metadata.Field]++
-			if len(result.ErrorSamples) < 20 {
-				result.ErrorSamples = append(result.ErrorSamples, item.Metadata.ID+": "+err.Error())
-			}
+			result.RecordError(item.Metadata.ID, item.Metadata.Field, err, 20)
 			continue
 		}
 		accumulateIntent(&result.Intent, merged.Report)
-		equal, err := smdintent.Equivalent(merged.YAML, item.Expected)
+		equal, err := merge.Equivalent(merged.YAML, item.Expected)
 		if err != nil {
-			result.Errors++
-			result.ErrorsByField[item.Metadata.Field]++
-			if len(result.ErrorSamples) < 20 {
-				result.ErrorSamples = append(result.ErrorSamples, item.Metadata.ID+": compare: "+err.Error())
-			}
+			result.RecordError(item.Metadata.ID, item.Metadata.Field, fmt.Errorf("compare: %w", err), 20)
 			continue
 		}
-		if equal {
-			result.Matched++
-		} else {
-			result.Mismatched++
-			result.ByField[item.Metadata.Field]++
-			if len(result.MismatchSamples) < 20 {
-				result.MismatchSamples = append(result.MismatchSamples, item.Metadata.ID)
-			}
-			if *caseID != "" {
-				_, _ = fmt.Fprintf(stderr, "actual:\n%s\nexpected:\n%s\nreport:\n%+v\n", merged.YAML, item.Expected, merged.Report)
-			}
+		result.RecordMatch(item.Metadata.ID, item.Metadata.Field, equal)
+		if !equal && *caseID != "" {
+			_, _ = fmt.Fprintf(stderr, "actual:\n%s\nexpected:\n%s\nreport:\n%+v\n", merged.YAML, item.Expected, merged.Report)
 		}
 	}
-	if *caseID != "" && !found {
+	if *caseID != "" && result.Total == 0 {
 		_, _ = fmt.Fprintf(stderr, "case not found: %s\n", *caseID)
 		return 2
 	}
@@ -109,23 +84,12 @@ func run(args []string, stdout, stderr io.Writer) int {
 			return 2
 		}
 	} else {
-		fmt.Fprintf(stdout, "Total: %d\nMatched: %d\nMismatched: %d\nErrors: %d\n", result.Total, result.Matched, result.Mismatched, result.Errors)
-		fields := make([]string, 0, len(result.ByField))
-		for field := range result.ByField {
-			fields = append(fields, field)
-		}
-		sort.Strings(fields)
-		for _, field := range fields {
-			fmt.Fprintf(stdout, "  %s: %d\n", field, result.ByField[field])
-		}
+		result.WriteText(stdout, false)
 	}
-	if result.Errors > 0 || result.Mismatched > 0 {
-		return 1
-	}
-	return 0
+	return result.ExitCode()
 }
 
-func accumulateIntent(total *intentTotals, report smdintent.Report) {
+func accumulateIntent(total *intentTotals, report merge.Report) {
 	total.UserAdded += report.User.Added
 	total.UserModified += report.User.Modified
 	total.UserRemoved += report.User.Removed

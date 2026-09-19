@@ -1,4 +1,4 @@
-package smdmerge
+package smdmodel
 
 import (
 	"fmt"
@@ -577,20 +577,7 @@ func stableStringOriginToken(value string) string {
 }
 
 func serviceStringItems(document map[string]any, serviceName, field string) []map[string]any {
-	service, _ := serviceMap(document)[serviceName].(map[string]any)
-	raw, _ := service[field].([]any)
-	items := make([]map[string]any, 0, len(raw))
-	for index, value := range raw {
-		switch item := value.(type) {
-		case string:
-			wrapped := map[string]any{"__value": item}
-			raw[index] = wrapped
-			items = append(items, wrapped)
-		case map[string]any:
-			items = append(items, item)
-		}
-	}
-	return items
+	return nestedStringItems(document, []string{"services", serviceName, field})
 }
 
 func normalizePorts(value any) ([]any, error) {

@@ -1,4 +1,4 @@
-package smdmerge
+package smdmodel
 
 import "sigs.k8s.io/structured-merge-diff/v7/typed"
 

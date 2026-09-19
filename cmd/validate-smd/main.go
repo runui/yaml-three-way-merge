@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"sort"
 
 	"github.com/runui/yaml-three-way-merge/internal/corpus"
 	"github.com/runui/yaml-three-way-merge/internal/smdmerge"
@@ -14,14 +13,7 @@ import (
 )
 
 type summary struct {
-	Total              int            `json:"total"`
-	Matched            int            `json:"matched"`
-	Mismatched         int            `json:"mismatched"`
-	Errors             int            `json:"errors"`
-	ByField            map[string]int `json:"mismatched_by_field,omitempty"`
-	ErrorsByField      map[string]int `json:"errors_by_field,omitempty"`
-	ErrorSamples       []string       `json:"error_samples,omitempty"`
-	MismatchSamples    []string       `json:"mismatch_samples,omitempty"`
+	validation.MergeSummary
 	ProjectMatched     int            `json:"project_matched,omitempty"`
 	BothMatched        int            `json:"both_matched,omitempty"`
 	SMDOnly            int            `json:"smd_only,omitempty"`
@@ -50,43 +42,25 @@ func run(args []string, stdout, stderr io.Writer) int {
 		_, _ = fmt.Fprintf(stderr, "load fixtures: %v\n", err)
 		return 2
 	}
-	result := summary{Total: len(cases), ByField: map[string]int{}, ErrorsByField: map[string]int{}, SMDOnlyByField: map[string]int{}, ProjectOnlyByField: map[string]int{}}
-	found := false
+	result := summary{SMDOnlyByField: map[string]int{}, ProjectOnlyByField: map[string]int{}}
 	for _, item := range cases {
 		if *caseID != "" && item.Metadata.ID != *caseID {
-			result.Total--
 			continue
 		}
-		found = true
+		result.Total++
 		actual, err := smdmerge.Merge(item.BaseOld, item.User, item.BaseNew)
 		if err != nil {
-			result.Errors++
-			result.ErrorsByField[item.Metadata.Field]++
-			if len(result.ErrorSamples) < 10 {
-				result.ErrorSamples = append(result.ErrorSamples, item.Metadata.ID+": merge: "+err.Error())
-			}
+			result.RecordError(item.Metadata.ID, item.Metadata.Field, fmt.Errorf("merge: %w", err), 10)
 			continue
 		}
 		equal, err := smdmerge.Equivalent(actual, item.Expected)
 		if err != nil {
-			result.Errors++
-			result.ErrorsByField[item.Metadata.Field]++
-			if len(result.ErrorSamples) < 10 {
-				result.ErrorSamples = append(result.ErrorSamples, item.Metadata.ID+": compare: "+err.Error())
-			}
+			result.RecordError(item.Metadata.ID, item.Metadata.Field, fmt.Errorf("compare: %w", err), 10)
 			continue
 		}
-		if equal {
-			result.Matched++
-		} else {
-			result.Mismatched++
-			result.ByField[item.Metadata.Field]++
-			if len(result.MismatchSamples) < 20 {
-				result.MismatchSamples = append(result.MismatchSamples, item.Metadata.ID)
-			}
-			if *caseID != "" {
-				_, _ = fmt.Fprintf(stderr, "actual:\n%s\nexpected:\n%s\n", actual, item.Expected)
-			}
+		result.RecordMatch(item.Metadata.ID, item.Metadata.Field, equal)
+		if !equal && *caseID != "" {
+			_, _ = fmt.Fprintf(stderr, "actual:\n%s\nexpected:\n%s\n", actual, item.Expected)
 		}
 		if *compareProject {
 			project := validation.Run(item)
@@ -107,7 +81,7 @@ func run(args []string, stdout, stderr io.Writer) int {
 		}
 	}
 
-	if *caseID != "" && !found {
+	if *caseID != "" && result.Total == 0 {
 		_, _ = fmt.Fprintf(stderr, "case not found: %s\n", *caseID)
 		return 2
 	}
@@ -120,19 +94,7 @@ func run(args []string, stdout, stderr io.Writer) int {
 			return 2
 		}
 	} else {
-		fmt.Fprintf(stdout, "Total: %d\nMatched: %d\nMismatched: %d\nErrors: %d\n", result.Total, result.Matched, result.Mismatched, result.Errors)
-		fields := make([]string, 0, len(result.ByField))
-		for field := range result.ByField {
-			fields = append(fields, field)
-		}
-		sort.Strings(fields)
-		fmt.Fprintln(stdout, "Mismatched by field:")
-		for _, field := range fields {
-			fmt.Fprintf(stdout, "  %s: %d\n", field, result.ByField[field])
-		}
+		result.WriteText(stdout, true)
 	}
-	if result.Errors > 0 || result.Mismatched > 0 {
-		return 1
-	}
-	return 0
+	return result.ExitCode()
 }

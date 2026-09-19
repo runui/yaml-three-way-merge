@@ -1,237 +1,269 @@
-# YAML Three-Way Merge Validation
+# YAML Three-Way Merge
 
-该项目以用户意图为唯一基准，验证 ZimaOS App Management 的 YAML 三方合并：
+**English** | [简体中文](README.zh-CN.md)
 
-```text
-oldbase.yml  当前应用商店版本
-user.yml     用户相对于 oldbase 的真实覆盖层
-newbase.yml  应用商店待升级版本
-expected.yml 用户期望的最终有效配置
-```
+A composable Go library and validation suite for semantic three-way merging of Compose YAML configurations.
 
-当前阶段覆盖 Compose v1.20.2 与 x-casaos 的全部字段：YAML 原生 sequence、支持 sequence 短语法的字段、标量叶子、固定结构 mapping 的每个叶子路径，以及自由 key/value mapping。数组类字段按逻辑元素三方合并，标量字段作为整体值合并。
+The core problem is **configuration evolution under concurrent customization**: given a previous upstream configuration, a user override relative to that configuration, and a new upstream configuration, construct an effective configuration that preserves user changes while incorporating independent upstream changes. This requires distinguishing unchanged values, modifications, additions, and deletions, then resolving overlapping changes according to an explicit policy.
 
-## 用户意图规则
-
-对于声明为 `logical-items` 的字段，每一个逻辑数组元素遵循：
+Unlike a textual merge, a semantic merge must account for equivalent syntactic representations, field-specific merge granularity, and element identity across versions. A mapping may represent independently editable keys or an atomic value; a sequence may represent an ordered value or a collection of identifiable items. Overrides further encode operations rather than complete states, so absence and explicit deletion cannot be interpreted interchangeably. When element identity or deletion scope is not recoverable from the inputs, the intended result may be underdetermined.
 
 ```text
-user 与 oldbase 相同：跟随 newbase
-user 相对 oldbase 修改：使用 user
-user 相对 oldbase 删除：保持删除
-user 相对 oldbase 新增：保留用户新增
-newbase 新增且用户没有操作：继承远程新增
+previous base + user override + target base → effective configuration
 ```
 
-普通 `ordered-list` 字段没有稳定的跨版本元素 identity，将完整列表视为一个值：user 列表未变更时跟随 newbase，否则使用完整 user 列表。pair 中的两个状态只用于构造列表片段，不代表可独立三方合并的元素。
+The library separates input compilation, change extraction, replay validation, and policy application into reusable stages. Its validation methodology compares implementations against independently generated user-intent expectations, using a finite matrix of behavioral states rather than deriving expected results from the algorithms being evaluated. The suite contains 28,630 cases for the pinned Compose model (`compose-go v1.20.2`) and `x-casaos` extension fields. This is behavioral coverage within the declared model, not a proof of correctness for arbitrary YAML; see [known boundaries](#known-boundaries).
 
-标量字段（`class: atomic`）没有内部 identity，按整体值处理：user 未变更时跟随 newbase，否则使用 user，用户删除保持删除。`build`、`extends` 这类同时接受 scalar 和 mapping 的字段在 scalar 形态下按原子值建模，其 mapping 形态按每个叶子路径单独建模。
+## Quick start
 
-自由 key/value mapping（`logging.options`、`driver_opts`、`ulimits`、`x-casaos.title` 等）按 key 为逻辑项建模；每个 key 是一个逻辑项，其 value 是该逻辑项的值。
+### Requirements
 
-测试数据中的期望结果独立生成，不调用生产合并算法。fixture 生成器只依据 states.go 的用户意图矩阵计算 expected，不会因为某个算法失败而改写期望。
+- Go 1.27, as declared in [go.mod](go.mod).
+- The checked-in `fixtures/` directory for corpus tests and validation commands.
 
-## 数据布局
-
-所有测试数据均以文件夹和 YAML 文件保存：
-
-```text
-fixtures/
-  manifest.yml
-  <merge-class>/
-    <field>/
-      single/
-        <state>/
-          case.yml
-          oldbase.yml
-          user.yml
-          newbase.yml
-          expected.yml
-      pair/
-        <state-a>__<state-b>/
-          case.yml
-          oldbase.yml
-          user.yml
-          newbase.yml
-          expected.yml
-```
-
-`user.yml` 是真实覆盖层。direct sequence 只在目标字段使用 `!reset []`；wrapped sequence 在最近可完整重建的 owner sequence 使用 reset。删除后写入用户值时使用两个 YAML document 表达 reset 和新值，不会重置无关的 `services` 或其他顶层资源。
-
-## 语法变体
-
-同一个逻辑字段可以有多种语法正确但形状不同的 Compose 写法。生成器把它们建模为一等维度：
-
-- `internal/corpus/variants_*.go` 通过 `registerVariants(fieldID, FieldVariant{...})` 注册变体；每个变体提供 `Render`（把逻辑值编码成该语法）和可选的 `ResetBoundary`。
-- `ArrayFields()` 把基础字段与已注册变体展开为独立字段条目，ID 形如 `<fieldID>@<variant>`；语义（`pair_semantics`）保持不变。
-- 变体文件彼此独立，可以按字段分组并行维护。
-
-已覆盖的变体分组：
-
-- `variants_ports.go`：`service.ports@short`（`"published:target"`）。
-    - `variants_maps.go`：14 个键值字段的 `@map`（`["k=v"]` → `{k: v}`）。
-- `variants_resources.go`：`service.volumes@short`（`"source:target"`）。`service.devices` 在固定的 Compose 版本（compose-go v1.20.2）中只接受字符串元素，长写法 mapping 不是合法 Compose，因此不注册 `@long` 变体。
-- `variants_scalars.go`：`service.command@string`、`service.entrypoint@string`、`healthcheck.test@string`、`service.env-file@scalar`、`service.tmpfs@scalar`、`service.dns@scalar`、`service.dns-search@scalar`。
-- `variants_named_maps.go`：`service.depends-on@map`、`service.networks@map`。
-
-变体只改变语法，不改变逻辑项身份模型。像 configs/secrets 的纯短名写法会同时充当 source 和 target，无法把「稳定身份」和「被修改的值」分开表达，因此不作为变体。
-
-## 穷举范围
-
-- 259 个基础字段条目（66 个数组类字段 + 193 个标量/mapping 字段），展开后共 284 个字段条目（含 25 个语法变体）。
-- 每个字段条目包含 15 个单逻辑项三方状态。
-- 除整体原子字段外，每个字段条目包含两个逻辑项的 `15 × 15 = 225` 完整组合。
-- 每个数组类字段使用第三个逻辑项生成 6 个 multi-item 场景，覆盖「多个元素中只改其中一个/多个」：
-  - `01-user-modifies-first-remote-modifies-second`
-  - `02-user-changes-first-and-third-remote-changes-second`
-  - `03-user-deletes-first-remote-modifies-second`
-  - `04-user-modifies-first-remote-deletes-second`
-  - `05-user-modifies-second-remote-changes-all`
-  - `06-both-add-third-element-user-wins`
-- 多资源场景（`multi/`）覆盖「多个 service / network / volume / config / secret 中只改其中一个」：每个字段条目 4 个场景，其中 `app` 与 sibling 资源各自独立变化，验证合并 scope 不会泄漏到未改动的资源。
-- 多属性场景（`multi-attribute/`）覆盖「数组元素内部多个属性只改其中一个/多个」：8 个字段条目各 4 个场景。
-- `ports` 额外包含用户提供的 7 个固定验收场景。
-- 当前共 28,630 个 fixture case，其中 1,645 个为上述显式场景（`explicit_cases`），其余为状态矩阵，每个 case 有 5 个 YAML 文件。
-- manifest 记录每个字段条目的 pair semantics：`logical-items`、`whole-list` 或 `none`。
-
-字段和数量记录在 `fixtures/manifest.yml`。完整性元测试会检查：
-
-- 字段条目 ID 唯一，基础字段不重复路径；
-- 每个字段条目恰好有 15 个单项状态；
-- 每个非原子字段条目恰好有 225 个双项组合；
-- 磁盘 case 数与 manifest 一致，且显式场景数与 `explicit_cases` 一致；
-- 每个 case 的 5 个 YAML 文件都存在；
-- 每个 case 的 `user.yml` 能通过 Compose merge 复现声明的用户有效状态；
-- 每个 `oldbase.yml` / `newbase.yml` / `expected.yml` 都通过固定的 Compose JSON Schema 校验（`TestFixtureDocumentsConformToComposeSchema`），保证 fixture 是用户真实可写的 Compose；
-- 不存在「三份输入结构相同但 expected 不同」的不可判定 case（`network.ipam.config` 与 network aliases/link-local-ips 的 50 个历史 case 除外，见下文）。
-
-fixture 是字段级的可合并片段，不是完整可安装项目：`configs`/`secrets`/`networks`/`volumes`/`depends_on` 等引用目标通常不在片段内声明，`env_file`/`include` 的路径也是符号化的。这保证每个 case 只隔离被测字段，同时不承诺完整项目加载。
-
-“穷举”指穷举用户意图的行为状态组合，不可能穷举无限的字符串、端口号或数组长度，也不可能穷举所有 YAML 序列化风格（flow/block、锚点等）。多资源与多属性场景是按行为类别精选的，不是笛卡尔积。
-
-## 生成数据
+Run the regression suite from the repository root:
 
 ```bash
-GOWORK=off go run ./cmd/generate-fixtures -output fixtures
+GOWORK=off go test -count=1 ./... -skip '^TestFixtureCorpusAgainstCurrentImplementation$'
+GOWORK=off go vet ./...
 ```
 
-生成器会重建整个 `fixtures` 目录。运行时测试只读取落盘 YAML，不动态隐藏测试数据。
+The excluded test is a strict check of the current project implementation against all user expectations; it has known failures. The command-level tests still verify that implementation's recorded baseline.
 
-## 验证
-
-检查 fixture 完整性：
-
-```bash
-GOWORK=off go test -run 'TestFixtureManifestIsComplete|TestArrayFieldRegistryIsAuditable' ./internal/validation
-```
-
-运行双行为 intent 引擎的回归门禁：
-
-```bash
-GOWORK=off go test -run TestFixtureCorpusAgainstIntentImplementation ./internal/validation
-```
-
-该门禁排除 50 个不可判定 case，并把其余不匹配按字段与 `knownAlgorithmBoundary` 逐字段对比。这是一个双向 ratchet：某字段超过预算会失败（出现新边界），低于预算也会失败（修好了边界必须同步收紧预算）。fixture 永远按用户意图生成，不因算法失败而调整。
-
-严格运行生产实现的全部用户期望测试：
-
-```bash
-GOWORK=off go test -run TestFixtureCorpusAgainstCurrentImplementation ./internal/validation
-```
-
-当前生产实现不能通过全部用户期望是正常现象；失败 case 是后续生产合并算法的修复基准。fixture 生成器会单独验证覆盖层能复现声明的用户有效状态，并审计 reset scope。
-
-只输出汇总：
-
-```bash
-GOWORK=off go run ./cmd/validate -fixtures fixtures -json
-```
-
-使用 structured-merge-diff 直接编译多文档 `user.yml` 中的 writes 和 `!reset` removals，并与项目算法对比：
-
-```bash
-GOWORK=off go run ./cmd/validate-smd -fixtures fixtures -compare-project -json
-```
-
-该路径在 SMD typed value 内部通过 `RemoveItems` 和 partial `Merge` 应用用户覆盖层，不会先用 Compose merge 还原完整 user YAML。
-
-使用独立的双行为 SMD 策略：分别计算并 replay `oldbase -> user prediction` 与 `oldbase -> newbase`，再把用户行为应用到上游行为预期：
+Run the intent strategy and print its report:
 
 ```bash
 GOWORK=off go run ./cmd/validate-smd-intent -fixtures fixtures -json
 ```
 
-三个命令分别只运行各自算法：
+The SMD validators return exit code `1` for mismatches or merge errors, and `2` for argument, fixture-loading, or report-writing errors. A baseline report with known mismatches therefore returns a nonzero status.
 
-- `cmd/validate`：项目 `RebaseRepositoryUpdate`；
-- `cmd/validate-smd`：直接将用户 delta 应用到 newbase 的 SMD 策略；
-- `cmd/validate-smd-intent`：显式双 delta、双 replay 和冲突报告的 SMD 策略。
+## Go library
 
-当前双行为 SMD 基线：
+Import the public package:
 
-```text
-total:          28630
-matched:        27430
-mismatched:      1200
-errors:             0
+```go
+import "github.com/runui/yaml-three-way-merge/merge"
 ```
 
-直接 SMD 基线（`cmd/validate-smd` 不带 `-compare-project`，仅直接应用用户 delta）：
+### Merge in one call
 
-```text
-total:          28630
-matched:        26559
-mismatched:      2071
-errors:             0
+```go
+result, err := merge.Merge(merge.Input{
+    PreviousBase: oldYAML,
+    UserOverride: overrideYAML,
+    TargetBase:   newYAML,
+})
+if err != nil {
+    return err
+}
+// result.YAML is the effective configuration.
+// result.Report describes changes, conflicts, and replay validation.
 ```
 
-三个命令各自带有独立的回归测试，分别运行：
+`UserOverride` is a real override, including multi-document `!reset` operations—not a fully materialized user configuration.
+
+### Compose the stages
+
+```text
+Compile → Scenario ── ApplyDirect() → YAML
+              │
+              └── Analyze() → Plan ── Report()
+                                └── Apply() → Result
+```
+
+```go
+scenario, err := merge.Compile(input)
+if err != nil {
+    return err
+}
+plan, err := scenario.Analyze()
+if err != nil {
+    return err
+}
+result, err := plan.Apply()
+if err != nil {
+    return err
+}
+```
+
+| API | Responsibility |
+| --- | --- |
+| `Compile(input)` | Normalize syntax, correlate identities, and compile the override against the previous base. |
+| `scenario.Analyze()` | Extract both deltas and verify that replay reproduces each side. |
+| `plan.Report()` | Return a diagnostic snapshot before application. |
+| `plan.Apply()` | Apply user intent to upstream changes and reconcile named origins. |
+| `scenario.ApplyDirect()` | Apply the user delta directly, without intent removal promotion or named-origin reconciliation. |
+| `Equivalent(left, right)` | Compare modeled Compose semantics rather than YAML bytes. |
+
+See the runnable example in [merge/example_test.go](merge/example_test.go).
+
+### API contracts
+
+- Results are effective configurations, not overrides. Comments, formatting, and anchors are not preserved.
+- A compiled scenario is bound to its three inputs: identity correlation depends on both bases. Plans cannot be retargeted to another base.
+- Input buffers may be changed after `Compile` returns. Returned YAML and reports belong to the caller; modifying them does not affect subsequent calls.
+- Scenarios and plans support sequential reuse. Concurrent use of the same instance is not guaranteed.
+- Nil or zero-value stage objects return `ErrUninitialized`, detectable with `errors.Is`.
+- `*merge.Error` exposes `Stage` (`compile`, `analyze`, `apply`, or `compare`) and unwraps its cause. Use `errors.As`; error text is not a stable contract.
+- Report paths are diagnostics, not a replayable patch format. `OriginRewrites` is determined during application and appears in `Result.Report`.
+
+## Merge semantics
+
+Expectations describe the user's effective state relative to the previous base:
+
+| User action | Expected result |
+| --- | --- |
+| Unchanged | Follow the target base. |
+| Modified | Keep the user's value. |
+| Deleted | Keep the deletion. |
+| Added | Keep the user's addition. |
+| No action on an upstream addition | Inherit the addition. |
+
+These rules apply according to the field's model:
+
+- **Logical items:** merge individual identified elements. Free key/value mappings use the key as the logical identity.
+- **Ordered lists:** treat the entire list as one value; an unchanged user list follows upstream, otherwise the user list wins.
+- **Atomic fields:** merge whole values, including scalar forms of `build` and `extends`. Mapping forms are exercised through their leaf paths.
+
+The intent engine uses structural identities where available, including volume targets, paths, and port tuples. Some fields use a trailing origin token after the last `-`. Identity rules are field-specific: the current model also contains positional handling for IPAM entries and tokenless string correlation. These heuristics are not universal identity guarantees.
+
+Removal handling preserves independent upstream siblings and restores full surviving items when partial writes would otherwise lose unchanged attributes. Semantic comparison treats empty lists/maps as equivalent to missing containers. Direct and intent output paths intentionally differ in empty-container cleanup.
+
+## Architecture
+
+```text
+merge/                       Public API, input/output contracts, stage errors
+cmd/                         CLI arguments, strategy selection, reports
+internal/
+  smdmodel/                  Shared typed model, schema, normalization, identities
+  smdmerge/                  Direct user-delta strategy
+  smdintent/                 Intent analysis, replay, scoped removals, reconciliation
+  compose/                   YAML AST, Compose merge, semantic comparison
+  rebase/                    Existing project override-rebase strategy
+  corpus/                    Field registry, intent matrix, fixture generation/loading
+  validation/                Case execution, summaries, regression gates
+```
+
+```text
+public merge API → smdmerge / smdintent → smdmodel
+validation → corpus / rebase → compose
+```
+
+The two SMD strategies are peers; neither depends on the other. Shared typed operations belong in `smdmodel`, while conflict and removal policies belong in the strategy packages. The model does not depend on fixtures or validation.
+
+Expected fixture results are generated independently from the intent matrix in [internal/corpus/states.go](internal/corpus/states.go). Never use the strategy under test to generate its expected output.
+
+## Validation commands
+
+| Command | Strategy |
+| --- | --- |
+| `cmd/validate` | Project `RebaseRepositoryUpdate`, including idempotence checks. |
+| `cmd/validate-smd` | Direct SMD delta application. |
+| `cmd/validate-smd-intent` | Intent strategy through the public API, with dual replay and conflict reporting. |
 
 ```bash
-GOWORK=off go test -count=1 ./cmd/validate
-GOWORK=off go test -count=1 ./cmd/validate-smd
-GOWORK=off go test -count=1 ./cmd/validate-smd-intent
+GOWORK=off go run ./cmd/validate -fixtures fixtures -json
+GOWORK=off go run ./cmd/validate-smd -fixtures fixtures -json
+GOWORK=off go run ./cmd/validate-smd -fixtures fixtures -compare-project -json
+GOWORK=off go run ./cmd/validate-smd-intent -fixtures fixtures -json
 ```
 
-每个 `cmd/*/main_test.go` 会在全量 fixture 上运行该命令并锁定上面的对应基线；算法行为改变时需同步更新测试常量与本节基线。
+Both SMD commands accept `-case <case-id>` to inspect one fixture, including actual/expected output for a mismatch.
 
-双行为策略的关键语义：
+### Recorded baselines
 
-- **逻辑项身份**：对声明为 `logical-items` 的集合，先按结构键（`target`/`path`/端口元组等）关联，再按稳定的 origin token（最后一个 `-` 后的后缀）关联；同 token 的两个新增视为同一逻辑项的修改（user 胜），不同 token 视为独立新增。无法唯一关联时不按位置或残余数量猜测。
-- **scope 精确的 removal**：用户删除时，把嵌套 removal 提升到最近的不再存在的 keyed item（例如删除某个 volume 则移除该 item，清空嵌套 set 只移除 set 元素），并丢弃冗余父 removal，避免误删上游在同一父容器下新增的 sibling；保留下来的 item 会从 user prediction 回写，避免部分写入丢失未变更字段。
-- **空容器等价**：空 list/map 与缺失等价，保证 replay/比较的表示一致。
-- **schema 完整**：deploy devices、nested capabilities/device_ids、network ipam.config、service network aliases/link_local_ips 均按逻辑项建模，而非退化为原子值。
-- **ports**：以 `host_ip+target+protocol` 作为列表 key，部分写入仍保留身份字段。
-- **引用身份**：configs/secrets 显式 `target` 稳定时以 target 为身份，短写法（`source==target`）回退到 origin token。
+| Strategy | Total | Matched | Mismatched | Errors |
+| --- | ---: | ---: | ---: | ---: |
+| Project rebase | 28,630 | 24,210 | 4,420 | 0 |
+| Direct SMD | 28,630 | 26,559 | 2,071 | 0 |
+| Intent SMD | 28,630 | 27,430 | 1,200 | 0 |
 
-### 已知 50 个不可判定 case
+The project baseline also has zero non-idempotent cases. Each command's `main_test.go` locks its full-corpus baseline. When behavior changes, update both the tests and these tables in both languages.
 
-`TestFixtureCorpusAgainstIntentImplementation` 通过 `knownUnsupportedIntent` 显式排除 50 个 case：
+### Targeted checks
 
-- 42 个 `network.ipam.config`：原写法只写 `subnet`，而 `subnet` 本身就是被修改的值。`05-both-add-different`（期望 user 胜）与 `03-user-add__02-remote-add`（期望并集）在三份输入上结构同构、只差值本身，任何只看输入文档的算法都无法区分。
-- 8 个 `service.network.aliases` / `service.network.link-local-ips`：两端都删除嵌套属性时，期望是「移除整个 network 附着」而不是「保留空附着」，这一策略无法从输入观察出来。
+```bash
+# Fixture inventory and field registry
+GOWORK=off go test -run 'TestFixtureManifestIsComplete|TestArrayFieldRegistryIsAuditable' ./internal/validation
 
-这些 case 保留在语料中作为语法样例，但不作为算法通过标准；修复它们需要修改 fixture 语义或引入输入之外的信息。
+# Intent regression gate
+GOWORK=off go test -run TestFixtureCorpusAgainstIntentImplementation ./internal/validation
 
-当前基线（生产 `RebaseRepositoryUpdate` 尚未统一到上述语义）：
+# Strict project expectations: currently has known failures
+GOWORK=off go test -run TestFixtureCorpusAgainstCurrentImplementation ./internal/validation
+```
+
+The intent gate excludes 50 underdetermined cases and checks remaining mismatch counts per field against [internal/validation/known_boundaries.go](internal/validation/known_boundaries.go). It is a two-way ratchet: both increases and decreases fail until the budget is updated. Fixing a boundary requires tightening its budget, not changing the expectation to fit the algorithm.
+
+## Fixture corpus
+
+### Layout and coverage
 
 ```text
-total:          28630
-matched:        24210
-mismatched:     4420
-errors:             0
-non-idempotent:     0
+fixtures/
+  manifest.yml
+  <merge-class>/<field>/single/<state>/
+  <merge-class>/<field>/pair/<state-a>__<state-b>/
+  multi/
+  multi-attribute/
 ```
 
-## 算法边界（fixture 视角）
+Each case contains five YAML files:
 
-全量语料从用户意图生成，因此三个实现的残余不匹配就是它们的可观察边界。双行为 intent 引擎的 1,200 个不匹配按根因分为：
+| File | Meaning |
+| --- | --- |
+| `case.yml` | Case metadata. |
+| `oldbase.yml` | Previous repository configuration. |
+| `user.yml` | Real user override. |
+| `newbase.yml` | Target repository configuration. |
+| `expected.yml` | Independently generated effective result. |
 
-- 自由 key/value mapping（`driver_opts`、`ipam.options`、`logging.options`、`storage_opt`、`ulimits`、`x-casaos` 本地化文本、`deploy.labels`、`aux_addresses`、device `options`）：SMD schema 把它们作为 untyped atomic map，改一个 key 会整体替换，而不是按 key 合并。
-- `deploy.resources.reservations` 的 `generic_resources` 与 `ports` 的 `host_ip`/`protocol`：被修改的值本身是列表 key 的一部分，修改被观察为 add + remove，而不是同一逻辑项的 modify。
-- `deploy.resources.reservations` devices 的 `capabilities`/`device_ids`：嵌套 set 属性在 device item 内被作为整体值。
-- volume 的 bind/tmpfs/volume 属性：嵌套 option mapping 在 volume item 内被作为 untyped atomic value。
-- `depends_on` 长格式条目：entry mapping 被作为 untyped atomic value，无法按属性合并。
-- `service.extends` 的 mapping 形态：整个 extends mapping 被作为 untyped atomic value，`file` 无法按属性合并。
+The corpus contains:
 
-这些计数记录在 `internal/validation/known_boundaries.go`，并由双向 ratchet 强制。
+- 259 base field entries: 66 array-like and 193 scalar/mapping entries.
+- 284 entries after expanding 25 syntax variants.
+- 15 single-item states per entry; 225 two-item combinations for each non-atomic entry.
+- Six three-item scenarios per array-like entry and four multi-resource scenarios per field entry.
+- Four multi-attribute scenarios for each of eight entries, plus seven fixed port acceptance scenarios.
+- 28,630 cases in total, including 1,645 explicit scenarios.
+
+The [manifest](fixtures/manifest.yml) records field counts and pair semantics (`logical-items`, `whole-list`, or `none`). Tests verify inventory, required files, declared override intent, reset scope, and conformance of base/expected documents to the pinned Compose JSON Schema.
+
+Fixtures are field-level fragments, not installable projects. Referenced resources may be absent and file paths symbolic. Exhaustiveness refers to behavioral state combinations, not every possible value, list length, or YAML representation.
+
+### Syntax variants
+
+`internal/corpus/variants_*.go` registers `FieldVariant` entries with a `Render` function and optional `ResetBoundary`. `ArrayFields()` expands them to IDs such as `<fieldID>@<variant>` while preserving pair semantics.
+
+Variants cover short ports/volumes, 14 key/value map forms, string commands/entrypoints/health checks, scalar list forms, and named-map forms for `depends_on`/`networks`. Device mapping syntax is not registered because it is invalid for the pinned Compose version. Bare config/secret names are not syntax variants of the same identity model because they conflate source and target.
+
+### Regeneration
+
+```bash
+GOWORK=off go run ./cmd/generate-fixtures -output fixtures
+```
+
+This rebuilds the entire `fixtures` directory. Runtime tests read the on-disk YAML. Resets target the field or its nearest reconstructible owner sequence; reset-and-write operations use separate YAML documents to avoid resetting unrelated resources.
+
+## Known boundaries
+
+### Underdetermined expectations
+
+The intent gate explicitly excludes 50 cases through `knownUnsupportedIntent`:
+
+- **42 IPAM cases:** `subnet` is both the only observable identity and the changed value. The inputs do not establish whether concurrent additions represent the same logical item or independent items.
+- **8 network aliases/link-local-IP cases:** removing nested attributes is expected to remove the whole attachment, but that intention is not observable from the documents alone.
+
+These cases remain in the corpus and full CLI totals. Resolving them requires revised fixture semantics or information beyond the three documents.
+
+### Observable algorithm limitations
+
+The intent strategy's 1,200 mismatches include limitations around:
+
+- Free key/value mappings modeled as untyped atomic maps, such as `driver_opts`, `logging.options`, `ulimits`, localized `x-casaos` text, and device options.
+- Changes to identity-bearing values, including generic-resource kinds and port `host_ip`/`protocol`.
+- Nested device `capabilities`/`device_ids` handling.
+- Nested volume options, long-form `depends_on` entries, and mapping-form `extends`, where atomic handling prevents attribute-level merging.
+
+Per-field budgets in `known_boundaries.go` are the executable record of these limitations. Fixture expectations remain the reference for improvements.

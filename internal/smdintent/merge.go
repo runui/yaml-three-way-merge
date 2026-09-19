@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/runui/yaml-three-way-merge/internal/smdmerge"
+	"github.com/runui/yaml-three-way-merge/internal/smdmodel"
 	"sigs.k8s.io/structured-merge-diff/v7/fieldpath"
 	"sigs.k8s.io/structured-merge-diff/v7/typed"
 )
@@ -19,69 +19,103 @@ type delta struct {
 }
 
 func Merge(baseOldYAML, userOverrideYAML, baseNewYAML []byte) (Result, error) {
-	scenario, err := smdmerge.CompileTypedScenario(baseOldYAML, userOverrideYAML, baseNewYAML)
+	scenario, err := smdmodel.CompileTypedScenario(baseOldYAML, userOverrideYAML, baseNewYAML)
 	if err != nil {
 		return Result{}, err
 	}
+	plan, err := Analyze(scenario, baseOldYAML, baseNewYAML)
+	if err != nil {
+		return Result{}, err
+	}
+	return plan.Apply()
+}
+
+// Plan owns replay-validated intent and can be applied repeatedly. Typed values
+// remain private; serializers copy their containers before removing model fields.
+type Plan struct {
+	user             delta
+	upstream         *typed.TypedValue
+	prediction       *typed.TypedValue
+	oldYAML, newYAML []byte
+	report           Report
+}
+
+// Analyze extracts both deltas and verifies they reproduce the compiled states.
+// Raw bases are retained because named-origin reconciliation uses authored names.
+func Analyze(scenario smdmodel.TypedScenario, baseOldYAML, baseNewYAML []byte) (*Plan, error) {
 	userDelta, err := buildDelta(scenario.Old, scenario.UserPrediction)
 	if err != nil {
-		return Result{}, fmt.Errorf("build user intent: %w", err)
+		return nil, fmt.Errorf("build user intent: %w", err)
 	}
 	upstreamDelta, err := buildDelta(scenario.Old, scenario.New)
 	if err != nil {
-		return Result{}, fmt.Errorf("build upstream intent: %w", err)
+		return nil, fmt.Errorf("build upstream intent: %w", err)
 	}
 
 	userReplay, err := applyDelta(scenario.Old, userDelta)
 	if err != nil {
-		return Result{}, fmt.Errorf("replay user intent: %w", err)
+		return nil, fmt.Errorf("replay user intent: %w", err)
 	}
 	userValid, err := typedEqual(userReplay, scenario.UserPrediction)
 	if err != nil {
-		return Result{}, fmt.Errorf("validate user replay: %w", err)
+		return nil, fmt.Errorf("validate user replay: %w", err)
 	}
 	if !userValid {
-		replayYAML, _ := smdmerge.MarshalTypedValue(userReplay)
-		predictionYAML, _ := smdmerge.MarshalTypedValue(scenario.UserPrediction)
-		return Result{}, fmt.Errorf("user intent replay does not reproduce user prediction\nreplay:\n%s\nprediction:\n%s", replayYAML, predictionYAML)
+		replayYAML, _ := smdmodel.MarshalTypedValue(userReplay)
+		predictionYAML, _ := smdmodel.MarshalTypedValue(scenario.UserPrediction)
+		return nil, fmt.Errorf("user intent replay does not reproduce user prediction\nreplay:\n%s\nprediction:\n%s", replayYAML, predictionYAML)
 	}
 
 	upstreamReplay, err := applyDelta(scenario.Old, upstreamDelta)
 	if err != nil {
-		return Result{}, fmt.Errorf("replay upstream intent: %w", err)
+		return nil, fmt.Errorf("replay upstream intent: %w", err)
 	}
 	upstreamValid, err := typedEqual(upstreamReplay, scenario.New)
 	if err != nil {
-		return Result{}, fmt.Errorf("validate upstream replay: %w", err)
+		return nil, fmt.Errorf("validate upstream replay: %w", err)
 	}
 	if !upstreamValid {
-		return Result{}, fmt.Errorf("upstream intent replay does not reproduce newbase")
+		return nil, fmt.Errorf("upstream intent replay does not reproduce newbase")
 	}
+	report := buildReport(userDelta, upstreamDelta)
+	report.UserReplayValid = userValid
+	report.UpstreamReplayValid = upstreamValid
+	return &Plan{user: userDelta, upstream: upstreamReplay, prediction: scenario.UserPrediction,
+		oldYAML: append([]byte(nil), baseOldYAML...), newYAML: append([]byte(nil), baseNewYAML...), report: report}, nil
+}
 
-	final, err := applyIntent(upstreamReplay, userDelta)
+// Apply resolves user intent against upstream, then reconciles named resources.
+func (p *Plan) Apply() (Result, error) {
+	final, err := applyIntent(p.upstream, p.user)
 	if err != nil {
 		return Result{}, fmt.Errorf("apply user intent to upstream expectation: %w", err)
 	}
-	content, err := smdmerge.MarshalTypedValue(final)
+	content, err := smdmodel.MarshalTypedValue(final)
 	if err != nil {
 		return Result{}, err
 	}
-	report := buildReport(userDelta, upstreamDelta)
-	userYAML, err := smdmerge.MarshalTypedValue(scenario.UserPrediction)
+	report := p.Report()
+	userYAML, err := smdmodel.MarshalTypedValue(p.prediction)
 	if err != nil {
 		return Result{}, fmt.Errorf("marshal user prediction: %w", err)
 	}
-	content, report.OriginRewrites, err = reconcileNamedOrigins(baseOldYAML, userYAML, baseNewYAML, content)
+	content, report.OriginRewrites, err = reconcileNamedOrigins(p.oldYAML, userYAML, p.newYAML, content)
 	if err != nil {
 		return Result{}, fmt.Errorf("reconcile named origins: %w", err)
 	}
-	report.UserReplayValid = userValid
-	report.UpstreamReplayValid = upstreamValid
 	return Result{YAML: content, Report: report}, nil
 }
 
+// Report returns an independent snapshot; origin rewrites are populated by Apply.
+func (p *Plan) Report() Report {
+	report := p.report
+	report.User.Paths = append([]string(nil), report.User.Paths...)
+	report.Upstream.Paths = append([]string(nil), report.Upstream.Paths...)
+	return report
+}
+
 func Equivalent(leftYAML, rightYAML []byte) (bool, error) {
-	return smdmerge.Equivalent(leftYAML, rightYAML)
+	return smdmodel.Equivalent(leftYAML, rightYAML)
 }
 
 func buildDelta(oldValue, sideValue *typed.TypedValue) (delta, error) {
@@ -90,7 +124,7 @@ func buildDelta(oldValue, sideValue *typed.TypedValue) (delta, error) {
 		return delta{}, err
 	}
 	writes := comparison.Modified.Union(comparison.Added)
-	writes, err = expandToValueLeaves(writes, sideValue)
+	writes, err = smdmodel.ExpandToValueLeaves(writes, sideValue)
 	if err != nil {
 		return delta{}, err
 	}
@@ -124,38 +158,33 @@ func applyWrites(result *typed.TypedValue, change delta) (*typed.TypedValue, err
 	// re-create the item with only the changed fields. Restore the full item in
 	// that case; the target has no entry, so no independent upstream sibling can
 	// be overwritten.
-	var expandErr error
 	extra := fieldpath.NewSet()
 	sourceLeaves, err := change.source.ToFieldSet()
 	if err != nil {
 		return nil, err
 	}
 	leaves := sourceLeaves.Leaves()
+	// The target is unchanged throughout this scan. Build its field set once,
+	// rather than re-traversing the whole document for every candidate write.
+	targetFields, err := result.ToFieldSet()
+	if err != nil {
+		return nil, err
+	}
+	targetLeaves := targetFields.Leaves()
 	change.writes.Iterate(func(path fieldpath.Path) {
-		if expandErr != nil {
-			return
-		}
 		item := enclosingItemPath(path)
 		if len(item) >= len(path) {
 			return
 		}
-		survives, err := pathSurvives(result, item)
-		if err != nil {
-			expandErr = err
-			return
-		}
-		if survives {
+		if hasLeafBelow(targetLeaves, item) {
 			return
 		}
 		leaves.Iterate(func(leaf fieldpath.Path) {
-			if pathPrefix(item, leaf) {
+			if smdmodel.PathPrefix(item, leaf) {
 				extra.Insert(leaf)
 			}
 		})
 	})
-	if expandErr != nil {
-		return nil, expandErr
-	}
 	patch := change.source.ExtractItems(writes, typed.WithAppendKeyFields())
 	merged, err := result.Merge(patch)
 	if err != nil {
@@ -210,7 +239,7 @@ func intentRemovalPaths(paths *fieldpath.Set, source *typed.TypedValue) (*fieldp
 			if index == otherIndex || len(other) <= len(item) {
 				continue
 			}
-			if pathPrefix(item, other) {
+			if smdmodel.PathPrefix(item, other) {
 				hasDescendant = true
 				break
 			}
@@ -251,63 +280,33 @@ func pathSurvives(value *typed.TypedValue, path fieldpath.Path) (bool, error) {
 	if err != nil {
 		return false, err
 	}
+	return hasLeafBelow(fields.Leaves(), path), nil
+}
+
+func hasLeafBelow(leaves *fieldpath.Set, path fieldpath.Path) bool {
 	survives := false
-	fields.Leaves().Iterate(func(leaf fieldpath.Path) {
-		if !survives && pathPrefix(path, leaf) {
+	leaves.Iterate(func(leaf fieldpath.Path) {
+		if !survives && smdmodel.PathPrefix(path, leaf) {
 			survives = true
 		}
 	})
-	return survives, nil
-}
-
-func expandToValueLeaves(paths *fieldpath.Set, value *typed.TypedValue) (*fieldpath.Set, error) {
-	valueFields, err := value.ToFieldSet()
-	if err != nil {
-		return nil, err
-	}
-	valueLeaves := valueFields.Leaves()
-	result := fieldpath.NewSet()
-	paths.Iterate(func(path fieldpath.Path) {
-		matched := false
-		valueLeaves.Iterate(func(candidate fieldpath.Path) {
-			if pathPrefix(path, candidate) {
-				result.Insert(candidate)
-				matched = true
-			}
-		})
-		if !matched {
-			result.Insert(path)
-		}
-	})
-	return result, nil
+	return survives
 }
 
 func typedEqual(left, right *typed.TypedValue) (bool, error) {
-	leftYAML, err := smdmerge.MarshalTypedValue(left)
+	leftYAML, err := smdmodel.MarshalTypedValue(left)
 	if err != nil {
 		return false, err
 	}
-	rightYAML, err := smdmerge.MarshalTypedValue(right)
+	rightYAML, err := smdmodel.MarshalTypedValue(right)
 	if err != nil {
 		return false, err
 	}
-	return smdmerge.Equivalent(leftYAML, rightYAML)
-}
-
-func pathPrefix(prefix, path fieldpath.Path) bool {
-	if len(prefix) > len(path) {
-		return false
-	}
-	for index := range prefix {
-		if !prefix[index].Equals(path[index]) {
-			return false
-		}
-	}
-	return true
+	return smdmodel.Equivalent(leftYAML, rightYAML)
 }
 
 func pathsOverlap(left, right fieldpath.Path) bool {
-	return pathPrefix(left, right) || pathPrefix(right, left)
+	return smdmodel.PathPrefix(left, right) || smdmodel.PathPrefix(right, left)
 }
 
 func buildReport(user, upstream delta) Report {
