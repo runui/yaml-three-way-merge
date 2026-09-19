@@ -18,7 +18,7 @@ The library separates input compilation, change extraction, replay validation, a
 
 ### Requirements
 
-- Go 1.27, as declared in [go.mod](go.mod).
+- Go 1.24 or later, as declared in [go.mod](go.mod).
 - The checked-in `fixtures/` directory for corpus tests and validation commands.
 
 Run the regression suite from the repository root:

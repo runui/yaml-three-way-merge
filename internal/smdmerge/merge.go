@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/runui/yaml-three-way-merge/internal/smdmodel"
-	"sigs.k8s.io/structured-merge-diff/v7/typed"
+	"sigs.k8s.io/structured-merge-diff/v6/typed"
 )
 
 func Merge(baseOldYAML, userOverrideYAML, baseNewYAML []byte) ([]byte, error) {

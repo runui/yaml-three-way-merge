@@ -1,14 +1,12 @@
 module github.com/runui/yaml-three-way-merge
 
-go 1.27
-
-toolchain go1.27.0
+go 1.24.0
 
 require (
 	github.com/compose-spec/compose-go v1.20.2
 	github.com/stretchr/testify v1.10.0
 	gopkg.in/yaml.v3 v3.0.1
-	sigs.k8s.io/structured-merge-diff/v7 v7.0.0
+	sigs.k8s.io/structured-merge-diff/v6 v6.3.2
 )
 
 require (
@@ -18,9 +16,12 @@ require (
 	github.com/docker/go-units v0.5.0 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect
+	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/mattn/go-shellwords v1.0.12 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
@@ -35,5 +36,3 @@ require (
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gotest.tools/v3 v3.5.1 // indirect
 )
-
-ignore ./fixtures

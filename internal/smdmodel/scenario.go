@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"gopkg.in/yaml.v3"
-	"sigs.k8s.io/structured-merge-diff/v7/typed"
+	"sigs.k8s.io/structured-merge-diff/v6/typed"
 )
 
 // TypedScenario exposes the normalized states used by the SMD implementation.

@@ -1,6 +1,6 @@
 package smdmodel
 
-import "sigs.k8s.io/structured-merge-diff/v7/typed"
+import "sigs.k8s.io/structured-merge-diff/v6/typed"
 
 const schemaYAML = typed.YAMLObject(`types:
 - name: Compose

@@ -5,8 +5,8 @@ import (
 	"sync"
 
 	"gopkg.in/yaml.v3"
-	"sigs.k8s.io/structured-merge-diff/v7/fieldpath"
-	"sigs.k8s.io/structured-merge-diff/v7/typed"
+	"sigs.k8s.io/structured-merge-diff/v6/fieldpath"
+	"sigs.k8s.io/structured-merge-diff/v6/typed"
 )
 
 var (
