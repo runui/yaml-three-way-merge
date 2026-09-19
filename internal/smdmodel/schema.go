@@ -58,7 +58,19 @@ const schemaYAML = typed.YAMLObject(`types:
         namedType: ScalarMap
     - name: depends_on
       type:
-        namedType: NamedMap
+        namedType: DependencyMap
+    - name: extends
+      type:
+        namedType: MappingValue
+    - name: logging
+      type:
+        namedType: Logging
+    - name: storage_opt
+      type:
+        namedType: ScalarMap
+    - name: ulimits
+      type:
+        namedType: ValueMap
     - name: networks
       type:
         namedType: ServiceNetworks
@@ -147,6 +159,9 @@ const schemaYAML = typed.YAMLObject(`types:
   scalar: untyped
   map:
     fields:
+    - name: ulimits
+      type:
+        namedType: ValueMap
     - name: args
       type:
         namedType: ScalarMap
@@ -213,6 +228,9 @@ const schemaYAML = typed.YAMLObject(`types:
 - name: Deploy
   map:
     fields:
+    - name: labels
+      type:
+        namedType: ScalarMap
     - name: resources
       type:
         namedType: DeployResources
@@ -256,6 +274,9 @@ const schemaYAML = typed.YAMLObject(`types:
 - name: DeployDevice
   map:
     fields:
+    - name: options
+      type:
+        namedType: ScalarMap
     - name: __merge_id
       type:
         scalar: string
@@ -291,6 +312,9 @@ const schemaYAML = typed.YAMLObject(`types:
 - name: ResourceDefinition
   map:
     fields:
+    - name: driver_opts
+      type:
+        namedType: ScalarMap
     - name: labels
       type:
         namedType: ScalarMap
@@ -303,6 +327,9 @@ const schemaYAML = typed.YAMLObject(`types:
 - name: Ipam
   map:
     fields:
+    - name: options
+      type:
+        namedType: ScalarMap
     - name: config
       type:
         namedType: IpamConfigList
@@ -319,6 +346,9 @@ const schemaYAML = typed.YAMLObject(`types:
 - name: IpamConfig
   map:
     fields:
+    - name: aux_addresses
+      type:
+        namedType: ScalarMap
     - name: __merge_id
       type:
         scalar: string
@@ -337,6 +367,21 @@ const schemaYAML = typed.YAMLObject(`types:
 - name: CasaOS
   map:
     fields:
+    - name: description
+      type:
+        namedType: ScalarMap
+    - name: image
+      type:
+        namedType: ScalarMap
+    - name: tagline
+      type:
+        namedType: ScalarMap
+    - name: title
+      type:
+        namedType: ScalarMap
+    - name: tips
+      type:
+        namedType: CasaOSTips
     - name: architectures
       type:
         namedType: StringSet
@@ -360,7 +405,36 @@ const schemaYAML = typed.YAMLObject(`types:
     elementType:
       scalar: untyped
     elementRelationship: separable
-- name: NamedMap
+- name: CasaOSTips
+  map:
+    fields:
+    - name: before_install
+      type:
+        namedType: ScalarMap
+    elementType:
+      namedType: UntypedAtomic
+    elementRelationship: separable
+- name: Logging
+  map:
+    fields:
+    - name: options
+      type:
+        namedType: ScalarMap
+    elementType:
+      namedType: UntypedAtomic
+    elementRelationship: separable
+- name: DependencyMap
+  map:
+    elementType:
+      namedType: MappingValue
+    elementRelationship: separable
+- name: MappingValue
+  scalar: untyped
+  map:
+    elementType:
+      namedType: UntypedAtomic
+    elementRelationship: separable
+- name: ValueMap
   map:
     elementType:
       namedType: UntypedAtomic
@@ -426,6 +500,15 @@ const schemaYAML = typed.YAMLObject(`types:
 - name: Volume
   map:
     fields:
+    - name: bind
+      type:
+        namedType: MappingValue
+    - name: tmpfs
+      type:
+        namedType: MappingValue
+    - name: volume
+      type:
+        namedType: MappingValue
     - name: target
       type:
         scalar: string

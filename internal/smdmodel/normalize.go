@@ -194,6 +194,13 @@ func normalizePathItems(value any) ([]any, error) {
 }
 
 func normalizeDeploy(deploy map[string]any) error {
+	if value, exists := deploy["labels"]; exists {
+		normalized, err := normalizeKeyValues(value, false)
+		if err != nil {
+			return fmt.Errorf("labels: %w", err)
+		}
+		deploy["labels"] = normalized
+	}
 	resources, _ := deploy["resources"].(map[string]any)
 	for _, branch := range []string{"limits", "reservations"} {
 		limits, _ := resources[branch].(map[string]any)
@@ -656,10 +663,20 @@ func normalizeVolumes(value any) ([]any, error) {
 				volumeType = composetypes.VolumeTypeBind
 			}
 		}
-		result = append(result, map[string]any{
+		entry := map[string]any{
 			"type": volumeType, "source": volume.Source, "target": volume.Target,
 			"read_only": volume.ReadOnly, "consistency": volume.Consistency,
-		})
+		}
+		// Long syntax carries nested options (including extension fields) that
+		// must survive normalization before delta extraction and comparison.
+		if item, ok := raw.(map[string]any); ok {
+			for key, value := range item {
+				if _, normalized := entry[key]; !normalized {
+					entry[key] = value
+				}
+			}
+		}
+		result = append(result, entry)
 	}
 	return result, nil
 }

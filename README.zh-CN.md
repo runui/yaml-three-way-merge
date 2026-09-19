@@ -176,8 +176,8 @@ GOWORK=off go run ./cmd/validate-smd-intent -fixtures fixtures -json
 | 策略 | 总数 | 匹配 | 不匹配 | 错误 |
 | --- | ---: | ---: | ---: | ---: |
 | 项目 rebase | 28,630 | 24,210 | 4,420 | 0 |
-| 直接 SMD | 28,630 | 26,559 | 2,071 | 0 |
-| Intent SMD | 28,630 | 27,430 | 1,200 | 0 |
+| 直接 SMD | 28,630 | 27,573 | 1,057 | 0 |
+| Intent SMD | 28,630 | 28,541 | 89 | 0 |
 
 项目基线中的非幂等用例数为零。每个命令的 `main_test.go` 锁定全量语料基线；算法行为变化时，需要同步更新测试及中英文表格。
 
@@ -259,11 +259,12 @@ intent 门禁通过 `knownUnsupportedIntent` 显式排除 50 个用例：
 
 ### 可观察的算法限制
 
-intent 策略的 1,200 个不匹配涉及以下限制：
+intent 策略剩余 89 个不匹配：上述 50 个不可判定用例，以及 39 个待解决边界：
 
-- 自由 key/value mapping 被建模为 untyped atomic map，例如 `driver_opts`、`logging.options`、`ulimits`、`x-casaos` 本地化文本和 device options。
-- 身份字段本身发生变化，例如 generic-resource kind、端口 `host_ip`/`protocol`。
-- 嵌套 device `capabilities`/`device_ids` 的处理。
-- volume 嵌套选项、长格式 `depends_on` 条目和 mapping 形态的 `extends`，因原子化处理而无法按属性合并。
+- 10 个身份关联问题：generic-resource kind、端口 `host_ip`/`protocol` 和 IPAM 位置身份。
+- 1 个长格式 `depends_on` 修改遇到上游删除条目时，未恢复完整的命名 mapping owner。
+- 28 个 device options / IPAM aux_addresses 用例涉及嵌套 key 与 owner 的删除范围或重建范围。部分覆盖层 reset 整个 owner，而期望保留 owner 内独立上游新增 key；不能简单把所有列表项删除改成叶子删除。
+
+已修复的共性问题包括：自由 mapping 按 key 建模、结构 mapping 按属性建模、deploy labels 两种语法归一化、volume 长格式嵌套属性保留，以及嵌套列表写入时恢复最外层缺失 owner。共减少 1,111 个不匹配，未修改 fixture 期望。`ulimits` 按名称合并，每个 limit 值仍作为整体；未声明字段仍保留原子语义。
 
 `known_boundaries.go` 中的逐字段预算是这些限制的可执行记录。后续改进仍以 fixture 的用户期望为准。

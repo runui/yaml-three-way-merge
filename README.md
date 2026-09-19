@@ -176,8 +176,8 @@ Both SMD commands accept `-case <case-id>` to inspect one fixture, including act
 | Strategy | Total | Matched | Mismatched | Errors |
 | --- | ---: | ---: | ---: | ---: |
 | Project rebase | 28,630 | 24,210 | 4,420 | 0 |
-| Direct SMD | 28,630 | 26,559 | 2,071 | 0 |
-| Intent SMD | 28,630 | 27,430 | 1,200 | 0 |
+| Direct SMD | 28,630 | 27,573 | 1,057 | 0 |
+| Intent SMD | 28,630 | 28,541 | 89 | 0 |
 
 The project baseline also has zero non-idempotent cases. Each command's `main_test.go` locks its full-corpus baseline. When behavior changes, update both the tests and these tables in both languages.
 
@@ -259,11 +259,12 @@ These cases remain in the corpus and full CLI totals. Resolving them requires re
 
 ### Observable algorithm limitations
 
-The intent strategy's 1,200 mismatches include limitations around:
+The intent strategy has 89 remaining mismatches: the 50 unobservable cases above and 39 unresolved boundaries:
 
-- Free key/value mappings modeled as untyped atomic maps, such as `driver_opts`, `logging.options`, `ulimits`, localized `x-casaos` text, and device options.
-- Changes to identity-bearing values, including generic-resource kinds and port `host_ip`/`protocol`.
-- Nested device `capabilities`/`device_ids` handling.
-- Nested volume options, long-form `depends_on` entries, and mapping-form `extends`, where atomic handling prevents attribute-level merging.
+- 10 identity-association cases involving generic-resource kinds, port `host_ip`/`protocol`, and positional IPAM identity.
+- 1 long-form `depends_on` case requiring restoration of a complete named-map owner deleted upstream.
+- 28 device options / IPAM aux_addresses cases involving nested-key versus owner deletion or restoration scope. Some overrides reset the entire owner while expecting independent upstream keys within it to survive; converting every list-item deletion into leaf deletion is insufficient.
+
+General fixes now provide key-level free mappings, attribute-level structured mappings, normalization of both deploy label syntaxes, preservation of nested long-form volume attributes, and restoration of the outermost missing owner for nested list writes. These resolve 1,111 mismatches without changing fixture expectations. `ulimits` merge by name while each limit value remains atomic; unspecified fields retain atomic semantics.
 
 Per-field budgets in `known_boundaries.go` are the executable record of these limitations. Fixture expectations remain the reference for improvements.

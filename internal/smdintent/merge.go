@@ -172,7 +172,15 @@ func applyWrites(result *typed.TypedValue, change delta) (*typed.TypedValue, err
 	}
 	targetLeaves := targetFields.Leaves()
 	change.writes.Iterate(func(path fieldpath.Path) {
-		item := enclosingItemPath(path)
+		item := path
+		// Restore the outermost missing item. A nested keyed attribute may
+		// itself be absent because its entire owner was deleted upstream.
+		for index, element := range path {
+			if element.Key != nil && !hasLeafBelow(targetLeaves, path[:index+1]) {
+				item = path[:index+1]
+				break
+			}
+		}
 		if len(item) >= len(path) {
 			return
 		}

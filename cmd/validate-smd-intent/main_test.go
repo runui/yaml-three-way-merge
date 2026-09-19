@@ -11,8 +11,8 @@ import (
 )
 
 // TestValidateSMDIntentCorpusBaseline runs cmd/validate-smd-intent over the whole
-// fixture corpus and locks the documented baseline. The residual 50 mismatches
-// are the known-unobservable cases; the command exits 1 while they remain.
+// fixture corpus and locks the documented baseline. Residual mismatches include
+// 50 known-unobservable cases and 39 algorithm boundaries; the command exits 1.
 func TestValidateSMDIntentCorpusBaseline(t *testing.T) {
 	var stdout, stderr bytes.Buffer
 	code := run([]string{"-fixtures", filepath.Join("..", "..", "fixtures"), "-json"}, &stdout, &stderr)
@@ -26,8 +26,8 @@ func TestValidateSMDIntentCorpusBaseline(t *testing.T) {
 	}
 	require.NoError(t, json.Unmarshal(stdout.Bytes(), &got), "stdout: %s", stdout.String())
 	assert.Equal(t, 28630, got.Total)
-	assert.Equal(t, 27430, got.Matched)
-	assert.Equal(t, 1200, got.Mismatched)
+	assert.Equal(t, 28541, got.Matched)
+	assert.Equal(t, 89, got.Mismatched)
 	assert.Zero(t, got.Errors)
 }
 
