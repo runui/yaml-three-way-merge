@@ -1,0 +1,92 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1c2228;
+  background: #f3f4f2;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input, select { font: inherit; }
+button, select, input { border: 1px solid #b9bfbd; border-radius: 2px; background: #fff; color: #20262b; }
+button { min-height: 36px; padding: 0 14px; cursor: pointer; }
+button:hover:not(:disabled) { border-color: #56615e; background: #f7f8f7; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+
+main { width: min(1800px, 100%); margin: 0 auto; padding: 28px; }
+.page-header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 22px; }
+.eyebrow { margin: 0 0 7px; color: #64706d; font: 600 11px/1.2 SFMono-Regular, Consolas, monospace; letter-spacing: .16em; }
+h1 { margin: 0; font-size: clamp(26px, 3vw, 38px); font-weight: 620; letter-spacing: -.03em; }
+.subtitle { margin: 8px 0 0; color: #5a6461; font-size: 14px; }
+.mode-badge { border: 1px solid #aeb7b4; padding: 6px 10px; color: #46504d; background: #e8ebe9; font-size: 12px; }
+.mode-badge.custom { border-color: #9b7e50; background: #f3eee4; color: #69502c; }
+
+.toolbar { display: grid; grid-template-columns: 180px minmax(220px, 1fr) minmax(300px, 1.6fr) auto auto; gap: 10px; align-items: end; padding: 14px; border: 1px solid #c7ccca; background: #e8eae8; }
+.toolbar label { min-width: 0; }
+.toolbar label span { display: block; margin-bottom: 6px; color: #59635f; font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; }
+.toolbar select, .toolbar input { width: 100%; height: 36px; padding: 0 10px; }
+.primary-button { border-color: #263b35; background: #263b35; color: #fff; }
+.primary-button:hover:not(:disabled) { background: #334b44; color: #fff; }
+
+.context-bar { display: flex; flex-wrap: wrap; gap: 10px 24px; min-height: 40px; align-items: center; border: 1px solid #c7ccca; border-top: 0; background: #fafbfa; padding: 9px 13px; color: #58615f; font-size: 12px; }
+.context-bar span:first-child { margin-right: auto; }
+.match { color: #28613e; font-weight: 650; }
+.mismatch { color: #9b3434; font-weight: 650; }
+.fixture-description { margin: 12px 0; padding: 10px 12px; border-left: 3px solid #76817e; background: #e9ecea; color: #4f5956; font-size: 13px; }
+.error-box { margin: 12px 0; border: 1px solid #bd7777; background: #f8eaea; color: #842c2c; padding: 10px 12px; font: 12px/1.5 SFMono-Regular, Consolas, monospace; }
+.diagnostics { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 12px 0; padding: 10px 12px; border: 1px solid #b9c6c1; background: #e8eeeb; color: #3e4a46; font-size: 12px; }
+.editor-loading { margin-top: 14px; border: 1px solid #c2c8c5; background: #fff; padding: 30px; color: #68716e; text-align: center; }
+
+.editor-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.editor-panel, .diff-panel { min-width: 0; border: 1px solid #c2c8c5; background: #fff; }
+.panel-header { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 11px; border-bottom: 1px solid #d2d6d4; background: #eceeec; }
+.panel-header h2 { margin: 0; font-size: 13px; font-weight: 680; }
+.panel-header p { margin: 4px 0 0; color: #68716e; font-size: 11px; }
+.text-button { border: 0; background: transparent; min-height: 28px; padding: 0 5px; color: #59635f; font-size: 11px; }
+.editor-shell { height: 360px; overflow: hidden; }
+.output-grid .editor-shell { height: 390px; }
+.flow-label { display: flex; align-items: center; gap: 12px; margin: 20px 0 4px; color: #606a67; font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .08em; }
+.flow-label::before, .flow-label::after { content: ""; height: 1px; flex: 1; background: #c4c9c7; }
+.diff-panel { margin-top: 18px; }
+.diff-shell { height: 520px; overflow: hidden; outline: none; background: #fff; }
+.diff-shell.focused { overflow: auto; overscroll-behavior: contain; box-shadow: inset 0 0 0 2px #67a1d8; }
+.diff-file-header { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 9px; min-width: max-content; padding: 10px 14px; border-bottom: 1px solid #d0d7de; background: #f6f8fa; color: #24292f; font-size: 12px; }
+.diff-file-icon { padding: 2px 4px; border: 1px solid #afb8c1; border-radius: 2px; color: #57606a; font: 9px/1.2 SFMono-Regular, Consolas, monospace; }
+.diff-stats { display: flex; gap: 7px; margin-left: auto; font: 600 12px/1.2 SFMono-Regular, Consolas, monospace; }
+.diff-stats .added { color: #1a7f37; }
+.diff-stats .removed { color: #cf222e; }
+.diff-empty { padding: 64px 20px; color: #57606a; text-align: center; font-size: 13px; }
+.diff-table { min-width: max-content; border-collapse: collapse; font: 12px/20px SFMono-Regular, Consolas, "Liberation Mono", monospace; }
+.diff-table tbody { display: block; }
+.diff-hunk, .diff-row { display: grid; grid-template-columns: 52px 52px minmax(600px, 1fr); min-height: 20px; }
+.diff-hunk { color: #0550ae; background: #ddf4ff; }
+.diff-hunk td:last-child { padding: 0 10px; }
+.diff-row.context { background: #fff; }
+.diff-row.added { background: #e6ffec; }
+.diff-row.removed { background: #ffebe9; }
+.diff-line-number { border-right: 1px solid rgba(27, 31, 36, .08); padding: 0 8px; color: #57606a; text-align: right; user-select: none; }
+.diff-row.added .diff-line-number { background: #ccffd8; }
+.diff-row.removed .diff-line-number { background: #ffd7d5; }
+.diff-row td:last-child { padding: 0; }
+.diff-row code { display: block; padding-right: 18px; color: #24292f; white-space: pre; }
+.diff-marker { display: inline-block; width: 22px; color: #57606a; text-align: center; user-select: none; }
+.diff-row.added .diff-marker { color: #1a7f37; }
+.diff-row.removed .diff-marker { color: #cf222e; }
+
+@media (max-width: 1100px) {
+  main { padding: 20px; }
+  .toolbar { grid-template-columns: 1fr 1fr; }
+  .fixture-select { grid-column: 1 / -1; }
+  .editor-grid { grid-template-columns: 1fr; }
+  .editor-shell, .output-grid .editor-shell { height: 310px; }
+}
+
+@media (max-width: 640px) {
+  main { padding: 14px; }
+  .page-header { display: block; }
+  .mode-badge { display: inline-block; margin-top: 14px; }
+  .toolbar { grid-template-columns: 1fr; }
+  .fixture-select { grid-column: auto; }
+  .context-bar { align-items: flex-start; flex-direction: column; }
+  .diff-shell { height: 620px; }
+}

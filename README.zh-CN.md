@@ -28,6 +28,20 @@ GOWORK=off go test -count=1 ./... -skip '^TestFixtureCorpusAgainstCurrentImpleme
 GOWORK=off go vet ./...
 ```
 
+### 可视化演示
+
+仓库包含一个 React + Monaco 前端和 Go API 服务，可选择全部三种策略、浏览 fixture，或直接编辑三份 YAML 输入：
+
+```bash
+npm --prefix web install
+npm --prefix web run build
+GOWORK=off go run ./cmd/demo -fixtures fixtures -addr :8080
+```
+
+打开 `http://localhost:8080`。生产构建会写入 `web/dist/`，并由 `web` 包嵌入 Go 二进制。前端开发时可分别运行 `npm --prefix web run dev` 和上述 Go 命令，Vite 会将 `/api` 代理到 `localhost:8080`。
+
+页面展示旧基线、用户覆盖层、新基线、升级前有效配置、新覆盖层、升级后有效配置，以及两个最终结果的 Diff。Intent 和 Direct 策略原生输出完整有效配置，演示服务会从该结果反推相对于新基线的覆盖层；Project Rebase 直接输出覆盖层。
+
 被排除的测试用于严格检查现有项目实现是否满足全部用户期望，目前存在已知失败。命令级测试仍会验证该实现已记录的行为基线。
 
 运行 intent 策略并输出报告：

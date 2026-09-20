@@ -28,6 +28,20 @@ GOWORK=off go test -count=1 ./... -skip '^TestFixtureCorpusAgainstCurrentImpleme
 GOWORK=off go vet ./...
 ```
 
+### Visual demo
+
+The repository includes a React + Monaco frontend and Go API server. It can run all three strategies against corpus fixtures or YAML entered directly in the editors:
+
+```bash
+npm --prefix web install
+npm --prefix web run build
+GOWORK=off go run ./cmd/demo -fixtures fixtures -addr :8080
+```
+
+Open `http://localhost:8080`. The production build is written to `web/dist/` and embedded in the Go binary by the `web` package. For frontend development, run `npm --prefix web run dev` alongside the Go command; Vite proxies `/api` to `localhost:8080`.
+
+The page shows the previous base, user override, target base, previous effective configuration, generated new override, new effective configuration, and a diff between both effective results. Intent and Direct produce complete effective YAML, so the demo derives an override relative to the target base. Project Rebase produces that override directly.
+
 The excluded test is a strict check of the current project implementation against all user expectations; it has known failures. The command-level tests still verify that implementation's recorded baseline.
 
 Run the intent strategy and print its report:
